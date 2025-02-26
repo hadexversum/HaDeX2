@@ -25,6 +25,7 @@ You can install the latest development version of the package:
 ```R
 devtools::install_github("hadexversum/HaDeX")
 ```
+
 or the latest version available on CRAN:
 
 ```R

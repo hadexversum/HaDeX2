@@ -7,26 +7,43 @@
 read_hdx(filename)
 }
 \arguments{
-\item{filename}{a file supplied by the user. Formats allowed: .csv, .xlsx and .xls.}
+\item{filename}{a file supplied by the user. 
+Formats allowed: .csv, .xlsx and .xls.}
 }
 \value{
-\code{dat} - a \code{\link{data.frame}} with validated content.
+a \code{\link{data.frame}} object
 }
 \description{
-Imports data from a HDX-MS file and validates its content.
+Import HDX-MS datafile and validate its content
 }
 \details{
-First version accepts files produced by DynamX 3.0 and 2.0 in `cluster data` format. 
-The function checks if all necessary columns are provided in correct format. The file must 
-include at least two repetitions of the measurement for the uncertainty to be calculated.
+The function \code{\link{read_hdx}} generates a 
+dataset read from the supplied datafile. The files produced 
+by DynamX 3.0 or 2.0 in `cluster data` format and `tables` 
+file from HDeXaminer are handled.
+Moreover, the data should include at least two replicates 
+of the experiment to calculate the uncertainty of the measurement.
+For the files of HDeXaminer origin, the rows with no complete 
+information (e.q. missing `Exp Cent` value) are removed. The `Confidence` 
+column is preserved as the user should have impact on accepting rows based 
+on their Confidence flag. Moreover, those files need action from the user 
+- to confirm data processing (e.q. FD time point), choose accepted 
+confidence values and make some change of the labels using 
+\code{\link{update_hdexaminer_file}} function. 
+For further information check the documentation.
+IMPORTANT! The files of HDeXaminer origin MUST be processed by 
+hand or by \code{\link{update_hdexaminer_file}} function to fit 
+the input of processing functions e.q. \code{\link{calculate_state_uptake}} 
+or \code{\link{calculate_diff_uptake}}.
 }
 \examples{
-# read example data
-head(read_hdx(system.file(package = "HaDeX", 
-                     "HaDeX/data/KD_180110_CD160_HVEM.csv")))
+dat <- read_hdx(system.file(package = "HaDeX", 
+                     "HaDeX/data/KD_180110_CD160_HVEM.csv"))
+head(dat)
 
 }
 \seealso{
-\code{\link{calculate_kinetics}} \code{\link{calculate_state_deuteration}} \code{\link{plot_coverage}} \code{\link{plot_position_frequency}}
-\code{\link{prepare_dataset}} \code{\link{quality_control}} \code{\link{reconstruct_sequence}}
+\code{\link{update_hdexaminer_file}}
+\code{\link{create_control_dataset}}
+\code{\link{calculate_state_uptake}}
 }

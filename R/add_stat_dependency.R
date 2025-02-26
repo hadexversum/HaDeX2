@@ -2,63 +2,66 @@
 #' 
 #' @description Returns relation with confidence limits for each peptide.
 #' 
-#' @param calc_dat processed data from DynamX file - using \code{\link{prepare_dataset}}
-#' @param confidence_limit confidence limit chosen by user - from range [0, 1]. 
-#' @param theoretical logical value to determine if the plot is theoretical or not. 
-#' @param relative logical value to determine if values are relative or absolute. 
+#' @param calc_dat data produced by \code{\link{calculate_diff_uptake}}
+#' funcion.
+#' @param confidence_level confidence limit - from range [0, 1]. 
+#' @param theoretical \code{logical}, determines if values are theoretical.
+#' @param fractional \code{logical}, determines if values are fractional.
 #' 
-#' @details ...
+#' @details This function checks if the values are statistically significant based 
+#' on provided criteria using Houde test. 
 #' 
-#' @return calc_dat extended by column specifying if given peptide is relevant in given confidence limit. 
-#' The value of the confidence limit is added as an attribute - as well as parameters used to calculate (theoretical/relative)
+#' @return calc_dat extended by column specifying if given peptide is relevant in
+#' given confidence limit. The value of the confidence limit is added as an attribute 
+#' - as well as parameters used to calculate (theoretical/fractional).
 #' 
-#' @seealso \code{\link{read_hdx}} \code{\link{prepare_dataset}}
+#' @references Houde, D., Berkowitz, S.A., and Engen, J.R. (2011). 
+#' The Utility of Hydrogen/Deuterium Exchange Mass Spectrometry in 
+#' Biopharmaceutical Comparability Studies. J Pharm Sci 100, 2071–2086.
+#' 
+#' @seealso 
+#' \code{\link{read_hdx}} 
+#' \code{\link{calculate_diff_uptake}}
+#' \code{\link{calculate_confidence_limit_values}}
 #' 
 #' @examples 
-#' #load example data
 #' dat <- read_hdx(system.file(package = "HaDeX", 
 #'                             "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#'                             
-#' # prepate dataset for states `CD160` and `CD160_HVEM` in given time parameters 
-#' calc_dat <- prepare_dataset(dat,
-#'                             in_state_first = "CD160_0.001",
-#'                             chosen_state_first = "CD160_1",
-#'                             out_state_first = "CD160_1440",
-#'                             in_state_second = "CD160_HVEM_0.001",
-#'                             chosen_state_second = "CD160_HVEM_1",
-#'                             out_state_second = "CD160_HVEM_1440") 
-#'                             
-#' # add calculated confidence limits for prepared data
-#' add_stat_dependency(calc_dat, 
-#'                     confidence_limit = 0.98, 
-#'                     theoretical = FALSE, 
-#'                     relative = TRUE)
-#'                      
+#' calc_dat <- calculate_diff_uptake(dat)
+#' result <- add_stat_dependency(calc_dat)
+#' head(result)                            
 #' 
 #' @export add_stat_dependency
 
 add_stat_dependency <- function(calc_dat,
-                                confidence_limit = 0.98,
-                                theoretical = FALSE,
-                                relative = TRUE){
+                                confidence_level = 0.98,
+                                theoretical = FALSE, 
+                                fractional = TRUE){
   
-  value_column <- case_when(
-    theoretical & relative ~ "diff_theo_frac_exch",
-    theoretical & !(relative) ~ "abs_diff_theo_frac_exch",
-    !(theoretical) & relative ~ "diff_frac_exch",
-    !(theoretical) & !(relative) ~ "abs_diff_frac_exch"
-  )
+  calc_dat <- as.data.table(calc_dat)
   
-  confidence_values <- calculate_confidence_limit_values(calc_dat, 
-                                                         confidence_limit = confidence_limit, 
-                                                         relative = relative, 
+  options <- c("diff_theo_frac_deut_uptake",
+               "diff_theo_deut_uptake",
+               "diff_frac_deut_uptake",
+               "diff_deut_uptake")
+  
+  value_column <- options[c(theoretical & fractional,
+                            theoretical & !(fractional),
+                            !(theoretical) & fractional,
+                            !(theoretical) & !(fractional))]
+  
+  confidence_values <- calculate_confidence_limit_values(calc_dat,
+                                                         confidence_level = confidence_level,
+                                                         fractional = fractional,
                                                          theoretical = theoretical)
   
-  calc_dat[[paste0("valid_at_", confidence_limit)]] <- calc_dat[[value_column]] > confidence_values[2] | calc_dat[[value_column]] < confidence_values[1]
+  calc_dat[[paste0("valid_at_", confidence_level)]] <- calc_dat[[value_column]] > confidence_values[2] | calc_dat[[value_column]] < confidence_values[1]
   
-  attr(calc_dat, paste0("confidence_limit_at_", confidence_limit)) <- confidence_values
-  attr(calc_dat, paste0("confidence_limit_at_", confidence_limit, "_prop")) <- data.frame("theoretical" = theoretical, "relative" = relative)
-
-  calc_dat
+  attr(calc_dat, paste0("confidence_limit_at_", confidence_level)) <- confidence_values
+  attr(calc_dat, paste0("confidence_limit_at_", confidence_level, "_prop")) <- data.frame("theoretical" = theoretical, "fractional" = fractional)
+  
+  calc_dat <- as.data.frame(calc_dat)
+  
+  return(calc_dat)
   
 }

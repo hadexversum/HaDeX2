@@ -6,52 +6,48 @@
 \usage{
 add_stat_dependency(
   calc_dat,
-  confidence_limit = 0.98,
+  confidence_level = 0.98,
   theoretical = FALSE,
-  relative = TRUE
+  fractional = TRUE
 )
 }
 \arguments{
-\item{calc_dat}{processed data from DynamX file - using \code{\link{prepare_dataset}}}
+\item{calc_dat}{data produced by \code{\link{calculate_diff_uptake}}
+funcion.}
 
-\item{confidence_limit}{confidence limit chosen by user - from range [0, 1].}
+\item{confidence_level}{confidence limit - from range [0, 1].}
 
-\item{theoretical}{logical value to determine if the plot is theoretical or not.}
+\item{theoretical}{\code{logical}, determines if values are theoretical.}
 
-\item{relative}{logical value to determine if values are relative or absolute.}
+\item{fractional}{\code{logical}, determines if values are fractional.}
 }
 \value{
-calc_dat extended by column specifying if given peptide is relevant in given confidence limit. 
-The value of the confidence limit is added as an attribute - as well as parameters used to calculate (theoretical/relative)
+calc_dat extended by column specifying if given peptide is relevant in
+given confidence limit. The value of the confidence limit is added as an attribute 
+- as well as parameters used to calculate (theoretical/fractional).
 }
 \description{
 Returns relation with confidence limits for each peptide.
 }
 \details{
-...
+This function checks if the values are statistically significant based 
+on provided criteria using Houde test.
 }
 \examples{
-#load example data
 dat <- read_hdx(system.file(package = "HaDeX", 
                             "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-                            
-# prepate dataset for states `CD160` and `CD160_HVEM` in given time parameters 
-calc_dat <- prepare_dataset(dat,
-                            in_state_first = "CD160_0.001",
-                            chosen_state_first = "CD160_1",
-                            out_state_first = "CD160_1440",
-                            in_state_second = "CD160_HVEM_0.001",
-                            chosen_state_second = "CD160_HVEM_1",
-                            out_state_second = "CD160_HVEM_1440") 
-                            
-# add calculated confidence limits for prepared data
-add_stat_dependency(calc_dat, 
-                    confidence_limit = 0.98, 
-                    theoretical = FALSE, 
-                    relative = TRUE)
-                     
+calc_dat <- calculate_diff_uptake(dat)
+result <- add_stat_dependency(calc_dat)
+head(result)                            
 
 }
+\references{
+Houde, D., Berkowitz, S.A., and Engen, J.R. (2011). 
+The Utility of Hydrogen/Deuterium Exchange Mass Spectrometry in 
+Biopharmaceutical Comparability Studies. J Pharm Sci 100, 2071–2086.
+}
 \seealso{
-\code{\link{read_hdx}} \code{\link{prepare_dataset}}
+\code{\link{read_hdx}} 
+\code{\link{calculate_diff_uptake}}
+\code{\link{calculate_confidence_limit_values}}
 }

@@ -4,22 +4,36 @@
 \alias{reconstruct_sequence}
 \title{Reconstruct protein sequence}
 \usage{
-reconstruct_sequence(dat, protein = dat[["Protein"]][1])
+reconstruct_sequence(
+  dat,
+  protein = dat[["Protein"]][1],
+  states = unique(dat[["State"]]),
+  end = NULL
+)
 }
 \arguments{
 \item{dat}{data read by \code{\link{read_hdx}}}
 
-\item{protein}{the protein of which the structure is to be reconstructed}
+\item{protein}{selected protein}
+
+\item{states}{selected biological states for given protein}
+
+\item{end}{\code{\link{numeric}}, end position of the protein}
 }
 \value{
-reconstructed sequence - \code{character} object.
+a \code{\link{character}} object.
 }
 \description{
-Reconstructs protein sequence from supplied file.
+Reconstruct protein sequence from
+experimental data
 }
 \details{
-The function reconstructs protein sequence from supplied experimental data. If a position is not covered, x is shown.
-First version doesn't support manual sequence length correction.
+The function \code{\link{reconstruct_sequence}} 
+generates protein sequence from supplied experimental data. 
+For a position not covered, letter x is shown.
+If the C-terminus of protein is not covered, there is a
+possibility to manually fix the protein lenght by passing
+a value to the `end` parameter.
 }
 \examples{
 dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))

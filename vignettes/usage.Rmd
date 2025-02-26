@@ -1,0 +1,101 @@
+---
+title: "Code usage"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    number_sections: true
+    always_allow_html: yes
+bibliography: HDX.bib
+vignette: >
+  %\VignetteIndexEntry{Code usage}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+  
+```{r setup, include = FALSE, echo = FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(dev = "png", dev.args = list(type = "cairo-png"))
+```
+
+## Convention
+
+Purpose of groups of functions in the package:
+
+* calculate_* - calculates one specific value. e.q. deuterium uptake values for specific time point.
+* create_* - creates a dataset for set of values e.q. multiple time points.
+* plot_* - plots a visualization of provided data, accepts calculate_* and create_*  outputs.
+* show_* - subsets the dataset to show specific values, accepts calculate_* and create_*  outputs. 
+
+Variables:
+
+* deut_uptake - deuterium uptake [Da]
+* frac_deut_uptake - fractional deuterium uptake [%]
+* theo_deut_uptake - theoretical deuterium uptake [Da]
+* theo_frac_deut_uptake - theoretical fractional deuterium uptake [%]
+* diff_deut_uptake - differential deuterium uptake [Da]
+* frac_diff_deut_uptake - theoretical differential fractional deuterium uptake [%]
+* theo_diff_deut_uptake - differential deuterium uptake [Da]
+* theo_frac_diff_deut_uptake - theoretical differential fractional deuterium uptake [%]
+
+
+## Example of use
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+library(HaDeX)
+library(magrittr)
+```
+
+### Read data file 
+```{r, include=TRUE}
+dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
+```
+
+
+```{r}
+# dat %>%
+#   calculate_state_uptake() %>%
+#   plot_state_comparison()
+```
+
+```{r}
+dat %>%
+  calculate_peptide_kinetics(protein = "db_CD160",
+                             sequence = "INITSSASQEGTRLN",
+                             start = 1,
+                             end = 15,
+                             states = c("CD160", "CD160_HVEM"),
+                             time_0 = 0.001, time_100 = 1440) %>%
+  plot_uptake_curve(fractional = TRUE)
+```
+
+```{r}
+dat %>%
+  calculate_peptide_kinetics(protein = "db_CD160",
+                             sequence = "INITSSASQEGTRLN",
+                             start = 1,
+                             end = 15,
+                             states = c("CD160", "CD160_HVEM"),
+                             time_0 = 0.001, time_100 = 1440) %>%
+  show_uptake_data(fractional = TRUE)
+```
+
+### Different forms of visualization
+
+Create data frame with uptake values for state in all time points:
+
+```{r}
+uptake_dat <- create_state_uptake_dataset(dat)
+```
+
+Butterfly:
+
+```{r}
+plot_butterfly(uptake_dat)
+```
+
+Chiclet:
+
+```{r}
+plot_chiclet(uptake_dat)
+```
+
