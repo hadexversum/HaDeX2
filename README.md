@@ -1,10 +1,9 @@
-[![Build Status](https://api.travis-ci.org/hadexversum/HaDeX.png)](https://travis-ci.org/hadexversum/HaDeX)
-[![Coverage status](https://codecov.io/gh/hadexversum/hadex/branch/master/graph/badge.svg)](https://codecov.io/github/hadexversum/hadex?branch=master)
+[![published in: Bioinformatics](https://img.shields.io/badge/published%20in-Bioinformatics-green.svg)](http://dx.doi.org/10.1093/bioinformatics/btaa587)
+[![R build status](https://github.com/hadexversum/HaDeX/workflows/R-CMD-check/badge.svg)](https://github.com/hadexversum/HaDeX/actions)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/HaDeX)](https://cran.r-project.org/package=HaDeX)
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![metacran downloads](https://cranlogs.r-pkg.org/badges/grand-total/HaDeX)](https://cran.r-project.org/package=HaDeX)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/michbur/HaDeX?branch=master&svg=true)](https://ci.appveyor.com/project/michbur/HaDeX)
-
+[![DOI](https://zenodo.org/badge/170578005.svg)](https://zenodo.org/badge/latestdoi/170578005)
 
 
 <p>
@@ -13,7 +12,7 @@
 
 ## HaDeX: Analysis and Visualisation of Hydrogen/Deuterium Exchange Mass Spectrometry Data 
 
-Hydrogen/Deuterium eXchange Mass Spectrometry (HDX-MS) is a staple technology in structural proteomics. HaDeX provides a analytic workflow for HDX-MS data available as a standalone GUI (https://sourceforge.net/projects/HaDeX/), web server (http://mslab-ibb.pl/shiny/HaDeX/) and the **R** package available on CRAN (https://cran.r-project.org/web/packages/HaDeX/index.html). 
+Hydrogen/Deuterium eXchange Mass Spectrometry (HDX-MS) is a staple technology in structural proteomics. HaDeX provides a analytic workflow for HDX-MS data available as a standalone GUI (https://sourceforge.net/projects/HaDeX/), web server (https://hadex.mslab-ibb.pl/) and the **R** package available on CRAN (https://cran.r-project.org/web/packages/HaDeX/index.html). 
 
 ### Local instance of HaDeX GUI
 
@@ -50,4 +49,4 @@ Puchala W, Burdukiewicz M, Kistowski M, Dabrowska KA, Badaczewska-Dawid AE, Cyse
 
 ### Funding  
 
-This work is supported by Foundation of Polish Science (TEAM TECH CORE FACILITY/2016-2/2 *Mass Spectrometry of Biopharmaceuticals - improved methodologies for qualitative, quantitative and structural characterization of drugs, proteinaceous drug targets and diagnostic molecules)*.
+This work is supported by Foundation of Polish Science (TEAM TECH CORE FACILITY/2016-2/2 *Mass Spectrometry of Biopharmaceuticals - improved methodologies for qualitative, quantitative and structural characterization of drugs, proteinaceous drug targets and diagnostic molecules)* and Narodowe Centrum Nauki (Preludium Bis 1 2019/35/O/NZ2/03745 *Wysokorozdzielcza analiza danych z eksperymentów wymiany proton-deuter monitorowanych spektrometrią mas)*.
