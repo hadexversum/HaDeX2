@@ -61,3 +61,4 @@ Suggests:
     vdiffr
 VignetteBuilder: knitr
 Language: en-US
+URL: https://hadexversum.github.io/HaDeX2/

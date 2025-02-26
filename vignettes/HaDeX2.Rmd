@@ -1,5 +1,5 @@
 ---
-title: 'Supplement to: "HaDeX: Analysis and Visualisation of Hydrogen/Deuterium Exchange Mass Spectrometry Data"'
+title: "HaDeX: Analysis and Visualisation of Hydrogen/Deuterium Exchange Mass Spectrometry Data"
 author: "Weronika Pucha&#322;a, Micha&#322; Burdukiewicz, Micha&#322; Kistowski, Katarzyna A. D&#261;browska, Aleksandra E. Badaczewska-Dawid, Dominik Cysewski, Micha&#322; Dadlez"
 date: "20.06.2019"
 output: 
@@ -106,8 +106,7 @@ Although data can be imported into R using other tools, we strongly advise to re
 
 ```{r warning=FALSE}
 
-dat <- read_hdx(system.file(package = "HaDeX", 
-                            "HaDeX/data/KD_190304_Nucb2_EDTA_CaCl2_test02_clusterdata.csv"))
+# dat <- HadeX::read_hdx(system.file(package = "HaDeX",            "HaDeX/data/KD_190304_Nucb2_EDTA_CaCl2_test02_clusterdata.csv"))
 
 ```
 
@@ -149,12 +148,11 @@ This data manipulation results from an original data structure. Each repetition 
 
 ```{r warning=FALSE, message=FALSE, echo=FALSE}
 
-dat_temp <- read.csv(system.file(package = "HaDeX", 
-                            "HaDeX/data/KD_190304_Nucb2_EDTA_CaCl2_test02_clusterdata.csv"))
-
-dat_temp %>% 
-  filter(File == "KD_190119_gg_Nucb2_CaCl2_10s_01", Sequence == "KQFEHLNHQNPDTFEPKDLDML", Exposure == 0.167) %>%
-  select(Sequence, File, z, RT, Inten, Center)
+# dat_temp <- read.csv(system.file(package = "HaDeX",                         "HaDeX/data/KD_190304_Nucb2_EDTA_CaCl2_test02_clusterdata.csv"))
+# 
+# dat_temp %>% 
+#   filter(File == "KD_190119_gg_Nucb2_CaCl2_10s_01", Sequence == "KQFEHLNHQNPDTFEPKDLDML", Exposure == 0.167) %>%
+#   select(Sequence, File, z, RT, Inten, Center)
 
 ```
 
@@ -476,7 +474,7 @@ The sequence of the protein(s) is reconstructed from the peptides from the input
 
 ```{r warning=FALSE}
 
-reconstruct_sequence(dat)
+# reconstruct_sequence(dat)
 
 ```
 
@@ -484,9 +482,9 @@ Additionally, the coverage of peptides can be presented on a chart using the [pl
 
 ```{r warning=FALSE, eval=FALSE}
 
-plot_coverage(dat, chosen_state = "gg_Nucb2_CaCl2")
-
-plot_position_frequency(dat, chosen_state = "gg_Nucb2_CaCl2")
+# plot_coverage(dat, chosen_state = "gg_Nucb2_CaCl2")
+# 
+# plot_position_frequency(dat, chosen_state = "gg_Nucb2_CaCl2")
 
 ```
 
