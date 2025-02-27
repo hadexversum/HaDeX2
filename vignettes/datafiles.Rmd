@@ -1,15 +1,11 @@
 ---
 title: "Data processing"
-<<<<<<< HEAD
-output: html_document
-=======
 output: 
   rmarkdown::html_vignette:
     toc: true
     number_sections: true
     always_allow_html: yes
 bibliography: HDX.bib
->>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0
 vignette: >
   %\VignetteIndexEntry{Data processing}
   %\VignetteEngine{knitr::rmarkdown}

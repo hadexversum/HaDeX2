@@ -14,16 +14,7 @@
 #' @return calc_dat extended by column specifying if given peptide is relevant in
 #' given confidence limit. The value of the confidence limit is added as an attribute 
 #' - as well as parameters used to calculate (theoretical/fractional).
-#' 
-#' @references Houde, D., Berkowitz, S.A., and Engen, J.R. (2011). 
-#' The Utility of Hydrogen/Deuterium Exchange Mass Spectrometry in 
-#' Biopharmaceutical Comparability Studies. J Pharm Sci 100, 2071–2086.
-#' 
-#' @seealso 
-#' \code{\link{read_hdx}} 
-#' \code{\link{calculate_diff_uptake}}
-#' \code{\link{calculate_confidence_limit_values}}
-#' 
+#'   
 #' @examples 
 #' dat <- read_hdx(system.file(package = "HaDeX", 
 #'                             "HaDeX/data/KD_180110_CD160_HVEM.csv"))

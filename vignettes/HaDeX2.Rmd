@@ -1,15 +1,6 @@
 ---
-<<<<<<< HEAD:vignettes/HaDeX2.Rmd
 title: "HaDeX: Analysis and Visualisation of Hydrogen/Deuterium Exchange Mass Spectrometry Data"
-=======
-<<<<<<< HEAD
-title: "Introduction"
-=======
-title: 'Supplement to: "HaDeX: Analysis and Visualisation of Hydrogen/Deuterium Exchange Mass Spectrometry Data"'
->>>>>>> 4aedab705cfabab51478278514d86aaee2f0ee01:vignettes/HaDeX.Rmd
-author: "Weronika Pucha&#322;a, Micha&#322; Burdukiewicz, Micha&#322; Kistowski, Katarzyna A. D&#261;browska, Aleksandra E. Badaczewska-Dawid, Dominik Cysewski, Micha&#322; Dadlez"
-date: "20.06.2019"
->>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0
+author: "Weronika Puchala, Michal Burdukiewicz, Michal Kistowski, Michal Dadlez"
 output: 
   rmarkdown::html_vignette:
     toc: true
@@ -17,33 +8,20 @@ output:
     always_allow_html: yes
 bibliography: HDX.bib
 vignette: >
-<<<<<<< HEAD
-  %\VignetteIndexEntry{Introduction}
-=======
   %\VignetteIndexEntry{HaDeX: Analysis and Visualisation of Hydrogen/Deuterium Exchange Mass Spectrometry Data}
->>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-<<<<<<< HEAD
-<<<<<<<< HEAD:vignettes/HaDeX.Rmd
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, results='asis'}
-=======
-```{r, echo = FALSE, message = FALSE}
->>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0
 library(HaDeX)
 library(ggplot2)
 library(knitr)
 library(DT)
 library(dplyr)
 opts_chunk$set(fig.width = 7, fig.height = 5)
-<<<<<<< HEAD
 knitr::opts_chunk$set(dev = "png", dev.args = list(type = "cairo-png"))
-========
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
->>>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0:vignettes/overview.Rmd
+
 ```
 
 HaDeX is an R package for analysis of HDX-MS data. Although all functionalities are available in the form of a web server and a standalone tool, some of the vignettes are more directed towards the command-line usage of HaDeX.
@@ -61,8 +39,6 @@ HaDeX is an R package for analysis of HDX-MS data. Although all functionalities 
 2. [Experimental examples](examples.html): a full analytic workflow of HaDeX performed in the R console.
 
 
-<<<<<<<< HEAD:vignettes/HaDeX.Rmd
-=======
 ```
 
  
@@ -78,7 +54,7 @@ This document covers the main functionalities of both the **R** package and the 
 
 To show the novelty of HaDeX, we compare its functionalities with other relatively new software for analysis of HDX-MS data: MEMHDX [@HourdelMEMHDXinteractivetool2016] and Deuteros [@LauDeuterossoftwarerapid2019]. 
 
->>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0
+
 ```{r echo=FALSE,results='asis'}
 read.csv2("comparison.csv") %>% 
   datatable(options = list(dom = "t", ordering = FALSE, paging = FALSE), rownames = FALSE, style = "bootstrap") %>%
@@ -301,27 +277,6 @@ and the uncertainty is a function of two variables (based on equation 11 and 5):
 
 $$u_{c}(diff) = \sqrt{u(D_{1})^2 + u(D_{2})^2}\tag{12}$$
 
-<<<<<<< HEAD
-```{r warning=FALSE}
-calc_dat <- prepare_dataset(dat,
-                            in_state_first = "gg_Nucb2_EDTA_0.001",
-                            chosen_state_first = "gg_Nucb2_EDTA_25",
-                            out_state_first = "gg_Nucb2_EDTA_1440",
-                            in_state_second = "gg_Nucb2_CaCl2_0.001",
-                            chosen_state_second = "gg_Nucb2_CaCl2_25",
-                            out_state_second = "gg_Nucb2_CaCl2_1440") 
-```
-=======
-<!--  ```{r warning=FALSE} -->
-<!--  calc_dat <- prepare_dataset(dat, -->
-<!--                              in_state_first = "gg_Nucb2_EDTA_0.001", -->
-<!--                              chosen_state_first = "gg_Nucb2_EDTA_25", -->
-<!--                              out_state_first = "gg_Nucb2_EDTA_1440", -->
-<!--                              in_state_second = "gg_Nucb2_CaCl2_0.001", -->
-<!--                              chosen_state_second = "gg_Nucb2_CaCl2_25", -->
-<!--                              out_state_second = "gg_Nucb2_CaCl2_1440")  -->
-<!--  ``` -->
->>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0
 
 
 ## Visual data analysis
@@ -334,27 +289,7 @@ Comparison plots show the deuteration level of all peptides in selected states i
 
 - relative values:
 
-<<<<<<< HEAD
- ```{r warning=FALSE}
- comparison_plot(calc_dat = calc_dat,
-                 theoretical = TRUE,
-                 relative = TRUE,
-                 state_first = "Nucb2 Factor 1",
-                 state_second = "Nucb2 Factor 2") +
-   labs(title = "Theoretical fraction exchanged in state comparison in 25 min time")
- ```
 
-- absolute values:
-
- ```{r warning=FALSE}
- comparison_plot(calc_dat = calc_dat,
-                 theoretical = TRUE,
-                 relative = FALSE,
-                 state_first = "Nucb2 Factor 1",
-                 state_second = "Nucb2 Factor 2") +
-   labs(title = "Theoretical fraction exchanged in state comparison in 25 min time")
- ```
-=======
  <!-- ```{r warning=FALSE} -->
  <!-- comparison_plot(calc_dat = calc_dat, -->
  <!--                 theoretical = TRUE, -->
@@ -374,33 +309,12 @@ Comparison plots show the deuteration level of all peptides in selected states i
  <!--                 state_second = "Nucb2 Factor 2") + -->
  <!--   labs(title = "Theoretical fraction exchanged in state comparison in 25 min time") -->
  <!-- ``` -->
->>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0
+
 
 -- experimental:
 
 - relative values:
 
-<<<<<<< HEAD
- ```{r warning=FALSE}
- comparison_plot(calc_dat = calc_dat,
-                 theoretical = FALSE,
-                 relative = TRUE,
-                 state_first = "Nucb2 Factor 1",
-                 state_second = "Nucb2 Factor 2") +
-   labs(title = "Fraction exchanged in state comparison in 25 min time")
- ```
-
-- absolute values:
-
- ```{r warning=FALSE}
- comparison_plot(calc_dat = calc_dat,
-                 theoretical = FALSE,
-                 relative = FALSE, 
-                 state_first = "Nucb2 Factor 1",
-                 state_second = "Nucb2 Factor 2") +
-   labs(title = "Fraction exchanged in state comparison in 25 min time")
- ```
-=======
  <!-- ```{r warning=FALSE} -->
  <!-- comparison_plot(calc_dat = calc_dat, -->
  <!--                 theoretical = FALSE, -->
@@ -420,7 +334,6 @@ Comparison plots show the deuteration level of all peptides in selected states i
  <!--                 state_second = "Nucb2 Factor 2") + -->
  <!--   labs(title = "Fraction exchanged in state comparison in 25 min time") -->
  <!-- ``` -->
->>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0
 
 
 ## Woods plot
@@ -431,23 +344,6 @@ Woods plots show the difference between the deuteration of all peptides in two d
 
 - relative values:
 
-<<<<<<< HEAD
- ```{r warning=FALSE}
- woods_plot(calc_dat = calc_dat,
-            theoretical = TRUE,
-            relative = TRUE) +
-   labs(title = "Theoretical fraction exchanged between states in 25 min time")
- ```
-
-- absolute values:
-
- ```{r warning=FALSE}
- woods_plot(calc_dat = calc_dat,
-            theoretical = TRUE,
-            relative = FALSE) +
-   labs(title = "Theoretical fraction exchanged between states in 25 min time")
- ```
-=======
  <!-- ```{r warning=FALSE} -->
  <!-- woods_plot(calc_dat = calc_dat, -->
  <!--            theoretical = TRUE, -->
@@ -463,29 +359,12 @@ Woods plots show the difference between the deuteration of all peptides in two d
  <!--            relative = FALSE) + -->
  <!--   labs(title = "Theoretical fraction exchanged between states in 25 min time") -->
  <!-- ``` -->
->>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0
 
 -- experimental:
 
 - relative values:
 
-<<<<<<< HEAD
- ```{r warning=FALSE }
- woods_plot(calc_dat = calc_dat,
-            theoretical = FALSE, 
-            relative = TRUE) +
-   labs(title = "Theoretical fraction exchanged between states in 25 min time")
- ```
 
-- absolute values:
-
- ```{r warning=FALSE }
- woods_plot(calc_dat = calc_dat,
-            theoretical = FALSE, 
-            relative = FALSE) +
-   labs(title = "Theoretical fraction exchanged between states in 25 min time")
- ```
-=======
  <!-- ```{r warning=FALSE } -->
  <!-- woods_plot(calc_dat = calc_dat, -->
  <!--            theoretical = FALSE,  -->
@@ -501,30 +380,13 @@ Woods plots show the difference between the deuteration of all peptides in two d
  <!--            relative = FALSE) + -->
  <!--   labs(title = "Theoretical fraction exchanged between states in 25 min time") -->
  <!-- ``` -->
->>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0
 
 
 ### Confidence limit in Woods plot
 
 The function [calculate_confidence_limit_values()](https://hadexversum.github.io/HaDeX/reference/calculate_confidence_limit_values.html) calculates confidence limit values as it is described elsewhere [@HoudeUtilityHydrogenDeuterium2011]. 
 
-<<<<<<< HEAD
-```{r}
-calculate_confidence_limit_values(calc_dat = calc_dat,
-                                  confidence_limit = 0.99,
-                                  theoretical = FALSE, 
-                                  relative = TRUE)  
-``` 
 
-The function [add_stat_dependency()](https://hadexversum.github.io/HaDeX/reference/add_stat_dependency.html) returns data extended by column describing relation of a given peptide with confidence limit.
-
-```{r}
-add_stat_dependency(calc_dat, 
-                   confidence_limit = 0.98, 
-                   theoretical = FALSE, 
-                   relative = TRUE)
-```
-=======
  <!-- ```{r} -->
  <!-- calculate_confidence_limit_values(calc_dat = calc_dat, -->
  <!--                                   confidence_limit = 0.99, -->
@@ -540,38 +402,12 @@ The function [add_stat_dependency()](https://hadexversum.github.io/HaDeX/referen
  <!--                    theoretical = FALSE,  -->
  <!--                    relative = TRUE) -->
  <!-- ``` -->
->>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0
 
 ## Kinetic plots
 
 By the term *kinetics* we understand deuteration change in time. To calculate deuteration values per peptide for different time points is used function [calculate_kinetics()](https://hadexversum.github.io/HaDeX/reference/calculate_kinetics.html). This function uses the [calculate_state_deuteration()](https://hadexversum.github.io/HaDeX/reference/calculate_state_deuteration.html) function.
 
 
-<<<<<<< HEAD
-```{r warning = FALSE}
-
-(kin_YYDEYL_gg_Nucb2_CaCl2 <- calculate_kinetics(dat = dat, 
-                                                protein = "db_Nucb2", 
-                                                sequence = "YYDEYL",
-                                                state = "gg_Nucb2_CaCl2", 
-                                                start = 45, 
-                                                end = 50, 
-                                                time_in = 0.001, 
-                                                time_out = 1440))
-```
-
-```{r warning = FALSE}
-
-(kin_YYDEYL_gg_Nucb2_EDTA <- calculate_kinetics(dat = dat, 
-                                              protein = "db_Nucb2", 
-                                              sequence = "YYDEYL",
-                                              state = "gg_Nucb2_EDTA", 
-                                              start = 45, 
-                                              end = 50, 
-                                              time_in = 0.001, 
-                                              time_out = 1440))
-```
-=======
 <!-- ```{r warning = FALSE} -->
 
 <!-- (kin_YYDEYL_gg_Nucb2_CaCl2 <- calculate_kinetics(dat = dat,  -->
@@ -595,7 +431,6 @@ By the term *kinetics* we understand deuteration change in time. To calculate de
 <!--                                               time_in = 0.001,  -->
 <!--                                               time_out = 1440)) -->
 <!-- ``` -->
->>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0
 
 Calculated data can be shown next to each other on the plot for comparison. To visualize kinetic data we recommend  [plot_kinetics()](https://hadexversum.github.io/HaDeX/reference/plot_kinetics.html) function:
 
@@ -603,25 +438,6 @@ Calculated data can be shown next to each other on the plot for comparison. To v
 
 - relative values:
 
-<<<<<<< HEAD
-```{r warning = FALSE}
-
-bind_rows(kin_YYDEYL_gg_Nucb2_CaCl2, kin_YYDEYL_gg_Nucb2_EDTA) %>%
-  plot_kinetics(theoretical = TRUE, 
-                relative = TRUE)
-
-```
-
-- absolute values:
-
-```{r warning = FALSE}
-
-bind_rows(kin_YYDEYL_gg_Nucb2_CaCl2, kin_YYDEYL_gg_Nucb2_EDTA) %>%
-  plot_kinetics(theoretical = TRUE, 
-                relative = FALSE)
-
-```
-=======
 <!-- ```{r warning = FALSE} -->
 
 <!-- bind_rows(kin_YYDEYL_gg_Nucb2_CaCl2, kin_YYDEYL_gg_Nucb2_EDTA) %>% -->
@@ -639,31 +455,11 @@ bind_rows(kin_YYDEYL_gg_Nucb2_CaCl2, kin_YYDEYL_gg_Nucb2_EDTA) %>%
 <!--                 relative = FALSE) -->
 
 <!-- ``` -->
->>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0
 
 -- experimental:
 
 - relative values:
 
-<<<<<<< HEAD
-```{r warning = FALSE}
-
-bind_rows(kin_YYDEYL_gg_Nucb2_CaCl2, kin_YYDEYL_gg_Nucb2_EDTA) %>%
-  plot_kinetics(theoretical = FALSE, 
-                relative = TRUE)
-
-```
-
-- absolute values:
-
-```{r warning = FALSE}
-
-bind_rows(kin_YYDEYL_gg_Nucb2_CaCl2, kin_YYDEYL_gg_Nucb2_EDTA) %>%
-  plot_kinetics(theoretical = FALSE, 
-                relative = FALSE)
-
-```
-=======
 <!-- ```{r warning = FALSE} -->
 
 <!-- bind_rows(kin_YYDEYL_gg_Nucb2_CaCl2, kin_YYDEYL_gg_Nucb2_EDTA) %>% -->
@@ -681,7 +477,6 @@ bind_rows(kin_YYDEYL_gg_Nucb2_CaCl2, kin_YYDEYL_gg_Nucb2_EDTA) %>%
 <!--                 relative = FALSE) -->
 
 <!-- ``` -->
->>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0
 
 ## Additional tools
 
@@ -699,11 +494,7 @@ The sequence of the protein(s) is reconstructed from the peptides from the input
 
 Additionally, the coverage of peptides can be presented on a chart using the [plot_coverage()](https://hadexversum.github.io/HaDeX/reference/plot_coverage.html) and [plot_position_frequency()](https://hadexversum.github.io/HaDeX/reference/plot_position_frequency.html) functions. 
 
-<<<<<<< HEAD
-```{r warning=FALSE}
-=======
 ```{r warning=FALSE, eval=FALSE}
->>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0
 
 # plot_coverage(dat, chosen_state = "gg_Nucb2_CaCl2")
 # 
@@ -724,31 +515,7 @@ The result of this function can be easily visualized.
 
 Example:
 
-<<<<<<< HEAD
-```{r warning=FALSE}
-result <- quality_control(dat = dat,
-                          state_first = "gg_Nucb2_EDTA",
-                          state_second = "gg_Nucb2_CaCl2", 
-                          chosen_time = 1, 
-                          in_time = 0.001)
 
-```
-
-```{r warning=FALSE}
-ggplot(result) + 
-  geom_line(aes(x = out_time, y = avg_err_state_first, color = "Average error (first state)")) +
-  geom_line(aes(x = out_time, y = avg_err_state_second, color = "Average error (second state)")) +
-  scale_x_log10() +
-  labs(x = "log(time) [min]", y = "Average uncertainty", title = "Uncertainty change") + 
-  theme_bw(base_size = 11) +
-  theme(legend.position = "bottom",
-        legend.title = element_blank())
-```
-
-The chart below shows how we interpret the three most common results of quality control.
-
-```{r warning=FALSE,echo=FALSE}
-=======
  <!-- ```{r warning=FALSE} -->
  <!-- result <- quality_control(dat = dat, -->
  <!--                           state_first = "gg_Nucb2_EDTA", -->
@@ -772,25 +539,24 @@ The chart below shows how we interpret the three most common results of quality 
 The chart below shows how we interpret the three most common results of quality control.
 
 ```{r warning=FALSE,echo=FALSE, eval=FALSE}
->>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0
-example_qc <- rbind(data.frame(x = c(10, 25, 60, 1440),
-                               y = c(0.008, 0.0075, 0.007, 0.0065),
-                               type = "Uncertainty decreases too slowly\nExperiment should be prolonged",
-                               Assessment = "Alter experimental settings"),
-                    data.frame(x = c(10, 25, 60, 1440),
-                               y = c(0.008, 0.001, 0.001, 0.001),
-                               type = "Uncertainty decreases too quickly\nExperiment should have more early timepoints",
-                               Assessment = "Alter experimental settings"),
-                    data.frame(x = c(10, 25, 60, 1440),
-                               y = c(0.008, 0.004, 0.003, 0.001),
-                               type = "Uncertainty decreases properly",
-                               Assessment = "Experiment conducted properly"))
-ggplot(example_qc, aes(x = x, y = y, color = Assessment)) +
-  geom_line() +
-  geom_point() +
-  facet_wrap(~ type, ncol = 1) +
-  theme_bw() +
-  theme(legend.position = "bottom")
+<!-- example_qc <- rbind(data.frame(x = c(10, 25, 60, 1440), -->
+<!--                                y = c(0.008, 0.0075, 0.007, 0.0065), -->
+<!--                                type = "Uncertainty decreases too slowly\nExperiment should be prolonged", -->
+<!--                                Assessment = "Alter experimental settings"), -->
+<!--                     data.frame(x = c(10, 25, 60, 1440), -->
+<!--                                y = c(0.008, 0.001, 0.001, 0.001), -->
+<!--                                type = "Uncertainty decreases too quickly\nExperiment should have more early timepoints", -->
+<!--                                Assessment = "Alter experimental settings"), -->
+<!--                     data.frame(x = c(10, 25, 60, 1440), -->
+<!--                                y = c(0.008, 0.004, 0.003, 0.001), -->
+<!--                                type = "Uncertainty decreases properly", -->
+<!--                                Assessment = "Experiment conducted properly")) -->
+<!-- ggplot(example_qc, aes(x = x, y = y, color = Assessment)) + -->
+<!--   geom_line() + -->
+<!--   geom_point() + -->
+<!--   facet_wrap(~ type, ncol = 1) + -->
+<!--   theme_bw() + -->
+<!--   theme(legend.position = "bottom") -->
 ```
 
 # HaDeX Graphical User Interface
@@ -815,11 +581,8 @@ dat_1 <- read_hdx(system.file(package = "HaDeX",
 
 Then, we reconstruct the protein sequence from the peptides measured during the experiment. We observe the region from amino acid 107 till amino acid 124 is not covered by any peptide.
 
-<<<<<<< HEAD
-```{r warning=FALSE}
-=======
+
 ```{r warning=FALSE, eval=FALSE}
->>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0
 reconstruct_sequence(dat_1)
 
 plot_position_frequency(dat_1, chosen_state = "CD160")
@@ -827,23 +590,23 @@ plot_position_frequency(dat_1, chosen_state = "CD160")
 
 The theoretical plot allows finding regions, which exchange quickly (N-terminus, regions between 30-70 amino acid) and regions, which exchange slowly (peptides 15-24, 95-110 amino acid). We can also see the differences in the exchange between two states, indicating regions which changed upon binding with other protein.
 
-<<<<<<< HEAD
+
 ```{r warning=FALSE}
 # calculate data
-calc_dat_1 <- prepare_dataset(dat = dat_1,
-                              in_state_first = "CD160_0.001",
-                              chosen_state_first = "CD160_1",
-                              out_state_first = "CD160_1440",
-                              in_state_second = "CD160_HVEM_0.001",
-                              chosen_state_second = "CD160_HVEM_1",
-                              out_state_second = "CD160_HVEM_1440")                             
-
-# theoretical comparison plot - relative values
-comparison_plot(calc_dat = calc_dat_1,
-                theoretical = TRUE,
-                relative = TRUE, 
-                state_first = "CD160",
-                state_second = "CD160_HVEM")
+# calc_dat_1 <- prepare_dataset(dat = dat_1,
+#                               in_state_first = "CD160_0.001",
+#                               chosen_state_first = "CD160_1",
+#                               out_state_first = "CD160_1440",
+#                               in_state_second = "CD160_HVEM_0.001",
+#                               chosen_state_second = "CD160_HVEM_1",
+#                               out_state_second = "CD160_HVEM_1440")                             
+# 
+# # theoretical comparison plot - relative values
+# comparison_plot(calc_dat = calc_dat_1,
+#                 theoretical = TRUE,
+#                 relative = TRUE, 
+#                 state_first = "CD160",
+#                 state_second = "CD160_HVEM")
 
 ```
 
@@ -851,11 +614,11 @@ On the experimental plot, there are visible regions, which exchange quickly (N t
 
 ```{r warning=FALSE}
 # experimental comparison plot - relative values
-comparison_plot(calc_dat = calc_dat_1,
-                theoretical = FALSE,
-                relative = TRUE,
-                state_first = "CD160",
-                state_second = "CD160_HVEM")
+# comparison_plot(calc_dat = calc_dat_1,
+#                 theoretical = FALSE,
+#                 relative = TRUE,
+#                 state_first = "CD160",
+#                 state_second = "CD160_HVEM")
 
 ```
 
@@ -863,18 +626,18 @@ Plots below are equivalent to plots above but in absolute values - for users tha
 
 ```{r warning=FALSE}
 # theoretical comparison plot - absolute values
-comparison_plot(calc_dat = calc_dat_1,
-                theoretical = TRUE,
-                relative = FALSE, 
-                state_first = "CD160",
-                state_second = "CD160_HVEM")
-
-# experimental comparison plot - absolute values
-comparison_plot(calc_dat = calc_dat_1,
-                theoretical = FALSE,
-                relative = FALSE,
-                state_first = "CD160",
-                state_second = "CD160_HVEM")
+# comparison_plot(calc_dat = calc_dat_1,
+#                 theoretical = TRUE,
+#                 relative = FALSE, 
+#                 state_first = "CD160",
+#                 state_second = "CD160_HVEM")
+# 
+# # experimental comparison plot - absolute values
+# comparison_plot(calc_dat = calc_dat_1,
+#                 theoretical = FALSE,
+#                 relative = FALSE,
+#                 state_first = "CD160",
+#                 state_second = "CD160_HVEM")
 
 
 ```
@@ -885,10 +648,10 @@ The plot below shows peptides for which levels of deuteration were significantly
   
 
 # theoretical Woods plot - relative values
-woods_plot(calc_dat = calc_dat_1,
-           theoretical = TRUE, 
-           relative = TRUE) +
-  coord_cartesian(ylim = c(-.2, .2))
+# woods_plot(calc_dat = calc_dat_1,
+#            theoretical = TRUE, 
+#            relative = TRUE) +
+#   coord_cartesian(ylim = c(-.2, .2))
 
 ```
 
@@ -896,10 +659,10 @@ The biggest changes on the experimental plot can be observed in 3 peptides (15-2
 
 ```{r warning=FALSE}
 # experimental Woods plot - relative values
-woods_plot(calc_dat = calc_dat_1,
-           theoretical = FALSE,
-           relative = TRUE) +
-  coord_cartesian(ylim = c(-.2, .2))
+# woods_plot(calc_dat = calc_dat_1,
+#            theoretical = FALSE,
+#            relative = TRUE) +
+#   coord_cartesian(ylim = c(-.2, .2))
 
 ```
 
@@ -907,34 +670,34 @@ Plot below shows results in absolute values.
 
 ```{r warning=FALSE}
 # theoretical Woods plot - absolute values
-woods_plot(calc_dat = calc_dat_1,
-           theoretical = TRUE, 
-           relative = FALSE) +
-  labs(title = "Theoretical fraction exchanged between states in 1 min time") 
-
-# experimental Woods plot - absolute values
-woods_plot(calc_dat = calc_dat_1,
-           theoretical = FALSE,
-           relative = FALSE) +
-  labs(title = "Fraction exchanged between states in 1 min time") 
-
-# quality control - relative values 
-(result <- quality_control(dat = dat_1,
-                state_first = "CD160",
-                state_second = "CD160_HVEM", 
-                chosen_time = 1, 
-                in_time = 0.001))
-
-# example quality control visualisation
-library(ggplot2)
-ggplot(result) + 
-  geom_line(aes(x = out_time, y = avg_err_state_first, color = "Average error (first state)")) +
-  geom_line(aes(x = out_time, y = avg_err_state_second, color = "Average error (second state)")) +
-  scale_x_log10() +
-  ylim(0, 0.05) + 
-  labs(x = "log(time) [min]", y = "Average uncertainty", title = "Uncertainty change in out time") +
-  theme(legend.title = element_blank(),
-        legend.position = "bottom")
+# woods_plot(calc_dat = calc_dat_1,
+#            theoretical = TRUE, 
+#            relative = FALSE) +
+#   labs(title = "Theoretical fraction exchanged between states in 1 min time") 
+# 
+# # experimental Woods plot - absolute values
+# woods_plot(calc_dat = calc_dat_1,
+#            theoretical = FALSE,
+#            relative = FALSE) +
+#   labs(title = "Fraction exchanged between states in 1 min time") 
+# 
+# # quality control - relative values 
+# (result <- quality_control(dat = dat_1,
+#                 state_first = "CD160",
+#                 state_second = "CD160_HVEM", 
+#                 chosen_time = 1, 
+#                 in_time = 0.001))
+# 
+# # example quality control visualisation
+# library(ggplot2)
+# ggplot(result) + 
+#   geom_line(aes(x = out_time, y = avg_err_state_first, color = "Average error (first state)")) +
+#   geom_line(aes(x = out_time, y = avg_err_state_second, color = "Average error (second state)")) +
+#   scale_x_log10() +
+#   ylim(0, 0.05) + 
+#   labs(x = "log(time) [min]", y = "Average uncertainty", title = "Uncertainty change in out time") +
+#   theme(legend.title = element_blank(),
+#         legend.position = "bottom")
 
 ```
 
@@ -943,102 +706,99 @@ ggplot(result) +
 ```{r warning=FALSE}
 library(HaDeX)
 
-# file import
-dat_2 <-  read_hdx(system.file(package = "HaDeX", 
-                               "HaDeX/data/KD_190304_Nucb2_EDTA_CaCl2_test02_clusterdata.csv"))
-
-# protein sequence reconstruction
-reconstruct_sequence(dat_2)
-
-# calculate data
-calc_dat_2 <- prepare_dataset(dat = dat_2,
-                              in_state_first = "gg_Nucb2_EDTA_0.001",
-                              chosen_state_first = "gg_Nucb2_EDTA_25",
-                              out_state_first = "gg_Nucb2_EDTA_1440",
-                              in_state_second = "gg_Nucb2_CaCl2_0.001",
-                              chosen_state_second = "gg_Nucb2_CaCl2_25",
-                              out_state_second = "gg_Nucb2_CaCl2_1440")                             
-
-# theoretical comparison plot - relative values
-comparison_plot(calc_dat = calc_dat_2,
-                theoretical = TRUE,
-                relative = TRUE,
-                state_first = "Nucb2 Factor 1",
-                state_second = "Nucb2 Factor 2") +
-  labs(title = "Theoretical fraction exchanged in \nstate comparison in 25 min time")
-
-# experimental comparison plot - relative values 
-comparison_plot(calc_dat = calc_dat_2,
-                theoretical = FALSE,
-                relative = TRUE,
-                state_first = "Nucb2 Factor 1",
-                state_second = "Nucb2 Factor 2") +
-  labs(title = "Fraction exchanged in \nstate comparison in 25 min time")
-
-# theoretical comparison plot - absolute values
-comparison_plot(calc_dat = calc_dat_2,
-                theoretical = TRUE,
-                relative = FALSE,
-                state_first = "Nucb2 Factor 1",
-                state_second = "Nucb2 Factor 2") +
-  labs(title = "Theoretical fraction exchanged in \nstate comparison in 25 min time")
-
-# experimental comparison plot - absolute values 
-comparison_plot(calc_dat = calc_dat_2,
-                theoretical = FALSE,
-                relative = FALSE,
-                state_first = "Nucb2 Factor 1",
-                state_second = "Nucb2 Factor 2") +
-  labs(title = "Fraction exchanged in \nstate comparison in 25 min time")
-
-# theoretical Woods plot - relative values
-woods_plot(calc_dat = calc_dat_2,
-           theoretical = TRUE,
-           relative = TRUE) + 
-  labs(title = "Theoretical fraction exchanged between states in 25 min time") +
-  coord_cartesian(ylim = c(-.5, .7))
-
-# experimental Woods plot - relative values
-woods_plot(calc_dat = calc_dat_2,
-           theoretical = FALSE,
-           relative = TRUE) +
-  labs(title = "Fraction exchanged between states in 25 min time") +
-  coord_cartesian(ylim = c(-.5, .7))
-
-# theoretical Woods plot - absolute values
-woods_plot(calc_dat = calc_dat_2,
-           theoretical = TRUE,
-           relative = FALSE) + 
-  labs(title = "Theoretical fraction exchanged between states in 25 min time") 
-
-# experimental Woods plot - absolute values
-woods_plot(calc_dat = calc_dat_2,
-           theoretical = FALSE,
-           relative = FALSE) +
-  labs(title = "Fraction exchanged between states in 25 min time") 
-
-# quality control
-(result <- quality_control(dat = dat_2,
-                           state_first = "gg_Nucb2_EDTA",
-                           state_second = "gg_Nucb2_CaCl2", 
-                           chosen_time = 25, 
-                           in_time = 0.001))
-
-# example quality control visualisation - relative values
-library(ggplot2)
-ggplot(result[result["out_time"]>=1,]) + 
-  geom_line(aes(x = out_time, y = avg_err_state_first, color = "Average error (first state)")) +
-  geom_line(aes(x = out_time, y = avg_err_state_second, color = "Average error (second state)")) +
-  scale_x_log10() +
-  labs(x = "log(time) [min]", y = "Average uncertainty", title = "Uncertainty change") + 
-  theme(legend.position = "bottom",
-        legend.title = element_blank())
+# # file import
+# dat_2 <-  read_hdx(system.file(package = "HaDeX",                                "HaDeX/data/KD_190304_Nucb2_EDTA_CaCl2_test02_clusterdata.csv"))
+# 
+# # protein sequence reconstruction
+# reconstruct_sequence(dat_2)
+# 
+# # calculate data
+# calc_dat_2 <- prepare_dataset(dat = dat_2,
+#                               in_state_first = "gg_Nucb2_EDTA_0.001",
+#                               chosen_state_first = "gg_Nucb2_EDTA_25",
+#                               out_state_first = "gg_Nucb2_EDTA_1440",
+#                               in_state_second = "gg_Nucb2_CaCl2_0.001",
+#                               chosen_state_second = "gg_Nucb2_CaCl2_25",
+#                               out_state_second = "gg_Nucb2_CaCl2_1440")                             
+# 
+# # theoretical comparison plot - relative values
+# comparison_plot(calc_dat = calc_dat_2,
+#                 theoretical = TRUE,
+#                 relative = TRUE,
+#                 state_first = "Nucb2 Factor 1",
+#                 state_second = "Nucb2 Factor 2") +
+#   labs(title = "Theoretical fraction exchanged in \nstate comparison in 25 min time")
+# 
+# # experimental comparison plot - relative values 
+# comparison_plot(calc_dat = calc_dat_2,
+#                 theoretical = FALSE,
+#                 relative = TRUE,
+#                 state_first = "Nucb2 Factor 1",
+#                 state_second = "Nucb2 Factor 2") +
+#   labs(title = "Fraction exchanged in \nstate comparison in 25 min time")
+# 
+# # theoretical comparison plot - absolute values
+# comparison_plot(calc_dat = calc_dat_2,
+#                 theoretical = TRUE,
+#                 relative = FALSE,
+#                 state_first = "Nucb2 Factor 1",
+#                 state_second = "Nucb2 Factor 2") +
+#   labs(title = "Theoretical fraction exchanged in \nstate comparison in 25 min time")
+# 
+# # experimental comparison plot - absolute values 
+# comparison_plot(calc_dat = calc_dat_2,
+#                 theoretical = FALSE,
+#                 relative = FALSE,
+#                 state_first = "Nucb2 Factor 1",
+#                 state_second = "Nucb2 Factor 2") +
+#   labs(title = "Fraction exchanged in \nstate comparison in 25 min time")
+# 
+# # theoretical Woods plot - relative values
+# woods_plot(calc_dat = calc_dat_2,
+#            theoretical = TRUE,
+#            relative = TRUE) + 
+#   labs(title = "Theoretical fraction exchanged between states in 25 min time") +
+#   coord_cartesian(ylim = c(-.5, .7))
+# 
+# # experimental Woods plot - relative values
+# woods_plot(calc_dat = calc_dat_2,
+#            theoretical = FALSE,
+#            relative = TRUE) +
+#   labs(title = "Fraction exchanged between states in 25 min time") +
+#   coord_cartesian(ylim = c(-.5, .7))
+# 
+# # theoretical Woods plot - absolute values
+# woods_plot(calc_dat = calc_dat_2,
+#            theoretical = TRUE,
+#            relative = FALSE) + 
+#   labs(title = "Theoretical fraction exchanged between states in 25 min time") 
+# 
+# # experimental Woods plot - absolute values
+# woods_plot(calc_dat = calc_dat_2,
+#            theoretical = FALSE,
+#            relative = FALSE) +
+#   labs(title = "Fraction exchanged between states in 25 min time") 
+# 
+# # quality control
+# (result <- quality_control(dat = dat_2,
+#                            state_first = "gg_Nucb2_EDTA",
+#                            state_second = "gg_Nucb2_CaCl2", 
+#                            chosen_time = 25, 
+#                            in_time = 0.001))
+# 
+# # example quality control visualisation - relative values
+# library(ggplot2)
+# ggplot(result[result["out_time"]>=1,]) + 
+#   geom_line(aes(x = out_time, y = avg_err_state_first, color = "Average error (first state)")) +
+#   geom_line(aes(x = out_time, y = avg_err_state_second, color = "Average error (second state)")) +
+#   scale_x_log10() +
+#   labs(x = "log(time) [min]", y = "Average uncertainty", title = "Uncertainty change") + 
+#   theme(legend.position = "bottom",
+#         legend.title = element_blank())
 ```
 
 # References
-========
->>>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0:vignettes/overview.Rmd
-=======
+
  <!-- ```{r warning=FALSE} -->
  <!-- # calculate data -->
  <!-- calc_dat_1 <- prepare_dataset(dat = dat_1, -->
@@ -1147,102 +907,3 @@ Plot below shows results in absolute values.
 <!-- #  -->
 <!-- # ``` -->
 
-## Example workflow 2
-
-<!-- # ```{r warning=FALSE} -->
-<!-- # library(HaDeX) -->
-<!-- #  -->
-<!-- # # file import -->
-<!-- # dat_2 <-  read_hdx(system.file(package = "HaDeX",  -->
-<!-- #                                "HaDeX/data/KD_190304_Nucb2_EDTA_CaCl2_test02_clusterdata.csv")) -->
-<!-- #  -->
-<!-- # # protein sequence reconstruction -->
-<!-- # reconstruct_sequence(dat_2) -->
-<!-- #  -->
-<!-- # # calculate data -->
-<!-- # calc_dat_2 <- prepare_dataset(dat = dat_2, -->
-<!-- #                               in_state_first = "gg_Nucb2_EDTA_0.001", -->
-<!-- #                               chosen_state_first = "gg_Nucb2_EDTA_25", -->
-<!-- #                               out_state_first = "gg_Nucb2_EDTA_1440", -->
-<!-- #                               in_state_second = "gg_Nucb2_CaCl2_0.001", -->
-<!-- #                               chosen_state_second = "gg_Nucb2_CaCl2_25", -->
-<!-- #                               out_state_second = "gg_Nucb2_CaCl2_1440")                              -->
-<!-- #  -->
-<!-- # # theoretical comparison plot - relative values -->
-<!-- # comparison_plot(calc_dat = calc_dat_2, -->
-<!-- #                 theoretical = TRUE, -->
-<!-- #                 relative = TRUE, -->
-<!-- #                 state_first = "Nucb2 Factor 1", -->
-<!-- #                 state_second = "Nucb2 Factor 2") + -->
-<!-- #   labs(title = "Theoretical fraction exchanged in \nstate comparison in 25 min time") -->
-<!-- #  -->
-<!-- # # experimental comparison plot - relative values  -->
-<!-- # comparison_plot(calc_dat = calc_dat_2, -->
-<!-- #                 theoretical = FALSE, -->
-<!-- #                 relative = TRUE, -->
-<!-- #                 state_first = "Nucb2 Factor 1", -->
-<!-- #                 state_second = "Nucb2 Factor 2") + -->
-<!-- #   labs(title = "Fraction exchanged in \nstate comparison in 25 min time") -->
-<!-- #  -->
-<!-- # # theoretical comparison plot - absolute values -->
-<!-- # comparison_plot(calc_dat = calc_dat_2, -->
-<!-- #                 theoretical = TRUE, -->
-<!-- #                 relative = FALSE, -->
-<!-- #                 state_first = "Nucb2 Factor 1", -->
-<!-- #                 state_second = "Nucb2 Factor 2") + -->
-<!-- #   labs(title = "Theoretical fraction exchanged in \nstate comparison in 25 min time") -->
-<!-- #  -->
-<!-- # # experimental comparison plot - absolute values  -->
-<!-- # comparison_plot(calc_dat = calc_dat_2, -->
-<!-- #                 theoretical = FALSE, -->
-<!-- #                 relative = FALSE, -->
-<!-- #                 state_first = "Nucb2 Factor 1", -->
-<!-- #                 state_second = "Nucb2 Factor 2") + -->
-<!-- #   labs(title = "Fraction exchanged in \nstate comparison in 25 min time") -->
-<!-- #  -->
-<!-- # # theoretical Woods plot - relative values -->
-<!-- # woods_plot(calc_dat = calc_dat_2, -->
-<!-- #            theoretical = TRUE, -->
-<!-- #            relative = TRUE) +  -->
-<!-- #   labs(title = "Theoretical fraction exchanged between states in 25 min time") + -->
-<!-- #   coord_cartesian(ylim = c(-.5, .7)) -->
-<!-- #  -->
-<!-- # # experimental Woods plot - relative values -->
-<!-- # woods_plot(calc_dat = calc_dat_2, -->
-<!-- #            theoretical = FALSE, -->
-<!-- #            relative = TRUE) + -->
-<!-- #   labs(title = "Fraction exchanged between states in 25 min time") + -->
-<!-- #   coord_cartesian(ylim = c(-.5, .7)) -->
-<!-- #  -->
-<!-- # # theoretical Woods plot - absolute values -->
-<!-- # woods_plot(calc_dat = calc_dat_2, -->
-<!-- #            theoretical = TRUE, -->
-<!-- #            relative = FALSE) +  -->
-<!-- #   labs(title = "Theoretical fraction exchanged between states in 25 min time")  -->
-<!-- #  -->
-<!-- # # experimental Woods plot - absolute values -->
-<!-- # woods_plot(calc_dat = calc_dat_2, -->
-<!-- #            theoretical = FALSE, -->
-<!-- #            relative = FALSE) + -->
-<!-- #   labs(title = "Fraction exchanged between states in 25 min time")  -->
-<!-- #  -->
-<!-- # # quality control -->
-<!-- # (result <- quality_control(dat = dat_2, -->
-<!-- #                            state_first = "gg_Nucb2_EDTA", -->
-<!-- #                            state_second = "gg_Nucb2_CaCl2",  -->
-<!-- #                            chosen_time = 25,  -->
-<!-- #                            in_time = 0.001)) -->
-<!-- #  -->
-<!-- # # example quality control visualisation - relative values -->
-<!-- # library(ggplot2) -->
-<!-- # ggplot(result[result["out_time"]>=1,]) +  -->
-<!-- #   geom_line(aes(x = out_time, y = avg_err_state_first, color = "Average error (first state)")) + -->
-<!-- #   geom_line(aes(x = out_time, y = avg_err_state_second, color = "Average error (second state)")) + -->
-<!-- #   scale_x_log10() + -->
-<!-- #   labs(x = "log(time) [min]", y = "Average uncertainty", title = "Uncertainty change") +  -->
-<!-- #   theme(legend.position = "bottom", -->
-<!-- #         legend.title = element_blank()) -->
-<!-- # ``` -->
-
-# References
->>>>>>> 471fdd81f4d93ebfc2cef14e8e8eb33d6b74aec0

@@ -20,12 +20,11 @@ Description: Functions for processing, analysis and visualization of Hydrogen De
              standardized and reproducible workflow for the analysis of the HDX-MS data, including novel uncertainty 
              intervals. Additionally, it covers data exploration, quality control and generation of publication-quality 
              figures. All functionalities are also available in the in-built 'Shiny' app.
-
 Depends: R (>= 3.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.3.1
 Imports: 
     checkmate,
     cowplot,
@@ -33,21 +32,22 @@ Imports:
   	dplyr,
   	DT,
   	ggplot2,
+  	glue,
   	gsubfn,
   	latex2exp,
   	magick,
   	plyr,
+  	purrr,
   	reshape2,
   	readr,
   	readxl,
+  	remotes,
   	shiny,
   	stringr,
   	stringi,
   	tidyr,
   	ggiraph
 Suggests:
-    spelling, 
-    covr,
     digest,
     gridExtra,
     knitr,
@@ -58,8 +58,7 @@ Suggests:
     shinycustomloader,
     shinyhelper,
     shinyjs,
-    testthat,
-    vdiffr
+    testthat
 VignetteBuilder: knitr
 Language: en-US
 URL: https://hadexversum.github.io/HaDeX2/
