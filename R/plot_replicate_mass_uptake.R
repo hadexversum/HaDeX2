@@ -28,9 +28,8 @@
 #' \code{\link{calculate_exp_masses_per_replicate}}
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' plot_replicate_mass_uptake(dat)
-#' plot_replicate_mass_uptake(dat, aggregated = TRUE)
+#' plot_replicate_mass_uptake(alpha_dat)
+#' plot_replicate_mass_uptake(alpha_dat, aggregated = TRUE)
 #' 
 #' @export plot_replicate_mass_uptake
 

@@ -31,13 +31,11 @@
 #' \code{\link{calculate_state_uptake}}  
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' comparison_dat <- calculate_state_uptake(dat)
+#' comparison_dat <- calculate_state_uptake(alpha_dat)
 #' plot_state_comparison(comparison_dat)
 #' 
-#' uptake_dat <- create_uptake_dataset(dat, states = c("CD160", "CD160_HVEM"))
-#' plot_state_comparison(uptake_dat, all_times = T)
-#' plot_state_comparison(uptake_dat, fractional = T, all_times = T)
+#' plot_state_comparison(uptake_dat, all_times = TRUE)
+#' plot_state_comparison(uptake_dat, fractional = TRUE, all_times = TRUE)
 #' 
 #' @export plot_state_comparison
 

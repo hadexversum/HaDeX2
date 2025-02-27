@@ -16,9 +16,7 @@
 #' - as well as parameters used to calculate (theoretical/fractional).
 #'   
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", 
-#'                             "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' calc_dat <- calculate_diff_uptake(dat)
+#' calc_dat <- calculate_diff_uptake(alpha_dat)
 #' result <- add_stat_dependency(calc_dat)
 #' head(result)                            
 #' 

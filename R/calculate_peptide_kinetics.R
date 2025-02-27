@@ -31,8 +31,8 @@
 #' \code{\link{plot_uptake_curve}}
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' calculate_peptide_kinetics(dat)
+#' # by default calculated for the first peptide from the peptide pool
+#' calculate_peptide_kinetics(alpha_dat)
 #' 
 #' @export calculate_peptide_kinetics
 

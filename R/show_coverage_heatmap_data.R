@@ -9,11 +9,11 @@
 #' 
 #' @examples
 #' # auc data
-#' auc_dat <- calculate_auc(create_uptake_dataset(dat))
+#' auc_dat <- calculate_auc(create_uptake_dataset(alpha_dat))
 #' show_coverage_heatmap_data(auc_dat, value = "auc")
 #' 
 #' # back-exchange
-#' bex_dat <- calculate_back_exchange(dat, state = "CD160")
+#' bex_dat <- calculate_back_exchange(alpha_dat)
 #' show_coverage_heatmap_data(bex_dat, value = "back_exchange")
 #' 
 #' @export show_coverage_heatmap_data

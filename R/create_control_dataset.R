@@ -24,8 +24,7 @@
 #' \code{\link{calculate_state_uptake}}
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' create_control_dataset(dat)
+#' head(create_control_dataset(alpha_dat))
 #' 
 #' @export create_control_dataset
 

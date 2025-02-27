@@ -12,9 +12,9 @@
 #' @examples
 #' kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN")
 #' aggregated_dat <- create_aggregated_uptake_dataset(kin_dat)
-#' plot_aggregated_uptake(aggregated_dat, panels = F)
-#' plot_aggregated_uptake(aggregated_dat, fractional = F, panels = F)
-#' plot_aggregated_uptake(aggregated_dat, fractional = F, theoretical = T, panels = T)
+#' plot_aggregated_uptake(aggregated_dat, panels = FALSE)
+#' plot_aggregated_uptake(aggregated_dat, fractional = FALSE, panels = FALSE)
+#' plot_aggregated_uptake(aggregated_dat, fractional = FALSE, theoretical = TRUE, panels = TRUE)
 #'
 #' @export
 plot_aggregated_uptake <- function(aggregated_dat,

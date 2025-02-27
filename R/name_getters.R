@@ -7,8 +7,8 @@
 #' @param theoretical indicator
 #' 
 #' @examples
-#' get_uptake_name(differential = T, fractional = T, theoretical = T)
-#' get_uptake_name(differential = F, fractional = T, theoretical = F)
+#' get_uptake_name(differential = TRUE, fractional = TRUE, theoretical = TRUE)
+#' get_uptake_name(differential = FALSE, fractional = TRUE, theoretical = FALSE)
 #'
 #' @noRd
 
@@ -38,8 +38,8 @@ get_uptake_name <- function(differential = FALSE,
 #' 
 #' @examples
 #' get_uptake_error_name(value = "deut_uptake")
-#' get_uptake_error_name(differential = T, fractional = T, theoretical = T)
-#' get_uptake_error_name(differential = F, fractional = T, theoretical = F)
+#' get_uptake_error_name(differential = TRUE, fractional = TRUE, theoretical = TRUE)
+#' get_uptake_error_name(differential = FALSE, fractional = TRUE, theoretical = FALSE)
 #'
 #' @noRd
 get_uptake_error_name <- function(value = NULL, 
@@ -68,8 +68,8 @@ get_uptake_error_name <- function(value = NULL,
 #' 
 #' 
 #' @examples
-#' get_uptake_label(differential = T, fractional = T, theoretical = T)
-#' get_uptake_label(differential = F, fractional = T, theoretical = F)
+#' get_uptake_label(differential = TRUE, fractional = TRUE, theoretical = TRUE)
+#' get_uptake_label(differential = FALSE, fractional = TRUE, theoretical = FALSE)
 #'
 #' @noRd
 #' 
@@ -101,8 +101,8 @@ get_uptake_label <- function(differential = FALSE,
 #' 
 #' @examples
 #' get_uptake_error_label(value = "deut_uptake")
-#' get_uptake_error_label(differential = T, fractional = T, theoretical = T)
-#' get_uptake_error_label(differential = F, fractional = T, theoretical = F)
+#' get_uptake_error_label(differential = TRUE, fractional = TRUE, theoretical = TRUE)
+#' get_uptake_error_label(differential = FASLE, fractional = TRUE, theoretical = FALSE)
 #'
 #' @noRd
 get_uptake_error_label <- function(value = NULL, 

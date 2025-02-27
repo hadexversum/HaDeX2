@@ -22,8 +22,7 @@
 #' \code{\link{calculate_state_uptake}} 
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' calculate_exp_masses_per_replicate(dat)
+#' calculate_exp_masses_per_replicate(alpha_dat)
 #' 
 #' @export calculate_exp_masses_per_replicate
 
@@ -67,8 +66,7 @@ calculate_exp_masses_per_replicate <- function(dat){
 #' \code{\link{calculate_state_uptake}} 
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' calculate_exp_masses(dat)
+#' calculate_exp_masses(alpha_dat)
 #' 
 #' @export calculate_exp_masses
 
@@ -116,7 +114,7 @@ calculate_exp_masses <- function(dat){
 #' 
 #' @examples 
 #' calculate_MHP("CHERICHERILADY")
-#' calculate_MHP("CHERICHERILADY", mono = T)
+#' calculate_MHP("CHERICHERILADY", mono = TRUE)
 #' 
 #' @export calculate_MHP
 

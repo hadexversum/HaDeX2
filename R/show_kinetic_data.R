@@ -23,11 +23,10 @@
 #' \code{\link{calculate_peptide_kinetics}}
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' uc_dat <- calculate_kinetics(dat, protein = "db_CD160",
-#'                              sequence = "INITSSASQEGTRLN", 
-#'                              state = "CD160",
-#'                              start = 1, end = 15,
+#' uc_dat <- calculate_kinetics(alpha_dat, protein = "db_eEF1Ba",
+#'                              sequence = "GFGDLKSPAGL", 
+#'                              state = "ALPHA_Gamma",
+#'                              start = 1, end = 11,
 #'                              time_0 = 0.001, time_100 = 1440)
 #' show_uc_data(uc_dat)
 #' 
@@ -83,6 +82,8 @@ show_uc_data <- function(uc_dat,
                c("Time Point", "DU [Da]", "Err DU [Da]"))
     }
   }
+  
+  tmp <- as.data.frame(tmp)
   
   return(tmp)
 }

@@ -38,12 +38,11 @@
 #' \code{\link{create_p_diff_uptake_dataset}}
 #' 
 #' @examples
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' p_dat <- create_p_diff_uptake_dataset(dat)
+#' p_dat <- create_p_diff_uptake_dataset(alpha_dat)
 #' plot_manhattan(p_dat)
-#' plot_manhattan(p_dat, separate_times = F)
-#' plot_manhattan(p_dat, show_peptide_position = T, separate_times = F)
-#' plot_manhattan(p_dat, separate_times = F, show_confidence_limit = F)
+#' plot_manhattan(p_dat, separate_times = FALSE)
+#' plot_manhattan(p_dat, show_peptide_position = TRUE, separate_times = FALSE)
+#' plot_manhattan(p_dat, separate_times = FALSE, show_confidence_limit = FALSE)
 #'  
 #' @export plot_manhattan
    

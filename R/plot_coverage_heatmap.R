@@ -22,22 +22,21 @@
 #' 
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' uptake_dat <- create_uptake_dataset(dat, states = "CD160")
+#' uptake_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN")
 #' plot_coverage_heatmap(uptake_dat)
 #' plot_coverage_heatmap(x_dat = uptake_dat, value = "frac_deut_uptake", time_t = 0.167)
 #' plot_coverage_heatmap(uptake_dat, value = "err_frac_deut_uptake", time_t = 0.167)
 #'
-#' diff_uptake_dat <- create_diff_uptake_dataset(dat)
+#' diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 #' plot_coverage_heatmap(diff_uptake_dat)
 #' plot_coverage_heatmap(diff_uptake_dat, value = "diff_frac_deut_uptake")
 #' plot_coverage_heatmap(diff_uptake_dat, value = "diff_frac_deut_uptake", time_t = 0.167)
 #' plot_coverage_heatmap(diff_uptake_dat, value = "err_diff_frac_deut_uptake", time_t = 0.167)
 #' 
-#' auc_dat <- calculate_auc(create_uptake_dataset(dat))
+#' auc_dat <- calculate_auc(create_uptake_dataset(alpha_dat))
 #' plot_coverage_heatmap(auc_dat, value = "auc")
 #' 
-#' bex_dat <- calculate_back_exchange(dat, state = "CD160")
+#' bex_dat <- calculate_back_exchange(alpha_dat, state = "Alpha_KSCN")
 #' plot_coverage_heatmap(bex_dat, value = "back_exchange")
 #' 
 #' @export plot_coverage_heatmap

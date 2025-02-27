@@ -47,8 +47,7 @@
 #' \code{\link{calculate_exp_masses_per_replicate}}
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' p_diff_uptake_dat <- create_p_diff_uptake_dataset(dat)
+#' p_diff_uptake_dat <- create_p_diff_uptake_dataset(alpha_dat)
 #' head(p_diff_uptake_dat)
 #' 
 #' @export create_p_diff_uptake_dataset

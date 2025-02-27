@@ -37,8 +37,7 @@
 #' \code{\link{show_quality_control_data}}
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' create_quality_control_dataset(dat)    
+#' create_quality_control_dataset(alpha_dat)    
 #'                            
 #' @export create_quality_control_dataset
 

@@ -16,8 +16,7 @@
 #' \code{\link{read_hdx}}
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' calculate_back_exchange(dat)
+#' calculate_back_exchange(alpha_dat)
 #' 
 #' @export calculate_back_exchange
 

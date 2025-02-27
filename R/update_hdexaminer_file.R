@@ -36,9 +36,7 @@
 #' \code{\link{reconstruct_sequence}}
 #' 
 #' @examples
-#' dat_hdexaminer <- read_hdx(system.file(package = "HaDeX", 
-#'                      "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' upadate_hdexaminer_file(dat_hdexaminer)                      
+#' update_hdexaminer_file(alpha_dat)                      
 #' 
 #' @export update_hdexaminer_file
 

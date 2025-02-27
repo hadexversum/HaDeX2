@@ -32,8 +32,7 @@
 #' \code{\link{calculate_state_uptake}}
 #' 
 #' @examples
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' diff_dat <- calculate_diff_uptake(dat)
+#' diff_dat <- calculate_diff_uptake(alpha_dat)
 #' head(diff_dat)
 #' 
 #' @export calculate_diff_uptake

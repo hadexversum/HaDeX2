@@ -19,9 +19,8 @@
 #' \code{\link{read_hdx}}
 #'
 #' @examples
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' get_protein_coverage(dat)
-#' get_protein_coverage(dat, protein_length = 150)
+#' get_protein_coverage(alpha_dat)
+#' get_protein_coverage(alpha_dat, protein_length = 150)
 #' 
 #' @export get_protein_coverage
 
@@ -61,8 +60,7 @@ get_protein_coverage <- function(dat,
 #' \code{\link{read_hdx}}
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' get_protein_redundancy(dat)
+#' get_protein_redundancy(alpha_dat)
 #' 
 #' @export get_protein_redundancy
 
@@ -97,8 +95,7 @@ get_protein_redundancy <- function(dat,
 #' \code{\link{read_hdx}}
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' get_n_replicates(dat)
+#' get_n_replicates(alpha_dat)
 #'
 #' @export get_n_replicates
 
@@ -138,8 +135,7 @@ get_n_replicates <- function(dat,
 #' \code{\link{read_hdx}}
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' get_peptide_sequence(dat, start = 1, end = 15)
+#' get_peptide_sequence(alpha_dat, start = 1, end = 11)
 #'
 #' @export get_peptide_sequence
 

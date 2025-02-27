@@ -29,9 +29,8 @@
 #' \code{\link{calculate_diff_uptake}}
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' plot_peptide_mass_measurement(dat, sequence = "LICTVWHKKEEAEG")
-#' plot_peptide_mass_measurement(dat, sequence = "LICTVWHKKEEAEG", show_charge_values = F)
+#' plot_peptide_mass_measurement(alpha_dat, sequence = "FGSDDEEESEEAKRLRE")
+#' plot_peptide_mass_measurement(alpha_dat, sequence = "FGSDDEEESEEAKRLRE", show_charge_values = FALSE)
 #' 
 #' @export plot_peptide_mass_measurement
 
@@ -161,8 +160,7 @@ plot_peptide_mass_measurement <- function(dat,
 #' \code{\link{calculate_diff_uptake}}
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' rep_mass_dat <- calculate_exp_masses_per_replicate(dat)
+#' rep_mass_dat <- calculate_exp_masses_per_replicate(alpha_dat)
 #' show_peptide_mass_measurement(rep_mass_dat)
 #' 
 #' @export show_peptide_mass_measurement
@@ -209,8 +207,7 @@ show_peptide_mass_measurement <- function(rep_mass_dat,
 #' \code{\link{show_peptide_charge_measurement}}
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' plot_peptide_charge_measurement(dat)
+#' plot_peptide_charge_measurement(alpha_dat)
 #' 
 #' @export  plot_peptide_charge_measurement
 
@@ -259,8 +256,7 @@ plot_peptide_charge_measurement <- function(dat,
 #' \code{\link{plot_peptide_charge_measurement}}
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' show_peptide_charge_measurement(dat)
+#' show_peptide_charge_measurement(alpha_dat)
 #' 
 #' @export show_peptide_charge_measurement
 
@@ -308,8 +304,7 @@ show_peptide_charge_measurement <- function(dat,
 #' \code{\link{show_replicate_histogram_data}}
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' create_replicate_dataset(dat)
+#' create_replicate_dataset(alpha_dat)
 #'
 #' @export create_replicate_dataset
 
@@ -387,13 +382,12 @@ create_replicate_dataset <- function(dat,
 #' \code{\link{show_replicate_histogram_data}}
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' rep_dat <- create_replicate_dataset(dat)
+#' rep_dat <- create_replicate_dataset(alpha_dat)
 #' plot_replicate_histogram(rep_dat)
 #' 
 #' plot_replicate_histogram(rep_dat, time_points = T)
 #' 
-#' rep_dat <- create_replicate_dataset(dat, time_t = 0.167)
+#' rep_dat <- create_replicate_dataset(alpha_dat, time_t = 0.167)
 #' plot_replicate_histogram(rep_dat)
 #' 
 #' @export plot_replicate_histogram 
@@ -499,8 +493,7 @@ plot_replicate_histogram <- function(rep_dat,
 #' \code{\link{plot_replicate_histogram}}
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' rep_dat <- create_replicate_dataset(dat)
+#' rep_dat <- create_replicate_dataset(alpha_dat)
 #' show_replicate_histogram_data(rep_dat)
 #' 
 #' @export show_replicate_histogram_data

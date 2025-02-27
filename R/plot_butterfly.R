@@ -24,8 +24,7 @@
 #' \code{\link{create_state_uptake_dataset}} 
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' state_uptake_dat <- create_state_uptake_dataset(dat)
+#' state_uptake_dat <- create_state_uptake_dataset(alpha_dat)
 #' plot_butterfly(state_uptake_dat)
 #' 
 #' @export plot_butterfly

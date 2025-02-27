@@ -20,8 +20,7 @@
 #' \code{\link{plot_overlap}}
 #' 
 #' @examples
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' show_overlap_data(dat)
+#' show_overlap_data(alpha_dat)
 #' 
 #' @export show_overlap_data
 
@@ -65,8 +64,7 @@ show_overlap_data <- function(dat,
 #' \code{\link{show_overlap_data}}
 #' 
 #' @examples
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' plot_overlap(dat)
+#' plot_overlap(alpha_dat)
 #' 
 #' @export plot_overlap
 
@@ -124,8 +122,7 @@ plot_overlap <- function(dat,
 #' \code{\link{reconstruct_sequence}} 
 #'
 #' @examples
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' create_overlap_distribution_dataset(dat)
+#' create_overlap_distribution_dataset(alpha_dat)
 #' 
 #' @export create_overlap_distribution_dataset
 
@@ -185,8 +182,7 @@ create_overlap_distribution_dataset <- function(dat,
 #' \code{\link{create_overlap_distribution_dataset}}
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#' overlap_dist_dat <- create_overlap_distribution_dataset(dat)
+#' overlap_dist_dat <- create_overlap_distribution_dataset(alpha_dat)
 #' plot_overlap_distribution(overlap_dist_dat)
 #' 
 #' @export plot_overlap_distribution
