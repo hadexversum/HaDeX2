@@ -36,8 +36,7 @@ different replicates for specific peptide in specific state
 in specific time point of measurement on the plot.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-plot_peptide_charge_measurement(dat)
+plot_peptide_charge_measurement(alpha_dat)
 
 }
 \seealso{

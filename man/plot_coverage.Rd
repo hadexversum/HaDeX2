@@ -41,12 +41,10 @@ position of the peptide on the protein sequence. Their position
 on y-axis does not contain any information.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-plot_coverage(dat)
-plot_coverage(dat, show_blanks = F)
-plot_coverage(dat, protein = "db_CD160", states = "CD160_HVEM")
+plot_coverage(alpha_dat)
+plot_coverage(alpha_dat, show_blanks = FALSE)
 
-diff_uptake_dat <- create_diff_uptake_dataset(dat)
+diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 plot_coverage(diff_uptake_dat)
 }
 \seealso{

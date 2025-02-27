@@ -54,8 +54,8 @@ IMPORTANT! The kinetic data is often described as deuterium uptake curve data.
 We use this terms interchangeable.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-calculate_peptide_kinetics(dat)
+# by default calculated for the first peptide from the peptide pool
+calculate_peptide_kinetics(alpha_dat)
 
 }
 \seealso{

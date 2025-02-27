@@ -52,8 +52,7 @@ This data can be useful for general overview of the experiment and analyse
 of the chosen time parameters.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-create_quality_control_dataset(dat)    
+create_quality_control_dataset(alpha_dat)    
                            
 }
 \seealso{

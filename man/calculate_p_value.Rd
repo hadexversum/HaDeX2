@@ -44,11 +44,10 @@ between two selected biological states) can be rejected, based on the
 experimental mass values from replicates of the experiment - for peptide
 in given time point of measurement.
 For the peptides that have only one replicate of the measurement (in any 
-state) the P-value cannot be calculated.
+state) the P-value cannot be calculated and is assigned with NA value.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-p_dat <- calculate_p_value(dat)
+p_dat <- calculate_p_value(alpha_dat)
 head(p_dat)
 
 }

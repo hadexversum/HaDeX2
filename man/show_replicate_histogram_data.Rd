@@ -23,8 +23,7 @@ number of replicates for peptides in one or multiple
 time point of measurement, depends on supplied data.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-rep_dat <- create_replicate_dataset(dat)
+rep_dat <- create_replicate_dataset(alpha_dat)
 show_replicate_histogram_data(rep_dat)
 
 }

@@ -29,9 +29,8 @@ Function \code{\link{get_protein_coverage}} calculates the
 percentage coverage of the protein sequence, rounded to two decimal places.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-get_protein_coverage(dat)
-get_protein_coverage(dat, protein_length = 150)
+get_protein_coverage(alpha_dat)
+get_protein_coverage(alpha_dat, protein_length = 150)
 
 }
 \seealso{

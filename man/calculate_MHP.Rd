@@ -30,7 +30,7 @@ returns the value of an unmodified peptide.
 }
 \examples{
 calculate_MHP("CHERICHERILADY")
-calculate_MHP("CHERICHERILADY", mono = T)
+calculate_MHP("CHERICHERILADY", mono = TRUE)
 
 }
 \seealso{

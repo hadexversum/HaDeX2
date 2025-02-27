@@ -36,8 +36,7 @@ confidence limit for one, two or more time points, the provided data
 should be adjusted accordingly.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-diff_uptake_dat <- calculate_diff_uptake(dat)
+diff_uptake_dat <- calculate_diff_uptake(alpha_dat)
 calculate_confidence_limit_values(diff_uptake_dat)
                               
 }

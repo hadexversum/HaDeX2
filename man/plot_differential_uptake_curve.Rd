@@ -54,14 +54,13 @@ The possibility to plot multiple differences (between state and mutant) for the 
 will be added soon.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-diff_uptake_dat <- create_diff_uptake_dataset(dat)
-plot_differential_uptake_curve(diff_uptake_dat = diff_uptake_dat, sequence = "LCKDRSGDCSPETSLKQL")
+diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
+plot_differential_uptake_curve(diff_uptake_dat = diff_uptake_dat, sequence = "GDLKSPAGL")
 
-diff_p_uptake_dat <- create_p_diff_uptake_dataset(dat)
-plot_differential_uptake_curve(diff_p_uptake_dat = diff_p_uptake_dat, sequence = "LCKDRSGDCSPETSLKQL", show_houde_interval = TRUE)
-plot_differential_uptake_curve(diff_p_uptake_dat = diff_p_uptake_dat, sequence = "LCKDRSGDCSPETSLKQL", show_houde_interval = TRUE, show_tstud_confidence = TRUE)
-plot_differential_uptake_curve(diff_p_uptake_dat = diff_p_uptake_dat, sequence = "LCKDRSGDCSPETSLKQL", show_tstud_confidence = TRUE)
+diff_p_uptake_dat <- create_p_diff_uptake_dataset(alpha_dat)
+plot_differential_uptake_curve(diff_p_uptake_dat = diff_p_uptake_dat, sequence = "GDLKSPAGL", show_houde_interval = TRUE)
+plot_differential_uptake_curve(diff_p_uptake_dat = diff_p_uptake_dat, sequence = "GDLKSPAGL", show_houde_interval = TRUE, show_tstud_confidence = TRUE)
+plot_differential_uptake_curve(diff_p_uptake_dat = diff_p_uptake_dat, sequence = "GDLKSPAGL", show_tstud_confidence = TRUE)
 
 }
 \seealso{

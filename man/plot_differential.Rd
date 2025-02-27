@@ -84,8 +84,7 @@ difference is positive, blue if negative), and the insignificant values are
 grey.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-diff_uptake_dat <- create_diff_uptake_dataset(dat)
+diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167) 
 plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167, skip_amino = 0) 
 plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167, line_size = 1) 
@@ -93,7 +92,7 @@ plot_differential(diff_uptake_dat = diff_uptake_dat, all_times = T)
 plot_differential(diff_uptake_dat = diff_uptake_dat, all_times = T, show_houde_interval = T)
 plot_differential(diff_uptake_dat = diff_uptake_dat, all_times = T, show_houde_interval = T, hide_houde_insignificant = T)
 
-diff_p_uptake_dat <- create_p_diff_uptake_dataset(dat)
+diff_p_uptake_dat <- create_p_diff_uptake_dataset(alpha_dat)
 plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, all_times = T, show_tstud_confidence = T)
 plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, all_times = T, show_tstud_confidence = T, show_houde_interval = T)
 plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, show_tstud_confidence = T, show_houde_interval = T, all_times = F)

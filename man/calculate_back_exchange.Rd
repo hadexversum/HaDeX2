@@ -31,8 +31,7 @@ a \code{\link{data.frame}} object
 ...
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-calculate_back_exchange(dat)
+calculate_back_exchange(alpha_dat)
 
 }
 \seealso{

@@ -45,8 +45,7 @@ wrapper for \code{\link{calculate_state_uptake}} function, calls
 this function for all (default) or chosen states in states vector.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-comparison_dat <- create_state_comparison_dataset(dat)
+comparison_dat <- create_state_comparison_dataset(alpha_dat)
 head(comparison_dat)
 
 }

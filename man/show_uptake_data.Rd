@@ -38,8 +38,7 @@ The numerical values are rounded to 4 places. The names of columns
 are changed to user-friendly ones.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-uptake_dat <- create_uptake_dataset(dat)
+uptake_dat <- create_uptake_dataset(alpha_dat)
 show_uptake_data(uptake_dat)
 
 }

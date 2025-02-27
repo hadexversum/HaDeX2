@@ -31,9 +31,7 @@ The position frequency plot presents how many times each position of
 the sequence is covered by different peptides.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-plot_position_frequency(dat)
-plot_position_frequency(dat, state = "CD160_HVEM")
+plot_position_frequency(alpha_dat)
 
 }
 \seealso{

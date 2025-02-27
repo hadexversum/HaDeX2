@@ -21,8 +21,7 @@ Function adds the logo of HaDeX package in the left down
 corner of the plot and the HaDeX theme.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-diff_uptake_dat <- create_diff_uptake_dataset(dat)
+diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 HaDeXify(plot_differential(diff_uptake_dat))
 
 }

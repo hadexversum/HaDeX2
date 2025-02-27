@@ -49,8 +49,7 @@ thoroughly described in the `Data processing` article, as well as
 law of propagation of uncertainty, used to calculate uncertainty.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-diff_dat <- calculate_diff_uptake(dat)
+diff_dat <- calculate_diff_uptake(alpha_dat)
 head(diff_dat)
 
 }

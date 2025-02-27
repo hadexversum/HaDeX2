@@ -54,11 +54,10 @@ is uncertainty of the measurement in Daltons.
 The threshold is set to 1 Da, as this value is associated with exchange.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-plot_uncertainty(dat)
-plot_uncertainty(dat, aggregated = F)
-plot_uncertainty(dat, aggregated = F, separate_times = F)
-plot_uncertainty(dat, skip_amino = 1)
+plot_uncertainty(alpha_dat)
+plot_uncertainty(alpha_dat, aggregated = FALSE)
+plot_uncertainty(alpha_dat, aggregated = FALSE, separate_times = FALSE)
+plot_uncertainty(alpha_dat, skip_amino = 1)
 
 }
 \seealso{

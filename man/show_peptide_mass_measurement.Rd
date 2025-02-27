@@ -37,8 +37,7 @@ different replicates for specific peptide in specific state
 in specific time point of measurement.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-rep_mass_dat <- calculate_exp_masses_per_replicate(dat)
+rep_mass_dat <- calculate_exp_masses_per_replicate(alpha_dat)
 show_peptide_mass_measurement(rep_mass_dat)
 
 }

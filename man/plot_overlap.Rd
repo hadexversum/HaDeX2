@@ -26,8 +26,7 @@ on the protein sequence.
 This plot is visible in GUI.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-plot_overlap(dat)
+plot_overlap(alpha_dat)
 
 }
 \seealso{

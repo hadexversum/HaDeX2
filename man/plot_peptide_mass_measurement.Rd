@@ -43,9 +43,8 @@ Moreover, on the plot is shown the average mass from the
 replicates, used later in calculations.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-plot_peptide_mass_measurement(dat, sequence = "LICTVWHKKEEAEG")
-plot_peptide_mass_measurement(dat, sequence = "LICTVWHKKEEAEG", show_charge_values = F)
+plot_peptide_mass_measurement(alpha_dat, sequence = "FGSDDEEESEEAKRLRE")
+plot_peptide_mass_measurement(alpha_dat, sequence = "FGSDDEEESEEAKRLRE", show_charge_values = FALSE)
 
 }
 \seealso{

@@ -38,8 +38,7 @@ The chosen maximal exchange control is distinguishable by the value
 `99999` in `Exposure` control.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-create_control_dataset(dat)
+head(create_control_dataset(alpha_dat))
 
 }
 \seealso{

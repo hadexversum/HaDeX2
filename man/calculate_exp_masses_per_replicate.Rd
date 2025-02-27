@@ -27,8 +27,7 @@ The separate measurement (for each replicate in given state in given time point)
 can be distinguished by the `File` value.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-calculate_exp_masses_per_replicate(dat)
+calculate_exp_masses_per_replicate(alpha_dat)
 
 }
 \seealso{

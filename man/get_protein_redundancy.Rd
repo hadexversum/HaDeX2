@@ -24,8 +24,7 @@ Function \code{\link{get_protein_redundancy}} calculates the redundancy
 of the protein, based on provided experimental data.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-get_protein_redundancy(dat)
+get_protein_redundancy(alpha_dat)
 
 }
 \seealso{

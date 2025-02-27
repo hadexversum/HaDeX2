@@ -40,8 +40,7 @@ a amino position in protein sequence is covered.
 This data is available in the GUI.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-create_overlap_distribution_dataset(dat)
+create_overlap_distribution_dataset(alpha_dat)
 
 }
 \seealso{

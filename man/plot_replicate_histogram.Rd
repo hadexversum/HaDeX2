@@ -46,13 +46,12 @@ measurement, the colors help to distinguish between
 them.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-rep_dat <- create_replicate_dataset(dat)
+rep_dat <- create_replicate_dataset(alpha_dat)
 plot_replicate_histogram(rep_dat)
 
 plot_replicate_histogram(rep_dat, time_points = T)
 
-rep_dat <- create_replicate_dataset(dat, time_t = 0.167)
+rep_dat <- create_replicate_dataset(alpha_dat, time_t = 0.167)
 plot_replicate_histogram(rep_dat)
 
 }

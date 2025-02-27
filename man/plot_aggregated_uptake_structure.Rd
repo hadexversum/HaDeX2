@@ -38,14 +38,14 @@ differential deuterium uptake) on the 3d structure.
 diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 diff_aggregated_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
 plot_aggregated_uptake_structure(diff_aggregated_dat, 
-                                 differential = T,
+                                 differential = TRUE,
                                  time_t = 1,
                                  pdb_file_path = pdb_file_path)
                                   
 kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN" )
 aggregated_dat <- create_aggregated_uptake_dataset(kin_dat)
 plot_aggregated_uptake_structure(aggregated_dat, 
-                                 differential = F,
+                                 differential = FALSE,
                                  time_t = 1,
                                  pdb_file_path = pdb_file_path)
                                  

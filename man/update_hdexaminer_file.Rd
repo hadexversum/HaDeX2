@@ -51,9 +51,7 @@ in one column and for detailed information
 function \code{\link{update_hdexaminer_file}} allows to change them.
 }
 \examples{
-dat_hdexaminer <- read_hdx(system.file(package = "HaDeX", 
-                     "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-upadate_hdexaminer_file(dat_hdexaminer)                      
+update_hdexaminer_file(alpha_dat)                      
 
 }
 \seealso{

@@ -39,8 +39,7 @@ interest, and to avoid mistakes sequence is returned by the function.
 Moreover, function uses the modification value to select petide sequence.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-get_peptide_sequence(dat, start = 1, end = 15)
+get_peptide_sequence(alpha_dat, start = 1, end = 11)
 
 }
 \seealso{

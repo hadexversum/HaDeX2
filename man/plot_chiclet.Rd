@@ -47,8 +47,7 @@ provided criteria (e.q. fractional). Each tile has a plus sign, which size
 represent the uncertainty of measurement for chosen value.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-state_uptake_dat <- create_state_uptake_dataset(dat)
+state_uptake_dat <- create_state_uptake_dataset(alpha_dat)
 plot_chiclet(state_uptake_dat)
 
 }

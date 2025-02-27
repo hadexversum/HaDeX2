@@ -73,13 +73,12 @@ shown as red dotted lines. The values that are in upper left and right
 corners pass the hybrid test.
 }
 \examples{
-dat <-  read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-p_dat <- create_p_diff_uptake_dataset(dat)
-plot_volcano(p_dat, show_confidence_limits = T)
+p_dat <- create_p_diff_uptake_dataset(alpha_dat)
+plot_volcano(p_dat, show_confidence_limits = TRUE)
 
-plot_volcano(p_dat, show_confidence_limits = T, show_insignificant_grey = T)
-plot_volcano(p_dat, show_confidence_limits = T, hide_insignificant = T)
-plot_volcano(p_dat, show_confidence_limits = T, hide_insignificant = T, show_insignificant_grey = T)
+plot_volcano(p_dat, show_confidence_limits = TRUE, show_insignificant_grey = TRUE)
+plot_volcano(p_dat, show_confidence_limits = TRUE, hide_insignificant = TRUE)
+plot_volcano(p_dat, show_confidence_limits = TRUE, hide_insignificant = TRUE, show_insignificant_grey = TRUE)
 
 }
 \references{

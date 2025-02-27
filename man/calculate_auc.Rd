@@ -33,8 +33,7 @@ division by maximum values of exposure time and deuterium uptake,
 respectively.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-uptake_dat <- create_uptake_dataset(dat)
+uptake_dat <- create_uptake_dataset(alpha_dat)
 calculate_auc(uptake_dat)
 
 }

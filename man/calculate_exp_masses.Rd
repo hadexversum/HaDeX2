@@ -24,8 +24,7 @@ on how the data is aggregated or how the uncertainty is calculated, see the
 documentation.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-calculate_exp_masses(dat)
+calculate_exp_masses(alpha_dat)
 
 }
 \seealso{

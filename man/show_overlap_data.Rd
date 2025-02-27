@@ -36,8 +36,7 @@ its start and end position on the protein sequence.
 This data is available in the GUI.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-show_overlap_data(dat)
+show_overlap_data(alpha_dat)
 
 }
 \seealso{

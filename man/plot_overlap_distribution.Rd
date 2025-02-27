@@ -36,8 +36,7 @@ a amino position in protein sequence is covered.
 This plot is visible in GUI.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-overlap_dist_dat <- create_overlap_distribution_dataset(dat)
+overlap_dist_dat <- create_overlap_distribution_dataset(alpha_dat)
 plot_overlap_distribution(overlap_dist_dat)
 
 }
