@@ -53,39 +53,39 @@ deut_part - deuterium percentage in solution used in experiment, from range [0, 
 
 
 
-# Object hdx_data
+<!-- # Object hdx_data -->
 
-In the package, the input data is transformed into hdx_data object. The object inherits the data frame properties and has multiple necessary attributes.
+<!-- In the package, the input data is transformed into hdx_data object. The object inherits the data frame properties and has multiple necessary attributes. -->
 
-## Main data frame
+<!-- ## Main data frame -->
 
-Protein - character, protein name. May have different values.
+<!-- Protein - character, protein name. May have different values. -->
 
-Start - integer, start position of the peptide in the protein sequence.
+<!-- Start - integer, start position of the peptide in the protein sequence. -->
 
-End - integer, end position of the peptide in the protein sequence.
+<!-- End - integer, end position of the peptide in the protein sequence. -->
 
-Sequence - character, peptide name. 
+<!-- Sequence - character, peptide name.  -->
 
-MaxUptake - numerical, maximal possible uptake value, based on the peptide sequence.
+<!-- MaxUptake - numerical, maximal possible uptake value, based on the peptide sequence. -->
 
-MHP - numerical, monoisotopic mass of the peptide, based on the peptide sequence [Da].
+<!-- MHP - numerical, monoisotopic mass of the peptide, based on the peptide sequence [Da]. -->
 
-State - character, biological state.
+<!-- State - character, biological state. -->
 
-Exposure - numerical, time point of the measurement [min].
+<!-- Exposure - numerical, time point of the measurement [min]. -->
 
-File - character, the raw data filename.
+<!-- File - character, the raw data filename. -->
 
-z - integer, the charge value.
+<!-- z - integer, the charge value. -->
 
-Inten - numerical, peak intensity.
+<!-- Inten - numerical, peak intensity. -->
 
-Center - numerical, geometric centroid value of measured isotopic envelope.
+<!-- Center - numerical, geometric centroid value of measured isotopic envelope. -->
 
 
-## Attributes
+<!-- ## Attributes -->
 
-source - character, indicator of the data source (e.g. Dynamx3.0).
+<!-- source - character, indicator of the data source (e.g. Dynamx3.0). -->
 
-has_modification - logical, indicator of the modification presence. The modification information is preserved in the state value.
+<!-- has_modification - logical, indicator of the modification presence. The modification information is preserved in the state value. -->

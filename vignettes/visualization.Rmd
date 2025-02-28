@@ -234,21 +234,17 @@ plot_uptake_curve(kin_dat, fractional = TRUE, log_x = TRUE)
 
 *Values* The values on the plot can be presented as deuterium uptake (in Daltons) or fractional deuterium uptake (in percentage). The calculation of the deuterium uptake is done with respect to experimentally measured minimal/maximal exchange control or tabular values (MHP and Max Uptake).
 
-<!-- # Quality control -->
+# Uncertainty plot
 
-<!-- *Example* -->
+# Manhattan plot
 
-<!-- ```{r} -->
+# Measurement plots
 
-<!-- ``` -->
+# High-resolution plot
 
-<!-- *Pros* -->
+# High-resolution on 3D structure
 
-<!-- *Cons* -->
-
-<!-- *Uncertainty*   -->
-
-<!-- *Values* -->
+# Coverage heatmap
 
 # Summary of the uptake plots
 
