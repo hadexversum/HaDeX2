@@ -38,19 +38,14 @@ jobs:
       - name: Install r3dmol
         run: devtools::install_github("swsoyee/r3dmol", upgrade = "never")
         shell: Rscript {0}
-        
-      - name: Install HRaDeX
-        run: devtools::install_github("hadexversum/HRaDeX", upgrade = "never")
+
+      - name: Install HaDeX2
+        run: devtools::install_github("hadexversum/HaDeX2", upgrade = "never")
         shell: Rscript {0}
 
       - name: Install HaDeXGUI
         run: devtools::install_github("hadexversum/HaDeXGUI@structures", upgrade = "never")
         shell: Rscript {0}
-
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          extra-packages: any::pkgdown, local::.
-          needs: website
 
       - name: Build site
         run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
