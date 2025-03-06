@@ -15,6 +15,7 @@ vignette: >
 ```{r setup, include = FALSE, echo = FALSE, warning = FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(dev = "png", dev.args = list(type = "cairo-png"))
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5)
 ```
 
 ```{r, include=FALSE}
@@ -22,45 +23,29 @@ library(HaDeX)
 library(ggplot2)
 library(dplyr)
 
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
+states <- unique(alpha_dat[["State"]])
 
-states_uptake_dat <- create_state_comparison_dataset(dat, time_t = 1)
-woods_diff_uptake_dat <- calculate_diff_uptake(dat)
-uptake_dat <- create_state_uptake_dataset(dat)
-diff_uptake_dat <- create_diff_uptake_dataset(dat)
+states_uptake_dat <- create_state_comparison_dataset(alpha_dat, time_t = 1)
+woods_diff_uptake_dat <- calculate_diff_uptake(alpha_dat, states = c(states[3], states[1]))
+uptake_dat <- create_state_uptake_dataset(alpha_dat, state = states[3])
+diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat, state_1 = states[3], state_2 = states[1])
 ```
 
 Data visualization is an essential part of the data analysis as it allows to interpret the results.
 
-In this article, we present methods of data visualization available in the package. Some of the features can be 
-unchecked in the GUI, but we focus on the plots with the maximum of elements.
-We use already processed data (calculated deuterium uptake, not measured masses). For more information on how the results
-are calculated see the other articles in the documentation. 
+In this article, we present methods of data visualization available in the HaDeX2 package. 
 
-All of the examples of the plot use the example file *KD_180110_CD160_HVEM.csv*. The examples show the deuterium uptake values, the different forms of presented data are described under each plot. HaDeX package allows to produce a data frame with presented data for each plot.
-
-<!-- # Sequence data -->
-
-<!-- *Example* -->
-<!-- ```{r} -->
-
-<!-- ``` -->
-
-<!-- # Coverage of the sequence -->
-
-<!-- *Example* -->
-<!-- ```{r} -->
-
-<!-- ``` -->
+The analyzed protein is the eEF1Bα subunit of the human guanine-nucleotide exchange factor (GEF) complex (eEF1B), measured in [Mass Spectrometry Lab](https://mslab-ibb.pl/) in [Institute of Biochemistry and Biophysics Polish Academy of Sciences](https://ibb.edu.pl/en/) and published by [Bondarchuk et al](https://doi.org/10.1093/nar/gkac685). In the one-state classification, we will focus on pure alpha state. The comparative analysis is conducted between pure alpha state and alpha in presence of gamma component.  
 
 # Comparison plot
 
 The comparison plot shows deuterium uptake of the peptides in a given time point, with information on the length of the peptide and its position in the protein sequence. It allows comparing the results of different biological states.
 
-*Example* In the comparison plot below, we see the fractional deuterium uptake for two states CD160 and CD160_HVEM, of protein db_CD160. The values are calculated for the time point 1 min. The length of the segments represents the length of the peptide and the position in the protein sequence. The error bars indicate the uncertainty of the measurement. 
+*Example* In the comparison plot below, we see the fractional deuterium uptake for all three possible states: eEF1B$\alpha$, eEF1B$\alpha$ in presence of eEF1B$\gamma$ and in presence of eEF1B$\beta$, from protein eEF1B. The values are calculated for the time point 1 min. The length of the segments represents the length of the peptide and the position in the protein sequence. The error bars indicate the uncertainty of the measurement. 
 
 ```{r}
-plot_state_comparison(states_uptake_dat, fractional = TRUE) + 
+create_state_comparison_dataset(alpha_dat, time_t = 1) %>%
+plot_state_comparison(., fractional = TRUE) + 
   labs(x = "Position in sequence",
        y = "Fractional deuterium uptake [%]",
        title = "Measurement - 1 min")
@@ -79,11 +64,12 @@ plot_state_comparison(states_uptake_dat, fractional = TRUE) +
 
 Woods plot presents the deuterium uptake difference between two biological states for the peptides. The results are presented with respect to the length of the peptide and its position in the protein sequence for a given time point of the measurement. The statistical test (Houde et al., the confidence level is calculated based on the measurements in chosen time point of the measurement) is applied to determine the confidence limits values at the chosen level.
 
-*Example* On the Woods plot below, we see fractional deuterium uptake difference between two biological states CD160 and CD160_HVEM for protein db_CD160. The confidence limits indicate which differences are statistically significant at levels 98% and 99%. There are regions that were protected in the second state, and regions deprotected. Also, in region 40-800, results for some peptides were not big enough to be significant. 
+*Example* On the Woods plot below, we see fractional deuterium uptake difference between two biological states eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$ for protein eEF1B The confidence limits indicate which differences are statistically significant at levels 98%. 
+
 
 ```{r}
-plot_differential(woods_diff_uptake_dat, fractional = TRUE) +
-  coord_cartesian(ylim = c(-6, 15)) +
+calculate_diff_uptake(alpha_dat, states = c(states[3], states[1])) %>%
+plot_differential(., fractional = TRUE, show_houde_interval = TRUE) +
   labs(x = "Position in seqence",
        y = "Fractional deuterium uptake difference [%]",
        title = "Measurement - 1 min")
@@ -102,10 +88,11 @@ plot_differential(woods_diff_uptake_dat, fractional = TRUE) +
 
 Butterfly plot presents the deuterium uptake for all peptides in a given state at different time points at once. Each time point of measurement is indicated by a different color. Peptides are identified by their ID (peptides are numbered arranged by the start position). 
 
-*Example* Below, on the butterfly plot, we see how the fractional deuterium uptake changes in time for state CD160 for protein db_CD160. We see the different exchange speed - for some peptides, the change is stable in time, and for some peptides, there is no visible change in time.
+*Example* Below, on the butterfly plot, we see how the deuterium uptake changes in time for state eEF1B$\alpha$ for protein eEF1B. We see the different exchange speed - for some peptides, the change is stable in time, and for some peptides, there is no visible change in time.
 
 ```{r}
-plot_butterfly(uptake_dat, fractional = TRUE)
+create_state_uptake_dataset(alpha_dat, state = states[3]) %>%
+plot_butterfly(., fractional = FALSE)
 ```
 
 *Pros* Shows the changes of deuterium uptake in time and allows to see how the exchange goes. 
@@ -120,11 +107,10 @@ plot_butterfly(uptake_dat, fractional = TRUE)
 
 Butterfly differential plot shows the deuterium uptake difference between two biological states in the form of a butterfly plot. It shows the results for a peptide ID (peptides are numbered arranged by the start position). The results are shown for different time points at once (time points of measurement are indicated by the color).
 
-*Example* Below, we see how the fractional deuterium uptake difference between states CD160 and CD160_HVEM changes over time. We see that for some peptides, the difference is smaller with time - perhaps because of the back exchange.
+*Example* Below, we see how the fractional deuterium uptake difference between states eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$ changes over time. We see that for some peptides, the difference is smaller with time - perhaps because of the back exchange.
 
 ```{r message=FALSE}
-plot_differential_butterfly(diff_uptake_dat, fractional = TRUE) +
-  coord_cartesian(ylim = c(-10, 20))
+plot_differential_butterfly(diff_uptake_dat, fractional = TRUE) 
 ```
 
 *Pros* It shows the results for different time points of the measurement. 
@@ -139,7 +125,7 @@ plot_differential_butterfly(diff_uptake_dat, fractional = TRUE) +
 
 Chiclet plot shows the fractional deuterium uptake in the form of a heatmap for the peptides in a given biological state. One tile indicates the peptide (identified by its ID - number arranged by the start position) in a time point of measurement. The color of the tile indicates the fractinal deuterium uptake (according to the legend below the plot). 
 
-*Example* In the chiclet plot below, we can see the deuterium uptake values for peptides (indicated by their ID) in state CD160 during the time course of the experiment. The cross symbols indicate the uncertainty of the measurement (the bigger the cross sign, the bigger the uncertainty). 
+*Example* In the chiclet plot below, we can see the deuterium uptake values for peptides (indicated by their ID) in state eEF1B$\alpha$ during the time course of the experiment. The cross symbols indicate the uncertainty of the measurement (the bigger the cross sign, the bigger the uncertainty). 
 
 ```{r}
 uptake_dat %>%
@@ -159,7 +145,7 @@ uptake_dat %>%
 
 Chiclet differential plot shows the deuterium uptake difference between two biological states in the form of a heatmap. One tile indicates the peptide (identified by its ID - number arranged by the start position) in a time point of measurement. The color of the tile indicates the deuterium uptake difference (according to the legend below the plot). 
 
-*Example* On the chiclet differential plot below, we see the fractional deuterium uptake difference between states CD160 and CD160_HVEM for protein db_CD160. We see that some peptides are protected (red), and some are deprotected (blue). The cross symbols indicate the uncertainty of the measurement (the bigger the cross sign, the bigger the uncertainty). 
+*Example* On the chiclet differential plot below, we see the fractional deuterium uptake difference between states eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$ for protein eEF1B. We see that some peptides are protected (red), and some are deprotected (blue). The cross symbols indicate the uncertainty of the measurement (the bigger the cross sign, the bigger the uncertainty). 
 
 ```{r}
 diff_uptake_dat %>%
@@ -185,11 +171,11 @@ for states A and B. The values of deuterium uptake difference from all time poin
 
 The dotted red lines indicate confidence limits for the values. The horizontal line indicates the confidence limit based on chosen confidence level to give a threshold on a P-value. The vertical lines indicate the confidence limit from Houde test for all time points and indicate a threshold on deuterium uptake difference. The statistically significant points are in the top left and right corners of the plot.
 
-*Example* On the volcano plot below, we see the results for deuterium uptake difference between states CD160 and CD160_HVEM for protein db_CD160 in all time points. The points in the left and right upper corner are statistically significant using the hybrid testing.
+*Example* On the volcano plot below, we see the results for deuterium uptake difference between states eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$ for protein eEF1B in all time points. The points in the left and right upper corner are statistically significant using the hybrid testing.
 
 ```{r, warning = FALSE}
 
-p_dat <- create_p_diff_uptake_dataset(dat)
+p_dat <- create_p_diff_uptake_dataset(alpha_dat)
 
 plot_volcano(p_dat, show_confidence_limits = T)
 
@@ -207,23 +193,13 @@ plot_volcano(p_dat, show_confidence_limits = T)
 
 Uptake curves show the changes in exchange in time for a specific peptide for its state.
 
-*Example* On the uptake curve below, we see how the exchange goes for peptide INITSSASQEGTRLN in states CD160 and CD160_HVEM for protein db_CD160. We can see that the fractional deuterium uptake in state CD160_HVEM is smaller than in state CD160. 
+*Example* On the uptake curve below, we see how the exchange goes for peptide GFGDLKSPAGL in all three states for protein eEF1Ba. 
 
 ```{r, warning = FALSE, message = FALSE}
-kin_dat <- bind_rows(calculate_kinetics(dat,
-                              sequence = "INITSSASQEGTRLN",
-                              start = 1, end = 15,
-                              state = "CD160",
-                              time_0 = 0.001,
-                              time_100 = 1440),
-                     calculate_kinetics(dat,
-                              sequence = "INITSSASQEGTRLN",
-                              start = 1, end = 15,
-                              state = "CD160_HVEM",
-                              time_0 = 0.001,
-                              time_100 = 1440))
 
-plot_uptake_curve(kin_dat, fractional = TRUE, log_x = TRUE) 
+calculate_peptide_kinetics(dat = alpha_dat) %>%
+plot_uptake_curve() +
+  ylim(c(0, NA))
 ```
 
 *Pros* The plot shows the differences in deuterium uptake between two states in the time course. The back-exchange phenomenon is visible in this plot. 
@@ -236,15 +212,106 @@ plot_uptake_curve(kin_dat, fractional = TRUE, log_x = TRUE)
 
 # Uncertainty plot
 
+Uncertainty plot is new visualization method, showing the uncertainty of measurement of deuterium uptake for peptides to spot the regions where the uncertainty is higher. This plot may be used as a quality control of the experiment.
+The presented uncertainty is in Daltons, making the threshold 1 Da as proposed limit of acceptance.
+
+*Example* The plot below presents uncertainty values for multiple time points for state eEF1B$\alpha$. We see that the uncertainty is relatively low for all the measurement, and none of the value is suspicious.
+
+```{r}
+alpha_dat %>%
+  filter(Exposure > 0) %>%
+plot_uncertainty(.)
+```
+*Pros* We see the uncertainty values for peptides with information about their length and position in the whole protein sequecene, making it easy to spot regions with higher uncertainty. In presented form, we can compare the change in time.
+
+*Cons* 
+
+*Plot variations* It is possible to show values only for one selected time points. There is also option to omit first amino. The threshold of 1 Da can be hidden. The tooltips are available if needed. 
+
 # Manhattan plot
+
+Manhattan plot is a novel plot, presenting the P-value of statistical significance between two states. 
+
+*Example* In this example, we present the P values of difference between two biological states: eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$.
+We can see the regions where the difference is statisticaly significant - above the significance level (detailed as option in create_p_diff_uptake_dataset, or by default 0.98).
+
+```{r}
+
+p_diff_dat <- create_p_diff_uptake_dataset(dat = alpha_dat, diff_uptake_dat = diff_uptake_dat,
+                                           state_1 = states[3], state_2 = states[1])
+plot_manhattan(p_diff_dat, show_peptide_position  = TRUE)
+```
+
+
+*Pros* It is easy to spot regions with statistically significant changes and to observe how they change in time. 
+
+*Cons* 
+
+*Plot variations* Instead of peptide position and length, peptides can be identified by their ID. Only one time point can be shown. The first amino of each peptide can be skipped. The confidence level can be hidden. The tooltips are available. 
 
 # Measurement plots
 
+```{r}
+
+```
+
+
+*Pros* 
+
+*Cons*
+
+*Values*
+
 # High-resolution plot
+
+
+
+```{r}
+
+kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN")
+aggregated_dat <- create_aggregated_uptake_dataset(kin_dat)
+plot_aggregated_uptake(aggregated_dat)
+```
+
+
+*Pros* 
+
+*Cons*
+
+*Values*
 
 # High-resolution on 3D structure
 
+*Pros* 
+
+*Cons*
+
+*Values*
+
 # Coverage heatmap
+
+This plot is particulary useful when presenting AUC or back-exchange values.
+
+AUC:
+```{r}
+auc_dat <- calculate_auc(create_uptake_dataset(alpha_dat))
+plot_coverage_heatmap(auc_dat, value = "auc")
+
+```
+
+Back-exchange:
+```{r}
+bex_dat <- calculate_back_exchange(alpha_dat, state = "Alpha_KSCN")
+plot_coverage_heatmap(bex_dat, value = "back_exchange")
+
+```
+
+
+*Pros* 
+
+*Cons*
+
+*Values*
 
 # Summary of the uptake plots
 
