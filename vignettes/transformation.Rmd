@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(dev = "png", dev.args = list(type = "cairo-png"))
 ```
 
-The aggregation of the data is complex. This article describes the process step by step for a better understanding of the data transformation.
+The aggregation of the hydrogen-deuterium exchange experimental data is complex. This article describes the process step by step for a better understanding of the data transformation.
 
 ## Aggregation of the data - visualization
 

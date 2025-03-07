@@ -31,15 +31,15 @@ uptake_dat <- create_state_uptake_dataset(alpha_dat, state = states[3])
 diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat, state_1 = states[3], state_2 = states[1])
 ```
 
-Data visualization is an essential part of the data analysis as it allows to interpret the results.
+Data visualization is a crutial part of the experimental data analysis. The forms of visualization should be adjusted to highlight the essential result and tailored to satisfy personal needs. 
 
-In this article, we present methods of data visualization available in the HaDeX2 package. 
+In this article, we present methods of data visualization available in the HaDeX2 package, and consecutively in the GUI.
 
-The analyzed protein is the eEF1Bα subunit of the human guanine-nucleotide exchange factor (GEF) complex (eEF1B), measured in [Mass Spectrometry Lab](https://mslab-ibb.pl/) in [Institute of Biochemistry and Biophysics Polish Academy of Sciences](https://ibb.edu.pl/en/) and published by [Bondarchuk et al](https://doi.org/10.1093/nar/gkac685). In the one-state classification, we will focus on pure alpha state. The comparative analysis is conducted between pure alpha state and alpha in presence of gamma component.  
+The analyzed protein is the eEF1Bα subunit of the human guanine-nucleotide exchange factor (GEF) complex (eEF1B), measured in [Mass Spectrometry Lab](https://mslab-ibb.pl/) in [Institute of Biochemistry and Biophysics Polish Academy of Sciences](https://ibb.edu.pl/en/) and published by [Bondarchuk et al](https://doi.org/10.1093/nar/gkac685). In the one-state classification, we will focus on pure alpha state - eEF1B$\alpha$. The comparative analysis is conducted between eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$.  
 
 # Comparison plot
 
-The comparison plot shows deuterium uptake of the peptides in a given time point, with information on the length of the peptide and its position in the protein sequence. It allows comparing the results of different biological states.
+The comparison plot presents deuterium uptake of the peptides in a given time point, with information on the length of the peptide and their position in the protein sequence. It allows comparison of the results of different biological states.
 
 *Example* In the comparison plot below, we see the fractional deuterium uptake for all three possible states: eEF1B$\alpha$, eEF1B$\alpha$ in presence of eEF1B$\gamma$ and in presence of eEF1B$\beta$, from protein eEF1B. The values are calculated for the time point 1 min. The length of the segments represents the length of the peptide and the position in the protein sequence. The error bars indicate the uncertainty of the measurement. 
 
@@ -48,17 +48,21 @@ create_state_comparison_dataset(alpha_dat, time_t = 1) %>%
 plot_state_comparison(., fractional = TRUE) + 
   labs(x = "Position in sequence",
        y = "Fractional deuterium uptake [%]",
-       title = "Measurement - 1 min")
+       title = "Measurement after 1 min of exchange")
 ```
 
 
-*Pros* The peptide deuterium uptake of each peptide can be related to its position of the protein. The changes in a specific region of the protein are visible and how it changes between the biological state at the time of the measurement.
+*Pros:* 
+ - peptide length and position 
+ - comparison of multiple biological states
+ - region with difference is easy to spot on 
+ - uncertainty for each peptide 
 
-*Cons* The information of the changes in time is lost. Some regions may be hard to read due to the overlap of peptides.
-
-*Uncertainty* The uncertainty of the deuterium uptake measurement is indicated by the error bars associated with each peptide. 
-
-*Values* The values on the plot can be presented as deuterium uptake (in Daltons) or fractional deuterium uptake (in percentage). The calculation of the deuterium uptake is done with respect to experimentally measured minimal/maximal exchange control or tabular values (MHP and Max Uptake).
+*Plot variants:*
+ - fractional/absolute values
+ - fractional values calculated with respect of theoretical/experimental maximal uptake
+ - plots with different time points can be plotted next to each other
+ - tooltips available in GUI
 
 # Woods plot
 
@@ -72,17 +76,24 @@ calculate_diff_uptake(alpha_dat, states = c(states[3], states[1])) %>%
 plot_differential(., fractional = TRUE, show_houde_interval = TRUE) +
   labs(x = "Position in seqence",
        y = "Fractional deuterium uptake difference [%]",
-       title = "Measurement - 1 min")
+       title = "Measurement after 1 min of uptake")
 ```
 
 
-*Pros* The peptide deuterium uptake difference between two biological states of each peptide can be related to its position of the protein. The changes in a specific region of the protein are visible. The confidence limits indicate if the result is statistically significant. 
-
-*Cons* The information of the changes in time is lost. Some regions may be hard to read due to the overlap of peptides.
-
-*Uncertainty* The uncertainty of the deuterium uptake difference (uncertainty of the measurement combined and propagated) is indicated by the error bars associated with each peptide. 
-
-*Values* The values on the plot can be presented as deuterium uptake difference (in Daltons) or fractional deuterium uptake difference (in percentage). The calculation of the deuterium uptake difference is done with respect to experimentally measured minimal/maximal exchange control or tabular values (MHP and Max Uptake).
+*Pros* 
+ - differential analysis between two states
+ - peptide length and position 
+ - region with difference is easy to spot on 
+ - uncertainty for each peptide 
+ - hybrid statistical testing
+ - statistical level
+ 
+*Plot variables:*
+ - fractional/absolute values
+ - fractional values calculated with respect of theoretical/experimental maximal uptake
+ - plots with different time points can be plotted next to each other
+ - peptides classified as statistically unsignificant can be hidden
+ - tooltips available in GUI
 
 # Butterfly plot
 
@@ -95,13 +106,22 @@ create_state_uptake_dataset(alpha_dat, state = states[3]) %>%
 plot_butterfly(., fractional = FALSE)
 ```
 
-*Pros* Shows the changes of deuterium uptake in time and allows to see how the exchange goes. 
+*Pros* 
+ - values for time course
+ - uncertainty for each peptide 
 
-*Cons* It shows the results only for one biological state. The information on the length of the peptide and the protein region is lost.
-
-*Uncertainty* Uncertainty of the deuterium uptake (combined and propagated based on the chosen value) is shown as a ribbon or error bars.
-
-*Values* The values on the plot can be presented as deuterium uptake (in Daltons) or fractional deuterium uptake (in percentage). The calculation of the deuterium uptake is done with respect to experimentally measured minimal/maximal exchange control or tabular values (MHP and Max Uptake).
+*Cons:*
+ - only one state
+ - lost information of length and position of the peptide
+ - may be difficult to read
+ 
+*Plot variants:*
+ - fractional/absolute values
+ - fractional values calculated with respect of theoretical/experimental maximal uptake
+ - different methods of showing uncertainty: bars or ribbons
+ - selected time points shown 
+ - tooltips available in GUI
+ 
 
 # Butterfly differential plot
 
@@ -109,17 +129,32 @@ Butterfly differential plot shows the deuterium uptake difference between two bi
 
 *Example* Below, we see how the fractional deuterium uptake difference between states eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$ changes over time. We see that for some peptides, the difference is smaller with time - perhaps because of the back exchange.
 
+The measurements for 1440 min are hidden, as they are close to 0, as expected.
+
 ```{r message=FALSE}
-plot_differential_butterfly(diff_uptake_dat, fractional = TRUE) 
+create_diff_uptake_dataset(alpha_dat, state_1 = states[3], state_2 = states[1]) %>%
+  filter(Exposure < 1440) %>%
+plot_differential_butterfly(fractional = TRUE, show_houde_interval = TRUE) 
 ```
 
-*Pros* It shows the results for different time points of the measurement. 
+*Pros* 
+ - differential analysis between two states
+ - hybrid statistical testing
+ - statistical level
+ - values for time course
+ - uncertainty for each peptide 
 
-*Cons* The readability of the plot is very small due to small and overlapping values. There is no indication which changes are statistically significant. The information of peptide length and protein region is lost.
+*Cons:*
+ - lost information of length and position of the peptide
+ - may be difficult to read
+ 
+*Plot variants:*
+ - fractional/absolute values
+ - fractional values calculated with respect of theoretical/experimental maximal uptake
+ - different methods of showing uncertainty: bars or ribbons
+ - selected time points shown 
+ - tooltips available in GUI
 
-*Uncertainty*  Uncertainty of the deuterium uptake difference (combined and propagated based on the chosen value) is shown as a ribbon or error bars.
-
-*Values* The values on the plot can be presented as deuterium uptake difference (in Daltons) or fractional deuterium uptake difference (in percentage). The calculation of the deuterium uptake difference is done with respect to experimentally measured minimal/maximal exchange control or tabular values (MHP and Max Uptake).
 
 # Chiclet plot
 
@@ -128,19 +163,28 @@ Chiclet plot shows the fractional deuterium uptake in the form of a heatmap for 
 *Example* In the chiclet plot below, we can see the deuterium uptake values for peptides (indicated by their ID) in state eEF1B$\alpha$ during the time course of the experiment. The cross symbols indicate the uncertainty of the measurement (the bigger the cross sign, the bigger the uncertainty). 
 
 ```{r}
-uptake_dat %>%
+create_state_uptake_dataset(alpha_dat, state = states[3]) %>% 
   filter(Exposure < 1440) %>%
-  plot_chiclet(show_uncertainty = T, fractional = TRUE)
+  plot_chiclet(show_uncertainty = TRUE, fractional = FALSE)
 ```
+*Pros* 
+ - values for time course
+ - uncertainty for each peptide 
 
-*Pros* The plot shows how the deuterium uptake changes over time. 
-
-*Cons* This plot shows the values only for one biological state. The values are indicated by colors, so the small changes between time points are difficult to notice. The information about peptide length and protein region is lost. 
-
-*Uncertainty*  Uncertainty (combined and propagated) is shown as the cross symbols of each tile. The legend is placed under the plot. 
-
-*Values* The values on the plot can be presented as deuterium uptake (in Daltons) or fractional deuterium uptake (in percentage). The calculation of the deuterium uptake is done with respect to experimentally measured minimal/maximal exchange control or tabular values (MHP and Max Uptake).
-
+*Cons:*
+ - only one state
+ - lost information of length and position of the peptide
+ - may be difficult to read
+ - small changes in values may be difficult to spot
+ 
+*Plot variants:*
+ - fractional/absolute values
+ - fractional values calculated with respect of theoretical/experimental maximal uptake
+ - uncertainty can be hidden to improve the readability of the plot
+ - peptides classified as statistically significant can be hidden
+ - selected time points shown 
+ - tooltips available in GUI
+ 
 # Chiclet differential plot
 
 Chiclet differential plot shows the deuterium uptake difference between two biological states in the form of a heatmap. One tile indicates the peptide (identified by its ID - number arranged by the start position) in a time point of measurement. The color of the tile indicates the deuterium uptake difference (according to the legend below the plot). 
@@ -152,14 +196,24 @@ diff_uptake_dat %>%
   filter(Exposure < 1440 & Exposure > 0.001) %>%
   plot_differential_chiclet(show_uncertainty = TRUE, fractional = TRUE)
 ```
+*Pros* 
+ - differential analysis between two states
+ - values for time course
+ - uncertainty for each peptide 
 
-*Pros* The plot shows the results for different time points of the measurement.
-
-*Cons* The values are indicated by colors, so the small changes between time points are difficult to notice. There is no indication if the values are statistically significant. If we choose not to show the insignificant values, that may be mistaken for no difference. The information on peptide length and protein region is lost. 
-
-*Uncertainty* Uncertainty (combined and propagated) is shown as the cross symbols of each tile. The legend is placed under the plot. 
-
-*Values* The values on the plot can be presented as deuterium uptake difference (in Daltons) or fractional deuterium uptake difference (in percentage). The calculation of the deuterium uptake difference is done with respect to experimentally measured minimal/maximal exchange control or tabular values (MHP and Max Uptake).
+*Cons:*
+ - lost information of length and position of the peptide
+ - may be difficult to read
+ - small changes in values may be difficult to spot
+ 
+*Plot variants:*
+ - fractional/absolute values
+ - fractional values calculated with respect of theoretical/experimental maximal uptake
+ - uncertainty can be hidden to improve the readability of the plot
+ - peptides classified as statistically significant can be hidden
+ - selected time points shown 
+ - tooltips available in GUI
+ 
 
 # Volcano plot
 
@@ -222,11 +276,18 @@ alpha_dat %>%
   filter(Exposure > 0) %>%
 plot_uncertainty(.)
 ```
-*Pros* We see the uncertainty values for peptides with information about their length and position in the whole protein sequecene, making it easy to spot regions with higher uncertainty. In presented form, we can compare the change in time.
+*Pros:* 
+ - experimental quality control
+ - regions with high measurement uncertainty are easy to spot 
+ - peptide length and position 
+ - region with difference is easy to spot on 
 
-*Cons* 
-
-*Plot variations* It is possible to show values only for one selected time points. There is also option to omit first amino. The threshold of 1 Da can be hidden. The tooltips are available if needed. 
+*Plot variants:*
+ - plot for only one time point can be plotted
+ - selected time points shown
+ - threshold can be hidden
+ - first amino omitted
+ - tooltips available in GUI
 
 # Manhattan plot
 
