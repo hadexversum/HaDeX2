@@ -42,6 +42,10 @@ jobs:
       - name: Install HaDeX2
         run: devtools::install_github("hadexversum/HaDeX2", upgrade = "never")
         shell: Rscript {0}
+        
+      - name: Install HaDeXGUI
+        run: devtools::install_github("hadexversum/HaDeXGUI@structures", upgrade = "never")
+        shell: Rscript {0}
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
