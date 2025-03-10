@@ -31,22 +31,22 @@ jobs:
         with:
           use-public-rspm: true
           
-      - name: Install devtools
-        run: install.packages("devtools")
+      - name: Install pak
+        run: install.packages("pak")
         shell: Rscript {0}
 
       - name: Install r3dmol
-        run: devtools::install_github("swsoyee/r3dmol", upgrade = "never")
+        run: pak::pkg_install("swsoyee/r3dmol") 
+        shell: Rscript {0}
+
+      - name: Install HaDeXGUI
+        run: pak::pkg_install("hadexversum/HaDeXGUI@structures") 
         shell: Rscript {0}
 
       - name: Install HaDeX2
-        run: devtools::install_github("hadexversum/HaDeX2", upgrade = "never")
+        run: pak::pkg_install("hadexversum/HaDeX2")
         shell: Rscript {0}
         
-      - name: Install HaDeXGUI
-        run: devtools::install_github("hadexversum/HaDeXGUI@structures", upgrade = "never")
-        shell: Rscript {0}
-
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::pkgdown, local::.
