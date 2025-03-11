@@ -3,7 +3,7 @@
 #' @description Plot the mass measurements
 #' from replicates for peptide in specific time point. 
 #' 
-#' @importFrom ggplot2 geom_vline
+#' @importFrom ggplot2 geom_vline annotate
 #' 
 #' @param dat data produced by 
 #' \code{\link{read_hdx}} function.
@@ -17,7 +17,8 @@
 #' different replicates for specific peptide in specific state
 #' in specific time point of measurement on the plot. 
 #' Moreover, on the plot is shown the average mass from the 
-#' replicates, used later in calculations. 
+#' replicates, used later in calculations. The ribbon next to the
+#' dotted average mass indicates the uncertainty.
 #' 
 #' @return a \code{\link{ggplot}} object.
 #' 
@@ -52,6 +53,7 @@ plot_peptide_mass_measurement <- function(dat,
   rep_mass_dat <- rep_mass_dat[Protein == protein & State == state & Sequence == sequence & Exposure == time_t]
   
   avg_value <- mean(rep_mass_dat[["avg_exp_mass"]])
+  err_avg <- sd(rep_mass_dat[["avg_exp_mass"]])
   
   if(show_charge_values){
     
@@ -68,14 +70,17 @@ plot_peptide_mass_measurement <- function(dat,
                                                          Position: {Start}-{End}
                                                          Value: {round(exp_mass, 2)},
                                                          Replicate: {File}"
-                                                            
+                                                                         
                                                           ))) +
         geom_point_interactive(data = rep_mass_dat, aes(x = avg_exp_mass, y = File,
                                                         tooltip = glue("{Sequence}
                                                          Position: {Start}-{End}
                                                          Value: {round(avg_exp_mass, 2)},
                                                          Replicate: {File}")), size = 3) +
-        geom_vline(xintercept = avg_value, color = "red", linetype = "dashed", size = 1.5) +
+        geom_vline(xintercept = avg_value, color = "red", linetype = "dashed", linewidth = 1.5) +
+        annotate("rect",
+                 xmin = avg_value - err_avg, xmax = avg_value + err_avg, 
+                 ymin = -Inf, ymax = Inf,  fill = "red", alpha=.03) +
         labs(y = "",
              x = "Measured mass [Da]",
              title = paste0("Peptide ", sequence, " in state ", state, " in ", time_t, " min"),
@@ -88,7 +93,10 @@ plot_peptide_mass_measurement <- function(dat,
       pep_mass_plot <- ggplot() +
         geom_point(data = rep_mass_z_dat, aes(x = exp_mass, y = File, color = as.factor(z), size = weighted_Inten)) +
         geom_point(data = rep_mass_dat, aes(x = avg_exp_mass, y = File), size = 3) +
-        geom_vline(xintercept = avg_value, color = "red", linetype = "dashed", size = 1.5) +
+        geom_vline(xintercept = avg_value, color = "red", linetype = "dashed", linewidth = 1.5) +
+        annotate("rect",
+                 xmin = avg_value - err_avg, xmax = avg_value + err_avg, 
+                 ymin = -Inf, ymax = Inf,  fill = "red", alpha=.03) + 
         labs(y = "",
              x = "Measured mass [Da]",
              title = paste0("Peptide ", sequence, " in state ", state, " in ", time_t, " min"),
@@ -111,7 +119,10 @@ plot_peptide_mass_measurement <- function(dat,
                                                          Value: {round(avg_exp_mass, 2)},
                                                          Replicate: {File}"
                                                         )), size = 3) +
-        geom_vline(xintercept = avg_value, color = "red", linetype = "dashed", size = 1.5) +
+        geom_vline(xintercept = avg_value, color = "red", linetype = "dashed", linewidth = 1.5) +
+        annotate("rect",
+                 xmin = avg_value - err_avg, xmax = avg_value + err_avg, 
+                 ymin = -Inf, ymax = Inf,  fill = "red", alpha=.03) +
         labs(y = "",
              x = "Measured mass [Da]",
              title = paste0("Peptide ", sequence, " in state ", state, " in ", time_t, " min"))
@@ -120,7 +131,10 @@ plot_peptide_mass_measurement <- function(dat,
       
       pep_mass_plot <- ggplot() +
         geom_point(data = rep_mass_dat, aes(x = avg_exp_mass, y = File), size = 3) +
-        geom_vline(xintercept = avg_value, color = "red", linetype = "dashed", size = 1.5) +
+        geom_vline(xintercept = avg_value, color = "red", linetype = "dashed", linewidth = 1.5) +
+        annotate("rect",
+                 xmin = avg_value - err_avg, xmax = avg_value + err_avg, 
+                 ymin = -Inf, ymax = Inf,  fill = "red", alpha=.03) +
         labs(y = "",
              x = "Measured mass [Da]",
              title = paste0("Peptide ", sequence, " in state ", state, " in ", time_t, " min"))
