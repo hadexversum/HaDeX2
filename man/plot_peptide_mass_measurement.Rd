@@ -40,7 +40,8 @@ This function shows the measurements of mass from
 different replicates for specific peptide in specific state
 in specific time point of measurement on the plot. 
 Moreover, on the plot is shown the average mass from the 
-replicates, used later in calculations.
+replicates, used later in calculations. The ribbon next to the
+dotted average mass indicates the uncertainty.
 }
 \examples{
 plot_peptide_mass_measurement(alpha_dat, sequence = "FGSDDEEESEEAKRLRE")

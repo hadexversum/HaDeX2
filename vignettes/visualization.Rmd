@@ -251,14 +251,23 @@ plot_volcano(p_dat, show_confidence_limits = T)
 
 ```
 
-*Pros* This plot allows to distinguish significant results easily and uses double testing. 
+*Pros* 
 
-*Cons* It is difficult to recognize the significant peptides and the time point of the measurement. If the plot is reactive, tooltips help to see additional information. For the not reactive plot (e.q. in articles), the information about sequence, peptide or even time point of measurement is lost. 
+ * hybrid statistic test
+ * time course information
+ * uncertainty 
+ 
+*Cons* 
 
-*Uncertainty* The uncertainty of the deuterium uptake difference (combined and propagated) is shown as the error bars in the deuterium uptake difference dimension.
+ * length and position lost
+ 
+*Plot variations:*
 
-*Values* This plot shows only deuterium uptake difference [Da]. 
-
+ * selected time points
+ * absolute/fractional values s
+ * hidden unsignificant values
+ * tooltips available in GUI
+ 
 # Uptake curve
 
 Uptake curves show the changes in exchange in time for a specific peptide for its state.
@@ -272,17 +281,26 @@ plot_uptake_curve() +
   ylim(c(0, NA))
 ```
 
-*Pros* The plot shows the differences in deuterium uptake between two states in the time course. The back-exchange phenomenon is visible in this plot. 
+*Pros* 
 
-*Cons* The plot shows results for only one peptide. Adding more peptides is possible but affects the readability of the plot. 
+ * time course
+ * state comparison
+ * change of uptake tendency visible
+ * focus on one peptide
+ * uncertainty
+ 
+*Plot variations:*
 
-*Uncertainty* The uncertainty (combined and propagated) is shown as a ribbon. 
-
-*Values* The values on the plot can be presented as deuterium uptake (in Daltons) or fractional deuterium uptake (in percentage). The calculation of the deuterium uptake is done with respect to experimentally measured minimal/maximal exchange control or tabular values (MHP and Max Uptake).
+ * fractional/absolute values
+ * fractional values calculated with respect of theoretical/experimental maximal uptake
+ * selected states shown
+ * different methods of showing uncertainty: bars or ribbons
+ * tooltips available in GUI
+ 
 
 # Uncertainty plot
 
-Uncertainty plot is new visualization method, showing the uncertainty of measurement of deuterium uptake for peptides to spot the regions where the uncertainty is higher. This plot may be used as a quality control of the experiment.
+Uncertainty plot is new visualization method, showing the uncertainty of measurement of deuterium uptake for peptides to spot the regions where the uncertainty is higher. This plot may be used as a quality control of the experiment, as discussed in the `vignette(quality_control)`.
 The presented uncertainty is in Daltons, making the threshold 1 Da as proposed limit of acceptance.
 
 **Example** The plot below presents uncertainty values for multiple time points for state eEF1B$\alpha$. We see that the uncertainty is relatively low for all the measurement, and none of the value is suspicious.
@@ -324,35 +342,23 @@ plot_manhattan(p_diff_dat, show_peptide_position  = TRUE)
 
 *Pros* 
 
-* peptide length and position
+ * peptide length and position
+ * shows significant regions
+ * statistical interval shown
 
-It is easy to spot regions with statistically significant changes and to observe how they change in time. 
+*Plot variations:*
 
-*Cons* 
-
-*Plot variations* Instead of peptide position and length, peptides can be identified by their ID. Only one time point can be shown. The first amino of each peptide can be skipped. The confidence level can be hidden. The tooltips are available. 
-
-# Measurement plots
-
-
-
-**Example** Measurement plot for peptide GFGDLKSPAGL shows the measured raw data for three replicates. As this peptide is 11 amino long,  
-
-```{r}
-plot_peptide_mass_measurement(alpha_dat, sequence = "GFGDLKSPAGL")
-```
-
-
-*Pros* 
-
- *
- 
-*Cons*
-
-*Values*
+ * plot for only one time point can be plotted
+ * selected time points shown
+ * threshold can be hidden
+ * first amino omitted
+ * tooltips available in GUI
 
 # High-resolution plot
 
+The biggest limitation of previous methods of deuterium uptake visualization is that the results are on the peptide level. However, we offer a method of aggregation of data on peptide level into high-resolution level, using the weighted method of aggregation (Keppler and Weis (doi: 10.1007/s13361-014-1033-6)). Then, the results are presented on the heatmap.
+
+**Example**
 
 
 ```{r}
@@ -365,20 +371,64 @@ plot_aggregated_uptake(aggregated_dat)
 
 *Pros* 
 
+ * high-resolution
+ * time course
+ * uncertainty of aggregated values
+ 
 *Cons*
 
-*Values*
+ * values are an approximation 
+
+*Plot variations:*
+ 
+ * fractional/absolute values
+ * fractional values calculated with respect of theoretical/experimental maximal uptake
+ * plot divided into panels 
+ * tooltips available in GUI
 
 # High-resolution on 3D structure
 
-High-resolution values not only can be presented linearly on high-resolution plot (as above), but also on 3D structure, if available. This way, the uptake values are connected with spatial 
+High-resolution values not only can be presented linearly on high-resolution plot (as above), but also on 3D structure, if available. This way, the uptake values are connected with spatial aspect. 
 
 *Pros* 
 
+ * aggregated values
+ * spatial information
+
+# Differential High-resolution plot
+
+As most of our methods of visualization, also the high-resolution plot has its differential version. The plot presents aggregated uptake difference values using weighted approach. 
+
+**Example**
+
+
+```{r}
+
+diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat, state_1 = states[3], state_2 = states[1])
+aggregated_diff_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
+plot_aggregated_differential_uptake(aggregated_diff_dat, panels = FALSE)
+
+```
+
+
+*Pros* 
+
+ * high-resolution
+ * comparative analysis
+ * time course
+ * uncertainty of aggregated values
+ 
 *Cons*
 
-*Values*
+ * values are an approximation 
 
+*Plot variations:*
+ 
+ * fractional/absolute values
+ * fractional values calculated with respect of theoretical/experimental maximal uptake
+ * plot divided into panels 
+ * tooltips available in GUI
+ 
 # Coverage heatmap
 
 Coverage heatmap plot is a variation of standard coverage plot - but with each peptide is colored to signal specific value. This plot is particulary useful when presenting AUC or back-exchange values, as they are specified for peptide uptake curve.
@@ -415,9 +465,6 @@ plot_coverage_heatmap(bex_dat, value = "back_exchange")
 
 * tooltips available in GUI
 
-
-
-
 # Summary of the uptake plots
 
 Below we compare the aspects of the plots. 
@@ -429,7 +476,8 @@ summary_plots <- data.frame(types = c("comparison", "Woods (differential)", "but
                             `length of the peptide` = c(T, T, F, F, F, F, F, F),
                             uncertainty = c(T, T, T, T, T, T, T, T),
                             `all peptides` = c(T, T, T, T, T, T, T, F),
-                            `different states` = c(T, T, F, T, T, F, T, T))
+                            `different states` = c(T, T, F, T, T, F, T, T),
+                            position = c(T, T, F, F, F, F, F, F))
 
 knitr::kable(summary_plots)
 ```

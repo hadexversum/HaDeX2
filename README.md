@@ -12,24 +12,15 @@
 
 ## HaDeX: Analysis and Visualisation of Hydrogen/Deuterium Exchange Mass Spectrometry Data 
 
-Hydrogen/Deuterium eXchange Mass Spectrometry (HDX-MS) is a staple technology in structural proteomics. HaDeX provides a analytic workflow for HDX-MS data available as a standalone GUI (https://sourceforge.net/projects/HaDeX/), web server (https://hadex.mslab-ibb.pl/) and the **R** package available on CRAN (https://cran.r-project.org/web/packages/HaDeX/index.html). 
+Hydrogen/Deuterium eXchange Mass Spectrometry (HDX-MS) is a staple technology in structural proteomics. HaDeX provides a analytic workflow for HDX-MS data available both as web server (https://hadex2.mslab-ibb.pl/) or **R** package.
 
-### Local instance of HaDeX GUI
-
-To run HaDeX GUI locally on Windows, install it using the following binary file: https://sourceforge.net/projects/HaDeX/files/HaDeX_setup.exe/download
 
 ### Local instance of HaDeX package
 
 You can install the latest development version of the package:
 
 ```R
-devtools::install_github("hadexversum/HaDeX")
-```
-
-or the latest version available on CRAN:
-
-```R
-install.packages("HaDeX")
+devtools::install_github("hadexversum/HaDeX2")
 ```
 
 After installation GUI can be accessed locally:
@@ -41,7 +32,7 @@ HaDeX_gui()
 
 ### Online manual
 
-The HaDeX documentation is available [online](https://HaDeXversum.github.io/HaDeX/).
+The HaDeX documentation is available [online](https://hadexversum.github.io/HaDeX2/).
 
 ### Citation
 
