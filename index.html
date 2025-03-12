@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Analysis and Visualisation of Hydrogen/Deuterium Exchange Mass Spectrometry Data • HaDeX</title>
-<script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="lightswitch.js"></script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
@@ -18,7 +18,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="index.html">HaDeX</a>
 
@@ -36,10 +36,11 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/datafiles.html">Data processing</a></li>
+<li><a class="dropdown-item" href="articles/data_input.html">Data input</a></li>
+    <li><a class="dropdown-item" href="articles/datafiles.html">Data processing</a></li>
     <li><a class="dropdown-item" href="articles/glossary.html">Glossary</a></li>
-    <li><a class="dropdown-item" href="articles/hdxms.html">Basics of HDX-MS</a></li>
     <li><a class="dropdown-item" href="articles/mass_comparison.html">Mass calculation</a></li>
+    <li><a class="dropdown-item" href="articles/quality_control.html">Quality control</a></li>
     <li><a class="dropdown-item" href="articles/transformation.html">Data aggregation</a></li>
     <li><a class="dropdown-item" href="articles/usage.html">Code usage</a></li>
     <li><a class="dropdown-item" href="articles/visualization.html">Data visualization</a></li>
@@ -51,6 +52,14 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Light switch"><span class="fa fa-sun"></span></button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch">
+<li><button class="dropdown-item" data-bs-theme-value="light"><span class="fa fa-sun"></span> Light</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fa fa-moon"></span> Dark</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
+  </ul>
+</li>
       </ul>
 </div>
 
@@ -64,30 +73,22 @@
 <div class="section level2">
 <h2 id="hadex-analysis-and-visualisation-of-hydrogendeuterium-exchange-mass-spectrometry-data">HaDeX: Analysis and Visualisation of Hydrogen/Deuterium Exchange Mass Spectrometry Data<a class="anchor" aria-label="anchor" href="#hadex-analysis-and-visualisation-of-hydrogendeuterium-exchange-mass-spectrometry-data"></a>
 </h2>
-<p>Hydrogen/Deuterium eXchange Mass Spectrometry (HDX-MS) is a staple technology in structural proteomics. HaDeX provides a analytic workflow for HDX-MS data available as a standalone GUI (<a href="https://sourceforge.net/projects/HaDeX/" class="external-link uri">https://sourceforge.net/projects/HaDeX/</a>), web server (<a href="https://hadex.mslab-ibb.pl/" class="external-link uri">https://hadex.mslab-ibb.pl/</a>) and the <strong>R</strong> package available on CRAN (<a href="https://cran.r-project.org/web/packages/HaDeX/index.html" class="external-link uri">https://cran.r-project.org/web/packages/HaDeX/index.html</a>).</p>
-<div class="section level3">
-<h3 id="local-instance-of-hadex-gui">Local instance of HaDeX GUI<a class="anchor" aria-label="anchor" href="#local-instance-of-hadex-gui"></a>
-</h3>
-<p>To run HaDeX GUI locally on Windows, install it using the following binary file: <a href="https://sourceforge.net/projects/HaDeX/files/HaDeX_setup.exe/download" class="external-link uri">https://sourceforge.net/projects/HaDeX/files/HaDeX_setup.exe/download</a></p>
-</div>
+<p>Hydrogen/Deuterium eXchange Mass Spectrometry (HDX-MS) is a staple technology in structural proteomics. HaDeX provides a analytic workflow for HDX-MS data available both as web server (<a href="https://hadex2.mslab-ibb.pl/" class="external-link uri">https://hadex2.mslab-ibb.pl/</a>) or <strong>R</strong> package.</p>
 <div class="section level3">
 <h3 id="local-instance-of-hadex-package">Local instance of HaDeX package<a class="anchor" aria-label="anchor" href="#local-instance-of-hadex-package"></a>
 </h3>
 <p>You can install the latest development version of the package:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"hadexversum/HaDeX"</span><span class="op">)</span></span></code></pre></div>
-<p>or the latest version available on CRAN:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"HaDeX"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"hadexversum/HaDeX2"</span><span class="op">)</span></span></code></pre></div>
 <p>After installation GUI can be accessed locally:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://hadexversum.github.io/HaDeX2/">HaDeX</a></span><span class="op">)</span></span>
 <span><span class="fu">HaDeX_gui</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="online-manual">Online manual<a class="anchor" aria-label="anchor" href="#online-manual"></a>
 </h3>
-<p>The HaDeX documentation is available <a href="https://HaDeXversum.github.io/HaDeX/" class="external-link">online</a>.</p>
+<p>The HaDeX documentation is available <a href="https://hadexversum.github.io/HaDeX2/">online</a>.</p>
 </div>
 <div class="section level3">
 <h3 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>

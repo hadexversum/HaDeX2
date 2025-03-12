@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Data visualization • HaDeX</title>
-<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
@@ -16,7 +16,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="../index.html">HaDeX</a>
 
@@ -34,10 +34,11 @@
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/datafiles.html">Data processing</a></li>
+<li><a class="dropdown-item" href="../articles/data_input.html">Data input</a></li>
+    <li><a class="dropdown-item" href="../articles/datafiles.html">Data processing</a></li>
     <li><a class="dropdown-item" href="../articles/glossary.html">Glossary</a></li>
-    <li><a class="dropdown-item" href="../articles/hdxms.html">Basics of HDX-MS</a></li>
     <li><a class="dropdown-item" href="../articles/mass_comparison.html">Mass calculation</a></li>
+    <li><a class="dropdown-item" href="../articles/quality_control.html">Quality control</a></li>
     <li><a class="dropdown-item" href="../articles/transformation.html">Data aggregation</a></li>
     <li><a class="dropdown-item" href="../articles/usage.html">Code usage</a></li>
     <li><a class="dropdown-item" href="../articles/visualization.html">Data visualization</a></li>
@@ -49,6 +50,14 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Light switch"><span class="fa fa-sun"></span></button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch">
+<li><button class="dropdown-item" data-bs-theme-value="light"><span class="fa fa-sun"></span> Light</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fa fa-moon"></span> Dark</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
+  </ul>
+</li>
       </ul>
 </div>
 
@@ -359,18 +368,23 @@ eEF1B<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantic
 for protein eEF1B in all time points. The points in the left and right
 upper corner are statistically significant using the hybrid testing.</p>
 <p><img src="visualization_files/figure-html/unnamed-chunk-8-1.png" width="672"></p>
-<p><em>Pros</em> This plot allows to distinguish significant results
-easily and uses double testing.</p>
-<p><em>Cons</em> It is difficult to recognize the significant peptides
-and the time point of the measurement. If the plot is reactive, tooltips
-help to see additional information. For the not reactive plot (e.q. in
-articles), the information about sequence, peptide or even time point of
-measurement is lost.</p>
-<p><em>Uncertainty</em> The uncertainty of the deuterium uptake
-difference (combined and propagated) is shown as the error bars in the
-deuterium uptake difference dimension.</p>
-<p><em>Values</em> This plot shows only deuterium uptake difference
-[Da].</p>
+<p><em>Pros</em></p>
+<ul>
+<li>hybrid statistic test</li>
+<li>time course information</li>
+<li>uncertainty</li>
+</ul>
+<p><em>Cons</em></p>
+<ul>
+<li>length and position lost</li>
+</ul>
+<p><em>Plot variations:</em></p>
+<ul>
+<li>selected time points</li>
+<li>absolute/fractional values s</li>
+<li>hidden unsignificant values</li>
+<li>tooltips available in GUI</li>
+</ul>
 </div>
 <div class="section level2">
 <h2 id="uptake-curve">Uptake curve<a class="anchor" aria-label="anchor" href="#uptake-curve"></a>
@@ -381,18 +395,23 @@ peptide for its state.</p>
 exchange goes for peptide GFGDLKSPAGL in all three states for protein
 eEF1Ba.</p>
 <p><img src="visualization_files/figure-html/unnamed-chunk-9-1.png" width="672"></p>
-<p><em>Pros</em> The plot shows the differences in deuterium uptake
-between two states in the time course. The back-exchange phenomenon is
-visible in this plot.</p>
-<p><em>Cons</em> The plot shows results for only one peptide. Adding
-more peptides is possible but affects the readability of the plot.</p>
-<p><em>Uncertainty</em> The uncertainty (combined and propagated) is
-shown as a ribbon.</p>
-<p><em>Values</em> The values on the plot can be presented as deuterium
-uptake (in Daltons) or fractional deuterium uptake (in percentage). The
-calculation of the deuterium uptake is done with respect to
-experimentally measured minimal/maximal exchange control or tabular
-values (MHP and Max Uptake).</p>
+<p><em>Pros</em></p>
+<ul>
+<li>time course</li>
+<li>state comparison</li>
+<li>change of uptake tendency visible</li>
+<li>focus on one peptide</li>
+<li>uncertainty</li>
+</ul>
+<p><em>Plot variations:</em></p>
+<ul>
+<li>fractional/absolute values</li>
+<li>fractional values calculated with respect of
+theoretical/experimental maximal uptake</li>
+<li>selected states shown</li>
+<li>different methods of showing uncertainty: bars or ribbons</li>
+<li>tooltips available in GUI</li>
+</ul>
 </div>
 <div class="section level2">
 <h2 id="uncertainty-plot">Uncertainty plot<a class="anchor" aria-label="anchor" href="#uncertainty-plot"></a>
@@ -400,8 +419,9 @@ values (MHP and Max Uptake).</p>
 <p>Uncertainty plot is new visualization method, showing the uncertainty
 of measurement of deuterium uptake for peptides to spot the regions
 where the uncertainty is higher. This plot may be used as a quality
-control of the experiment. The presented uncertainty is in Daltons,
-making the threshold 1 Da as proposed limit of acceptance.</p>
+control of the experiment, as discussed in the
+<code>vignette(quality_control)</code>. The presented uncertainty is in
+Daltons, making the threshold 1 Da as proposed limit of acceptance.</p>
 <p><strong>Example</strong> The plot below presents uncertainty values
 for multiple time points for state
 eEF1B<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>.
@@ -446,45 +466,87 @@ create_p_diff_uptake_dataset, or by default 0.98).</p>
 <p><em>Pros</em></p>
 <ul>
 <li>peptide length and position</li>
+<li>shows significant regions</li>
+<li>statistical interval shown</li>
 </ul>
-<p>It is easy to spot regions with statistically significant changes and
-to observe how they change in time.</p>
-<p><em>Cons</em></p>
-<p><em>Plot variations</em> Instead of peptide position and length,
-peptides can be identified by their ID. Only one time point can be
-shown. The first amino of each peptide can be skipped. The confidence
-level can be hidden. The tooltips are available.</p>
-</div>
-<div class="section level2">
-<h2 id="measurement-plots">Measurement plots<a class="anchor" aria-label="anchor" href="#measurement-plots"></a>
-</h2>
-<p><strong>Example</strong> Measurement plot for peptide GFGDLKSPAGL
-shows the measured raw data for three replicates. As this peptide is 11
-amino long,</p>
-<p><img src="visualization_files/figure-html/unnamed-chunk-12-1.png" width="672"></p>
-<p><em>Pros</em></p>
-<ul><li>
-</li></ul>
-<p><em>Cons</em></p>
-<p><em>Values</em></p>
+<p><em>Plot variations:</em></p>
+<ul>
+<li>plot for only one time point can be plotted</li>
+<li>selected time points shown</li>
+<li>threshold can be hidden</li>
+<li>first amino omitted</li>
+<li>tooltips available in GUI</li>
+</ul>
 </div>
 <div class="section level2">
 <h2 id="high-resolution-plot">High-resolution plot<a class="anchor" aria-label="anchor" href="#high-resolution-plot"></a>
 </h2>
-<p><img src="visualization_files/figure-html/unnamed-chunk-13-1.png" width="672"></p>
+<p>The biggest limitation of previous methods of deuterium uptake
+visualization is that the results are on the peptide level. However, we
+offer a method of aggregation of data on peptide level into
+high-resolution level, using the weighted method of aggregation (Keppler
+and Weis (doi: 10.1007/s13361-014-1033-6)). Then, the results are
+presented on the heatmap.</p>
+<p><strong>Example</strong></p>
+<p><img src="visualization_files/figure-html/unnamed-chunk-12-1.png" width="672"></p>
 <p><em>Pros</em></p>
+<ul>
+<li>high-resolution</li>
+<li>time course</li>
+<li>uncertainty of aggregated values</li>
+</ul>
 <p><em>Cons</em></p>
-<p><em>Values</em></p>
+<ul>
+<li>values are an approximation</li>
+</ul>
+<p><em>Plot variations:</em></p>
+<ul>
+<li>fractional/absolute values</li>
+<li>fractional values calculated with respect of
+theoretical/experimental maximal uptake</li>
+<li>plot divided into panels</li>
+<li>tooltips available in GUI</li>
+</ul>
 </div>
 <div class="section level2">
 <h2 id="high-resolution-on-3d-structure">High-resolution on 3D structure<a class="anchor" aria-label="anchor" href="#high-resolution-on-3d-structure"></a>
 </h2>
 <p>High-resolution values not only can be presented linearly on
 high-resolution plot (as above), but also on 3D structure, if available.
-This way, the uptake values are connected with spatial</p>
+This way, the uptake values are connected with spatial aspect.</p>
 <p><em>Pros</em></p>
+<ul>
+<li>aggregated values</li>
+<li>spatial information</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="differential-high-resolution-plot">Differential High-resolution plot<a class="anchor" aria-label="anchor" href="#differential-high-resolution-plot"></a>
+</h2>
+<p>As most of our methods of visualization, also the high-resolution
+plot has its differential version. The plot presents aggregated uptake
+difference values using weighted approach.</p>
+<p><strong>Example</strong></p>
+<p><img src="visualization_files/figure-html/unnamed-chunk-13-1.png" width="672"></p>
+<p><em>Pros</em></p>
+<ul>
+<li>high-resolution</li>
+<li>comparative analysis</li>
+<li>time course</li>
+<li>uncertainty of aggregated values</li>
+</ul>
 <p><em>Cons</em></p>
-<p><em>Values</em></p>
+<ul>
+<li>values are an approximation</li>
+</ul>
+<p><em>Plot variations:</em></p>
+<ul>
+<li>fractional/absolute values</li>
+<li>fractional values calculated with respect of
+theoretical/experimental maximal uptake</li>
+<li>plot divided into panels</li>
+<li>tooltips available in GUI</li>
+</ul>
 </div>
 <div class="section level2">
 <h2 id="coverage-heatmap">Coverage heatmap<a class="anchor" aria-label="anchor" href="#coverage-heatmap"></a>
@@ -528,12 +590,13 @@ back-exchange.</p>
 <p>Below we compare the aspects of the plots.</p>
 <table class="table">
 <colgroup>
-<col width="23%">
+<col width="21%">
+<col width="11%">
+<col width="20%">
+<col width="11%">
 <col width="12%">
-<col width="22%">
-<col width="12%">
-<col width="13%">
-<col width="17%">
+<col width="15%">
+<col width="8%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">types</th>
@@ -542,11 +605,13 @@ back-exchange.</p>
 <th align="left">uncertainty</th>
 <th align="left">all.peptides</th>
 <th align="left">different.states</th>
+<th align="left">position</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td align="left">comparison</td>
 <td align="left">FALSE</td>
+<td align="left">TRUE</td>
 <td align="left">TRUE</td>
 <td align="left">TRUE</td>
 <td align="left">TRUE</td>
@@ -559,6 +624,7 @@ back-exchange.</p>
 <td align="left">TRUE</td>
 <td align="left">TRUE</td>
 <td align="left">TRUE</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="odd">
 <td align="left">butterfly</td>
@@ -566,6 +632,7 @@ back-exchange.</p>
 <td align="left">FALSE</td>
 <td align="left">TRUE</td>
 <td align="left">TRUE</td>
+<td align="left">FALSE</td>
 <td align="left">FALSE</td>
 </tr>
 <tr class="even">
@@ -575,6 +642,7 @@ back-exchange.</p>
 <td align="left">TRUE</td>
 <td align="left">TRUE</td>
 <td align="left">TRUE</td>
+<td align="left">FALSE</td>
 </tr>
 <tr class="odd">
 <td align="left">volcano</td>
@@ -583,6 +651,7 @@ back-exchange.</p>
 <td align="left">TRUE</td>
 <td align="left">TRUE</td>
 <td align="left">TRUE</td>
+<td align="left">FALSE</td>
 </tr>
 <tr class="even">
 <td align="left">chiclet</td>
@@ -590,6 +659,7 @@ back-exchange.</p>
 <td align="left">FALSE</td>
 <td align="left">TRUE</td>
 <td align="left">TRUE</td>
+<td align="left">FALSE</td>
 <td align="left">FALSE</td>
 </tr>
 <tr class="odd">
@@ -599,6 +669,7 @@ back-exchange.</p>
 <td align="left">TRUE</td>
 <td align="left">TRUE</td>
 <td align="left">TRUE</td>
+<td align="left">FALSE</td>
 </tr>
 <tr class="even">
 <td align="left">uptake curve</td>
@@ -607,6 +678,7 @@ back-exchange.</p>
 <td align="left">TRUE</td>
 <td align="left">FALSE</td>
 <td align="left">TRUE</td>
+<td align="left">FALSE</td>
 </tr>
 </tbody>
 </table>
