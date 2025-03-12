@@ -1,0 +1,16 @@
+pandoc: 3.1.11
+pkgdown: 2.1.1
+pkgdown_sha: ~
+articles:
+  datafiles: datafiles.html
+  glossary: glossary.html
+  HaDeX: HaDeX.html
+  hdxms: hdxms.html
+  mass_comparison: mass_comparison.html
+  transformation: transformation.html
+  usage: usage.html
+  visualization: visualization.html
+last_built: 2025-03-12T12:47Z
+urls:
+  reference: https://hadexversum.github.io/HaDeX2/reference
+  article: https://hadexversum.github.io/HaDeX2/articles
