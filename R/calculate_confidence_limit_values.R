@@ -56,7 +56,7 @@ calculate_confidence_limit_values <- function(diff_uptake_dat,
   
   if(is.null((diff_uptake_dat[[err_column]]))){ err_column = "err_value" }
   
-  confidence_limit_value <- t_value * mean(diff_uptake_dat[[err_column]], na.rm = TRUE)/sqrt(length(diff_uptake_dat))
+  confidence_limit_value <- t_value * mean(diff_uptake_dat[[err_column]], na.rm = TRUE)/sqrt(nrow(diff_uptake_dat))
   
   c(-confidence_limit_value, confidence_limit_value)
  

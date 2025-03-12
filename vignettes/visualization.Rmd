@@ -334,8 +334,12 @@ It is easy to spot regions with statistically significant changes and to observe
 
 # Measurement plots
 
-```{r}
 
+
+**Example** Measurement plot for peptide GFGDLKSPAGL shows the measured raw data for three replicates. As this peptide is 11 amino long,  
+
+```{r}
+plot_peptide_mass_measurement(alpha_dat, sequence = "GFGDLKSPAGL")
 ```
 
 

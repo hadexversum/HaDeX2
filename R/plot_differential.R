@@ -55,17 +55,18 @@
 #' \code{\link{show_diff_uptake_data}}
 #'
 #' @examples
-#' diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
+#' diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat, state_1 = "Alpha_KSCN", state_2 = "ALPHA_Gamma")
 #' plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167) 
+#' plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167, show_houde_interval = T) #' 
 #' plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167, skip_amino = 0) 
 #' plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167, line_size = 1) 
 #' plot_differential(diff_uptake_dat = diff_uptake_dat, all_times = T)
 #' plot_differential(diff_uptake_dat = diff_uptake_dat, all_times = T, show_houde_interval = T)
 #' plot_differential(diff_uptake_dat = diff_uptake_dat, all_times = T, show_houde_interval = T, hide_houde_insignificant = T)
 #' 
-#' diff_p_uptake_dat <- create_p_diff_uptake_dataset(alpha_dat)
+#' diff_p_uptake_dat <- create_p_diff_uptake_dataset(alpha_dat, state_1 = "Alpha_KSCN", state_2 = "ALPHA_Gamma")
 #' plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, all_times = T, show_tstud_confidence = T)
-#' plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, all_times = T, show_tstud_confidence = T, show_houde_interval = T)
+#' plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, all_times = F, time_t = 0.167, show_tstud_confidence = T, show_houde_interval = T)
 #' plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, show_tstud_confidence = T, show_houde_interval = T, all_times = F)
 #' plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, show_tstud_confidence = T, show_houde_interval = T, all_times = F, hide_houde_insignificant = T)
 #' plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, show_tstud_confidence = T, show_houde_interval = T, all_times = F, hide_houde_insignificant = T, hide_tstud_insignificant = T)
