@@ -5,13 +5,12 @@ articles:
   data_input: data_input.html
   datafiles: datafiles.html
   glossary: glossary.html
-  HaDeX: HaDeX.html
   mass_comparison: mass_comparison.html
   quality_control: quality_control.html
   transformation: transformation.html
   usage: usage.html
   visualization: visualization.html
-last_built: 2025-03-12T16:11Z
+last_built: 2025-03-13T15:27Z
 urls:
   reference: https://hadexversum.github.io/HaDeX2/reference
   article: https://hadexversum.github.io/HaDeX2/articles

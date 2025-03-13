@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Data processing • HaDeX</title>
+<title>Calculations • HaDeX</title>
 <script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Data processing">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Calculations">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -29,13 +29,12 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="../articles/HaDeX.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/data_input.html">Data input</a></li>
-    <li><a class="dropdown-item" href="../articles/datafiles.html">Data processing</a></li>
+<li><a class="dropdown-item" href="../articles/data_input.html">Importing data</a></li>
+    <li><a class="dropdown-item" href="../articles/datafiles.html">Calculations</a></li>
     <li><a class="dropdown-item" href="../articles/glossary.html">Glossary</a></li>
     <li><a class="dropdown-item" href="../articles/mass_comparison.html">Mass calculation</a></li>
     <li><a class="dropdown-item" href="../articles/quality_control.html">Quality control</a></li>
@@ -71,7 +70,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1>Data processing</h1>
+      <h1>Calculations</h1>
             
       
 
@@ -80,27 +79,15 @@
 
     
     
-<!-- Currently, HaDeX is limited to the `cluster` file from DynamX 3.0 or 2.0 and `tables` file from HDeXaminer. Each data file type needs a different way of processing, as explained below. -->
-<p>Currently, HaDeX is limited to the <code>cluster</code> file from
-DynamX 3.0 or 2.0. Below we explain how the data file is processed.</p>
+<p>In this article we discuss the transformation of the data, with
+description of every calculated step. For the visualization methods of
+described values, see <code><a href="../articles/visualization.html">vignette("visualization")</a></code>.</p>
 <div class="section level2">
-<h2 id="processing-data-from-dynamx">Processing data from DynamX<a class="anchor" aria-label="anchor" href="#processing-data-from-dynamx"></a>
+<h2 id="initial-processing-of-the-data">Initial processing of the data<a class="anchor" aria-label="anchor" href="#initial-processing-of-the-data"></a>
 </h2>
-<p>Let’s investigate how the data processing of the <code>cluster</code>
-file from DynamX is conducted on the example file from the package.</p>
-<div class="section level3">
-<h3 id="differences-between-files">Differences between files<a class="anchor" aria-label="anchor" href="#differences-between-files"></a>
-</h3>
-<p>What is the difference between <code>cluster</code> files from DynamX
-3.0 and 2.0? The datafiles from DynamX 2.0 don’t include
-<code>Modification</code> and <code>Fragment</code> columns. The
-variations of the experiment were limited, while the DynamX 2.0 was the
-latest version.</p>
-</div>
-<div class="section level3">
-<h3 id="initial-processing-of-the-data">Initial processing of the data<a class="anchor" aria-label="anchor" href="#initial-processing-of-the-data"></a>
-</h3>
-<p>Let’s start with a glimpse of the datafile.</p>
+<p>Let’s start with a glimpse of the datafile - in this case, in
+<code>cluster</code> format from DynamX. For more information about
+accepted datafiles see <code><a href="../articles/data_input.html">vignette("data_input")</a></code></p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://hadexversum.github.io/HaDeX2/">HaDeX</a></span><span class="op">)</span></span>
 <span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_hdx.html">read_hdx</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"HaDeX"</span>, <span class="st">"HaDeX/data/KD_180110_CD160_HVEM.csv"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -123,29 +110,43 @@ latest version.</p>
 <span><span class="co">## 4:    0.001   KD_160527_CD160_IN_01     2 232221  796.3634</span></span>
 <span><span class="co">## 5:    0.001   KD_160527_CD160_IN_01     3 110675  531.2849</span></span>
 <span><span class="co">## 6:    0.167  KD_160530_CD160_10s_01     2  99894  800.3610</span></span></code></pre>
-<p>As you can see, the data file has a very specific structure and is
-not informative yet. In the file, we have <code>m/z</code> values for
-each <code>z</code> value (charge) for each time point for each state of
-each peptide, repeated as many times as measurement was repeated (each
-measurement should be repeated at least three times).</p>
-<!-- The process of measurement and the basics of HDX experiment is described in `Basics of the HDX-MS` article. -->
+<p>As we see, the data file has a very specific structure and is not
+informative yet. In the file, we have
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>/</mi><mi>z</mi></mrow><annotation encoding="application/x-tex">m/z</annotation></semantics></math>
+values for each
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>
+value (charge) for each time point
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mi>x</mi><mi>p</mi><mi>o</mi><mi>s</mi><mi>u</mi><mi>r</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Exposure</annotation></semantics></math>)
+for each state of each peptide, repeated as many times as measurement
+was repeated (each measurement should be repeated at least three
+times).</p>
 <p>Our aim is to have one result with an uncertainty of the measurement
 per each peptide in each biological state in each measured time point -
 data in this format allows further calculations, e.q. calculating
 deuterium uptake values.</p>
 <p>For a better understanding of the process of aggregating the data,
-see the <code>Data aggregation</code> article.</p>
+see the <code><a href="../articles/transformation.html">vignette("transformation")</a></code> article.</p>
 <p>Within each replicate of the measurement (we recognize each replicate
-by the <code>File</code> value), the <code>m/z</code> values are
-provided for each possible <code>z</code> value. The <code>m/z</code>
-values are in the <code>Center</code> column, as it is a geometrical
-centroid calculated from the isotopic envelope. Firstly, we have to
-calculate the mass value, measured experimentally:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>x</mi><mi>p</mi><mi>M</mi><mi>a</mi><mi>s</mi><mi>s</mi><mo>=</mo><mi>z</mi><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>C</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo>−</mo><mi>p</mi><mi>r</mi><mi>o</mi><mi>t</mi><mi>o</mi><mi>n</mi><mi>M</mi><mi>a</mi><mi>s</mi><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">expMass = z \times (Center-protonMass)\tag{1}</annotation></semantics></math><!-- The value is reduced by ... because ... --></p>
-<p>To aggregate data from different <code>z</code> values, we have to
-calculate the mean mass weighted by intensity. Additional information
-about this step and how the weighted mean impacts the results can be
-found in <code>Mass calculation</code> article.</p>
+by the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">File</annotation></semantics></math>
+value), the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>/</mi><mi>z</mi></mrow><annotation encoding="application/x-tex">m/z</annotation></semantics></math>
+values are provided for each possible
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>
+value. The
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>/</mi><mi>z</mi></mrow><annotation encoding="application/x-tex">m/z</annotation></semantics></math>
+values are in the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">Center</annotation></semantics></math>
+column, as it is a geometrical centroid calculated from the isotopic
+envelope. Firstly, we have to calculate the mass value, measured
+experimentally:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mi>x</mi><mi>p</mi><mi>M</mi><mi>a</mi><mi>s</mi><mi>s</mi><mo>=</mo><mi>z</mi><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>C</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo>−</mo><mi>p</mi><mi>r</mi><mi>o</mi><mi>t</mi><mi>o</mi><mi>n</mi><mi>M</mi><mi>a</mi><mi>s</mi><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">expMass = z \times (Center-protonMass)\tag{1}</annotation></semantics></math>
+To aggregate data from different
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>
+values, we have to calculate the mean mass weighted by intensity.
+Additional information about this step and how the weighted mean impacts
+the results can be found in <code><a href="../articles/mass_comparison.html">vignette("mass_comparison")</a></code>
+article.</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>g</mi><mi>g</mi><mi>M</mi><mi>a</mi><mi>s</mi><mi>s</mi><mo>=</mo><mfrac><mn>1</mn><mi>N</mi></mfrac><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></munderover><mi>I</mi><mi>n</mi><mi>t</mi><mi>e</mi><msub><mi>n</mi><mi>k</mi></msub><mo>⋅</mo><mi>p</mi><mi>e</mi><mi>p</mi><mi>M</mi><mi>a</mi><mi>s</mi><msub><mi>s</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">aggMass = \frac{1}{N}\sum_{k = 1}^{N}Inten_k{\cdot}pepMass_k\tag{2}</annotation></semantics></math>.</p>
 <p>Where:</p>
 <ul>
@@ -178,17 +179,17 @@ standard deviation of the mean, according to the Equation 3:</p>
 </ul>
 <p>Now we have the format we want for further calculations.</p>
 </div>
-<div class="section level3">
-<h3 id="calculation-of-the-deuterium-uptake">Calculation of the deuterium uptake<a class="anchor" aria-label="anchor" href="#calculation-of-the-deuterium-uptake"></a>
-</h3>
+<div class="section level2">
+<h2 id="calculation-of-the-deuterium-uptake">Calculation of the deuterium uptake<a class="anchor" aria-label="anchor" href="#calculation-of-the-deuterium-uptake"></a>
+</h2>
 <p>HaDeX package provides the calculated values in different forms. All
 of them are provided with associated uncertainty of the measurement. All
 of the uncertainties are derived from the formula - the Law of
 propagation of uncertainty:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mi>c</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msqrt><mrow><munder><mo>∑</mo><mi>k</mi></munder><msup><mrow><mo stretchy="true" form="prefix">[</mo><mfrac><mrow><mi>∂</mi><mi>y</mi></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mi>k</mi></msub></mrow></mfrac><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mi>k</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">u_{c}(y) = \sqrt{\sum_{k} \left[ \frac{\partial y}{\partial x_{k}} u(x_{k}) \right]^2}</annotation></semantics></math></p>
-<div class="section level4">
-<h4 id="deuterium-uptake">Deuterium uptake<a class="anchor" aria-label="anchor" href="#deuterium-uptake"></a>
-</h4>
+<div class="section level3">
+<h3 id="deuterium-uptake">Deuterium uptake<a class="anchor" aria-label="anchor" href="#deuterium-uptake"></a>
+</h3>
 <p>Deuterium uptake is the increase of the mass of the peptide in time
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>.
 The minimal exchange control
@@ -204,9 +205,9 @@ The uncertainty associated with deuterium uptake [Da] (based on equation
 3):</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mi>c</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>D</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msqrt><mrow><mi>u</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>m</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><mi>u</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>m</mi><msub><mi>t</mi><mn>0</mn></msub></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">u_c(D) = \sqrt{u(m_t)^2 + u(m_{t_0})^2}</annotation></semantics></math></p>
 </div>
-<div class="section level4">
-<h4 id="fractional-deuterium-uptake">Fractional deuterium uptake<a class="anchor" aria-label="anchor" href="#fractional-deuterium-uptake"></a>
-</h4>
+<div class="section level3">
+<h3 id="fractional-deuterium-uptake">Fractional deuterium uptake<a class="anchor" aria-label="anchor" href="#fractional-deuterium-uptake"></a>
+</h3>
 <p>Fractional deuterium uptake is the ratio of the increase of the mass
 in time
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
@@ -230,9 +231,9 @@ This value is a percentage value [%].</p>
 \left[ \frac{m_{t} - m_{t_{100}}}{(m_{t_{100}}-m_{t_0})^2} u(m_{t_0}) \right]^2 + 
 \left[ \frac{m_{t_0} - m_{t}}{(m_{t_{100}}-m_{t_0})^2} u (m_{t_{100}}) \right]^2}</annotation></semantics></math></p>
 </div>
-<div class="section level4">
-<h4 id="theoretical-deuterium-uptake">Theoretical deuterium uptake<a class="anchor" aria-label="anchor" href="#theoretical-deuterium-uptake"></a>
-</h4>
+<div class="section level3">
+<h3 id="theoretical-deuterium-uptake">Theoretical deuterium uptake<a class="anchor" aria-label="anchor" href="#theoretical-deuterium-uptake"></a>
+</h3>
 <p>Theoretical deuterium uptake is the increase of mass in time
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
 compared with the theoretical value of the peptide mass without any
@@ -251,9 +252,9 @@ value is a constant without measurement uncertainty - based on the
 equation 3):</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>D</mi><mrow><mi>t</mi><mi>h</mi><mi>e</mi><mi>o</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>m</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">u(D_{theo}) = u(m_t)</annotation></semantics></math></p>
 </div>
-<div class="section level4">
-<h4 id="theoretical-fractional-deuterium-uptake">Theoretical fractional deuterium uptake<a class="anchor" aria-label="anchor" href="#theoretical-fractional-deuterium-uptake"></a>
-</h4>
+<div class="section level3">
+<h3 id="theoretical-fractional-deuterium-uptake">Theoretical fractional deuterium uptake<a class="anchor" aria-label="anchor" href="#theoretical-fractional-deuterium-uptake"></a>
+</h3>
 <p>Theoretical fractional deuterium uptake is the ratio of the increase
 of mass in time
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
@@ -266,9 +267,9 @@ This value is a percentage value [%].</p>
 uptake [%] (based on the equation 3):</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>D</mi><mrow><mi>t</mi><mi>h</mi><mi>e</mi><mi>o</mi><mo>,</mo><mi>f</mi><mi>r</mi><mi>a</mi><mi>c</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">|</mo><mfrac><mn>1</mn><mrow><mi>M</mi><mi>a</mi><mi>x</mi><mi>U</mi><mi>p</mi><mi>t</mi><mi>a</mi><mi>k</mi><mi>e</mi><mo>×</mo><mi>p</mi><mi>r</mi><mi>o</mi><mi>t</mi><mi>o</mi><mi>n</mi><mi>M</mi><mi>a</mi><mi>s</mi><mi>s</mi></mrow></mfrac><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>D</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">|</mo></mrow></mrow><annotation encoding="application/x-tex">u(D_{theo, frac}) = \left|\frac{1}{MaxUptake \times protonMass} u(D_{t}) \right|</annotation></semantics></math></p>
 </div>
-<div class="section level4">
-<h4 id="differential-values">Differential values<a class="anchor" aria-label="anchor" href="#differential-values"></a>
-</h4>
+<div class="section level3">
+<h3 id="differential-values">Differential values<a class="anchor" aria-label="anchor" href="#differential-values"></a>
+</h3>
 <p>Differential value is the way to see how the deuterium uptake differs
 between two biological states. It allows seeing if the possible
 difference is statistically important (more information below). This
@@ -282,17 +283,47 @@ The uncertainty associated with the difference of deuterium uptake
 comparison plot and differential plot (Woods’ plot).</p>
 </div>
 </div>
-<div class="section level3">
-<h3 id="additional-information">Additional information<a class="anchor" aria-label="anchor" href="#additional-information"></a>
-</h3>
-<p>If the file contains modified peptides - the modified peptide is
-treated as an another peptide and has its unique ID. The values are
-calculated using measurements for the peptide with modification. If
-there is both unmodified and modified version of the peptide, they are
-treated as different peptides.</p>
-<!-- ## Processing data from HDeXaminer -->
-<!-- TO BE WRITTEN -->
-</div>
+<div class="section level2">
+<h2 id="deuterium-uptake-aggregation">Deuterium uptake aggregation<a class="anchor" aria-label="anchor" href="#deuterium-uptake-aggregation"></a>
+</h2>
+<p>Aggregation of values is inspired by the article by Keppler and Weis
+(doi: 10.1007/s13361-014-1033-6). This process can be conducted of any
+deuterium uptake variation - fractional or absolute, with theoretical or
+experimental control, single-state or differential.</p>
+<p>For each residue
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
+there is a subset of peptides
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>)
+covering said residue. Then, the final
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mrow><mi>i</mi><mo>,</mo><mi>a</mi><mi>g</mi><mi>g</mi></mrow></msub><annotation encoding="application/x-tex">D_{i, agg}</annotation></semantics></math>
+is calculated from the subset of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mi>n</mi></msub><annotation encoding="application/x-tex">D_n</annotation></semantics></math>,
+with weights
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>w</mi><mi>i</mi></msub><annotation encoding="application/x-tex">w_i</annotation></semantics></math>
+inverse proportional to the max uptake of peptide
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mi>a</mi><mi>x</mi><mi>U</mi><mi>p</mi><mi>t</mi><mi>a</mi><mi>k</mi><msub><mi>e</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">MaxUptake_n</annotation></semantics></math>)
+- the shortest the peptide the highest the possibility that the uptake
+took place in said residue:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>i</mi></msub><mo>=</mo><mfrac><mfrac><mn>1</mn><mrow><mi>M</mi><mi>a</mi><mi>x</mi><mi>U</mi><mi>p</mi><mi>t</mi><mi>a</mi><mi>k</mi><msub><mi>e</mi><mi>n</mi></msub></mrow></mfrac><mrow><munder><mo>∑</mo><mi>n</mi></munder><mfrac><mn>1</mn><mrow><mi>M</mi><mi>a</mi><mi>x</mi><mi>U</mi><mi>p</mi><mi>t</mi><mi>a</mi><mi>k</mi><msub><mi>e</mi><mi>n</mi></msub></mrow></mfrac></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+w_i = \frac{\frac{1}{MaxUptake_n}}{\sum_n \frac{1}{MaxUptake_n}}
+</annotation></semantics></math> The weights are normalized:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mo>∑</mo><mi>n</mi></munder><msub><mi>w</mi><mi>n</mi></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
+\sum_n w_n = 1
+</annotation></semantics></math> Then, the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mrow><mi>i</mi><mo>,</mo><mi>a</mi><mi>g</mi><mi>g</mi></mrow></msub><annotation encoding="application/x-tex">D_{i, agg}</annotation></semantics></math>
+is a weighted average of set of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mi>n</mi></msub><annotation encoding="application/x-tex">D_n</annotation></semantics></math>.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mrow><mi>i</mi><mo>,</mo><mi>a</mi><mi>g</mi><mi>g</mi></mrow></msub><mo>=</mo><mfrac><mrow><munder><mo>∑</mo><mi>n</mi></munder><msub><mi>w</mi><mi>n</mi></msub><mo>⋅</mo><msub><mi>D</mi><mi>n</mi></msub></mrow><mrow><munder><mo>∑</mo><mi>n</mi></munder><msub><mi>w</mi><mi>n</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+D_{i, agg} = \frac{\sum_n w_n \cdot D_n}{\sum_n w_n}
+</annotation></semantics></math> This process is done for each residue
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
+to cover whole protein data.</p>
+<p>As for previous values, also for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mrow><mi>i</mi><mo>,</mo><mi>a</mi><mi>g</mi><mi>g</mi></mrow></msub><annotation encoding="application/x-tex">D_{i, agg}</annotation></semantics></math>
+the uncertainty is calculated:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>D</mi><mrow><mi>i</mi><mo>,</mo><mi>a</mi><mi>g</mi><mi>g</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msqrt><mrow><munder><mo>∑</mo><mi>n</mi></munder><msup><mrow><mo stretchy="true" form="prefix">[</mo><mfrac><mrow><msub><mi>w</mi><mi>n</mi></msub><mo>⋅</mo><mi>U</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>D</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><munder><mo>∑</mo><mi>n</mi></munder><msub><mi>w</mi><mi>n</mi></msub></mrow></mfrac><mo stretchy="true" form="postfix">]</mo></mrow><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">
+u(D_{i, agg}) = \sqrt{ \sum_{n} \left[ \frac{  w_n \cdot U(D_n)}{ \sum_n w_n } \right] ^2}
+</annotation></semantics></math></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
