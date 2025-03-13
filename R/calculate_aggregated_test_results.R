@@ -1,4 +1,4 @@
-#' Agregate test result
+#' Aggregate test result
 #' 
 #' @description ...
 #'
