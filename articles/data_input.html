@@ -97,7 +97,8 @@ will be glad to help!</em></p>
 <p>The best way to check if the file is suitable for the application is
 load in (using e.q. web-server) and see the file status. If the file is
 in wrong format, there should be appropriate message.</p>
-<p>The main function for data import is HaDeX::read_hdx() function.</p>
+<p>The main function for data import is <code><a href="../reference/read_hdx.html">HaDeX::read_hdx()</a></code>
+function.</p>
 <div class="section level2">
 <h2 id="dynamx-cluster-file">DynamX cluster file<a class="anchor" aria-label="anchor" href="#dynamx-cluster-file"></a>
 </h2>
@@ -107,7 +108,7 @@ processing. The required columns are:</p>
 <span><span class="co">#&gt;  [6] "Fragment"     "MaxUptake"    "MHP"          "State"        "Exposure"    </span></span>
 <span><span class="co">#&gt; [11] "File"         "z"            "RT"           "Inten"        "Center"</span></span></code></pre>
 <p>If the file have all required columns, it should be accepted by the
-HaDeX::read_hdx() function.</p>
+<code><a href="../reference/read_hdx.html">HaDeX::read_hdx()</a></code> function.</p>
 </div>
 <div class="section level2">
 <h2 id="dynamx-state-file">DynamX state file<a class="anchor" aria-label="anchor" href="#dynamx-state-file"></a>
@@ -149,8 +150,10 @@ uptake data directly in the workflow:</p>
 <span>    <span class="co"># exclude unused columns</span></span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">Center</span>, <span class="op">-</span><span class="va">`Center SD`</span>, <span class="op">-</span><span class="va">RT</span>, <span class="op">-</span><span class="va">`RT SD`</span>, <span class="op">-</span><span class="va">Fragment</span><span class="op">)</span></span></code></pre></div>
 <p>This way we have uptake calculated in Daltons. If there is FD
-(labeled with <code>Exposure</code> value), here is how to normalize
-uptake with respect to selected measurement:</p>
+(labeled with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mi>x</mi><mi>p</mi><mi>o</mi><mi>s</mi><mi>u</mi><mi>r</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Exposure</annotation></semantics></math>
+value), here is how to normalize uptake with respect to selected
+measurement:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># select FD based on Exposure in time_100</span></span>
@@ -188,9 +191,9 @@ them briefly.</p>
 <span><span class="co">#&gt;  [9] "Actual RT"     "# Spectra"     "Peak Width"    "m/z Shift"    </span></span>
 <span><span class="co">#&gt; [13] "Max Inty"      "Exp Cent"      "Theor Cent"    "Score"        </span></span>
 <span><span class="co">#&gt; [17] "Cent Diff"     "# Deut"        "Deut %"        "Confidence"</span></span></code></pre>
-<p>it can be processed with HaDeX::read_hdx() from the code level, as it
-requires additional action from the user. Then, this data can be used as
-described in other articles.</p>
+<p>it can be processed with <code><a href="../reference/read_hdx.html">HaDeX::read_hdx()</a></code> from the code
+level, as it requires additional action from the user. Then, this data
+can be used as described in other articles.</p>
 <p>If the file has following columns:</p>
 <pre><code><span><span class="co">#&gt;  [1] "Protein State"      "Protein"            "Start"             </span></span>
 <span><span class="co">#&gt;  [4] " End"               "Sequence"           "Peptide Mass"      </span></span>

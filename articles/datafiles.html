@@ -267,9 +267,10 @@ This value is a percentage value [%].</p>
 uptake [%] (based on the equation 3):</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>D</mi><mrow><mi>t</mi><mi>h</mi><mi>e</mi><mi>o</mi><mo>,</mo><mi>f</mi><mi>r</mi><mi>a</mi><mi>c</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">|</mo><mfrac><mn>1</mn><mrow><mi>M</mi><mi>a</mi><mi>x</mi><mi>U</mi><mi>p</mi><mi>t</mi><mi>a</mi><mi>k</mi><mi>e</mi><mo>×</mo><mi>p</mi><mi>r</mi><mi>o</mi><mi>t</mi><mi>o</mi><mi>n</mi><mi>M</mi><mi>a</mi><mi>s</mi><mi>s</mi></mrow></mfrac><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>D</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">|</mo></mrow></mrow><annotation encoding="application/x-tex">u(D_{theo, frac}) = \left|\frac{1}{MaxUptake \times protonMass} u(D_{t}) \right|</annotation></semantics></math></p>
 </div>
-<div class="section level3">
-<h3 id="differential-values">Differential values<a class="anchor" aria-label="anchor" href="#differential-values"></a>
-</h3>
+</div>
+<div class="section level2">
+<h2 id="differential-values">Differential values<a class="anchor" aria-label="anchor" href="#differential-values"></a>
+</h2>
 <p>Differential value is the way to see how the deuterium uptake differs
 between two biological states. It allows seeing if the possible
 difference is statistically important (more information below). This
@@ -281,7 +282,6 @@ The uncertainty associated with the difference of deuterium uptake
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mi>c</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>d</mi><mi>i</mi><mi>f</mi><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msqrt><mrow><mi>u</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>D</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><mi>u</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>D</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">u_{c}(diff) = \sqrt{u(D_{1})^2 + u(D_{2})^2}</annotation></semantics></math></p>
 <p>The convenient way to present results calculated as described is the
 comparison plot and differential plot (Woods’ plot).</p>
-</div>
 </div>
 <div class="section level2">
 <h2 id="deuterium-uptake-aggregation">Deuterium uptake aggregation<a class="anchor" aria-label="anchor" href="#deuterium-uptake-aggregation"></a>
@@ -297,32 +297,32 @@ there is a subset of peptides
 covering said residue. Then, the final
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mrow><mi>i</mi><mo>,</mo><mi>a</mi><mi>g</mi><mi>g</mi></mrow></msub><annotation encoding="application/x-tex">D_{i, agg}</annotation></semantics></math>
 is calculated from the subset of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mi>n</mi></msub><annotation encoding="application/x-tex">D_n</annotation></semantics></math>,
-with weights
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>w</mi><mi>i</mi></msub><annotation encoding="application/x-tex">w_i</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mi>k</mi></msub><annotation encoding="application/x-tex">D_k</annotation></semantics></math>
+(where $ 0&lt;k&lt;n$), with weights
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>w</mi><mi>k</mi></msub><annotation encoding="application/x-tex">w_k</annotation></semantics></math>
 inverse proportional to the max uptake of peptide
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mi>a</mi><mi>x</mi><mi>U</mi><mi>p</mi><mi>t</mi><mi>a</mi><mi>k</mi><msub><mi>e</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">MaxUptake_n</annotation></semantics></math>)
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mi>a</mi><mi>x</mi><mi>U</mi><mi>p</mi><mi>t</mi><mi>a</mi><mi>k</mi><msub><mi>e</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">MaxUptake_k</annotation></semantics></math>)
 - the shortest the peptide the highest the possibility that the uptake
 took place in said residue:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>i</mi></msub><mo>=</mo><mfrac><mfrac><mn>1</mn><mrow><mi>M</mi><mi>a</mi><mi>x</mi><mi>U</mi><mi>p</mi><mi>t</mi><mi>a</mi><mi>k</mi><msub><mi>e</mi><mi>n</mi></msub></mrow></mfrac><mrow><munder><mo>∑</mo><mi>n</mi></munder><mfrac><mn>1</mn><mrow><mi>M</mi><mi>a</mi><mi>x</mi><mi>U</mi><mi>p</mi><mi>t</mi><mi>a</mi><mi>k</mi><msub><mi>e</mi><mi>n</mi></msub></mrow></mfrac></mrow></mfrac></mrow><annotation encoding="application/x-tex">
-w_i = \frac{\frac{1}{MaxUptake_n}}{\sum_n \frac{1}{MaxUptake_n}}
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>k</mi></msub><mo>=</mo><mfrac><mfrac><mn>1</mn><mrow><mi>M</mi><mi>a</mi><mi>x</mi><mi>U</mi><mi>p</mi><mi>t</mi><mi>a</mi><mi>k</mi><msub><mi>e</mi><mi>k</mi></msub></mrow></mfrac><mrow><munder><mo>∑</mo><mi>n</mi></munder><mfrac><mn>1</mn><mrow><mi>M</mi><mi>a</mi><mi>x</mi><mi>U</mi><mi>p</mi><mi>t</mi><mi>a</mi><mi>k</mi><msub><mi>e</mi><mi>k</mi></msub></mrow></mfrac></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+w_k = \frac{\frac{1}{MaxUptake_k}}{\sum_n \frac{1}{MaxUptake_k}}
 </annotation></semantics></math> The weights are normalized:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mo>∑</mo><mi>n</mi></munder><msub><mi>w</mi><mi>n</mi></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
-\sum_n w_n = 1
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mo>∑</mo><mi>n</mi></munder><msub><mi>w</mi><mi>k</mi></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
+\sum_n w_k = 1
 </annotation></semantics></math> Then, the
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mrow><mi>i</mi><mo>,</mo><mi>a</mi><mi>g</mi><mi>g</mi></mrow></msub><annotation encoding="application/x-tex">D_{i, agg}</annotation></semantics></math>
 is a weighted average of set of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mi>n</mi></msub><annotation encoding="application/x-tex">D_n</annotation></semantics></math>.</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mrow><mi>i</mi><mo>,</mo><mi>a</mi><mi>g</mi><mi>g</mi></mrow></msub><mo>=</mo><mfrac><mrow><munder><mo>∑</mo><mi>n</mi></munder><msub><mi>w</mi><mi>n</mi></msub><mo>⋅</mo><msub><mi>D</mi><mi>n</mi></msub></mrow><mrow><munder><mo>∑</mo><mi>n</mi></munder><msub><mi>w</mi><mi>n</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">
-D_{i, agg} = \frac{\sum_n w_n \cdot D_n}{\sum_n w_n}
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mrow><mi>i</mi><mo>,</mo><mi>a</mi><mi>g</mi><mi>g</mi></mrow></msub><mo>=</mo><mfrac><mrow><munder><mo>∑</mo><mi>n</mi></munder><msub><mi>w</mi><mi>k</mi></msub><mo>⋅</mo><msub><mi>D</mi><mi>k</mi></msub></mrow><mrow><munder><mo>∑</mo><mi>n</mi></munder><msub><mi>w</mi><mi>k</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+D_{i, agg} = \frac{\sum_n w_k \cdot D_k}{\sum_n w_k}
 </annotation></semantics></math> This process is done for each residue
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
 to cover whole protein data.</p>
 <p>As for previous values, also for
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mrow><mi>i</mi><mo>,</mo><mi>a</mi><mi>g</mi><mi>g</mi></mrow></msub><annotation encoding="application/x-tex">D_{i, agg}</annotation></semantics></math>
 the uncertainty is calculated:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>D</mi><mrow><mi>i</mi><mo>,</mo><mi>a</mi><mi>g</mi><mi>g</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msqrt><mrow><munder><mo>∑</mo><mi>n</mi></munder><msup><mrow><mo stretchy="true" form="prefix">[</mo><mfrac><mrow><msub><mi>w</mi><mi>n</mi></msub><mo>⋅</mo><mi>U</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>D</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><munder><mo>∑</mo><mi>n</mi></munder><msub><mi>w</mi><mi>n</mi></msub></mrow></mfrac><mo stretchy="true" form="postfix">]</mo></mrow><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">
-u(D_{i, agg}) = \sqrt{ \sum_{n} \left[ \frac{  w_n \cdot U(D_n)}{ \sum_n w_n } \right] ^2}
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>D</mi><mrow><mi>i</mi><mo>,</mo><mi>a</mi><mi>g</mi><mi>g</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msqrt><mrow><munder><mo>∑</mo><mi>n</mi></munder><msup><mrow><mo stretchy="true" form="prefix">[</mo><mfrac><mrow><msub><mi>w</mi><mi>k</mi></msub><mo>⋅</mo><mi>U</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>D</mi><mi>k</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><munder><mo>∑</mo><mi>n</mi></munder><msub><mi>w</mi><mi>k</mi></msub></mrow></mfrac><mo stretchy="true" form="postfix">]</mo></mrow><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">
+u(D_{i, agg}) = \sqrt{ \sum_{n} \left[ \frac{  w_k \cdot U(D_k)}{ \sum_n w_k } \right] ^2}
 </annotation></semantics></math></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

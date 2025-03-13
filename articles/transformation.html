@@ -161,12 +161,14 @@ peptide.</p>
 <span><span class="co">## 19:  654.4411</span></span>
 <span><span class="co">## 20:  561.0588</span></span>
 <span><span class="co">##        Center</span></span></code></pre>
-<p>As we can see from the <code>File</code> column, there are four
-replicates of the experiment. Each measurement of a replicate provide
-values for different possible charge values for each peptide. The result
-of a measurement is in column <code>Center</code> - this is a
-geometrical centroid of an isotopic envelope - the product of the
-measurement from a mass spectrometer.</p>
+<p>As we can see from the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">File</annotation></semantics></math>
+column, there are four replicates of the experiment. Each measurement of
+a replicate provide values for different possible charge values for each
+peptide. The result of a measurement is in column
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">Center</annotation></semantics></math>
+- this is a geometrical centroid of an isotopic envelope - the product
+of the measurement from a mass spectrometer.</p>
 <p>Let’s take a look for values for each replicate.</p>
 <p><img src="transformation_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
 <p>The centroid values for different charge values are not useful. We
@@ -187,7 +189,7 @@ calculated.</p>
 measured in the chosen time point. This calculation is done for every
 other peptide, and these values of mass and uncertainty are used in the
 calculation of deuterium uptake, as described in the
-<code>Data processing</code> article.</p>
+<code><a href="../articles/datafiles.html">vignette("datafiles")</a></code> article.</p>
 </div>
   </main>
 </div>
