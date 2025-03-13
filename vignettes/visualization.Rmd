@@ -22,6 +22,7 @@ knitr::opts_chunk$set(fig.width = 7, fig.height = 5)
 library(HaDeX)
 library(ggplot2)
 library(dplyr)
+library(r3dmol)
 
 states <- unique(alpha_dat[["State"]])
 
@@ -82,7 +83,7 @@ plot_differential(., fractional = TRUE, show_houde_interval = TRUE) +
 ```
 
 
-*Pros*
+*Pros:*
 
  * differential analysis between two states
  * peptide length and position 
@@ -110,7 +111,7 @@ create_state_uptake_dataset(alpha_dat, state = states[3]) %>%
 plot_butterfly(., fractional = FALSE)
 ```
 
-*Pros* 
+*Pros:* 
 
  * values for time course
  * uncertainty for each peptide 
@@ -144,7 +145,7 @@ create_diff_uptake_dataset(alpha_dat, state_1 = states[3], state_2 = states[1]) 
 plot_differential_butterfly(fractional = TRUE, show_houde_interval = TRUE) 
 ```
 
-*Pros* 
+*Pros:* 
 
  * differential analysis between two states
  * hybrid statistical testing
@@ -177,7 +178,8 @@ create_state_uptake_dataset(alpha_dat, state = states[3]) %>%
   filter(Exposure < 1440) %>%
   plot_chiclet(show_uncertainty = TRUE, fractional = FALSE)
 ```
-*Pros* 
+
+*Pros:* 
 
  * values for time course
  * uncertainty for each peptide 
@@ -209,7 +211,7 @@ diff_uptake_dat %>%
   filter(Exposure < 1440 & Exposure > 0.001) %>%
   plot_differential_chiclet(show_uncertainty = TRUE, fractional = TRUE)
 ```
-*Pros* 
+*Pros:* 
 
  * differential analysis between two states
  * values for time course
@@ -251,15 +253,16 @@ plot_volcano(p_dat, show_confidence_limits = T)
 
 ```
 
-*Pros* 
+*Pros:* 
 
  * hybrid statistic test
  * time course information
  * uncertainty 
  
-*Cons* 
+*Cons:* 
 
- * length and position lost
+ * peptide length and position lost
+ * no information of region
  
 *Plot variations:*
 
@@ -281,7 +284,7 @@ plot_uptake_curve() +
   ylim(c(0, NA))
 ```
 
-*Pros* 
+*Pros:* 
 
  * time course
  * state comparison
@@ -340,7 +343,7 @@ plot_manhattan(p_diff_dat, show_peptide_position  = TRUE)
 ```
 
 
-*Pros* 
+*Pros:* 
 
  * peptide length and position
  * shows significant regions
@@ -369,15 +372,16 @@ plot_aggregated_uptake(aggregated_dat)
 ```
 
 
-*Pros* 
+*Pros:* 
 
  * high-resolution
  * time course
  * uncertainty of aggregated values
  
-*Cons*
+*Cons:*
 
  * values are an approximation 
+ * linear presentation lacking conformial information
 
 *Plot variations:*
  
@@ -390,16 +394,42 @@ plot_aggregated_uptake(aggregated_dat)
 
 High-resolution values not only can be presented linearly on high-resolution plot (as above), but also on 3D structure, if available. This way, the uptake values are connected with spatial aspect. 
 
-*Pros* 
+**Example** Structure below is mapped with deuterium uptake values after 1 minute for eEF1B$\alpha$ state. Values are aggregateed using weighted approach, color signifies no exchange (white) to high exchange (red).
+
+
+```{r}
+pdb_file_path <- system.file(package = "HaDeX", "HaDeX/data/Model_eEF1Balpha.pdb")
+
+plot_aggregated_uptake_structure(aggregated_dat, 
+                                 differential = FALSE,
+                                 time_t = 1,
+                                 pdb_file_path = pdb_file_path)
+```
+
+
+*Pros:* 
 
  * aggregated values
  * spatial information
+ * spinning, rotating and zooming options
+ 
+*Cons:*
+
+ * only one time point at a time
+ * no personalization
+ * no information on numerical uptake values
+ * no legend
+ 
+*Plot variations:*
+
+ * fractional/absolute values
+ * fractional values calculated with respect of theoretical/experimental maximal uptake
 
 # Differential High-resolution plot
 
 As most of our methods of visualization, also the high-resolution plot has its differential version. The plot presents aggregated uptake difference values using weighted approach. 
 
-**Example**
+**Example** On the structure, we see the fractional deuterium uptake difference after 25 minutes between states eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$ for protein eEF1B. We see that some peptides are protected (red), and some are deprotected (blue).
 
 
 ```{r}
@@ -411,14 +441,14 @@ plot_aggregated_differential_uptake(aggregated_diff_dat, panels = FALSE)
 ```
 
 
-*Pros* 
+*Pros:* 
 
  * high-resolution
  * comparative analysis
  * time course
  * uncertainty of aggregated values
  
-*Cons*
+*Cons:*
 
  * values are an approximation 
 
@@ -429,6 +459,39 @@ plot_aggregated_differential_uptake(aggregated_diff_dat, panels = FALSE)
  * plot divided into panels 
  * tooltips available in GUI
  
+ 
+# Differential High-resolution on 3D structure
+
+Differential aggregated results can be presented on 3d structure, if available. This plot has a very limited options for personalization, but is extremly vital for comparison of experimental uptake data with spatial information about conformation of the protein.
+
+**Example**  On the structure, we see the fractional deuterium uptake difference after 25 minutes between states eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$ for protein eEF1B. We see that some peptides are protected (red), and some are deprotected (blue).
+
+```{r}
+plot_aggregated_uptake_structure(aggregated_diff_dat, 
+                                 differential = TRUE,
+                                 time_t = 25,
+                                 pdb_file_path = pdb_file_path)
+```
+
+
+*Pros:*
+
+ * aggregated values
+ * spatial information
+ * spinning, rotating and zooming options
+ 
+*Cons:*
+
+ * only one time point at a time
+ * no personalization
+ * no information on numerical uptake values
+ * no legend
+
+*Plot variations:*
+
+ * fractional/absolute values
+ * fractional values calculated with respect of theoretical/experimental maximal uptake
+
 # Coverage heatmap
 
 Coverage heatmap plot is a variation of standard coverage plot - but with each peptide is colored to signal specific value. This plot is particulary useful when presenting AUC or back-exchange values, as they are specified for peptide uptake curve.

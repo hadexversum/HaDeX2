@@ -2,7 +2,7 @@
 % Please edit documentation in R/calculate_aggregated_test_results.R
 \name{calculate_aggregated_test_results}
 \alias{calculate_aggregated_test_results}
-\title{Agregate test result}
+\title{Aggregate test result}
 \usage{
 calculate_aggregated_test_results(
   p_diff_uptake_conf_dat,

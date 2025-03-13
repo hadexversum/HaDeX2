@@ -9,7 +9,7 @@ vignette: >
 
 ## Comparison of results with weighted mean and without
 
-As it is described in `Data processing` article, the data within each replicate of the experiment is aggregated using weighted mean. Below we present the effect it has on the results.
+As it is described in `vignette("datafiles")` article, the data within each replicate of the experiment is aggregated using weighted mean. Below we present the effect it has on the results.
 
 The whole workflow is described in the mentioned article. Here the focus is on the first aspect of the processing.
 
@@ -70,9 +70,9 @@ library(HaDeX)
 dat <- read.csv(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
 ```
 
-As described, the first step is to transform the Center value (geometric centroid of the isotopic envelope for given peptide in a given state in given time point) and then to aggregate the values measured for different charge values. This is all done within each replicate.
+As described, the first step is to transform the $Center$ value (geometric centroid of the isotopic envelope for given peptide in a given state in given time point) and then to aggregate the values measured for different charge values. This is all done within each replicate.
 
-The aggregation in our workflow is a weighted mean, with Inten (intensity) values as weights, as shown below.
+The aggregation in our workflow is a weighted mean, with $Inten$ (intensity) values as weights, as shown below.
 
 ```{r eval=FALSE}
 avg_exp_mass = weighted.mean(exp_mass, Inten, na.rm = TRUE)

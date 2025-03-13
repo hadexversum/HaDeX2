@@ -38,7 +38,7 @@ Below is shown the original and not aggregated data for chosen peptide.
 dat
 ```
 
-As we can see from the `File` column, there are four replicates of the experiment. Each measurement of a replicate provide values for different possible charge values for each peptide. The result of a measurement is in column `Center` - this is a geometrical centroid of an isotopic envelope - the product of the measurement from a mass spectrometer. 
+As we can see from the $File$ column, there are four replicates of the experiment. Each measurement of a replicate provide values for different possible charge values for each peptide. The result of a measurement is in column $Center$ - this is a geometrical centroid of an isotopic envelope - the product of the measurement from a mass spectrometer. 
 
 Let's take a look for values for each replicate.
 
@@ -118,4 +118,4 @@ dat %>%
        y = "Measured mass [Da]")
 ```
 
-Now we have the mass value for chosen peptide in the chosen state, measured in the chosen time point. This calculation is done for every other peptide, and these values of mass and uncertainty are used in the calculation of deuterium uptake, as described in the `Data processing` article.
+Now we have the mass value for chosen peptide in the chosen state, measured in the chosen time point. This calculation is done for every other peptide, and these values of mass and uncertainty are used in the calculation of deuterium uptake, as described in the `vignette("datafiles")` article.

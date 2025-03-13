@@ -27,7 +27,7 @@ In this article, we focus on processing on the file so it could be accepted into
 
 The best way to check if the file is suitable for the application is load in (using e.q. web-server) and see the file status. If the file is in wrong format, there should be appropriate message. 
 
-The main function for data import is HaDeX::read_hdx() function.
+The main function for data import is `HaDeX::read_hdx()` function.
 
 ## DynamX cluster file
 
@@ -39,7 +39,7 @@ colnames <- c("Protein", "Start", "End", "Sequence", "Modification", "Fragment",
 print(colnames)
 ```
 
-If the file have all required columns, it should be accepted by the HaDeX::read_hdx() function.
+If the file have all required columns, it should be accepted by the `HaDeX::read_hdx()` function.
 
 ## DynamX state file
 
@@ -86,7 +86,7 @@ kin_dat <- dat %>%
 
 ```
 
-This way we have uptake calculated in Daltons. If there is FD (labeled with `Exposure` value), here is how to normalize uptake with respect to selected measurement:
+This way we have uptake calculated in Daltons. If there is FD (labeled with $Exposure$ value), here is how to normalize uptake with respect to selected measurement:
 
 ```{r, eval = FALSE}
 
@@ -131,7 +131,7 @@ colnames
 
 ```
 
-it can be processed with HaDeX::read_hdx() from the code level, as it requires additional action from the user. Then, this data can be used as described in other articles.
+it can be processed with `HaDeX::read_hdx()` from the code level, as it requires additional action from the user. Then, this data can be used as described in other articles.
 
 If the file has following columns:
 

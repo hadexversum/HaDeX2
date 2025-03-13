@@ -108,7 +108,7 @@ The uncertainty associated with theoretical fractional deuterium uptake [%] (bas
 
 $$u(D_{theo, frac}) = \left|\frac{1}{MaxUptake \times protonMass} u(D_{t}) \right|$$
 
-## Differential values
+# Differential values
 
 Differential value is the way to see how the deuterium uptake differs between two biological states. It allows seeing if the possible difference is statistically important (more information below). This value is calculated as the difference between the previously described (in a chosen form) deuterium uptake of the first and second states. 
 
@@ -123,27 +123,27 @@ The convenient way to present results calculated as described is the comparison 
 
 Aggregation of values is inspired by the article by Keppler and Weis (doi: 10.1007/s13361-014-1033-6). This process can be conducted of any deuterium uptake variation - fractional or absolute, with theoretical or experimental control, single-state or differential. 
 
-For each residue $i$ there is a subset of peptides ($n$) covering said residue. Then, the final $D_{i, agg}$ is calculated from the subset of $D_n$, with weights $w_i$ inverse proportional to the max uptake of peptide ($MaxUptake_n$) - the shortest the peptide the highest the possibility that the uptake took place in said residue:
+For each residue $i$ there is a subset of peptides ($n$) covering said residue. Then, the final $D_{i, agg}$ is calculated from the subset of $D_k$ (where $ 0<k<n$), with weights $w_k$ inverse proportional to the max uptake of peptide ($MaxUptake_k$) - the shortest the peptide the highest the possibility that the uptake took place in said residue:
 
 $$
-w_i = \frac{\frac{1}{MaxUptake_n}}{\sum_n \frac{1}{MaxUptake_n}}
+w_k = \frac{\frac{1}{MaxUptake_k}}{\sum_n \frac{1}{MaxUptake_k}}
 $$
 The weights are normalized:
 
 $$
-\sum_n w_n = 1
+\sum_n w_k = 1
 $$
 Then, the $D_{i, agg}$ is a weighted average of set of $D_n$.
 
 $$
-D_{i, agg} = \frac{\sum_n w_n \cdot D_n}{\sum_n w_n}
+D_{i, agg} = \frac{\sum_n w_k \cdot D_k}{\sum_n w_k}
 $$
 This process is done for each residue $i$ to cover whole protein data. 
 
 As for previous values, also for $D_{i, agg}$ the uncertainty is calculated:
 
 $$
-u(D_{i, agg}) = \sqrt{ \sum_{n} \left[ \frac{  w_n \cdot U(D_n)}{ \sum_n w_n } \right] ^2}
+u(D_{i, agg}) = \sqrt{ \sum_{n} \left[ \frac{  w_k \cdot U(D_k)}{ \sum_n w_k } \right] ^2}
 $$
 
 
