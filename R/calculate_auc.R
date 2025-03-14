@@ -4,9 +4,10 @@
 #' 
 #' @param uptake_dat data with deuterium uptake values, 
 #' calculated e.q. by \code{\link{create_uptake_dataset}}
-#' @param protein ...
-#' @param state ...
-#' @param preserve_values ...
+#' @param protein chosen protein
+#' @param state state included in calculations
+#' @param preserve_values indicator if the original columns
+#' form uptake_dat should be preserve in the result
 #' 
 #' @details The AUC is calculated on the data normalized to unit square by 
 #' division by maximum values of exposure time and deuterium uptake, 
@@ -20,7 +21,7 @@
 #' 
 #' @examples 
 #' uptake_dat <- create_uptake_dataset(alpha_dat)
-#' calculate_auc(uptake_dat)
+#' head(calculate_auc(uptake_dat))
 #' 
 #' @export calculate_auc
 

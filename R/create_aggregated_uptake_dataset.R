@@ -1,7 +1,16 @@
 #' Calculates the aggregated uptake for peptide pool
 #'
-#' @param kin_dat ...
+#' @param kin_dat single state uptake data, product of e.q.
+#' \code{\link{create_uptake_dataset}}
 #'
+#' @description
+#' This is a wrapper function for \code{\link{calculate_aggregated_uptake}},
+#' which calculates aggregated uptake for only
+#' one time point. This function returns values for all 
+#' time points from `kin_dat`.
+#' 
+#' @return a \code{\link{data.frame}} object
+#' 
 #' @examples
 #' kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN")
 #' create_aggregated_uptake_dataset(kin_dat)
@@ -27,16 +36,17 @@ create_aggregated_uptake_dataset <- function(kin_dat){
 
 #' Show aggregated values in friendly form
 #' 
-#' @param aggregated_dat ...
-#' @param differential ...
-#' @param fractional ...
-#' @param theoretical ...
+#' @param aggregated_dat aggregated uptake data
+#' @param differential indicator if the aggregated_dat is 
+#' single-state or differential 
+#' @param theoretical \code{logical}, determines if values are theoretical
+#' @param fractional \code{logical}, determines if values are fractional
 #' 
 #' @description Function plots the aggregated uptake data
 #' with regard to submitted parameters in a friendly form.
 #' Designed for GUI.
 #' 
-#' @return a data.table object
+#' @return a \code{\link{data.frame}} object
 #' 
 #' @examples 
 #' kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN")

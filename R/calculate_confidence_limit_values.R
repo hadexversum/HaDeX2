@@ -7,9 +7,9 @@
 #' @importFrom stats qt
 #' 
 #' @param diff_uptake_dat processed data from DynamX file - using prepare_dataset
-#' @param confidence_level confidence level for the test, from range [0, 1].
-#' @param theoretical \code{logical}, determines if values are theoretical.
-#' @param fractional \code{logical}, determines if values are fractional.
+#' @param confidence_level confidence level for the test, from range [0, 1]
+#' @param theoretical \code{logical}, determines if values are theoretical
+#' @param fractional \code{logical}, determines if values are fractional
 #' 
 #' @details Function \code{\link{calculate_confidence_limit_values}} 
 #' calculates confidence limit using Houde test. The confidence limits 
@@ -17,7 +17,7 @@
 #' confidence limit for one, two or more time points, the provided data 
 #' should be adjusted accordingly. 
 #' 
-#' @return range of confidence limit interval.
+#' @return range of confidence limit interval
 #' 
 #' @references Houde, D., Berkowitz, S.A., and Engen, J.R. (2011). 
 #' The Utility of Hydrogen/Deuterium Exchange Mass Spectrometry in 

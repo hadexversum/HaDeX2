@@ -22,7 +22,7 @@
 #' \code{\link{calculate_state_uptake}} 
 #' 
 #' @examples 
-#' calculate_exp_masses_per_replicate(alpha_dat)
+#' head(calculate_exp_masses_per_replicate(alpha_dat))
 #' 
 #' @export calculate_exp_masses_per_replicate
 

@@ -1,4 +1,5 @@
 #' Plot aggregated uptake on the 3D structure
+#' 
 #' @importFrom ggplot2 ggplot_build
 #'
 #' @param aggregated_dat aggregated data, either for single uptake or differential

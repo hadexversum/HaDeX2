@@ -6,7 +6,7 @@
 #' @importFrom data.table fcase fcoalesce
 #' 
 #' @param dat data as imported by the \code{\link{read_hdx}} function
-#' @param protein chosen protein. 
+#' @param protein chosen protein
 #' @param state state included in calculations
 #' @param time_0 minimal exchange control
 #' @param time_100 maximal exchange control 
@@ -32,7 +32,7 @@
 #' \code{\link{add_stat_dependency}}
 #' 
 #' @examples
-#' calculate_state_uptake(alpha_dat)
+#' head(calculate_state_uptake(alpha_dat))
 #'                             
 #' @export calculate_state_uptake
 

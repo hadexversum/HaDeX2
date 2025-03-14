@@ -147,4 +147,12 @@ u(D_{i, agg}) = \sqrt{ \sum_{n} \left[ \frac{  w_k \cdot U(D_k)}{ \sum_n w_k } \
 $$
 
 
+# Back-exchange
 
+Back-exchange is a reverse exchange - from already exchange deuterium back to hydrogen. 
+
+Back-exchange ($bex$) is calculated for each peptide and is defined as the difference between fractional  theoretical deuterium uptake of the experimental maximal deuterium control and 100% of exchange. 
+
+$$
+bex = 100 - D_{theo, frac}(t_{100})
+$$

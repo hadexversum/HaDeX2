@@ -100,18 +100,18 @@ calculate_aggregated_test_results <- function(p_diff_uptake_conf_dat,
   
 }
 
-#' internal
+#' @noRd
 calculate_n_exchangeable <- function(sequence,
                                      skip_amino = 0){
   nchar(sequence) - 1 - skip_amino - stri_count(substr(sequence, 2+skip_amino, nchar(sequence)), fixed = "P")
 }
 
-#' internal 
+#' @noRd
 calculate_weiss_weight <- function(x){
   x^(-2)
 }
 
-#' internal
+#' @noRd
 create_hr_template <- function(x_dat,
                                protein = x_dat[["Protein"]][1]){
   

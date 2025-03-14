@@ -467,6 +467,8 @@ Differential aggregated results can be presented on 3d structure, if available. 
 **Example**  On the structure, we see the fractional deuterium uptake difference after 25 minutes between states eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$ for protein eEF1B. We see that some peptides are protected (red), and some are deprotected (blue).
 
 ```{r}
+pdb_file_path <- system.file(package = "HaDeX", "HaDeX/data/Model_eEF1Balpha.pdb")
+
 plot_aggregated_uptake_structure(aggregated_diff_dat, 
                                  differential = TRUE,
                                  time_t = 25,
