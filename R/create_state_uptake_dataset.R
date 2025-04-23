@@ -44,7 +44,7 @@ create_state_uptake_dataset <- function(dat,
   
   dat <- as.data.table(dat)
   
-  all_times <- unique(dat[["Exposure"]])
+  all_times <- unique(dat[State == state, ][["Exposure"]])
   times <- all_times[all_times > time_0 & all_times <= time_100]
   
   state_uptake_dat <- rbindlist(lapply(times, function(time){

@@ -7,12 +7,19 @@
 calculate_aggregated_diff_uptake(diff_uptake_dat, time_t)
 }
 \arguments{
-\item{diff_uptake_dat}{...}
+\item{diff_uptake_dat}{differential uptake data, 
+product of e.q. \code{\link{create_diff_uptake_dataset}}}
 
-\item{time_t}{...}
+\item{time_t}{chosen time point}
+}
+\value{
+a \code{\link{data.frame}} object
 }
 \description{
-Calculates aggregated deuterium uptake difference for one time point
+Function aggregates the differential deuterium uptake values from
+peptide level into single-amino resolution using `weighted
+approach` (definied in `vignette("datafiles"))`. For 
+visualization use \code{\link{plot_aggregated_uptake}}
 }
 \examples{
 diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)

@@ -12,16 +12,17 @@ show_aggregated_uptake_data(
 )
 }
 \arguments{
-\item{aggregated_dat}{...}
+\item{aggregated_dat}{aggregated uptake data}
 
-\item{differential}{...}
+\item{differential}{indicator if the aggregated_dat is 
+single-state or differential}
 
-\item{fractional}{...}
+\item{fractional}{\code{logical}, determines if values are fractional}
 
-\item{theoretical}{...}
+\item{theoretical}{\code{logical}, determines if values are theoretical}
 }
 \value{
-a data.table object
+a \code{\link{data.frame}} object
 }
 \description{
 Function plots the aggregated uptake data

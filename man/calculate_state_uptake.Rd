@@ -17,7 +17,7 @@ calculate_state_uptake(
 \arguments{
 \item{dat}{data as imported by the \code{\link{read_hdx}} function}
 
-\item{protein}{chosen protein.}
+\item{protein}{chosen protein}
 
 \item{state}{state included in calculations}
 
@@ -47,7 +47,7 @@ in theoretical calculations is provided.
 Methods of calculation and uncertainty are profoundly discussed in the vignette.
 }
 \examples{
-calculate_state_uptake(alpha_dat)
+head(calculate_state_uptake(alpha_dat))
                             
 }
 \seealso{

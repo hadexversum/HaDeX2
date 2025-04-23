@@ -15,11 +15,12 @@ calculate_auc(
 \item{uptake_dat}{data with deuterium uptake values, 
 calculated e.q. by \code{\link{create_uptake_dataset}}}
 
-\item{protein}{...}
+\item{protein}{chosen protein}
 
-\item{state}{...}
+\item{state}{state included in calculations}
 
-\item{preserve_values}{...}
+\item{preserve_values}{indicator if the original columns
+form uptake_dat should be preserve in the result}
 }
 \value{
 a \code{\link{data.frame}} object
@@ -34,7 +35,7 @@ respectively.
 }
 \examples{
 uptake_dat <- create_uptake_dataset(alpha_dat)
-calculate_auc(uptake_dat)
+head(calculate_auc(uptake_dat))
 
 }
 \seealso{

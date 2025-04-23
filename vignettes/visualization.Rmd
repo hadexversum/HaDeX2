@@ -390,40 +390,6 @@ plot_aggregated_uptake(aggregated_dat)
  * plot divided into panels 
  * tooltips available in GUI
 
-# High-resolution on 3D structure
-
-High-resolution values not only can be presented linearly on high-resolution plot (as above), but also on 3D structure, if available. This way, the uptake values are connected with spatial aspect. 
-
-**Example** Structure below is mapped with deuterium uptake values after 1 minute for eEF1B$\alpha$ state. Values are aggregateed using weighted approach, color signifies no exchange (white) to high exchange (red).
-
-
-```{r}
-pdb_file_path <- system.file(package = "HaDeX", "HaDeX/data/Model_eEF1Balpha.pdb")
-
-plot_aggregated_uptake_structure(aggregated_dat, 
-                                 differential = FALSE,
-                                 time_t = 1,
-                                 pdb_file_path = pdb_file_path)
-```
-
-
-*Pros:* 
-
- * aggregated values
- * spatial information
- * spinning, rotating and zooming options
- 
-*Cons:*
-
- * only one time point at a time
- * no personalization
- * no information on numerical uptake values
- * no legend
- 
-*Plot variations:*
-
- * fractional/absolute values
- * fractional values calculated with respect of theoretical/experimental maximal uptake
 
 # Differential High-resolution plot
 
@@ -460,23 +426,58 @@ plot_aggregated_differential_uptake(aggregated_diff_dat, panels = FALSE)
  * tooltips available in GUI
  
  
-# Differential High-resolution on 3D structure
+<!-- # Differential High-resolution on 3D structure -->
 
-Differential aggregated results can be presented on 3d structure, if available. This plot has a very limited options for personalization, but is extremly vital for comparison of experimental uptake data with spatial information about conformation of the protein.
+<!-- Differential aggregated results can be presented on 3d structure, if available. This plot has a very limited options for personalization, but is extremly vital for comparison of experimental uptake data with spatial information about conformation of the protein. -->
 
-**Example**  On the structure, we see the fractional deuterium uptake difference after 25 minutes between states eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$ for protein eEF1B. We see that some peptides are protected (red), and some are deprotected (blue).
+<!-- **Example**  On the structure, we see the fractional deuterium uptake difference after 25 minutes between states eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$ for protein eEF1B. We see that some peptides are protected (red), and some are deprotected (blue). -->
+
+<!-- ```{r} -->
+<!-- pdb_file_path <- system.file(package = "HaDeX", "HaDeX/data/Model_eEF1Balpha.pdb") -->
+
+<!-- plot_aggregated_uptake_structure(aggregated_diff_dat,  -->
+<!--                                  differential = TRUE, -->
+<!--                                  time_t = 25, -->
+<!--                                  pdb_file_path = pdb_file_path) -->
+<!-- ``` -->
+
+
+<!-- *Pros:* -->
+
+<!--  * aggregated values -->
+<!--  * spatial information -->
+<!--  * spinning, rotating and zooming options -->
+
+<!-- *Cons:* -->
+
+<!--  * only one time point at a time -->
+<!--  * no personalization -->
+<!--  * no information on numerical uptake values -->
+<!--  * no legend -->
+
+<!-- *Plot variations:* -->
+
+<!--  * fractional/absolute values -->
+<!--  * fractional values calculated with respect of theoretical/experimental maximal uptake -->
+
+# High-resolution on 3D structure
+
+High-resolution values not only can be presented linearly on high-resolution plot (as above), but also on 3D structure, if available. This way, the calculated values are connected with spatial aspect. This option is available both for single state uptake and differential uptake.
+
+**Example** Structure below is mapped with deuterium uptake values after 1 minute for eEF1B$\alpha$ state. Values are aggregateed using weighted approach, color signifies no exchange (white) to high exchange (red).
+
 
 ```{r}
 pdb_file_path <- system.file(package = "HaDeX", "HaDeX/data/Model_eEF1Balpha.pdb")
 
-plot_aggregated_uptake_structure(aggregated_diff_dat, 
-                                 differential = TRUE,
-                                 time_t = 25,
+plot_aggregated_uptake_structure(aggregated_dat, 
+                                 differential = FALSE,
+                                 time_t = 1,
                                  pdb_file_path = pdb_file_path)
 ```
 
 
-*Pros:*
+*Pros:* 
 
  * aggregated values
  * spatial information
@@ -488,7 +489,7 @@ plot_aggregated_uptake_structure(aggregated_diff_dat,
  * no personalization
  * no information on numerical uptake values
  * no legend
-
+ 
 *Plot variations:*
 
  * fractional/absolute values

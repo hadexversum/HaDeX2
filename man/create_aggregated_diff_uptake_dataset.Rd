@@ -7,13 +7,20 @@
 create_aggregated_diff_uptake_dataset(diff_uptake_dat)
 }
 \arguments{
-\item{diff_uptake_dat}{...}
+\item{diff_uptake_dat}{differential uptake data, 
+product of e.q. \code{\link{create_diff_uptake_dataset}}}
+}
+\value{
+a \code{\link{data.frame}} object
 }
 \description{
-Calculates aggregated uptake difference for peptide pool
+This is a wrapper function for \code{\link{calculate_aggregated_diff_uptake}},
+which calculates aggregated differential uptake for only
+one time point. This function returns values for all 
+time points from `diff_uptake_dat`.
 }
 \examples{
 diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
-create_aggregated_diff_uptake_dataset(diff_uptake_dat)
+head(reate_aggregated_diff_uptake_dataset(diff_uptake_dat))
 
 }

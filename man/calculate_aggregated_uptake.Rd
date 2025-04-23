@@ -11,18 +11,25 @@ calculate_aggregated_uptake(
 )
 }
 \arguments{
-\item{kin_dat}{...}
+\item{kin_dat}{single state uptake data, product of e.q.
+\code{\link{create_uptake_dataset}}}
 
-\item{state}{...}
+\item{state}{state included in calculations}
 
-\item{time_t}{...}
+\item{time_t}{chosen time point}
+}
+\value{
+a \code{\link{data.frame}} object
 }
 \description{
-Calculates aggregated deuterium uptake for one time point
+Function aggregates the deuterium uptake values from
+peptide level into single-amino resolution using `weighted
+approach` (definied in `vignette("datafiles"))`. For 
+visualization use \code{\link{plot_aggregated_uptake}}
 }
 \examples{
 dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
 kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN")
-create_aggregated_uptake_dataset(kin_dat)
+head(create_aggregated_uptake_dataset(kin_dat))
 
 }

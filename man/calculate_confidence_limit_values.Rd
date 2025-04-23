@@ -15,14 +15,14 @@ calculate_confidence_limit_values(
 \arguments{
 \item{diff_uptake_dat}{processed data from DynamX file - using prepare_dataset}
 
-\item{confidence_level}{confidence level for the test, from range [0, 1].}
+\item{confidence_level}{confidence level for the test, from range [0, 1]}
 
-\item{theoretical}{\code{logical}, determines if values are theoretical.}
+\item{theoretical}{\code{logical}, determines if values are theoretical}
 
-\item{fractional}{\code{logical}, determines if values are fractional.}
+\item{fractional}{\code{logical}, determines if values are fractional}
 }
 \value{
-range of confidence limit interval.
+range of confidence limit interval
 }
 \description{
 Calculates confidence limit values for prepared provided, 

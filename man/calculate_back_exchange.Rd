@@ -25,15 +25,21 @@ deuterated sample}
 a \code{\link{data.frame}} object
 }
 \description{
-...
+Calculates back-exchange for a state
 }
 \details{
-...
+Back-exchange is a reverse exchange phenomenon, important 
+to acknowledge when working with HDX data. This function calculcates
+back-exchange values for one biological state of the selected protein.
+For visualization of back-exchange data use \code{\link{plot_coverage_heatmap}}
+with displayed value specified as `back-exchange`.
+For the definition of back-exchange see the `vignette("datafiles")`.
 }
 \examples{
-calculate_back_exchange(alpha_dat)
+head(calculate_back_exchange(alpha_dat))
 
 }
 \seealso{
 \code{\link{read_hdx}}
+\code{\link{plot_coverage_heatmap}}
 }
