@@ -73,15 +73,16 @@ calculated e.q. by <code><a href="create_uptake_dataset.html">create_uptake_data
 
 
 <dt id="arg-protein">protein<a class="anchor" aria-label="anchor" href="#arg-protein"></a></dt>
-<dd><p>...</p></dd>
+<dd><p>chosen protein</p></dd>
 
 
 <dt id="arg-state">state<a class="anchor" aria-label="anchor" href="#arg-state"></a></dt>
-<dd><p>...</p></dd>
+<dd><p>state included in calculations</p></dd>
 
 
 <dt id="arg-preserve-values">preserve_values<a class="anchor" aria-label="anchor" href="#arg-preserve-values"></a></dt>
-<dd><p>...</p></dd>
+<dd><p>indicator if the original columns
+form uptake_dat should be preserve in the result</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -103,221 +104,14 @@ respectively.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">uptake_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_uptake_dataset.html">create_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">calculate_auc</span><span class="op">(</span><span class="va">uptake_dat</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Protein                     Sequence Start End       State Modification</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   db_eEF1Ba                  GFGDLKSPAGL     1  11 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   db_eEF1Ba                   FGDLKSPAGL     2  11 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   db_eEF1Ba                    GDLKSPAGL     3  11 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   db_eEF1Ba                       LKSPAG     5  10 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   db_eEF1Ba                      LKSPAGL     5  11 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   db_eEF1Ba                       AGLQVL     9  14 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   db_eEF1Ba                        QVLND    12  16 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   db_eEF1Ba                       QVLNDY    12  17 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   db_eEF1Ba                       NDYLAD    15  20 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  db_eEF1Ba                      NDYLADK    15  21 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  db_eEF1Ba                       YLADKS    17  22 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  db_eEF1Ba                      YLADKSY    17  23 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  db_eEF1Ba            YLADKSYIEGYVPSQAD    17  33 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  db_eEF1Ba              ADKSYIEGYVPSQAD    19  33 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  db_eEF1Ba                KSYIEGYVPSQAD    21  33 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  db_eEF1Ba                        SYIEG    22  26 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17  db_eEF1Ba                 SYIEGYVPSQAD    22  33 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  db_eEF1Ba                  YIEGYVPSQAD    23  33 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  db_eEF1Ba                       IEGYVP    24  29 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20  db_eEF1Ba                    IEGYVPSQA    24  32 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21  db_eEF1Ba                   IEGYVPSQAD    24  33 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22  db_eEF1Ba                      YVPSQAD    27  33 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23  db_eEF1Ba                        VAVFE    34  38 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24  db_eEF1Ba                  FEAVSSPPPAD    37  47 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25  db_eEF1Ba                 FEAVSSPPPADL    37  48 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26  db_eEF1Ba               FEAVSSPPPADLCH    37  50 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27  db_eEF1Ba              FEAVSSPPPADLCHA    37  51 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28  db_eEF1Ba                  EAVSSPPPADL    38  48 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29  db_eEF1Ba                EAVSSPPPADLCH    38  50 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30  db_eEF1Ba               EAVSSPPPADLCHA    38  51 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31  db_eEF1Ba                   AVSSPPPADL    39  48 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32  db_eEF1Ba                    VSSPPPADL    40  48 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33  db_eEF1Ba                  VSSPPPADLCH    40  50 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34  db_eEF1Ba                      ALRWYNH    51  57 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35  db_eEF1Ba                       LRWYNH    52  57 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36  db_eEF1Ba             IKSYEKEKASLPGVKK    58  73 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37  db_eEF1Ba        IKSYEKEKASLPGVKKALGKY    58  78 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38  db_eEF1Ba              EKASLPGVKKALGKY    64  78 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39  db_eEF1Ba          EKASLPGVKKALGKYGPAD    64  82 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40  db_eEF1Ba        EKASLPGVKKALGKYGPADVE    64  84 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41  db_eEF1Ba            ASLPGVKKALGKYGPAD    66  82 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42  db_eEF1Ba                  ALGKYGPADVE    74  84 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43  db_eEF1Ba         VEDTTGSGATDSKDDDDIDL    83 102 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44  db_eEF1Ba           DTTGSGATDSKDDDDIDL    85 102 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45  db_eEF1Ba            TTGSGATDSKDDDDIDL    86 102 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46  db_eEF1Ba                       DDDIDL    97 102 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47  db_eEF1Ba                       LFGSDD   102 107 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48  db_eEF1Ba                        FGSDD   103 107 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49  db_eEF1Ba            FGSDDEEESEEAKRLRE   103 119 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50  db_eEF1Ba           FGSDDEEESEEAKRLREE   103 120 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51  db_eEF1Ba         FGSDDEEESEEAKRLREERL   103 122 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52  db_eEF1Ba           DEEESEEAKRLREERLAQ   107 124 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53  db_eEF1Ba            EEESEEAKRLREERLAQ   108 124 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54  db_eEF1Ba                AQYESKKAKKPAL   123 135 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55  db_eEF1Ba                  YESKKAKKPAL   125 135 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56  db_eEF1Ba                      VAKSSIL   136 142 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57  db_eEF1Ba                     VAKSSILL   136 143 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58  db_eEF1Ba                       AKSSIL   137 142 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59  db_eEF1Ba                     LDVKPWDD   143 150 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60  db_eEF1Ba                  LDVKPWDDETD   143 153 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61  db_eEF1Ba                  DVKPWDDETDM   144 154 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62  db_eEF1Ba                       MAKLEE   154 159 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63  db_eEF1Ba                        AKLEE   155 159 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64  db_eEF1Ba                      CVRSIQA   160 166 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65  db_eEF1Ba                    CVRSIQADG   160 168 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66  db_eEF1Ba                   CVRSIQADGL   160 169 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67  db_eEF1Ba            CVRSIQADGLVWGSSKL   160 176 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68  db_eEF1Ba                    VRSIQADGL   161 169 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69  db_eEF1Ba             VRSIQADGLVWGSSKL   161 176 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70  db_eEF1Ba                      SIQADGL   163 169 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71  db_eEF1Ba               SIQADGLVWGSSKL   163 176 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72  db_eEF1Ba SIQADGLVWGSSKLVPVGYGIKKLQIQC   163 190 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73  db_eEF1Ba         ADGLVWGSSKLVPVGYGIKK   166 185 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74  db_eEF1Ba                     DGLVWGSS   167 174 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75  db_eEF1Ba                   DGLVWGSSKL   167 176 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76  db_eEF1Ba              DGLVWGSSKLVPVGY   167 181 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77  db_eEF1Ba             DGLVWGSSKLVPVGYG   167 182 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78  db_eEF1Ba                LVWGSSKLVPVGY   169 181 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79  db_eEF1Ba             KLVPVGYGIKKLQIQC   175 190 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80  db_eEF1Ba               VPVGYGIKKLQIQC   177 190 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81  db_eEF1Ba                       KLQIQC   185 190 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82  db_eEF1Ba                 CVVEDDKVGTDM   190 201 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83  db_eEF1Ba                CVVEDDKVGTDML   190 202 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84  db_eEF1Ba                  VVEDDKVGTDM   191 201 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85  db_eEF1Ba                 VVEDDKVGTDML   191 202 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86  db_eEF1Ba                VVEDDKVGTDMLE   191 203 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87  db_eEF1Ba                     DDKVGTDM   194 201 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88  db_eEF1Ba                    DDKVGTDML   194 202 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89  db_eEF1Ba                      DKVGTDM   195 201 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90  db_eEF1Ba                     DKVGTDML   195 202 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 91  db_eEF1Ba                       VGTDML   197 202 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 92  db_eEF1Ba                       LEEQIT   202 207 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 93  db_eEF1Ba                      LEEQITA   202 208 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 94  db_eEF1Ba                     LEEQITAF   202 209 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 95  db_eEF1Ba                       EEQITA   203 208 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 96  db_eEF1Ba                      EEQITAF   203 209 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 97  db_eEF1Ba                     EEQITAFE   203 210 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 98  db_eEF1Ba                       EQITAF   204 209 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 99  db_eEF1Ba                        QITAF   205 209 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 100 db_eEF1Ba                     FEDYVQSM   209 216 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 101 db_eEF1Ba                      EDYVQSM   210 216 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 102 db_eEF1Ba                     EDYVQSMD   210 217 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 103 db_eEF1Ba                    EDYVQSMDV   210 218 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 104 db_eEF1Ba                       DYVQSM   211 216 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 105 db_eEF1Ba                       YVQSMD   212 217 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 106 db_eEF1Ba                        DVAAF   217 221 ALPHA_Gamma           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           auc</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   0.9973726</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   0.9993199</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   1.0119067</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   0.9991318</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   0.9991318</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   0.8587529</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   0.4479167</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   0.6116898</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   0.6284722</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  0.5833333</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  0.7955825</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  0.7955825</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  0.7176388</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  0.7477944</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  0.7546626</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  0.7239003</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17  0.7546626</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  0.8057869</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  0.9989003</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20  0.7790971</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21  0.7790392</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22  0.7238280</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23  0.4479167</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24  0.8618199</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25  0.7790392</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26  0.8155188</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27  0.7618137</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28  0.8618199</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29  0.8155670</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30  0.8141299</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31  0.8618199</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32  0.8158949</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33  0.8618199</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34  0.4479167</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35  0.4479167</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36  0.9987395</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37  0.9998599</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38  0.9998840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39  0.9998840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40  0.9998840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41  0.9998840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42  0.9998840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43  0.9998840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44  0.9998840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45  1.0073162</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46  0.9998840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47  0.9998840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48  0.9998840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49  0.9998840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50  0.9998840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51  0.9589166</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52  1.0040796</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53  0.9998840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54  0.9998840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55  0.9998840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56  0.9963541</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57  0.9820746</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58  0.9963541</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59  0.9762345</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60  0.8769097</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61  0.9846497</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62  0.9755787</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63  0.7922454</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64  0.9820746</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65  0.9973726</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66  0.9877314</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67  0.9905034</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68  0.9974304</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69  0.9915315</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70  0.9846497</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71  0.9907334</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72  0.9599247</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73  0.9927372</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74  0.9842302</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75  0.9994327</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76  0.9904875</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77  0.9915315</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78  0.9966186</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79  0.9852719</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80  0.9894611</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81  0.9790799</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82  0.9893517</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83  0.9879546</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84  0.9973726</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85  0.9973726</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86  0.9891451</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87  0.9993199</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88  0.9873031</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89  1.1803432</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90  0.9972365</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 91  0.9964505</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 92  0.9755787</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 93  0.9790799</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 94  0.9828472</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 95  0.9755787</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 96  0.9790799</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 97  0.9831828</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 98  0.9755787</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 99  0.9937500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 100 0.9816550</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 101 0.8587529</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 102 0.9815827</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 103 0.9852430</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 104 0.9761381</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 105 0.9956983</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 106 0.9947337</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu">calculate_auc</span><span class="op">(</span><span class="va">uptake_dat</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     Protein    Sequence Start End       State Modification       auc</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 db_eEF1Ba GFGDLKSPAGL     1  11 ALPHA_Gamma           NA 0.9973726</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 db_eEF1Ba  FGDLKSPAGL     2  11 ALPHA_Gamma           NA 0.9993199</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 db_eEF1Ba   GDLKSPAGL     3  11 ALPHA_Gamma           NA 1.0119067</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 db_eEF1Ba      LKSPAG     5  10 ALPHA_Gamma           NA 0.9991318</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 db_eEF1Ba     LKSPAGL     5  11 ALPHA_Gamma           NA 0.9991318</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 db_eEF1Ba      AGLQVL     9  14 ALPHA_Gamma           NA 0.8587529</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

@@ -92,33 +92,23 @@ can be distinguished by the `File` value.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">calculate_exp_masses_per_replicate</span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         Protein       State    Sequence Start   End       MHP MaxUptake</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;char&gt;      &lt;char&gt;      &lt;char&gt; &lt;int&gt; &lt;int&gt;     &lt;num&gt;     &lt;int&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1: db_eEF1Ba ALPHA_Gamma GFGDLKSPAGL     1    11 1061.5626         9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2: db_eEF1Ba ALPHA_Gamma GFGDLKSPAGL     1    11 1061.5626         9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3: db_eEF1Ba ALPHA_Gamma GFGDLKSPAGL     1    11 1061.5626         9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4: db_eEF1Ba ALPHA_Gamma GFGDLKSPAGL     1    11 1061.5626         9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5: db_eEF1Ba ALPHA_Gamma GFGDLKSPAGL     1    11 1061.5626         9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5742: db_eEF1Ba  Alpha_KSCN       DVAAF   217   221  522.2558         4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5743: db_eEF1Ba  Alpha_KSCN       DVAAF   217   221  522.2558         4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5744: db_eEF1Ba  Alpha_KSCN       DVAAF   217   221  522.2558         4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5745: db_eEF1Ba  Alpha_KSCN       DVAAF   217   221  522.2558         4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5746: db_eEF1Ba  Alpha_KSCN       DVAAF   217   221  522.2558         4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Exposure                                  File Modification avg_exp_mass</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;num&gt;                                &lt;char&gt;       &lt;lgcl&gt;        &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1:    0.000     Tania_161112_eEF1Ba_KSCN_IMS_seq1           NA    1061.3119</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:    0.167      Tania_161109_1eEF1Bag_KSCN_10sec           NA    1062.9831</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3:    0.167      Tania_161109_2eEF1Bag_KSCN_10sec           NA    1062.9744</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:    0.167      Tania_161109_3eEF1Bag_KSCN_10sec           NA    1062.9735</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5:    1.000 Tania_161108_1eEF1Bag_compl_KSCN_1min           NA    1064.1915</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5742:  150.000        Tania_161111_2eEF1Ba_KSCN_2_5h           NA     523.7853</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5743:  150.000        Tania_161111_3eEF1Ba_KSCN_2_5h           NA     523.7449</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5744: 1440.000         Tania_161111_1eEF1Ba_KSCN_out           NA     523.7540</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5745: 1440.000         Tania_161112_2eEF1Ba_KSCN_out           NA     523.7588</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5746: 1440.000         Tania_161112_3eEF1Ba_KSCN_out           NA     523.7717</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu">calculate_exp_masses_per_replicate</span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      Protein       State    Sequence Start   End      MHP MaxUptake Exposure</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;char&gt;      &lt;char&gt;      &lt;char&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt;     &lt;int&gt;    &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1: db_eEF1Ba ALPHA_Gamma GFGDLKSPAGL     1    11 1061.563         9    0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2: db_eEF1Ba ALPHA_Gamma GFGDLKSPAGL     1    11 1061.563         9    0.167</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3: db_eEF1Ba ALPHA_Gamma GFGDLKSPAGL     1    11 1061.563         9    0.167</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4: db_eEF1Ba ALPHA_Gamma GFGDLKSPAGL     1    11 1061.563         9    0.167</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5: db_eEF1Ba ALPHA_Gamma GFGDLKSPAGL     1    11 1061.563         9    1.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6: db_eEF1Ba ALPHA_Gamma GFGDLKSPAGL     1    11 1061.563         9    1.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                     File Modification avg_exp_mass</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                   &lt;char&gt;       &lt;lgcl&gt;        &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:     Tania_161112_eEF1Ba_KSCN_IMS_seq1           NA     1061.312</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2:      Tania_161109_1eEF1Bag_KSCN_10sec           NA     1062.983</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3:      Tania_161109_2eEF1Bag_KSCN_10sec           NA     1062.974</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4:      Tania_161109_3eEF1Bag_KSCN_10sec           NA     1062.973</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5: Tania_161108_1eEF1Bag_compl_KSCN_1min           NA     1064.191</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6: Tania_161108_2eEF1Bag_compl_KSCN_1min           NA     1064.085</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
