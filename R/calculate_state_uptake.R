@@ -44,8 +44,12 @@ calculate_state_uptake <- function(dat,
                                    time_100 = max(dat[["Exposure"]]),
                                    deut_part = 0.9){
   
+  
+  
   proton_mass <- 1.00727647
   dat <- data.table(dat[dat[["Protein"]] == protein & dat[["State"]] == state & dat[["Exposure"]] %in% c(time_0, time_t, time_100), ])
+  
+  if(!time_t %in% dat[["Exposure"]]){ return(data.table())}
   
   uptake_dat <- dat[,  `:=`(exp_mass = Center * z - z * proton_mass,
                             Center = NULL,

@@ -54,6 +54,9 @@ calculate_diff_uptake  <- function(dat,
                                                                                          time_t = time_t,
                                                                                          time_100 = time_100,
                                                                                          deut_part = deut_part))))
+  
+  if(length(unique(diff_dat[["State"]]))!=2) return(data.table())
+  
   diff_dat[, State := factor(State, levels = states, labels = c("1", "2"))]
   diff_dat <- melt.data.table(diff_dat,
                               variable.name = "variable",
