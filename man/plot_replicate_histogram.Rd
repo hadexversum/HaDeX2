@@ -49,7 +49,7 @@ them.
 rep_dat <- create_replicate_dataset(alpha_dat)
 plot_replicate_histogram(rep_dat)
 
-plot_replicate_histogram(rep_dat, time_points = T)
+plot_replicate_histogram(rep_dat, time_points = TRUE)
 
 rep_dat <- create_replicate_dataset(alpha_dat, time_t = 0.167)
 plot_replicate_histogram(rep_dat)

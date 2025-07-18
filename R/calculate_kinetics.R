@@ -61,32 +61,44 @@ calculate_kinetics <- function(dat,
   
   dat <- as.data.table(dat)
   
+  ## !!
   prep_dat <- dat[Protein == protein & 
                   Sequence == sequence & 
                   State == state & 
                   Start == start & 
                   End == end]
+  
+  if(nrow(prep_dat) == 0){return(data.frame())}
+  
   time_points <- unique(prep_dat[["Exposure"]])
   time_points_to_iterate <- time_points[time_points > time_0 & time_points < time_100]
   
   
   kin_dat <- rbindlist(lapply(time_points_to_iterate, function(time_point){
     
-    uptake_dat <- as.data.table(calculate_state_uptake(dat = prep_dat, 
-                                         protein = protein,
-                                         state = state, 
-                                         time_0 = time_0, 
-                                         time_t = time_point, 
-                                         time_100 = time_100,
-                                         deut_part = deut_part))
-    uptake_dat[["time_chosen"]] <- time_point
-    uptake_dat
+    if(time_0 %in% prep_dat[["Exposure"]] & time_100 %in% prep_dat[["Exposure"]]){
+      uptake_dat <- as.data.table(calculate_state_uptake(dat = prep_dat, 
+                                                         protein = protein,
+                                                         state = state, 
+                                                         time_0 = time_0, 
+                                                         time_t = time_point, 
+                                                         time_100 = time_100,
+                                                         deut_part = deut_part))
+      uptake_dat[["time_chosen"]] <- time_point
+      uptake_dat
+    } else{
+      NULL
+    }
     
-  }))[, .(Protein, Sequence, Start, End, State, time_chosen,
+    
+  }))
+  
+  kin_dat <- kin_dat[, .(Protein, Sequence, Start, End, State, time_chosen,
           Exposure, Modification, frac_deut_uptake, err_frac_deut_uptake,
           deut_uptake, err_deut_uptake, theo_frac_deut_uptake, 
           err_theo_frac_deut_uptake, theo_deut_uptake, err_theo_deut_uptake, 
           Med_Sequence)]
+  
   
   attr(kin_dat, "protein") <- protein
   attr(kin_dat, "sequence") <- sequence

@@ -399,7 +399,7 @@ create_replicate_dataset <- function(dat,
 #' rep_dat <- create_replicate_dataset(alpha_dat)
 #' plot_replicate_histogram(rep_dat)
 #' 
-#' plot_replicate_histogram(rep_dat, time_points = T)
+#' plot_replicate_histogram(rep_dat, time_points = TRUE)
 #' 
 #' rep_dat <- create_replicate_dataset(alpha_dat, time_t = 0.167)
 #' plot_replicate_histogram(rep_dat)
@@ -453,7 +453,7 @@ plot_replicate_histogram <- function(rep_dat,
     } else {
       
       x <- "ID"
-      fill <- "as.factor(Exposure)"
+      fill <- "factor(Exposure, levels = sort(unique(rep_dat[['Exposure']])) )"
       legend_position <- "bottom"
       
       plot_title <- paste0("Number of replicates for each peptide in ", state, " state")
