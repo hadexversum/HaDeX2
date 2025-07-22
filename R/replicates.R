@@ -414,7 +414,7 @@ plot_replicate_histogram <- function(rep_dat,
   
   if(time_points){
     
-    x <- "as.factor(Exposure)"
+    x <- "Exposure"
     fill <- "ID"
     legend_position <- "None"
     plot_title <- "Number of replicates for time points"
@@ -433,6 +433,14 @@ plot_replicate_histogram <- function(rep_dat,
                          Peptides: {n}
                          Total replicates: {ctn}"
     
+    chosen_geom_col <- if(interactive){
+      ggiraph::geom_col_interactive( 
+        aes(x = factor(.data[[x]]), y = n, fill = .data[[fill]],
+                       tooltip = glue(tooltip_template)))
+    } else {
+      geom_col(aes(factor(.data[[x]]), y = n, fill = .data[[fill]]))
+    }
+    
   } else {
     
     if (length(unique(rep_dat[["Exposure"]])) == 1) {
@@ -450,10 +458,19 @@ plot_replicate_histogram <- function(rep_dat,
                            Position: {Start}-{End}
                            Replicates: {n}"
       
+      chosen_geom_col <- if (interactive){
+        ggiraph::geom_col_interactive( aes(tooltip = glue(tooltip_template),
+                                           x = .data[[x]], y = n, fill = .data[[fill]]))
+      } else {
+        geom_col(aes(x = .data[[x]], y = n, fill = .data[[fill]]))
+      }
+      
     } else {
       
       x <- "ID"
-      fill <- "factor(Exposure, levels = sort(unique(rep_dat[['Exposure']])) )"
+      fill <- "Exposure" # factor(Exposure, levels = sort(unique(as.numeric(rep_dat[['Exposure']]))) )"
+      fct_levels = sort(unique(as.numeric(rep_dat[['Exposure']])))
+      
       legend_position <- "bottom"
       
       plot_title <- paste0("Number of replicates for each peptide in ", state, " state")
@@ -464,19 +481,18 @@ plot_replicate_histogram <- function(rep_dat,
                            Position: {Start}-{End}
                            Exposure: {Exposure} min,
                            Replicates: {n}"
+      
+      chosen_geom_col <- if(interactive){
+        ggiraph::geom_col_interactive( aes(tooltip = glue(tooltip_template),
+                                           x = .data[[x]], y = n, fill = factor(.data[[fill]], levels = fct_levels)))
+      } else {
+        geom_col( aes(x = .data[[x]], y = n, fill = factor(.data[[fill]], levels = fct_levels)))
+      }
     } 
-    
     
   }
   
-  
-  
-  chosen_geom_col <- if (interactive) ggiraph::geom_col_interactive( 
-    aes(tooltip = glue(tooltip_template))
-  ) else geom_col()
-
-  
-  replicate_histogram_plot <- ggplot(rep_dat, aes_string(x = x, y = "n", fill = fill)) +
+  replicate_histogram_plot <- ggplot(rep_dat) +
     chosen_geom_col +
     labs(title = plot_title,
          x = plot_x,
