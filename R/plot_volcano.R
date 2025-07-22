@@ -74,7 +74,7 @@ plot_volcano <- function(p_dat,
   if(hide_insignificant & show_insignificant_grey){
     
     message("Chosen parameters are in conflict. The unsignifiant values are in grey.")
-    hide_insignificant <- F
+    hide_insignificant <- FALSE
     
   }
   
@@ -129,8 +129,9 @@ plot_volcano <- function(p_dat,
   
   plot_dat[, valid := abs(value) > x_threshold & log_p_value > y_threshold]
   
-  if(hide_insignificant) {
+  if(hide_insignificant | show_insignificant_grey) {
     
+    insignificant_plot_dat <- filter(plot_dat, !valid)
     plot_dat <- filter(plot_dat, valid)
     
   }
@@ -163,6 +164,15 @@ plot_volcano <- function(p_dat,
     labs(title = paste0("Volcano Plot ", state_1, " " , state_2),
          x = x_label,
          y = "-log(P value)")
+  
+  if(show_insignificant_grey){
+    
+    volcano_plot <- volcano_plot + 
+      geom_point(data = insignificant_plot_dat, 
+                 aes(x = value, y = log_p_value), 
+                 color = "grey77")
+    
+  }
   
   
   if (color_times) {
@@ -200,15 +210,7 @@ plot_volcano <- function(p_dat,
     
   }
   
-  if(show_insignificant_grey){
-    
-    volcano_plot <- volcano_plot + 
-      geom_point(data = subset(plot_dat, !valid), 
-                 aes(x = value, y = log_p_value), 
-                 color = "grey77")
-    
-  }
-  
+ 
   return(HaDeXify(volcano_plot))
   
 }
