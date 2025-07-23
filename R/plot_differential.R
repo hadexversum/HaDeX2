@@ -140,6 +140,7 @@ plot_differential <- function(diff_uptake_dat = NULL,
       value <- "diff_theo_frac_deut_uptake"
       err_value <- "err_diff_theo_frac_deut_uptake"
       y_label <- "Fractional deuterium uptake difference [%]"
+      unit <- "[%]"
       
     } else {
       
@@ -147,6 +148,7 @@ plot_differential <- function(diff_uptake_dat = NULL,
       value <- "diff_theo_deut_uptake"
       err_value <- "err_diff_theo_deut_uptake"
       y_label <- "Deuterium uptake difference [Da]"
+      unit <- "[Da]"
       
     }
     
@@ -160,6 +162,7 @@ plot_differential <- function(diff_uptake_dat = NULL,
       value <- "diff_frac_deut_uptake"
       err_value <- "err_diff_frac_deut_uptake"
       y_label <- "Fractional deuterium uptake difference [%]"
+      unit <- "[%]"
       
     } else {
       
@@ -167,6 +170,7 @@ plot_differential <- function(diff_uptake_dat = NULL,
       value <- "diff_deut_uptake"
       err_value <- "err_diff_deut_uptake"
       y_label <- "Deuterium uptake difference [Da]"
+      unit <- "[Da]"
       
     }
   }
@@ -187,7 +191,7 @@ plot_differential <- function(diff_uptake_dat = NULL,
     aes(tooltip = glue(
       "{Sequence}
        Position: {Start}-{End}
-       Value: {round(value, 2)}"
+       Value: {round(value, 2)} {unit}"
     )),
     size = line_size
   ) else geom_segment(size = line_size)

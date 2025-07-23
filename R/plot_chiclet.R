@@ -49,6 +49,7 @@ plot_chiclet <- function(uptake_dat,
       err_value <- "err_theo_frac_deut_uptake"
       title <- paste0("Theoretical chiclet plot for ", state, " state")
       fill <- "Fractional DU"
+      unit <- "[%]"
       
     } else {
       
@@ -57,6 +58,7 @@ plot_chiclet <- function(uptake_dat,
       err_value <- "err_theo_deut_uptake"
       title <- paste0("Theoretical chiclet plot for ", state, " state")
       fill <- "DU"
+      unit <- "[Da]"
     }
     
   } else {
@@ -68,6 +70,7 @@ plot_chiclet <- function(uptake_dat,
       err_value <- "err_frac_deut_uptake"
       title <- paste0("Chiclet plot for ", state, " state")
       fill <- "Fractional DU"
+      unit <- "[%]"
       
     } else {
       
@@ -76,6 +79,7 @@ plot_chiclet <- function(uptake_dat,
       err_value <- "err_deut_uptake"
       title <- paste0("Chiclet plot for ", state, " state")
       fill <- "DU"
+      unit <- "[Da]"
       
     }
     
@@ -94,7 +98,7 @@ plot_chiclet <- function(uptake_dat,
       "{Sequence}
        Position: {Start}-{End}
        ID: {ID}
-       Value: {round(value, 2)}
+       Value: {round(value, 2)} {unit}
        Exposure: {Exposure} min"
     ))
   ) else geom_tile()

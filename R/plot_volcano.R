@@ -81,6 +81,7 @@ plot_volcano <- function(p_dat,
   if (fractional){
     
     x_label <- "Mass difference [%]"
+    unit <- "[%]"
     
     if(theoretical){
       
@@ -97,6 +98,7 @@ plot_volcano <- function(p_dat,
   } else {
     
     x_label <- "Mass difference [Da]"
+    unit <- "[Da]"
     
     if(theoretical){
       
@@ -141,7 +143,7 @@ plot_volcano <- function(p_dat,
       "{Sequence}
        Position: {Start}-{End}
        Exposure: {Exposure} min
-       Difference: {round(value, 2)}
+       Difference: {round(value, 2)} {unit}
        P value: {round(P_value, 4)}
        -log(P value): {round(log_p_value, 2)}"
     )),

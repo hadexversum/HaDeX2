@@ -76,12 +76,14 @@ plot_uptake_curve <- function(uc_dat,
       value <- "theo_frac_deut_uptake"
       err_value <- "err_theo_frac_deut_uptake"
       y_label <- "Fractional deuterium uptake [%]"
+      unit <- "[%]"
       
     } else {
       
       value <- "theo_deut_uptake"
       err_value <- "err_theo_deut_uptake"
       y_label <- "Deuterium uptake [Da]"
+      unit <- "[Da]"
       
     }
     
@@ -94,12 +96,14 @@ plot_uptake_curve <- function(uc_dat,
       value <- "frac_deut_uptake"
       err_value <- "err_frac_deut_uptake"
       y_label <- "Fractional deuterium uptake [%]"
+      unit <- "[%]"
       
     } else {
       
       value <- "deut_uptake"
       err_value <- "err_deut_uptake"
       y_label <- "Deuterium uptake [Da]"
+      unit <- "[Da]"
       
     }
     
@@ -122,7 +126,7 @@ plot_uptake_curve <- function(uc_dat,
       "{Sequence}
        State: {State}
        Position: {Start}-{End}
-       Value: {round(value, 2)}
+       Value: {round(value, 2)} {unit}
        Time point: {time_t} min"
     )),
     size = 2

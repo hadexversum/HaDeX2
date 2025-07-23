@@ -95,12 +95,14 @@ plot_differential_uptake_curve <- function(diff_uptake_dat = NULL,
       value <- "diff_theo_frac_deut_uptake"
       err_value <- "err_diff_theo_frac_deut_uptake"
       y_label <- "Fractional differential uptake [%]"
+      unit <- "[%]"
       
     } else {
       
       value <- "diff_theo_deut_uptake"
       err_value <- "err_diff_theo_deut_uptake"
       y_label <- "Differential uptake [Da]"
+      unit <- "[Da]"
       
     }
     
@@ -113,12 +115,14 @@ plot_differential_uptake_curve <- function(diff_uptake_dat = NULL,
       value <- "diff_frac_deut_uptake"
       err_value <- "err_diff_frac_deut_uptake"
       y_label <- "Fractional differential uptake [%]"
+      unit <- "[%]"
       
     } else {
       
       value <- "diff_deut_uptake"
       err_value <- "err_diff_deut_uptake"
       y_label <- "Differential uptake [Da]"
+      unit <- "[Da]"
       
     }
     
@@ -135,7 +139,7 @@ plot_differential_uptake_curve <- function(diff_uptake_dat = NULL,
     aes(tooltip = glue(
       "{Sequence}
        Position: {Start}-{End}
-       Value: {round(value, 2)}
+       Value: {round(value, 2)} {unit}
        Time point: {Exposure} min"
     )),
     size = 2

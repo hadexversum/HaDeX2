@@ -80,6 +80,7 @@ plot_differential_butterfly <- function(diff_uptake_dat = NULL,
       value <- "diff_theo_frac_deut_uptake"
       err_value <- "err_diff_theo_frac_deut_uptake"
       y_label <- "Fractional deuterium uptake difference [%]"
+      unit <- "[%]"
       
     } else {
       
@@ -87,6 +88,7 @@ plot_differential_butterfly <- function(diff_uptake_dat = NULL,
       value <- "diff_theo_deut_uptake"
       err_value <- "err_diff_theo_deut_uptake"
       y_label <- "Deuterium uptake difference [Da]"
+      unit <- "[Da]"
       
     }
     
@@ -100,6 +102,7 @@ plot_differential_butterfly <- function(diff_uptake_dat = NULL,
       value <- "diff_frac_deut_uptake"
       err_value <- "err_diff_frac_deut_uptake"
       y_label <- "Fractional deuterium uptake difference [%]"
+      unit <- "[%]"
       
     } else {
       
@@ -107,6 +110,7 @@ plot_differential_butterfly <- function(diff_uptake_dat = NULL,
       value <- "diff_deut_uptake"
       err_value <- "err_diff_deut_uptake"
       y_label <- "Deuterium uptake difference [Da]"
+      unit <- "[Da]"
       
     }
     
@@ -128,7 +132,7 @@ plot_differential_butterfly <- function(diff_uptake_dat = NULL,
     aes(tooltip = glue(
       "{Sequence}
        Position: {Start}-{End}
-       Value: {round(value, 2)}
+       Value: {round(value, 2)} {unit}
        Exposure: {Exposure} min"
     ))
   ) else geom_point()

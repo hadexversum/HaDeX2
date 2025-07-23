@@ -73,6 +73,7 @@ plot_differential_chiclet <- function(diff_uptake_dat = NULL,
       err_value <- "err_diff_theo_frac_deut_uptake"
       title <- "Theoretical chiclet differential plot"
       fill <- "Fractional DU Diff"
+      unit <- "[%]"
       
     } else {
       
@@ -81,6 +82,7 @@ plot_differential_chiclet <- function(diff_uptake_dat = NULL,
       err_value <- "err_diff_theo_deut_uptake"
       title <- "Theoretical chiclet differential plot"
       fill <- "DU Diff"
+      unit <- "[Da]"
       
     }
     
@@ -93,6 +95,7 @@ plot_differential_chiclet <- function(diff_uptake_dat = NULL,
       err_value <- "err_diff_frac_deut_uptake"
       title <- "Chiclet differential plot"
       fill <- "Fractional DU Diff"
+      unit <- "[%]"
       
     } else {
       
@@ -101,7 +104,7 @@ plot_differential_chiclet <- function(diff_uptake_dat = NULL,
       err_value <- "err_diff_deut_uptake"
       title <- "Chiclet differential plot"
       fill <- "DU Diff"
-      
+      unit <- "[Da]"
     }
     
   }
@@ -121,7 +124,7 @@ plot_differential_chiclet <- function(diff_uptake_dat = NULL,
       "{Sequence}
        Position: {Start}-{End}
        ID: {ID}
-       Value: {round(value, 2)}
+       Value: {round(value, 2)} {unit}
        Exposure: {Exposure} min"
     ))
   ) else geom_tile()

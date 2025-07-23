@@ -49,6 +49,7 @@ plot_butterfly <- function(uptake_dat,
       err_value <- "err_theo_frac_deut_uptake"
       y_label <- "Fractional deuterium uptake [%]"
       title <- paste0("Theoretical butterfly plot for ", state, " state")
+      unit <- "[%]"
       
     } else {
       
@@ -57,7 +58,7 @@ plot_butterfly <- function(uptake_dat,
       err_value <- "err_theo_deut_uptake"
       y_label <- "Deuterium uptake [Da]"
       title <- paste0("Theoretical butterfly plot for ", state, " state")
-      
+      unit <- "[Da]"
     }
     
   } else {
@@ -69,6 +70,7 @@ plot_butterfly <- function(uptake_dat,
       err_value <- "err_frac_deut_uptake"
       y_label <- "Fractional deuterium uptake [%]"
       title <- paste0("Butterfly plot for ", state, " state")
+      unit <- "[%]"
       
     } else {
       
@@ -77,6 +79,7 @@ plot_butterfly <- function(uptake_dat,
       err_value <- "err_deut_uptake"
       y_label <- "Deuterium uptake [Da]"
       title <- paste0("Butterfly plot for ", state, " state")
+      unit <- "[Da]"
       
     }
     
@@ -94,7 +97,7 @@ plot_butterfly <- function(uptake_dat,
     aes(tooltip = glue(
       "{Sequence}
        Position: {Start}-{End}
-       Value: {round(value, 2)}
+       Value: {round(value, 2)} {unit}
        Exposure: {Exposure} min"
     ))
   ) else geom_point()

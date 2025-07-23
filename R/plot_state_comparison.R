@@ -66,6 +66,7 @@ plot_state_comparison <- function(uptake_dat,
       value <- "theo_frac_deut_uptake"
       err_value <- "err_theo_frac_deut_uptake"
       y_label <- "fractional deuterium uptake [%]"
+      unit <- "[%]"
       
     } else {
       
@@ -73,6 +74,7 @@ plot_state_comparison <- function(uptake_dat,
       value <- "theo_deut_uptake"
       err_value <- "err_theo_deut_uptake"
       y_label <- "Deuterium uptake [Da]"
+      unit <- "[Da]"
       
     } 
     
@@ -86,6 +88,7 @@ plot_state_comparison <- function(uptake_dat,
       value <- "frac_deut_uptake"
       err_value <- "err_frac_deut_uptake"
       y_label <- "fractional deuterium uptake [%]"
+      unit <- "[%]"
       
     } else {
       
@@ -93,6 +96,7 @@ plot_state_comparison <- function(uptake_dat,
       value <- "deut_uptake"
       err_value <- "err_deut_uptake"
       y_label <- "Deuterium uptake [Da]"
+      unit <- "[Da]"
       
     }
     
@@ -112,7 +116,7 @@ plot_state_comparison <- function(uptake_dat,
       "{Sequence}
        Position: {Start}-{End}
        State: {State}
-       Value: {round(value, 2)}"
+       Value: {round(value, 2)} {unit}"
     )),
     size = line_size
   ) else geom_segment(size = line_size)
