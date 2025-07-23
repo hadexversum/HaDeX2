@@ -39,21 +39,25 @@ prepare_hdxviewer_export <- function(x_dat,
 
         x_dat <- x_dat[, .(position, diff_theo_frac_deut_uptake, Exposure)]
         x_dat[, diff_theo_frac_deut_uptake:=diff_theo_frac_deut_uptake/100]
+        x_dat[, diff_theo_frac_deut_uptake:=round(diff_theo_frac_deut_uptake, 3)]
         value <- "diff_theo_frac_deut_uptake"
       } else {
 
         x_dat <- x_dat[, .(position, diff_frac_deut_uptake, Exposure)]
         x_dat[, diff_frac_deut_uptake:=diff_frac_deut_uptake/100]
+        x_dat[, diff_frac_deut_uptake:=round(diff_frac_deut_uptake, 3)]
         value <- "diff_frac_deut_uptake"
       }
     } else {
 
       x_dat <- x_dat[, .(position, diff_deut_uptake, Exposure)]
+      x_dat[, diff_deut_uptake:=round(diff_deut_uptake, 3)]
       value <- "diff_deut_uptake"
 
       if(theoretical){
 
         x_dat <- x_dat[, .(position, diff_theo_deut_uptake, Exposure)]
+        x_dat[, diff_theo_deut_uptake:=round(diff_theo_deut_uptake, 3)]
         value <- "diff_theo_deut_uptake"
 
       }
@@ -67,23 +71,27 @@ prepare_hdxviewer_export <- function(x_dat,
 
         x_dat <- x_dat[, .(position, theo_frac_deut_uptake, Exposure)]
         x_dat[, theo_frac_deut_uptake:=theo_frac_deut_uptake/100]
+        x_dat[, theo_frac_deut_uptake:=round(theo_frac_deut_uptake, 3)]
         value <- "theo_frac_deut_uptake"
 
       } else {
 
         x_dat <- x_dat[, .(position, frac_deut_uptake, Exposure)]
         x_dat[, frac_deut_uptake:=frac_deut_uptake/100]
+        x_dat[, frac_deut_uptake:=round(frac_deut_uptake, 3)]
         value <- "frac_deut_uptake"
 
       }
     } else {
 
       x_dat <- x_dat[, .(position, deut_uptake, Exposure)]
+      x_dat[, deut_uptake:=round(deut_uptake, 3)]
       value <- "deut_uptake"
 
       if(theoretical){
 
         x_dat <- x_dat[, .(position, theo_deut_uptake, Exposure)]
+        x_dat[, theo_deut_uptake:=round(theo_deut_uptake, 3)]
         value <- "theo_deut_uptake"
 
       }
@@ -92,7 +100,9 @@ prepare_hdxviewer_export <- function(x_dat,
 
   }
 
-  x_dat[, Exposure:=paste0(Exposure, "min")]
+  ## changed to second
+  x_dat[, Exposure:=Exposure*60]
+  x_dat[, Exposure:=paste0(Exposure, "s")]
   x_dat[, .(Residues=position)]
   setnames(x_dat, "position", "Residues")
 
