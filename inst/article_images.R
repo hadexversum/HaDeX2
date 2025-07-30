@@ -1,6 +1,15 @@
 library(HaDeX)
 library(ggplot2)
 library(dplyr)
+library(patchwork)
+
+article_theme <- theme_bw(base_size = 10) +
+  theme(legend.position = "bottom",
+        legend.direction = "horizontal",
+        legend.key.height = unit(0.05, "in"))
+
+theme_set(article_theme)
+
 
 folder_path <- "C:\\Users\\pucha\\OneDrive\\Desktop\\hadex2_article\\"
 
@@ -18,11 +27,11 @@ plt_1 <- alpha_dat %>%
     sequence           = "FGDLKSPAGL",
     state = "Alpha_KSCN",
     time_t             = 1) +
-  theme(text=element_text(size=17)) +
-  labs(title = "FGDLKSPAGL in 1 min in Alpha_KSCN state")
+  labs(title = "FGDLKSPAGL in 1 min in Alpha_KSCN state") +
+  theme(legend.direction = "horizontal")
 
-ggsave(filename = paste0(folder_path, "plt_1.png"), plt_1,
-       width = 20, height = 12, units = "cm")
+# ggsave(filename = paste0(folder_path, "plt_1.png"), plt_1,
+#        width = 20, height = 12, units = "cm")
 
 ## image B
 
@@ -30,11 +39,10 @@ plt_2 <- HaDeX::create_replicate_dataset(
   alpha_dat,
   state   = "Alpha_KSCN") %>%
   HaDeX::plot_replicate_histogram() +
-  theme(text=element_text(size=17)) +
   labs(title = "Number of replicates in Alpha_KSCN state")
 
-ggsave(filename = paste0(folder_path, "plt_2.png"), plt_2,
-       width = 20, height = 12, units = "cm")
+# ggsave(filename = paste0(folder_path, "plt_2.png"), plt_2,
+#        width = 20, height = 12, units = "cm")
 
 ## image C
 
@@ -42,12 +50,12 @@ plt_3 <- create_uptake_dataset(alpha_dat,
                                states = "Alpha_KSCN") %>%
   calculate_auc() %>%
   plot_coverage_heatmap(value = "auc") +
-  labs(title = "Peptide coverage AUC heatmap",
+  labs(title = "Peptide coverage (AUC heatmap)",
        y = "") +
-  theme(text = element_text(size = 17))
+  guides(fill = guide_legend(keywidth = 1))
 
-ggsave(filename = paste0(folder_path, "plt_3.png"), plt_3,
-       width = 20, height = 12, units = "cm")
+# ggsave(filename = paste0(folder_path, "plt_3.png"), plt_3,
+#        width = 20, height = 12, units = "cm")
 
 ## image D
 
@@ -57,10 +65,10 @@ plt_4 <- create_p_diff_uptake_dataset(alpha_dat,
   plot_manhattan(., 
                  show_peptide_position = TRUE, 
                  separate_times = TRUE) +
-  theme(text = element_text(size = 17))
+  ggtitle("Differences between Alpha_KSCN\nand ALPHA_Gamma")
 
-ggsave(filename = paste0(folder_path, "plt_4.png"), plt_4,
-       width = 20, height = 12, units = "cm")
+# ggsave(filename = paste0(folder_path, "plt_4.png"), plt_4,
+#        width = 20, height = 12, units = "cm")
 
 ## image E
 
@@ -68,8 +76,26 @@ plt_5 <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN") %>%
   create_aggregated_uptake_dataset(.) %>%
   plot_aggregated_uptake(., panels = FALSE) +
   labs(title = "Fractional deuterium uptake in Alpha_KSCN state") +
-  theme(text = element_text(size = 17))
+  guides(fill = guide_colorbar(keywidth = 6))
 
-ggsave(filename = paste0(folder_path, "plt_5.png"), plt_5,
-       width = 20, height = 12, units = "cm")
+# ggsave(filename = paste0(folder_path, "plt_5.png"), plt_5,
+#        width = 20, height = 12, units = "cm")
+
+plt_6 <- png::readPNG("./inst/structure3d.png", native = TRUE)
+
+
+plt_E <- plt_5 + plt_6 + plot_layout(tag_level = "keep")
+
+plot_design <- c("
+  12
+  34
+  55
+")
+  
+final_plot <- (plt_1 + plt_2 + plt_3 + plt_4 + plt_E) +
+  plot_layout(design = plot_design, tag_level = "new") + 
+  plot_annotation(tag_levels = c("A", "I")) 
+
+
+ggsave("HaDeX_plot.pdf", width = 8.27, height = 11)
 
