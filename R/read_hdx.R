@@ -47,10 +47,11 @@
 #' 
 #' @export read_hdx
 
-read_hdx <- function(filename){
+read_hdx <- function(filename,
+                     separator = ","){
   
   dat <- switch(file_ext(filename),
-                "csv" = fread(filename, data.table = TRUE),
+                "csv" = fread(filename, sep = separator, data.table = TRUE),
                 "xlsx" = read_excel(filename),
                 "xls" = read_excel(filename))
   

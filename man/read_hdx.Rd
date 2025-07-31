@@ -4,7 +4,7 @@
 \alias{read_hdx}
 \title{Read HDX-MS data file}
 \usage{
-read_hdx(filename)
+read_hdx(filename, separator = ",")
 }
 \arguments{
 \item{filename}{a file supplied by the user. 

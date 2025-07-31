@@ -63,6 +63,7 @@ plot_aggregated_uptake_structure <- function(aggregated_dat,
 
   plot_x <- ggplot_build(tmp_plt)$data[[1]]
   plot_colors <- plot_x[plot_x[["y"]] == time_t, ][["fill"]]
+  
   color_vector <- paste0("\"", paste0(plot_colors, collapse = "\",\""), "\"")
 
   r3dmol::r3dmol(
@@ -89,3 +90,59 @@ plot_aggregated_uptake_structure <- function(aggregated_dat,
       ))
 }
 
+
+#' Get color pallette for 3D structure
+#' 
+#' @param aggregated_dat aggregated data, either for single uptake or differential
+#' @param differential indicator if the aggregated_dat contains differential 
+#' results
+#' @param fractional indicator if fractional values are used
+#' @param theoretical indicator if theoretical values are used
+#' @param time_t time point from aggregated_dat to be shown on the strucutre
+#' @param pdb_file_path file path to the pdb file 
+#' 
+#' @description
+#' This function provides a set of color codes associated with aggregated values
+#' to be presented on 3D structure.
+#' 
+#' @return a list
+#' 
+#' @examples
+#' diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
+#' diff_aggregated_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
+#' get_structure_color(diff_aggregated_dat, 
+#'                     differential = TRUE,
+#'                     time_t = 1)
+#' 
+#' @export
+get_structure_color <- function(aggregated_dat,
+                                differential = FALSE,
+                                fractional = TRUE,
+                                theoretical = FALSE,
+                                time_t){
+  
+  if(is.null(aggregated_dat)) stop("No data supplied!")
+  if(is.null(time_t)) stop("No time point supplied!")
+  
+  value <- get_uptake_name(differential = differential,
+                           fractional = fractional,
+                           theoretical = theoretical)
+  
+  tmp_plt <- ggplot(aggregated_dat) +
+    geom_tile(aes(x = position, y = Exposure, fill = get(value)))
+  
+  if(differential){
+    
+    tmp_plt <- tmp_plt + scale_fill_gradient2(low ="blue", mid = "white", high = "red")
+    
+  } else {
+    
+    tmp_plt <- tmp_plt + scale_fill_gradient2(low = "white", high = "red")
+    
+  }
+  
+  plot_x <- ggplot_build(tmp_plt)$data[[1]]
+  plot_colors <- plot_x[plot_x[["y"]] == time_t, ][["fill"]]
+  
+  return(plot_colors)
+}
