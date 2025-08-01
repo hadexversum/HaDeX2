@@ -540,3 +540,44 @@ show_replicate_histogram_data <- function(rep_dat){
   return(rep_dat)
   
 }
+
+
+#' Get replicates sd
+#' 
+#' @description Get list of peptides with their standard
+#' deviation.
+#' 
+#' @param dat data as imported by the \code{\link{read_hdx}} function.
+#' @param protein chosen protein. 
+#' @param state biological state for chosen protein.
+#' @param time_t time point of the measurement.
+#' 
+#' @details Function gets the pepitde list 
+#' in selected state with their standard deviation
+#' of measurement, calculated from the technical 
+#' replicates. It is used for selection for
+#' measurement variability plot.
+#' 
+#' @return a \code{\link{data.frame}} object.
+#' 
+#' @seealso
+#' \code{\link{create_replicate_dataset}}
+#' 
+#' @examples
+#' get_replicate_list_sd(alpha_dat)
+#' 
+#' 
+#' @export get_replicate_list_sd
+
+get_replicate_list_sd <- function(dat, 
+                                  protein = dat[["Protein"]][1],
+                                  state = dat[["State"]][1],
+                                  time_t = unique(dat[["Exposure"]])[3]){
+  
+  rep_dat <- calculate_exp_masses_per_replicate(dat)
+  rep_dat <- data.table(rep_dat)
+  
+  res <- rep_dat[State == state, .(sd = sd(avg_exp_mass, na.rm = TRUE)), by = c("Sequence",  "Start", "End", "Exposure")]
+  
+  return(data.frame(res))
+}
