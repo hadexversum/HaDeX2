@@ -10,8 +10,7 @@ article_theme <- theme_bw(base_size = 10) +
 
 theme_set(article_theme)
 
-
-folder_path <- "C:\\Users\\pucha\\OneDrive\\Desktop\\hadex2_article\\"
+folder_path <- "C:/Users/User/Desktop/hadex2/"
 
 ## image A
 
@@ -27,7 +26,7 @@ plt_1 <- alpha_dat %>%
     sequence           = "FGDLKSPAGL",
     state = "Alpha_KSCN",
     time_t             = 1) +
-  labs(title = "FGDLKSPAGL in 1 min in Alpha_KSCN state") +
+  labs(title = "FGDLKSPAGL in 1 min in alpha state") +
   theme(legend.direction = "horizontal")
 
 # ggsave(filename = paste0(folder_path, "plt_1.png"), plt_1,
@@ -39,7 +38,7 @@ plt_2 <- HaDeX::create_replicate_dataset(
   alpha_dat,
   state   = "Alpha_KSCN") %>%
   HaDeX::plot_replicate_histogram() +
-  labs(title = "Number of replicates in Alpha_KSCN state")
+  labs(title = "Number of replicates in alpha state")
 
 # ggsave(filename = paste0(folder_path, "plt_2.png"), plt_2,
 #        width = 20, height = 12, units = "cm")
@@ -50,7 +49,7 @@ plt_3 <- create_uptake_dataset(alpha_dat,
                                states = "Alpha_KSCN") %>%
   calculate_auc() %>%
   plot_coverage_heatmap(value = "auc") +
-  labs(title = "Peptide coverage (AUC heatmap)",
+  labs(title = "Peptide coverage (AUC heatmap) \nin alpha state",
        y = "") +
   guides(fill = guide_legend(keywidth = 1))
 
@@ -65,7 +64,7 @@ plt_4 <- create_p_diff_uptake_dataset(alpha_dat,
   plot_manhattan(., 
                  show_peptide_position = TRUE, 
                  separate_times = TRUE) +
-  ggtitle("Differences between Alpha_KSCN\nand ALPHA_Gamma")
+  ggtitle("Differences between alpha state \nand alpha_gamma state")
 
 # ggsave(filename = paste0(folder_path, "plt_4.png"), plt_4,
 #        width = 20, height = 12, units = "cm")
@@ -75,7 +74,7 @@ plt_4 <- create_p_diff_uptake_dataset(alpha_dat,
 plt_5 <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN") %>%
   create_aggregated_uptake_dataset(.) %>%
   plot_aggregated_uptake(., panels = FALSE) +
-  labs(title = "Fractional deuterium uptake in Alpha_KSCN state") +
+  labs(title = "Fractional deuterium uptake in alpha state") +
   guides(fill = guide_colorbar(keywidth = 6))
 
 # ggsave(filename = paste0(folder_path, "plt_5.png"), plt_5,
@@ -99,3 +98,4 @@ final_plot <- (plt_1 + plt_2 + plt_3 + plt_4 + plt_E) +
 
 ggsave("HaDeX_plot.pdf", width = 8.27, height = 11)
 
+ggsave(paste0(folder_path, "HaDeX_plot.pdf"), width = 8.27, height = 11)
