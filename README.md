@@ -27,8 +27,10 @@ After installation GUI can be accessed locally:
 
 ```R
 library(HaDeX)
-HaDeX_gui()
+HaDeX_GUI()
 ```
+
+To run the GUI, the dedicated package HaDeXGUI is needed. If is not installed, the called function will check and install it after the confirmation from the user.
 
 ### Online manual
 
