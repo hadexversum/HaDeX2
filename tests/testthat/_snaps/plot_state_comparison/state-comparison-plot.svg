@@ -224,11 +224,11 @@
 <text x='532.14' y='516.90' text-anchor='middle' style='font-size: 8.80px; fill: #4D4D4D; font-family: sans;' textLength='14.68px' lengthAdjust='spacingAndGlyphs'>100</text>
 <text x='373.66' y='529.04' text-anchor='middle' style='font-size: 11.00px; font-family: sans;' textLength='119.88px' lengthAdjust='spacingAndGlyphs'>Position in the sequence</text>
 <text transform='translate(13.05,264.35) rotate(-90)' text-anchor='middle' style='font-size: 11.00px; font-family: sans;' textLength='110.07px' lengthAdjust='spacingAndGlyphs'>Deuterium uptake [Da]</text>
-<rect x='340.36' y='542.28' width='66.60' height='28.24' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<rect x='351.32' y='547.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
-<line x1='353.05' y1='556.40' x2='366.87' y2='556.40' style='stroke-width: 3.20; stroke: #F8766D; stroke-linecap: butt;' />
-<line x1='353.05' y1='556.40' x2='366.87' y2='556.40' style='stroke-width: 1.07; stroke: #F8766D; stroke-linecap: butt;' />
-<text x='374.08' y='559.43' style='font-size: 8.80px; font-family: sans;' textLength='27.40px' lengthAdjust='spacingAndGlyphs'>CD160</text>
+<rect x='343.10' y='542.28' width='61.12' height='28.24' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<rect x='348.58' y='547.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #EBEBEB;' />
+<line x1='350.31' y1='556.40' x2='364.13' y2='556.40' style='stroke-width: 3.20; stroke: #F8766D; stroke-linecap: butt;' />
+<line x1='350.31' y1='556.40' x2='364.13' y2='556.40' style='stroke-width: 1.07; stroke: #F8766D; stroke-linecap: butt;' />
+<text x='371.34' y='559.43' style='font-size: 8.80px; font-family: sans;' textLength='27.40px' lengthAdjust='spacingAndGlyphs'>CD160</text>
 <text x='32.79' y='14.56' style='font-size: 13.20px; font-family: sans;' textLength='96.13px' lengthAdjust='spacingAndGlyphs'>Comparison plot</text>
 </g>
 </svg>

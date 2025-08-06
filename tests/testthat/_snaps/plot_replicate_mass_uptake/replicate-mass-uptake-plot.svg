@@ -93,7 +93,7 @@
 <text transform='translate(13.05,264.35) rotate(-90)' text-anchor='middle' style='font-size: 11.00px; font-family: sans;' textLength='85.62px' lengthAdjust='spacingAndGlyphs'>Mass uptake [Da]</text>
 <rect x='337.24' y='542.28' width='80.17' height='28.24' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
 <text x='342.72' y='560.19' style='font-size: 11.00px; font-family: sans;' textLength='36.08px' lengthAdjust='spacingAndGlyphs'>Charge</text>
-<rect x='384.28' y='547.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<rect x='384.28' y='547.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #EBEBEB;' />
 <circle cx='392.92' cy='556.40' r='1.95' style='stroke-width: 0.71; stroke: #F8766D; fill: #F8766D;' />
 <text x='407.04' y='559.43' style='font-size: 8.80px; font-family: sans;' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>2</text>
 <text x='40.13' y='14.56' style='font-size: 13.20px; font-family: sans;' textLength='153.37px' lengthAdjust='spacingAndGlyphs'>replicate mass uptake plot</text>

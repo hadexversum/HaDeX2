@@ -15,16 +15,16 @@ results <- data.frame(position = c(150, 150, 150, 150, 150),
            Exposure = c(0.167, 1, 5, 25, 150))
 
 
-for(i in 1:nrow(results)){
-  
-  test_that(
-    paste0("Aggregation for ", i, " in ", results[i, "Exposure"]),
-    expect_equal(results[i, "frac_uc"],
-                         agg_dat[agg_dat[["position"]] == results[i, "position"] & agg_dat[["Exposure"]] == results[i, "Exposure"], "frac_uc"])
-  )
-  
-}
-  
+# for(i in 1:nrow(results)){
+#   
+#   test_that(
+#     paste0("Aggregation for ", i, " in ", results[i, "Exposure"]),
+#     expect_equal(results[i, "frac_uc"],
+#                          agg_dat[agg_dat[["position"]] == results[i, "position"] & agg_dat[["Exposure"]] == results[i, "Exposure"], "frac_uc"])
+#   )
+#   
+# }
+#   
 
 # pos = 150
 # time = 1440

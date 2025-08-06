@@ -132,23 +132,23 @@
 <text x='525.33' y='503.54' text-anchor='middle' style='font-size: 8.80px; fill: #4D4D4D; font-family: sans;' textLength='14.68px' lengthAdjust='spacingAndGlyphs'>100</text>
 <text x='367.67' y='515.68' text-anchor='middle' style='font-size: 11.00px; font-family: sans;' textLength='39.14px' lengthAdjust='spacingAndGlyphs'>Position</text>
 <rect x='278.02' y='528.92' width='179.30' height='41.60' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<text x='283.50' y='553.50' style='font-size: 11.00px; font-family: sans;' textLength='76.46px' lengthAdjust='spacingAndGlyphs'>Back Exchange</text>
 <image width='86.40' height='17.28' x='365.44' y='534.40' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAABCAYAAABkOJMpAAAAkklEQVQ4jaVSQQ7AMAhi///z2MW11YEx2WHREasIXiQJEgQBxgdGePONg/Gfcqy3Z5+co/R3+WQuBIcvH1sTPTxfNHuIt4kr5rs1nP+/0xr5XjC+INW2e0pMe7ruIWFfbcfYqcUAUzpaLHldMXUrKPMUtuepu67a+flby3zjdW/l48G9mUnLreOtvK0+1Hj7+ogPJtYt73lPvcAAAAAASUVORK5CYII='/>
+<polyline points='365.58,548.22 365.58,551.68 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='387.11,548.22 387.11,551.68 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='408.64,548.22 408.64,551.68 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='430.16,548.22 430.16,551.68 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='451.69,548.22 451.69,551.68 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='365.58,537.85 365.58,534.40 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='387.11,537.85 387.11,534.40 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='408.64,537.85 408.64,534.40 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='430.16,537.85 430.16,534.40 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='451.69,537.85 451.69,534.40 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
 <text x='365.58' y='563.21' text-anchor='middle' style='font-size: 8.80px; font-family: sans;' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>0</text>
 <text x='387.11' y='563.21' text-anchor='middle' style='font-size: 8.80px; font-family: sans;' textLength='9.79px' lengthAdjust='spacingAndGlyphs'>25</text>
 <text x='408.64' y='563.21' text-anchor='middle' style='font-size: 8.80px; font-family: sans;' textLength='9.79px' lengthAdjust='spacingAndGlyphs'>50</text>
 <text x='430.16' y='563.21' text-anchor='middle' style='font-size: 8.80px; font-family: sans;' textLength='9.79px' lengthAdjust='spacingAndGlyphs'>75</text>
 <text x='451.69' y='563.21' text-anchor='middle' style='font-size: 8.80px; font-family: sans;' textLength='14.68px' lengthAdjust='spacingAndGlyphs'>100</text>
-<text x='283.50' y='553.50' style='font-size: 11.00px; font-family: sans;' textLength='76.46px' lengthAdjust='spacingAndGlyphs'>Back Exchange</text>
-<line x1='365.58' y1='551.68' x2='365.58' y2='548.22' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='387.11' y1='551.68' x2='387.11' y2='548.22' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='408.64' y1='551.68' x2='408.64' y2='548.22' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='430.16' y1='551.68' x2='430.16' y2='548.22' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='451.69' y1='551.68' x2='451.69' y2='548.22' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='365.58' y1='537.85' x2='365.58' y2='534.40' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='387.11' y1='537.85' x2='387.11' y2='534.40' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='408.64' y1='537.85' x2='408.64' y2='534.40' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='430.16' y1='537.85' x2='430.16' y2='534.40' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='451.69' y1='537.85' x2='451.69' y2='534.40' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
 <text x='20.81' y='14.56' style='font-size: 13.20px; font-family: sans;' textLength='157.80px' lengthAdjust='spacingAndGlyphs'>Peptide coverage heatmap</text>
 </g>
 </svg>

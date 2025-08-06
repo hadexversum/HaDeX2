@@ -92,15 +92,15 @@
 <text x='367.67' y='529.04' text-anchor='middle' style='font-size: 11.00px; font-family: sans;' textLength='39.14px' lengthAdjust='spacingAndGlyphs'>Position</text>
 <rect x='168.47' y='542.28' width='398.40' height='28.24' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
 <text x='173.94' y='560.19' style='font-size: 11.00px; font-family: sans;' textLength='79.46px' lengthAdjust='spacingAndGlyphs'>Diff Frac DU [%]</text>
-<rect x='258.88' y='547.76' width='43.20' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<rect x='258.88' y='547.76' width='43.20' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #EBEBEB;' />
 <rect x='259.59' y='548.47' width='41.78' height='15.86' style='stroke-width: 1.07; stroke: #BEBEBE; stroke-linecap: butt; stroke-linejoin: miter; fill: #D5B9FF; fill-opacity: 0.80;' />
-<rect x='320.87' y='547.76' width='43.20' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<rect x='320.87' y='547.76' width='43.20' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #EBEBEB;' />
 <rect x='321.57' y='548.47' width='41.78' height='15.86' style='stroke-width: 1.07; stroke: #BEBEBE; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF; fill-opacity: 0.80;' />
-<rect x='379.92' y='547.76' width='43.20' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<rect x='379.92' y='547.76' width='43.20' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #EBEBEB;' />
 <rect x='380.63' y='548.47' width='41.78' height='15.86' style='stroke-width: 1.07; stroke: #BEBEBE; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFC6B3; fill-opacity: 0.80;' />
-<rect x='438.97' y='547.76' width='43.20' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<rect x='438.97' y='547.76' width='43.20' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #EBEBEB;' />
 <rect x='439.68' y='548.47' width='41.78' height='15.86' style='stroke-width: 1.07; stroke: #BEBEBE; stroke-linecap: butt; stroke-linejoin: miter; fill: #FF8A6B; fill-opacity: 0.80;' />
-<rect x='502.92' y='547.76' width='43.20' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<rect x='502.92' y='547.76' width='43.20' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #EBEBEB;' />
 <rect x='503.63' y='548.47' width='41.78' height='15.86' style='stroke-width: 1.07; stroke: #BEBEBE; stroke-linecap: butt; stroke-linejoin: miter; fill: #FF4023; fill-opacity: 0.80;' />
 <text x='307.56' y='559.43' style='font-size: 8.80px; font-family: sans;' textLength='7.82px' lengthAdjust='spacingAndGlyphs'>-5</text>
 <text x='369.54' y='559.43' style='font-size: 8.80px; font-family: sans;' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>0</text>

@@ -809,13 +809,13 @@
 <text transform='translate(13.05,244.75) rotate(-90)' text-anchor='middle' style='font-size: 11.00px; font-family: sans;' textLength='73.38px' lengthAdjust='spacingAndGlyphs'>Exposure [min]</text>
 <rect x='298.91' y='503.08' width='161.73' height='28.24' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
 <text x='304.39' y='520.99' style='font-size: 11.00px; font-family: sans;' textLength='14.67px' lengthAdjust='spacingAndGlyphs'>Err</text>
-<rect x='324.54' y='508.56' width='17.28' height='17.28' style='stroke-width: 2.13; fill: #F2F2F2;' />
+<rect x='324.54' y='508.56' width='17.28' height='17.28' style='stroke-width: 2.13; fill: #EBEBEB;' />
 <line x1='326.91' y1='517.20' x2='339.44' y2='517.20' style='stroke-width: 0.71;' />
 <line x1='333.18' y1='523.47' x2='333.18' y2='510.94' style='stroke-width: 0.71;' />
-<rect x='369.90' y='508.56' width='17.28' height='17.28' style='stroke-width: 2.13; fill: #F2F2F2;' />
+<rect x='369.90' y='508.56' width='17.28' height='17.28' style='stroke-width: 2.13; fill: #EBEBEB;' />
 <line x1='370.45' y1='517.20' x2='386.64' y2='517.20' style='stroke-width: 0.71;' />
 <line x1='378.54' y1='525.30' x2='378.54' y2='509.11' style='stroke-width: 0.71;' />
-<rect x='415.27' y='508.56' width='17.28' height='17.28' style='stroke-width: 2.13; fill: #F2F2F2;' />
+<rect x='415.27' y='508.56' width='17.28' height='17.28' style='stroke-width: 2.13; fill: #EBEBEB;' />
 <line x1='414.42' y1='517.20' x2='433.40' y2='517.20' style='stroke-width: 0.71;' />
 <line x1='423.91' y1='526.70' x2='423.91' y2='507.71' style='stroke-width: 0.71;' />
 <text x='347.29' y='520.23' style='font-size: 8.80px; font-family: sans;' textLength='17.13px' lengthAdjust='spacingAndGlyphs'>0.05</text>
@@ -823,19 +823,19 @@
 <text x='438.03' y='520.23' style='font-size: 8.80px; font-family: sans;' textLength='17.13px' lengthAdjust='spacingAndGlyphs'>0.15</text>
 <rect x='240.90' y='542.28' width='277.75' height='28.24' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
 <text x='246.38' y='560.19' style='font-size: 11.00px; font-family: sans;' textLength='15.89px' lengthAdjust='spacingAndGlyphs'>DU</text>
-<rect x='267.75' y='547.76' width='43.20' height='17.28' style='stroke-width: 2.13; fill: #F2F2F2;' />
+<rect x='267.75' y='547.76' width='43.20' height='17.28' style='stroke-width: 2.13; fill: #EBEBEB;' />
 <rect x='267.89' y='547.90' width='42.92' height='17.00' style='stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFCFBF;' />
 <line x1='286.59' y1='556.40' x2='292.12' y2='556.40' style='stroke-width: 0.71;' />
 <line x1='289.35' y1='559.17' x2='289.35' y2='553.64' style='stroke-width: 0.71;' />
-<rect x='326.80' y='547.76' width='43.20' height='17.28' style='stroke-width: 2.13; fill: #F2F2F2;' />
+<rect x='326.80' y='547.76' width='43.20' height='17.28' style='stroke-width: 2.13; fill: #EBEBEB;' />
 <rect x='326.95' y='547.90' width='42.92' height='17.00' style='stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #FF9E82;' />
 <line x1='345.64' y1='556.40' x2='351.17' y2='556.40' style='stroke-width: 0.71;' />
 <line x1='348.40' y1='559.17' x2='348.40' y2='553.64' style='stroke-width: 0.71;' />
-<rect x='390.75' y='547.76' width='43.20' height='17.28' style='stroke-width: 2.13; fill: #F2F2F2;' />
+<rect x='390.75' y='547.76' width='43.20' height='17.28' style='stroke-width: 2.13; fill: #EBEBEB;' />
 <rect x='390.89' y='547.90' width='42.92' height='17.00' style='stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #FF6847;' />
 <line x1='409.59' y1='556.40' x2='415.12' y2='556.40' style='stroke-width: 0.71;' />
 <line x1='412.35' y1='559.17' x2='412.35' y2='553.64' style='stroke-width: 0.71;' />
-<rect x='454.70' y='547.76' width='43.20' height='17.28' style='stroke-width: 2.13; fill: #F2F2F2;' />
+<rect x='454.70' y='547.76' width='43.20' height='17.28' style='stroke-width: 2.13; fill: #EBEBEB;' />
 <rect x='454.84' y='547.90' width='42.92' height='17.00' style='stroke-width: 0.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #FF0702;' />
 <line x1='473.54' y1='556.40' x2='479.07' y2='556.40' style='stroke-width: 0.71;' />
 <line x1='476.30' y1='559.17' x2='476.30' y2='553.64' style='stroke-width: 0.71;' />

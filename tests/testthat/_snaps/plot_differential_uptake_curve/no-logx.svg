@@ -87,15 +87,15 @@
 <text x='708.22' y='516.90' text-anchor='middle' style='font-size: 8.80px; fill: #4D4D4D; font-family: sans;' textLength='19.58px' lengthAdjust='spacingAndGlyphs'>1500</text>
 <text x='374.88' y='529.04' text-anchor='middle' style='font-size: 11.00px; font-family: sans;' textLength='83.75px' lengthAdjust='spacingAndGlyphs'>Time points [min]</text>
 <text transform='translate(13.05,264.35) rotate(-90)' text-anchor='middle' style='font-size: 11.00px; font-family: sans;' textLength='111.90px' lengthAdjust='spacingAndGlyphs'>Differential uptake [Da]</text>
-<rect x='244.85' y='542.28' width='121.86' height='28.24' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<rect x='255.80' y='547.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
-<circle cx='264.44' cy='556.40' r='2.49' style='stroke-width: 0.71; stroke: none; fill: #000000;' />
-<text x='278.56' y='559.43' style='font-size: 8.80px; font-family: sans;' textLength='82.66px' lengthAdjust='spacingAndGlyphs'>INITSSASQEGTRLN</text>
-<rect x='377.66' y='542.28' width='127.25' height='28.24' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<rect x='388.62' y='547.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
-<circle cx='397.26' cy='556.40' r='2.49' style='stroke-width: 0.71; stroke: #F8766D; fill: #F8766D;' />
-<line x1='390.35' y1='556.40' x2='404.17' y2='556.40' style='stroke-width: 1.07; stroke: #F8766D; stroke-linecap: butt;' />
-<text x='411.38' y='559.43' style='font-size: 8.80px; font-family: sans;' textLength='88.05px' lengthAdjust='spacingAndGlyphs'>CD160-CD160_HVEM</text>
+<rect x='250.33' y='542.28' width='121.77' height='28.24' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<rect x='255.80' y='547.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #EBEBEB;' />
+<circle cx='264.44' cy='556.40' r='2.49' style='stroke-width: 0.71; stroke: #F8766D; fill: #F8766D;' />
+<line x1='257.53' y1='556.40' x2='271.36' y2='556.40' style='stroke-width: 1.07; stroke: #F8766D; stroke-linecap: butt;' />
+<text x='278.56' y='559.43' style='font-size: 8.80px; font-family: sans;' textLength='88.05px' lengthAdjust='spacingAndGlyphs'>CD160-CD160_HVEM</text>
+<rect x='383.06' y='542.28' width='116.38' height='28.24' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<rect x='388.54' y='547.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #EBEBEB;' />
+<circle cx='397.18' cy='556.40' r='2.49' style='stroke-width: 0.71; stroke: none; fill: #000000;' />
+<text x='411.30' y='559.43' style='font-size: 8.80px; font-family: sans;' textLength='82.66px' lengthAdjust='spacingAndGlyphs'>INITSSASQEGTRLN</text>
 <text x='35.24' y='14.56' style='font-size: 13.20px; font-family: sans;' textLength='142.35px' lengthAdjust='spacingAndGlyphs'>Differential uptake curve</text>
 </g>
 </svg>

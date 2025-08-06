@@ -133,11 +133,11 @@
 <text x='367.67' y='529.04' text-anchor='middle' style='font-size: 11.00px; font-family: sans;' textLength='39.14px' lengthAdjust='spacingAndGlyphs'>Position</text>
 <rect x='207.59' y='542.28' width='320.16' height='28.24' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
 <text x='213.07' y='560.19' style='font-size: 11.00px; font-family: sans;' textLength='110.02px' lengthAdjust='spacingAndGlyphs'>Err(Theo Frac DU) [%]</text>
-<rect x='328.57' y='547.76' width='43.20' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<rect x='328.57' y='547.76' width='43.20' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #EBEBEB;' />
 <rect x='329.28' y='548.47' width='41.78' height='15.86' style='stroke-width: 1.07; stroke: #BEBEBE; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFCFBE; fill-opacity: 0.80;' />
-<rect x='394.96' y='547.76' width='43.20' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<rect x='394.96' y='547.76' width='43.20' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #EBEBEB;' />
 <rect x='395.67' y='548.47' width='41.78' height='15.86' style='stroke-width: 1.07; stroke: #BEBEBE; stroke-linecap: butt; stroke-linejoin: miter; fill: #FF9D80; fill-opacity: 0.80;' />
-<rect x='461.35' y='547.76' width='43.20' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<rect x='461.35' y='547.76' width='43.20' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #EBEBEB;' />
 <rect x='462.06' y='548.47' width='41.78' height='15.86' style='stroke-width: 1.07; stroke: #BEBEBE; stroke-linecap: butt; stroke-linejoin: miter; fill: #FF6544; fill-opacity: 0.80;' />
 <text x='377.25' y='559.43' style='font-size: 8.80px; font-family: sans;' textLength='12.23px' lengthAdjust='spacingAndGlyphs'>0.3</text>
 <text x='443.64' y='559.43' style='font-size: 8.80px; font-family: sans;' textLength='12.23px' lengthAdjust='spacingAndGlyphs'>0.6</text>
