@@ -1,0 +1,29 @@
+---
+title: "Example HDX-MS data analysis"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    number_sections: true
+    always_allow_html: yes
+bibliography: HDX.bib
+vignette: >
+  %\VignetteIndexEntry{Example HDX-MS data analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+  
+```{r setup, include=FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Introduction
+
+This document summarizes functions of HaDeX2 web server by describing example data analysis.
+
+```{r}
+knitr::include_graphics("du.PNG")
+```
+
+# Data upload
+
+## Uploading structural data
