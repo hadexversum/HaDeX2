@@ -32,7 +32,7 @@ uptake_dat <- create_state_uptake_dataset(alpha_dat, state = states[3])
 diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat, state_1 = states[3], state_2 = states[1])
 ```
 
-Data visualization is a crutial part of the experimental data analysis. The forms of visualization should be adjusted to highlight the essential result and tailored to satisfy personal needs. 
+Data visualization is a crucial part of the experimental data analysis. The forms of visualization should be adjusted to highlight the essential result and tailored to satisfy personal needs. 
 
 In this article, we present methods of data visualization available in the HaDeX2 package, and consecutively in the GUI.
 
@@ -381,7 +381,7 @@ plot_aggregated_uptake(aggregated_dat)
 *Cons:*
 
  * values are an approximation 
- * linear presentation lacking conformial information
+ * linear presentation lacking conformational information
 
 *Plot variations:*
  

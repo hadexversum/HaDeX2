@@ -48,6 +48,7 @@ Suggests:
     gridExtra,
     knitr,
     HaDeXGUI,
+    magrittr,
     pander,
     renv,
     rmarkdown,
@@ -55,7 +56,8 @@ Suggests:
     shinyhelper,
     shinyjs,
     testthat,
-    vdiffr
+    vdiffr,
+    spelling
 VignetteBuilder: knitr
 Language: en-US
 URL: https://hadexversum.github.io/HaDeX2/

@@ -8,7 +8,7 @@
 #' @description
 #' Function aggregates the deuterium uptake values from
 #' peptide level into single-amino resolution using `weighted
-#' approach` (definied in `vignette("datafiles"))`. For 
+#' approach` (defined in `vignette("datafiles"))`. For 
 #' visualization use \code{\link{plot_aggregated_uptake}}
 #' 
 #' @return a \code{\link{data.frame}} object

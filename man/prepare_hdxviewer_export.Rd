@@ -13,7 +13,7 @@ prepare_hdxviewer_export(
 )
 }
 \arguments{
-\item{x_dat}{one state detuerium uptake data or differentail uptake data}
+\item{x_dat}{one state deuterium uptake data or differential uptake data}
 
 \item{differential}{indicator of x_dat type}
 

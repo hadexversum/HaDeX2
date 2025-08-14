@@ -29,7 +29,7 @@ Calculates back-exchange for a state
 }
 \details{
 Back-exchange is a reverse exchange phenomenon, important 
-to acknowledge when working with HDX data. This function calculcates
+to acknowledge when working with HDX data. This function calculates
 back-exchange values for one biological state of the selected protein.
 For visualization of back-exchange data use \code{\link{plot_coverage_heatmap}}
 with displayed value specified as `back-exchange`.

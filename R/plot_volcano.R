@@ -1,6 +1,6 @@
 #' Volcano plot
 #'
-#' @description Volcano plot for differential deuterim uptake
+#' @description Volcano plot for differential deuterium uptake
 #' between two biological states
 #' 
 #' @importFrom ggplot2 coord_cartesian

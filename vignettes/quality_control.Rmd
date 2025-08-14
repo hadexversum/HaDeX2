@@ -21,16 +21,16 @@ knitr::opts_chunk$set(
 library(HaDeX)
 ```
 
-Data analysis is vital step, but firsly, we must make sure that the experiment was conducted correctly. How to do that using HaDeX functionalities? There are multiple ways to do that.
+Data analysis is vital step, but firstly, we must make sure that the experiment was conducted correctly. How to do that using HaDeX functionalities? There are multiple ways to do that.
 Unfortunately, our example data is good quality, but we will discuss possible indicators of data that needs to be re-checked.
 
-## Repliates
+## Replicates
 
-Firsly, we check the number of replicates. Although the experiment is conducted in known number of times, sometimes during the manual curation of isotopic envelopes, some ofthe spectras are disqualified. Here, we check the remaing number of replicates of the already cureated dataset. 
+Firstly, we check the number of replicates. Although the experiment is conducted in known number of times, sometimes during the manual curation of isotopic envelopes, some of the spectras are disqualified. Here, we check the remaining number of replicates of the already curated dataset. 
 
-It is advised to have at least three replicates of the experiment. Lesser number limits the statisitcal analysis - e.q. for calculating P-value using T-student test minimum of three repliates are needed. If there are only two replicates, the uncertainty can be calculated.
+It is advised to have at least three replicates of the experiment. Lesser number limits the statistical analysis - e.q. for calculating P-value using T-student test minimum of three replicates are needed. If there are only two replicates, the uncertainty can be calculated.
 
-In the example plot below, we see that there are three peptides in this state that are lacking values. One peptide - with considerably lack of replicates potentially should be eliminated from the peptide pool. Majority of peptides have a stable number of replicates - in this case three, with expception of no-deuterated control sample, measured only once.
+In the example plot below, we see that there are three peptides in this state that are lacking values. One peptide - with considerably lack of replicates potentially should be eliminated from the peptide pool. Majority of peptides have a stable number of replicates - in this case three, with exception of no-deuterated control sample, measured only once.
 
 ```{r}
 rep_dat <- create_replicate_dataset(alpha_dat)
@@ -69,7 +69,7 @@ plot_replicate_mass_uptake(alpha_dat, sequence = "CVRSIQA", aggregated = TRUE)
 
 ## Back-exchange
 
-Imporant measure of quality of experiment is back-exchange. Usually, expected value of back-exchange should be around 30%, possibly higher for shorter peptides. 
+Important measure of quality of experiment is back-exchange. Usually, expected value of back-exchange should be around 30%, possibly higher for shorter peptides. 
 
 ```{r}
 bex_dat <- calculate_back_exchange(alpha_dat, state = "Alpha_KSCN")

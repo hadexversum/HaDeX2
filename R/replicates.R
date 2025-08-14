@@ -377,11 +377,11 @@ create_replicate_dataset <- function(dat,
 #' @details The function shows three versions of replicate 
 #' histogram, based on supplied \code{rep_dat} and \code{time_points}. 
 #' If \code{time_points} is selected, the histogram shows the number 
-#' of replicates for time points of measurement, to easly spot
+#' of replicates for time points of measurement, to spot
 #' if there were troubles with samples for specific time point of
 #' measurement. Then, on the X-axis is Exposure (in minutes) and 
 #' on the Y-axis number of replicates.
-#' If \code{time_points} is not selected, onn the X-axis there are 
+#' If \code{time_points} is not selected, on the X-axis there are 
 #' peptide ID, and on the Y-axis there are numbers of replicates. 
 #' If \code{rep_dat} contains data from one time point 
 #' of measurement, the histogram colors reflect the 

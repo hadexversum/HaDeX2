@@ -1,6 +1,6 @@
 #' Calculate differential uptake 
 #' 
-#' @description Calculates differential deuterim uptake between 
+#' @description Calculates differential deuterium uptake between 
 #' two selected biological states. 
 #' 
 #' @importFrom tidyr gather

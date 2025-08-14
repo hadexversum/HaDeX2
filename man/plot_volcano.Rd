@@ -59,7 +59,7 @@ interactive display (HTML/Markdown documents or shiny app).}
 a \code{\link{ggplot}} object
 }
 \description{
-Volcano plot for differential deuterim uptake
+Volcano plot for differential deuterium uptake
 between two biological states
 }
 \details{

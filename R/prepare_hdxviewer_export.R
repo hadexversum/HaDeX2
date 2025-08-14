@@ -1,13 +1,12 @@
 #' Prepares data export for HDX-Viewer
 #'
-#' @param x_dat one state detuerium uptake data or differentail uptake data
+#' @param x_dat one state deuterium uptake data or differential uptake data
 #' @param differential indicator of x_dat type
 #' @param fractional indicator if fractional values are used
 #' @param theoretical indicator if theoretical values are used
 #' @param download indicator if the result should be downloaded 
 #' 
 #' @importFrom utils write.csv
-#' @importFrom magrittr library require
 #'
 #' @examples
 #' kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN" )
