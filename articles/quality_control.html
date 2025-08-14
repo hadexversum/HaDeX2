@@ -81,28 +81,28 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://hadexversum.github.io/HaDeX2/">HaDeX</a></span><span class="op">)</span></span></code></pre></div>
-<p>Data analysis is vital step, but firsly, we must make sure that the
+<p>Data analysis is vital step, but firstly, we must make sure that the
 experiment was conducted correctly. How to do that using HaDeX
 functionalities? There are multiple ways to do that. Unfortunately, our
 example data is good quality, but we will discuss possible indicators of
 data that needs to be re-checked.</p>
 <div class="section level2">
-<h2 id="repliates">Repliates<a class="anchor" aria-label="anchor" href="#repliates"></a>
+<h2 id="replicates">Replicates<a class="anchor" aria-label="anchor" href="#replicates"></a>
 </h2>
-<p>Firsly, we check the number of replicates. Although the experiment is
-conducted in known number of times, sometimes during the manual curation
-of isotopic envelopes, some ofthe spectras are disqualified. Here, we
-check the remaing number of replicates of the already cureated
+<p>Firstly, we check the number of replicates. Although the experiment
+is conducted in known number of times, sometimes during the manual
+curation of isotopic envelopes, some of the spectras are disqualified.
+Here, we check the remaining number of replicates of the already curated
 dataset.</p>
 <p>It is advised to have at least three replicates of the experiment.
-Lesser number limits the statisitcal analysis - e.q. for calculating
-P-value using T-student test minimum of three repliates are needed. If
+Lesser number limits the statistical analysis - e.q. for calculating
+P-value using T-student test minimum of three replicates are needed. If
 there are only two replicates, the uncertainty can be calculated.</p>
 <p>In the example plot below, we see that there are three peptides in
 this state that are lacking values. One peptide - with considerably lack
 of replicates potentially should be eliminated from the peptide pool.
 Majority of peptides have a stable number of replicates - in this case
-three, with expception of no-deuterated control sample, measured only
+three, with exception of no-deuterated control sample, measured only
 once.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rep_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_replicate_dataset.html">create_replicate_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span></span>
@@ -164,7 +164,7 @@ comparative analysis.</p>
 <div class="section level2">
 <h2 id="back-exchange">Back-exchange<a class="anchor" aria-label="anchor" href="#back-exchange"></a>
 </h2>
-<p>Imporant measure of quality of experiment is back-exchange. Usually,
+<p>Important measure of quality of experiment is back-exchange. Usually,
 expected value of back-exchange should be around 30%, possibly higher
 for shorter peptides.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
