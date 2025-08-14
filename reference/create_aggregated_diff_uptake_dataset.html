@@ -84,8 +84,35 @@ product of e.q. <code><a href="create_diff_uptake_dataset.html">create_diff_upta
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">diff_uptake_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_diff_uptake_dataset.html">create_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu">reate_aggregated_diff_uptake_dataset</span><span class="op">(</span><span class="va">diff_uptake_dat</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in reate_aggregated_diff_uptake_dataset(diff_uptake_dat):</span> could not find function "reate_aggregated_diff_uptake_dataset"</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu">create_aggregated_diff_uptake_dataset</span><span class="op">(</span><span class="va">diff_uptake_dat</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   position aa diff_frac_deut_uptake err_diff_frac_deut_uptake diff_deut_uptake</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1        1  G             1.2349065                 0.4904979       0.07447260</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2        2  F             0.2299220                 0.5307790       0.01984222</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3        3  G             0.3830136                 0.4202586       0.02311448</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4        4  D             0.3830136                 0.4202586       0.02311448</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5        5  L             1.3962052                 0.5529766       0.04873693</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6        6  K             1.3962052                 0.5529766       0.04873693</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   err_diff_deut_uptake diff_theo_frac_deut_uptake</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1           0.02076239                  0.9127730</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2           0.02092370                  0.2199031</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3           0.01620374                  0.3064422</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4           0.01620374                  0.3064422</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5           0.01766158                  0.9800815</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6           0.01766158                  0.9800815</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   err_diff_theo_frac_deut_uptake diff_theo_deut_uptake</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                      0.2544742            0.07447260</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                      0.2818287            0.01984222</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                      0.2320153            0.02311448</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                      0.2320153            0.02311448</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                      0.3748293            0.04873693</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                      0.3748293            0.04873693</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   err_diff_theo_deut_uptake Exposure</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                0.02076239    0.167</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                0.02092370    0.167</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                0.01620374    0.167</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                0.01620374    0.167</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                0.01766158    0.167</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                0.01766158    0.167</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

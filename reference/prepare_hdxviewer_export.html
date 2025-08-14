@@ -95,7 +95,7 @@
 <span class="r-in"><span><span class="va">aggregated_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_aggregated_uptake_dataset.html">create_aggregated_uptake_dataset</a></span><span class="op">(</span><span class="va">kin_dat</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">diff_uptake_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_diff_uptake_dataset.html">create_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">diff_aggregated_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_aggregated_diff_uptake_dataset.html">create_aggregated_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">diff_uptake_dat</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">prepare_hdxviewer_export</span><span class="op">(</span><span class="va">aggregated_dat</span>, differential <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">prepare_hdxviewer_export</span><span class="op">(</span><span class="va">aggregated_dat</span>, differential <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Key: &lt;Residues&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      Residues 10.02s 1500s  300s   60s 86400s 9000s</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;int&gt;  &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt;  &lt;num&gt; &lt;num&gt;</span>
@@ -110,9 +110,8 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 219:      219  0.418 0.925 0.735 0.609  0.002 1.004</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 220:      220  0.418 0.925 0.735 0.609  0.002 1.004</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 221:      221  0.418 0.925 0.735 0.609  0.002 1.004</span>
-<span class="r-in"><span><span class="fu">prepare_hdxviewer_export</span><span class="op">(</span><span class="va">aggregated_dat</span>, differential <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="co"># shouldnt work</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in prepare_hdxviewer_export(aggregated_dat, differential = T):</span> Parameters are in conflict with supplied data.</span>
-<span class="r-in"><span><span class="fu">prepare_hdxviewer_export</span><span class="op">(</span><span class="va">diff_aggregated_dat</span>, differential <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># prepare_hdxviewer_export(aggregated_dat, differential = TRUE) # shouldnt work</span></span></span>
+<span class="r-in"><span><span class="fu">prepare_hdxviewer_export</span><span class="op">(</span><span class="va">diff_aggregated_dat</span>, differential <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Key: &lt;Residues&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      Residues 10.02s 1500s  300s   60s 86400s  9000s</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;int&gt;  &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt;  &lt;num&gt;  &lt;num&gt;</span>
@@ -127,21 +126,6 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 219:      219  0.017 0.081 0.059 0.087      0 -0.008</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 220:      220  0.017 0.081 0.059 0.087      0 -0.008</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 221:      221  0.017 0.081 0.059 0.087      0 -0.008</span>
-<span class="r-in"><span><span class="fu">prepare_hdxviewer_export</span><span class="op">(</span><span class="va">aggregated_dat</span>, differential <span class="op">=</span> <span class="cn">F</span>, download <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Key: &lt;Residues&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      Residues 10.02s 1500s  300s   60s 86400s 9000s</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;int&gt;  &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt;  &lt;num&gt; &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1:        1  0.324 0.846 0.629 0.510  0.014 0.970</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2:        2  0.545 0.926 0.834 0.745  0.012 0.984</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3:        3  0.624 0.957 0.900 0.827  0.010 0.990</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4:        4  0.624 0.957 0.900 0.827  0.010 0.990</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5:        5  0.662 0.973 0.958 0.892  0.007 0.993</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 217:      217  0.248 0.868 0.563 0.415  0.006 0.996</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 218:      218  0.357 0.896 0.660 0.524  0.006 0.995</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 219:      219  0.418 0.925 0.735 0.609  0.002 1.004</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 220:      220  0.418 0.925 0.735 0.609  0.002 1.004</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 221:      221  0.418 0.925 0.735 0.609  0.002 1.004</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

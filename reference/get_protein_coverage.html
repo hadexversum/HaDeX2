@@ -74,6 +74,14 @@ selected biological state or states.</p>
 <dd><p>data imported by the <code><a href="read_hdx.html">read_hdx</a></code> function.</p></dd>
 
 
+<dt id="arg-protein">protein<a class="anchor" aria-label="anchor" href="#arg-protein"></a></dt>
+<dd><p>...</p></dd>
+
+
+<dt id="arg-states">states<a class="anchor" aria-label="anchor" href="#arg-states"></a></dt>
+<dd><p>...</p></dd>
+
+
 <dt id="arg-protein-length">protein_length<a class="anchor" aria-label="anchor" href="#arg-protein-length"></a></dt>
 <dd><p><code><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></code>, indicates the length of
 the protein. If not provided, the maximal end value from the file is used.</p></dd>
@@ -97,8 +105,8 @@ percentage coverage of the protein sequence, rounded to two decimal places.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">get_protein_coverage</span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 100</span>
-<span class="r-in"><span><span class="fu">get_protein_coverage</span><span class="op">(</span><span class="va">alpha_dat</span>, protein_length <span class="op">=</span> <span class="fl">150</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Assertion on 'protein_length' failed: FALSE.</span>
+<span class="r-in"><span><span class="fu">get_protein_coverage</span><span class="op">(</span><span class="va">alpha_dat</span>, protein_length <span class="op">=</span> <span class="fl">230</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 96.09</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
