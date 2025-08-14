@@ -4,13 +4,14 @@ pkgdown_sha: ~
 articles:
   data_input: data_input.html
   datafiles: datafiles.html
+  example: example.html
   glossary: glossary.html
   mass_comparison: mass_comparison.html
   quality_control: quality_control.html
   transformation: transformation.html
   usage: usage.html
   visualization: visualization.html
-last_built: 2025-08-14T21:22Z
+last_built: 2025-08-14T21:34Z
 urls:
   reference: https://hadexversum.github.io/HaDeX2/reference
   article: https://hadexversum.github.io/HaDeX2/articles

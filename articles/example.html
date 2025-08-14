@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Glossary • HaDeX</title>
+<title>Example HDX-MS data analysis • HaDeX</title>
 <script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Glossary">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Example HDX-MS data analysis">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -71,66 +71,28 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1>Glossary</h1>
+      <h1>Example HDX-MS data analysis</h1>
             
       
 
-      <div class="d-none name"><code>glossary.Rmd</code></div>
+      <div class="d-none name"><code>example.Rmd</code></div>
     </div>
 
     
     
 <div class="section level2">
-<h2 id="variables">Variables<a class="anchor" aria-label="anchor" href="#variables"></a>
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p>Variable names are used in the package consequently. Below are
-definitions of the terms.</p>
-<div class="section level3">
-<h3 id="time-points-of-measurement">Time points of measurement<a class="anchor" aria-label="anchor" href="#time-points-of-measurement"></a>
-</h3>
-<p>time_t - chosen time point of measurement.</p>
-<p>time_0 - minimal exchange control time point of measurement.</p>
-<p>time_100 - maximal exchange control time point of measurement.</p>
+<p>This document summarizes functions of HaDeX2 web server by describing
+example data analysis.</p>
+<p><img src="du.PNG"><!-- --></p>
 </div>
+<div class="section level2">
+<h2 id="data-upload">Data upload<a class="anchor" aria-label="anchor" href="#data-upload"></a>
+</h2>
 <div class="section level3">
-<h3 id="deuterium-uptake-values">Deuterium uptake values<a class="anchor" aria-label="anchor" href="#deuterium-uptake-values"></a>
+<h3 id="uploading-structural-data">Uploading structural data<a class="anchor" aria-label="anchor" href="#uploading-structural-data"></a>
 </h3>
-<p>deut_uptake - deuterium uptake [Da].</p>
-<p>err_deut_uptake - error associated with deuterium uptake [Da].</p>
-<p>frac_deut_uptake - fractional deuterium uptake [%].</p>
-<p>err_frac_deut_uptake - error associated with fractional deuterium
-uptake [%].</p>
-<p>theo_deut_uptake - theoretical deuterium uptake [Da].</p>
-<p>err_theo_deut_uptake - error associated with theoreti.cal deuterium
-uptake [Da].</p>
-<p>theo_frac_deut_uptake - theoretical fractional deuterium uptake
-[%].</p>
-<p>err_theo_frac_deut_uptake - error associated with theoretical
-fractional deuterium uptake [%].</p>
-</div>
-<div class="section level3">
-<h3 id="experimental-conditions">Experimental conditions<a class="anchor" aria-label="anchor" href="#experimental-conditions"></a>
-</h3>
-<p>deut_part - deuterium percentage in solution used in experiment, from
-range [0, 1].</p>
-<!-- # Object hdx_data -->
-<!-- In the package, the input data is transformed into hdx_data object. The object inherits the data frame properties and has multiple necessary attributes. -->
-<!-- ## Main data frame -->
-<!-- Protein - character, protein name. May have different values. -->
-<!-- Start - integer, start position of the peptide in the protein sequence. -->
-<!-- End - integer, end position of the peptide in the protein sequence. -->
-<!-- Sequence - character, peptide name.  -->
-<!-- MaxUptake - numerical, maximal possible uptake value, based on the peptide sequence. -->
-<!-- MHP - numerical, monoisotopic mass of the peptide, based on the peptide sequence [Da]. -->
-<!-- State - character, biological state. -->
-<!-- Exposure - numerical, time point of the measurement [min]. -->
-<!-- File - character, the raw data filename. -->
-<!-- z - integer, the charge value. -->
-<!-- Inten - numerical, peak intensity. -->
-<!-- Center - numerical, geometric centroid value of measured isotopic envelope. -->
-<!-- ## Attributes -->
-<!-- source - character, indicator of the data source (e.g. Dynamx3.0). -->
-<!-- has_modification - logical, indicator of the modification presence. The modification information is preserved in the state value. -->
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
