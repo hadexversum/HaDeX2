@@ -29,6 +29,8 @@ data is aggregated on replicate level}
 
 \item{log_x}{\code{logical}, indicator if the X axis values 
 are transformed to log10}
+
+\item{interactive}{...}
 }
 \value{
 a \code{\link{ggplot}} object

@@ -1,6 +1,3 @@
-library(HRaDeX)
-library(HaDeX)
-
 agg_dat <- create_aggregated_uptake_dataset(create_uptake_dataset(dat = alpha_dat, states = unique(alpha_dat[["State"]])[3], 
                                  time_0 = 0, time_100 = 1440))
 

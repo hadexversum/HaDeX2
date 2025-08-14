@@ -5,7 +5,7 @@
 #' 
 #' @importFrom ggplot2 geom_tile scale_fill_gradient2 guide_legend element_rect
 #' 
-#' @param chiclet_dat produced by \code{\link{create_state_uptake_dataset}}
+#' @param uptake_dat produced by \code{\link{create_state_uptake_dataset}}
 #' function. 
 #' @param theoretical \code{logical}, determines if values are theoretical.
 #' @param fractional \code{logical}, determines if values are fractional.

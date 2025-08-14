@@ -2,12 +2,18 @@
 % Please edit documentation in R/HaDeX-package.R
 \docType{package}
 \name{HaDeX-package}
-\alias{-package}
 \alias{HaDeX-package}
 \alias{HaDeX}
 \title{HaDeX}
 \description{
 The \code{HaDeX} package is a toolbox for the analysis of HDX-MS data.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://hadexversum.github.io/HaDeX2/}
+}
+
 }
 \author{
 Weronika Puchala, Michal Burdukiewicz.

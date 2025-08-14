@@ -36,10 +36,3 @@ or hydrophylic.
 \details{
 The data for this function is not packaged yet.
 }
-\examples{
-...
-
-}
-\seealso{
-...
-}

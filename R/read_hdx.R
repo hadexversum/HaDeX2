@@ -13,6 +13,7 @@
 #' 
 #' @param filename a file supplied by the user. 
 #' Formats allowed: .csv, .xlsx and .xls.
+#' @param separator a value separating the columns.
 #' 
 #' @details The function \code{\link{read_hdx}} generates a 
 #' dataset read from the supplied datafile. The files produced 

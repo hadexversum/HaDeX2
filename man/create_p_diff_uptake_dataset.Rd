@@ -20,6 +20,8 @@ create_p_diff_uptake_dataset(
 \arguments{
 \item{dat}{data imported by the \code{\link{read_hdx}} function.}
 
+\item{diff_uptake_dat}{...}
+
 \item{protein}{chosen protein.}
 
 \item{state_1}{biological state for chosen protein. From this state values

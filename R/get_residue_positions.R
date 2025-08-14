@@ -1,3 +1,5 @@
+#' Get residue positions
+#' 
 #' @importFrom purrr map_chr
 #'
 #' @param dat data imported by the \code{\link{read_hdx}} function.

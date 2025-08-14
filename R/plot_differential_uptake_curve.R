@@ -4,6 +4,7 @@
 #' between two biological states.  
 #' 
 #' @param diff_uptake_dat produced by \code{\link{create_diff_uptake_dataset}} function
+#' @param diff_p_uptake_dat ...
 #' @param sequence sequence of chosen peptide.
 #' @param theoretical \code{logical}, determines if plot shows theoretical values.
 #' @param fractional \code{logical}, determines if plot shows fractional values.
@@ -31,9 +32,13 @@
 #' plot_differential_uptake_curve(diff_uptake_dat = diff_uptake_dat, sequence = "GDLKSPAGL")
 #' 
 #' diff_p_uptake_dat <- create_p_diff_uptake_dataset(alpha_dat)
-#' plot_differential_uptake_curve(diff_p_uptake_dat = diff_p_uptake_dat, sequence = "GDLKSPAGL", show_houde_interval = TRUE)
-#' plot_differential_uptake_curve(diff_p_uptake_dat = diff_p_uptake_dat, sequence = "GDLKSPAGL", show_houde_interval = TRUE, show_tstud_confidence = TRUE)
-#' plot_differential_uptake_curve(diff_p_uptake_dat = diff_p_uptake_dat, sequence = "GDLKSPAGL", show_tstud_confidence = TRUE)
+#' plot_differential_uptake_curve(diff_p_uptake_dat = diff_p_uptake_dat, 
+#'                                sequence = "GDLKSPAGL", show_houde_interval = TRUE)
+#' plot_differential_uptake_curve(diff_p_uptake_dat = diff_p_uptake_dat, 
+#'                                sequence = "GDLKSPAGL", show_houde_interval = TRUE, 
+#'                                show_tstud_confidence = TRUE)
+#' plot_differential_uptake_curve(diff_p_uptake_dat = diff_p_uptake_dat, 
+#'                                sequence = "GDLKSPAGL", show_tstud_confidence = TRUE)
 #' 
 #' @export plot_differential_uptake_curve
 

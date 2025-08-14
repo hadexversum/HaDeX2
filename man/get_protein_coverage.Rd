@@ -14,6 +14,10 @@ get_protein_coverage(
 \arguments{
 \item{dat}{data imported by the \code{\link{read_hdx}} function.}
 
+\item{protein}{...}
+
+\item{states}{...}
+
 \item{protein_length}{\code{\link{numeric}}, indicates the length of 
 the protein. If not provided, the maximal end value from the file is used.}
 }
@@ -30,7 +34,7 @@ percentage coverage of the protein sequence, rounded to two decimal places.
 }
 \examples{
 get_protein_coverage(alpha_dat)
-get_protein_coverage(alpha_dat, protein_length = 150)
+get_protein_coverage(alpha_dat, protein_length = 230)
 
 }
 \seealso{

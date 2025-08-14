@@ -19,6 +19,8 @@ function}
 
 \item{protein}{selected protein}
 
+\item{state}{...}
+
 \item{value}{value to be presented}
 
 \item{time_t}{...}

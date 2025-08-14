@@ -18,6 +18,8 @@
 #' @examples
 #' diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 #' diff_aggregated_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
+#' pdb_file_path <- system.file(package = "HaDeX", "HaDeX/data/Model_eEF1Balpha.pdb")
+#' 
 #' plot_aggregated_uptake_structure(diff_aggregated_dat, 
 #'                                  differential = TRUE,
 #'                                  time_t = 1,
@@ -99,7 +101,6 @@ plot_aggregated_uptake_structure <- function(aggregated_dat,
 #' @param fractional indicator if fractional values are used
 #' @param theoretical indicator if theoretical values are used
 #' @param time_t time point from aggregated_dat to be shown on the strucutre
-#' @param pdb_file_path file path to the pdb file 
 #' 
 #' @description
 #' This function provides a set of color codes associated with aggregated values

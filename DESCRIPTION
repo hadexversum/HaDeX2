@@ -27,20 +27,16 @@ LazyData: true
 RoxygenNote: 7.3.2
 Imports: 
     checkmate,
-    cowplot,
     data.table,
   	dplyr,
-  	DT,
   	ggplot2,
   	glue,
-  	gsubfn,
-  	latex2exp,
   	magick,
   	plyr,
   	purrr,
-  	reshape2,
   	readr,
   	readxl,
+  	r3dmol (>= 0.2),
   	remotes,
   	shiny,
   	stringr,
@@ -58,7 +54,8 @@ Suggests:
     shinycustomloader,
     shinyhelper,
     shinyjs,
-    testthat
+    testthat,
+    vdiffr
 VignetteBuilder: knitr
 Language: en-US
 URL: https://hadexversum.github.io/HaDeX2/

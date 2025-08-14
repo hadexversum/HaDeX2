@@ -30,11 +30,10 @@ The numerical values are rounded to 4 places. The names of columns
 are changed to user-friendly ones.
 }
 \examples{
-uc_dat <- calculate_kinetics(alpha_dat, protein = "db_eEF1Ba",
+uc_dat <- calculate_kinetics(alpha_dat,
                              sequence = "GFGDLKSPAGL", 
                              state = "ALPHA_Gamma",
-                             start = 1, end = 11,
-                             time_0 = 0.001, time_100 = 1440)
+                             start = 1, end = 11)
 show_uc_data(uc_dat)
 
 }

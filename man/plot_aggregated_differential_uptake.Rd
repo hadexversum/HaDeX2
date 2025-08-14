@@ -33,7 +33,9 @@ Plots aggregated uptake difference
 diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 aggregated_diff_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
 plot_aggregated_differential_uptake(aggregated_diff_dat, panels = FALSE)
-plot_aggregated_differential_uptake(aggregated_diff_dat, fractional = FALSE, theoretical = TRUE, panels = FALSE)
-plot_aggregated_differential_uptake(aggregated_diff_dat, theoretical = TRUE, panels = TRUE)
+plot_aggregated_differential_uptake(aggregated_diff_dat, fractional = FALSE, 
+                                    theoretical = TRUE, panels = FALSE)
+plot_aggregated_differential_uptake(aggregated_diff_dat, theoretical = TRUE, 
+                                    panels = TRUE)
 
 }

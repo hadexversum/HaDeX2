@@ -14,10 +14,6 @@
 #' 
 #' @return a \code{\link{ggplot2}} object.
 #' 
-#' @seealso ...
-#' 
-#' @examples ...
-#' 
 #' @importFrom dplyr n
 #' @importFrom ggplot2 scale_fill_manual
 #' @export plot_amino_distribution

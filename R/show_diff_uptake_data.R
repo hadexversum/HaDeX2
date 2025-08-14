@@ -113,8 +113,8 @@ show_diff_uptake_data <- function(diff_uptake_dat,
 #' @description Present differential deuterium uptake values 
 #' in selected form
 #' 
-#' @param diff_uptake_dat data produced by 
-#' \code{\link{create_diff_uptake_dataset}} function
+#' @param p_diff_uptake_dat data produced by 
+#' \code{\link{create_p_diff_uptake_dataset}} function
 #' @param theoretical \code{logical}, indicator if values are 
 #' calculated using theoretical controls
 #' @param fractional \code{logical}, indicator if values are shown 

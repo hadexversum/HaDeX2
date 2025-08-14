@@ -10,6 +10,7 @@
 #' @param confidence_level confidence level for the test, from range [0, 1]
 #' @param theoretical \code{logical}, determines if values are theoretical
 #' @param fractional \code{logical}, determines if values are fractional
+#' @param n_rep ...
 #' 
 #' @details Function \code{\link{calculate_confidence_limit_values}} 
 #' calculates confidence limit using Houde test. The confidence limits 

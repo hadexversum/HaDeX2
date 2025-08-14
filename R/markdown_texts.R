@@ -2,7 +2,7 @@ markdown_funding <- function(){
 
   "This work is supported by:
   * Foundation of Polish Science (TEAM TECH CORE FACILITY/2016-2/2 *Mass Spectrometry of Biopharmaceuticals - improved methodologies for qualitative, quantitative and structural characterization of drugs, proteinaceous drug targets and diagnostic molecules)*
-  * Narodowe Centrum Nauki (Preludium Bis 1 2019/35/O/NZ2/03745 Wysokorozdzielcza analiza danych z eksperymentów wymiany proton-deuter monitorowanych spektrometrią mas)
+  * Narodowe Centrum Nauki (Preludium Bis 1 2019/35/O/NZ2/03745 Wysokorozdzielcza analiza danych z eksperymentow wymiany proton-deuter monitorowanych spektrometria mas)
   * Narodowa Agencja Wymiany Akademickiej 
   
   "
@@ -11,13 +11,13 @@ markdown_funding <- function(){
 
 markdown_citation_v1 <- function(){
   
-  "Puchała, W., Burdukiewicz, M., Kistowski, M., Dąbrowska, K.A., Badaczewska-Dawid, A.E., Cysewski, D., and Dadlez, M. (2020). HaDeX: an R package and web-server for analysis of data from hydrogen–deuterium exchange mass spectrometry experiments. Bioinformatics 36, 4516–4518 (10.1093/bioinformatics/btaa587)."
+  "Puchala, W., Burdukiewicz, M., Kistowski, M., Dabrowska, K.A., Badaczewska-Dawid, A.E., Cysewski, D., and Dadlez, M. (2020). HaDeX: an R package and web-server for analysis of data from hydrogen–deuterium exchange mass spectrometry experiments. Bioinformatics 36, 4516–4518 (10.1093/bioinformatics/btaa587)."
   
 }
 
 markown_citation_v2 <- function(){
   
-  "Puchała W., ..."
+  "Puchala W., ..."
   
 }
 

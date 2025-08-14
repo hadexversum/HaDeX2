@@ -84,21 +84,30 @@ difference is positive, blue if negative), and the insignificant values are
 grey.
 }
 \examples{
-diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat, state_1 = "Alpha_KSCN", state_2 = "ALPHA_Gamma")
+diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat, state_1 = "Alpha_KSCN", 
+                                              state_2 = "ALPHA_Gamma")
 plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167) 
-plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167, show_houde_interval = T) #' 
+plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167, show_houde_interval = TRUE) 
 plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167, skip_amino = 0) 
 plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167, line_size = 1) 
-plot_differential(diff_uptake_dat = diff_uptake_dat, all_times = T)
-plot_differential(diff_uptake_dat = diff_uptake_dat, all_times = T, show_houde_interval = T)
-plot_differential(diff_uptake_dat = diff_uptake_dat, all_times = T, show_houde_interval = T, hide_houde_insignificant = T)
+plot_differential(diff_uptake_dat = diff_uptake_dat, all_times = TRUE)
+plot_differential(diff_uptake_dat = diff_uptake_dat, all_times = TRUE, show_houde_interval = TRUE)
+plot_differential(diff_uptake_dat = diff_uptake_dat, all_times = TRUE, show_houde_interval = TRUE, 
+                 hide_houde_insignificant = TRUE)
 
-diff_p_uptake_dat <- create_p_diff_uptake_dataset(alpha_dat, state_1 = "Alpha_KSCN", state_2 = "ALPHA_Gamma")
-plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, all_times = T, show_tstud_confidence = T)
-plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, all_times = F, time_t = 0.167, show_tstud_confidence = T, show_houde_interval = T)
-plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, show_tstud_confidence = T, show_houde_interval = T, all_times = F)
-plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, show_tstud_confidence = T, show_houde_interval = T, all_times = F, hide_houde_insignificant = T)
-plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, show_tstud_confidence = T, show_houde_interval = T, all_times = F, hide_houde_insignificant = T, hide_tstud_insignificant = T)
+diff_p_uptake_dat <- create_p_diff_uptake_dataset(alpha_dat, state_1 = "Alpha_KSCN", 
+                                                  state_2 = "ALPHA_Gamma")
+plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, all_times = TRUE, 
+                  show_tstud_confidence = TRUE)
+plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, all_times = FALSE, 
+                  time_t = 0.167, show_tstud_confidence = TRUE, show_houde_interval = TRUE)
+plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, show_tstud_confidence = TRUE, 
+                  show_houde_interval = TRUE, all_times = FALSE)
+plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, show_tstud_confidence = TRUE, 
+                  show_houde_interval = TRUE, all_times = FALSE, hide_houde_insignificant = TRUE)
+plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, show_tstud_confidence = TRUE, 
+                  show_houde_interval = TRUE, all_times = FALSE, hide_houde_insignificant = TRUE, 
+                  hide_tstud_insignificant = TRUE)
 
 }
 \references{

@@ -15,6 +15,7 @@
 #' values for different time points are presented separately
 #' @param show_threshold \code{logical}, indicator if the 
 #' threshold of significance is shown
+#' @param interactive ...
 #' 
 #' @details The function \code{\link{plot_uncertainty}} generates 
 #' a plot of uncertainty of mass measurement of each peptide from

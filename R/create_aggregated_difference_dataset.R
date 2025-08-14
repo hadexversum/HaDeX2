@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
-#' head(reate_aggregated_diff_uptake_dataset(diff_uptake_dat))
+#' head(create_aggregated_diff_uptake_dataset(diff_uptake_dat))
 #'
 #' @export
 

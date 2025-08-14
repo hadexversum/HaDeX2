@@ -20,6 +20,8 @@ plot_differential_butterfly(
 \item{diff_uptake_dat}{data produced by
 \code{\link{create_diff_uptake_dataset}} function.}
 
+\item{diff_p_uptake_dat}{...}
+
 \item{theoretical}{\code{logical}, determines if values are theoretical}
 
 \item{fractional}{\code{logical}, determines if values are fractional}

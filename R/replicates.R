@@ -12,6 +12,7 @@
 #' @param sequence sequence of chosen peptide.
 #' @param show_charge_values ...
 #' @param time_t time point of the measurement.
+#' @param interactive ...
 #'
 #' @details This function shows the measurements of mass from
 #' different replicates for specific peptide in specific state

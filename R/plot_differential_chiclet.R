@@ -37,8 +37,10 @@
 #' plot_differential_chiclet(diff_uptake_dat, show_houde_interval = TRUE)
 #' 
 #' diff_p_uptake_dat <- create_p_diff_uptake_dataset(alpha_dat)
-#' plot_differential_chiclet(diff_p_uptake_dat = diff_p_uptake_dat, show_tstud_confidence = TRUE)
-#' plot_differential_chiclet(diff_p_uptake_dat = diff_p_uptake_dat, show_tstud_confidence = TRUE, show_houde_interval = TRUE) 
+#' plot_differential_chiclet(diff_p_uptake_dat = diff_p_uptake_dat, 
+#'                           show_tstud_confidence = TRUE)
+#' plot_differential_chiclet(diff_p_uptake_dat = diff_p_uptake_dat, 
+#'                           show_tstud_confidence = TRUE, show_houde_interval = TRUE) 
 #' 
 #' @export plot_differential_chiclet
 

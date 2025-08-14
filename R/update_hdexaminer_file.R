@@ -35,8 +35,6 @@
 #' \code{\link{plot_position_frequency}}
 #' \code{\link{reconstruct_sequence}}
 #' 
-#' @examples
-#' update_hdexaminer_file(alpha_dat)                      
 #' 
 #' @export update_hdexaminer_file
 

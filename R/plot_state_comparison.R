@@ -13,7 +13,10 @@
 #' calculated using theoretical controls
 #' @param fractional \code{logical}, indicator if values are shown 
 #' in fractional form 
-#' @inheritParams plot_butterfly
+#' @param line_size ...
+#' @param all_times ...
+#' @param time_t ...
+#' @param interactive ...
 #' 
 #' @details The function \code{\link{plot_state_comparison}} generates
 #' a comparison plot, presenting deuterium uptake values of peptides 
@@ -31,8 +34,8 @@
 #' \code{\link{calculate_state_uptake}}  
 #' 
 #' @examples 
-#' comparison_dat <- calculate_state_uptake(alpha_dat)
-#' plot_state_comparison(comparison_dat)
+#' uptake_dat <- calculate_state_uptake(alpha_dat)
+#' plot_state_comparison(uptake_dat)
 #' 
 #' plot_state_comparison(uptake_dat, all_times = TRUE)
 #' plot_state_comparison(uptake_dat, fractional = TRUE, all_times = TRUE)

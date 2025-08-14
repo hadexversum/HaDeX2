@@ -12,6 +12,7 @@
 #' data is aggregated on replicate level
 #' @param log_x \code{logical}, indicator if the X axis values 
 #' are transformed to log10
+#' @param interactive ...
 #' 
 #' @details The function \code{\link{plot_replicate_mass_uptake}}
 #' generates a plot showing the mass uptake for selected protein 

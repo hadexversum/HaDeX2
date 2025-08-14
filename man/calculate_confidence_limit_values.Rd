@@ -20,6 +20,8 @@ calculate_confidence_limit_values(
 \item{theoretical}{\code{logical}, determines if values are theoretical}
 
 \item{fractional}{\code{logical}, determines if values are fractional}
+
+\item{n_rep}{...}
 }
 \value{
 range of confidence limit interval

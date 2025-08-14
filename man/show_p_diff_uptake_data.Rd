@@ -12,6 +12,9 @@ show_p_diff_uptake_data(
 )
 }
 \arguments{
+\item{p_diff_uptake_dat}{data produced by 
+\code{\link{create_p_diff_uptake_dataset}} function}
+
 \item{theoretical}{\code{logical}, indicator if values are 
 calculated using theoretical controls}
 
@@ -20,9 +23,6 @@ in fractional form}
 
 \item{renamed}{\code{logical}, indicator if the names of the columns
 are renamed to user-friendly ones. Currently FALSE not implemented.}
-
-\item{diff_uptake_dat}{data produced by 
-\code{\link{create_diff_uptake_dataset}} function}
 }
 \value{
 a \code{\link{data.frame}} object

@@ -20,6 +20,8 @@ plot_differential_uptake_curve(
 \arguments{
 \item{diff_uptake_dat}{produced by \code{\link{create_diff_uptake_dataset}} function}
 
+\item{diff_p_uptake_dat}{...}
+
 \item{sequence}{sequence of chosen peptide.}
 
 \item{theoretical}{\code{logical}, determines if plot shows theoretical values.}
@@ -58,9 +60,13 @@ diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 plot_differential_uptake_curve(diff_uptake_dat = diff_uptake_dat, sequence = "GDLKSPAGL")
 
 diff_p_uptake_dat <- create_p_diff_uptake_dataset(alpha_dat)
-plot_differential_uptake_curve(diff_p_uptake_dat = diff_p_uptake_dat, sequence = "GDLKSPAGL", show_houde_interval = TRUE)
-plot_differential_uptake_curve(diff_p_uptake_dat = diff_p_uptake_dat, sequence = "GDLKSPAGL", show_houde_interval = TRUE, show_tstud_confidence = TRUE)
-plot_differential_uptake_curve(diff_p_uptake_dat = diff_p_uptake_dat, sequence = "GDLKSPAGL", show_tstud_confidence = TRUE)
+plot_differential_uptake_curve(diff_p_uptake_dat = diff_p_uptake_dat, 
+                               sequence = "GDLKSPAGL", show_houde_interval = TRUE)
+plot_differential_uptake_curve(diff_p_uptake_dat = diff_p_uptake_dat, 
+                               sequence = "GDLKSPAGL", show_houde_interval = TRUE, 
+                               show_tstud_confidence = TRUE)
+plot_differential_uptake_curve(diff_p_uptake_dat = diff_p_uptake_dat, 
+                               sequence = "GDLKSPAGL", show_tstud_confidence = TRUE)
 
 }
 \seealso{

@@ -14,6 +14,8 @@ calculate_aggregated_test_results(
 \arguments{
 \item{p_diff_uptake_conf_dat}{...}
 
+\item{method}{...}
+
 \item{time_t}{...}
 
 \item{skip_amino}{\code{integer}, indicator

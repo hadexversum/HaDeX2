@@ -5,16 +5,19 @@
 #' @param fractional indicator if fractional values are used
 #' @param theoretical indicator if theoretical values are used
 #' @param download indicator if the result should be downloaded 
+#' 
+#' @importFrom utils write.csv
+#' @importFrom magrittr library require
 #'
 #' @examples
 #' kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN" )
 #' aggregated_dat <- create_aggregated_uptake_dataset(kin_dat)
 #' diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 #' diff_aggregated_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
-#' prepare_hdxviewer_export(aggregated_dat, differential = F)
-#' prepare_hdxviewer_export(aggregated_dat, differential = T) # shouldnt work
-#' prepare_hdxviewer_export(diff_aggregated_dat, differential = T)
-#' prepare_hdxviewer_export(aggregated_dat, differential = F, download = T)
+#' prepare_hdxviewer_export(aggregated_dat, differential = FALSE)
+#' # prepare_hdxviewer_export(aggregated_dat, differential = TRUE) # shouldnt work
+#' prepare_hdxviewer_export(diff_aggregated_dat, differential = TRUE)
+# # prepare_hdxviewer_export(aggregated_dat, differential = FALSE, download = TRUE)
 #'
 #' @export
 

@@ -28,9 +28,13 @@ calculated using theoretical controls}
 \item{fractional}{\code{logical}, indicator if values are shown 
 in fractional form}
 
-\item{interactive}{\code{logical}, whether plot should have an interactive 
-layer created with with ggiraph, which would add tooltips to the plot in an
-interactive display (HTML/Markdown documents or shiny app).}
+\item{line_size}{...}
+
+\item{all_times}{...}
+
+\item{time_t}{...}
+
+\item{interactive}{...}
 }
 \value{
 a \code{ggplot} object
@@ -50,8 +54,8 @@ is deuterium uptake in selected form. Error bars represents the combined
 and propagated uncertainty.
 }
 \examples{
-comparison_dat <- calculate_state_uptake(alpha_dat)
-plot_state_comparison(comparison_dat)
+uptake_dat <- calculate_state_uptake(alpha_dat)
+plot_state_comparison(uptake_dat)
 
 plot_state_comparison(uptake_dat, all_times = TRUE)
 plot_state_comparison(uptake_dat, fractional = TRUE, all_times = TRUE)

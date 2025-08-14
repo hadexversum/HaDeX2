@@ -9,6 +9,8 @@ read_hdx(filename, separator = ",")
 \arguments{
 \item{filename}{a file supplied by the user. 
 Formats allowed: .csv, .xlsx and .xls.}
+
+\item{separator}{a value separating the columns.}
 }
 \value{
 a \code{\link{data.frame}} object

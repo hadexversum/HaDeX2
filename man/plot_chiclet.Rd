@@ -13,7 +13,7 @@ plot_chiclet(
 )
 }
 \arguments{
-\item{uptake_dat}{data produced by \code{\link{create_state_uptake_dataset}} 
+\item{uptake_dat}{produced by \code{\link{create_state_uptake_dataset}}
 function.}
 
 \item{theoretical}{\code{logical}, determines if values are theoretical.}
@@ -26,9 +26,6 @@ uncertainty is shown.}
 \item{interactive}{\code{logical}, whether plot should have an interactive 
 layer created with with ggiraph, which would add tooltips to the plot in an
 interactive display (HTML/Markdown documents or shiny app).}
-
-\item{chiclet_dat}{produced by \code{\link{create_state_uptake_dataset}}
-function.}
 }
 \value{
 a \code{\link{ggplot}} object.

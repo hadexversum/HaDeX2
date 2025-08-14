@@ -78,7 +78,6 @@ plot_volcano(p_dat, show_confidence_limits = TRUE)
 
 plot_volcano(p_dat, show_confidence_limits = TRUE, show_insignificant_grey = TRUE)
 plot_volcano(p_dat, show_confidence_limits = TRUE, hide_insignificant = TRUE)
-plot_volcano(p_dat, show_confidence_limits = TRUE, hide_insignificant = TRUE, show_insignificant_grey = TRUE)
 
 }
 \references{

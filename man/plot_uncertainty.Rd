@@ -33,6 +33,8 @@ values for different time points are presented separately}
 
 \item{show_threshold}{\code{logical}, indicator if the 
 threshold of significance is shown}
+
+\item{interactive}{...}
 }
 \value{
 a \code{\link{ggplot}} object

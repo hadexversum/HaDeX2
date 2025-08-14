@@ -7,6 +7,7 @@
 #'
 #' @param diff_uptake_dat data produced by
 #' \code{\link{create_diff_uptake_dataset}} function.
+#' @param diff_p_uptake_dat ...
 #' @param theoretical \code{logical}, determines if values are theoretical
 #' @param fractional \code{logical}, determines if values are fractional
 #' @param show_houde_interval \code{logical}, determines if houde interval is shown.

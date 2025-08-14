@@ -27,6 +27,8 @@ plot_peptide_mass_measurement(
 \item{show_charge_values}{...}
 
 \item{time_t}{time point of the measurement.}
+
+\item{interactive}{...}
 }
 \value{
 a \code{\link{ggplot}} object.

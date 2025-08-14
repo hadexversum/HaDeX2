@@ -50,10 +50,6 @@ Moreover, the data about both protein and state is included
 in one column and for detailed information
 function \code{\link{update_hdexaminer_file}} allows to change them.
 }
-\examples{
-update_hdexaminer_file(alpha_dat)                      
-
-}
 \seealso{
 \code{\link{read_hdx}} 
 \code{\link{calculate_kinetics}} 
