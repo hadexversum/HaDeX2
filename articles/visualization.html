@@ -169,7 +169,7 @@ statistically significant at levels 98%.</p>
 theoretical/experimental maximal uptake</li>
 <li>plots with different time points can be plotted next to each
 other</li>
-<li>peptides classified as statistically unsignificant can be
+<li>peptides classified as statistically insignificant can be
 hidden</li>
 <li>tooltips available in GUI</li>
 </ul>
@@ -259,7 +259,7 @@ theoretical/experimental maximal uptake</li>
 heatmap for the peptides in a given biological state. One tile indicates
 the peptide (identified by its ID - number arranged by the start
 position) in a time point of measurement. The color of the tile
-indicates the fractinal deuterium uptake (according to the legend below
+indicates the fractional deuterium uptake (according to the legend below
 the plot).</p>
 <p><strong>Example</strong> In the chiclet plot below, we can see the
 deuterium uptake values for peptides (indicated by their ID) in state
@@ -344,7 +344,7 @@ biological states for peptide and its p-value for double testing on
 statistical significance (Weis et al.). On the x-axis, there is a
 deuterium uptake difference with its uncertainty (combined and
 propagated). On the y-axis, there is a P-value calculated for each
-peptide in a specifc time point of a measurement as a un-paired t-test
+peptide in a specific time point of a measurement as a un-paired t-test
 on given significance level (on mass measurement from the replicates to
 indicate if the measured mean is significantly different between two
 states, as the deuterium uptake difference between states can be
@@ -384,7 +384,7 @@ upper corner are statistically significant using the hybrid testing.</p>
 <ul>
 <li>selected time points</li>
 <li>absolute/fractional values s</li>
-<li>hidden unsignificant values</li>
+<li>hidden insignificant values</li>
 <li>tooltips available in GUI</li>
 </ul>
 </div>
@@ -459,7 +459,7 @@ and
 eEF1B<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
 in presence of
 eEF1B<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>.
-We can see the regions where the difference is statisticaly significant
+We can see the regions where the difference is statistically significant
 - above the significance level (detailed as option in
 create_p_diff_uptake_dataset, or by default 0.98).</p>
 <pre><code><span><span class="co">## Warning: Removed 77 rows containing missing values or values outside the scale range</span></span>
@@ -587,13 +587,13 @@ theoretical/experimental maximal uptake</li>
 </h2>
 <p>Coverage heatmap plot is a variation of standard coverage plot - but
 with each peptide is colored to signal specific value. This plot is
-particulary useful when presenting AUC or back-exchange values, as they
+particularly useful when presenting AUC or back-exchange values, as they
 are specified for peptide uptake curve.</p>
 <p><strong>Example</strong> Plot below presents the AUC values for
 eEF1B<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>.
 We see that for the majority of regions the AUC values is close to 1,
-significating fast exchange with exception for one strong region and
-small sub-regions.</p>
+signifying fast exchange with exception for one strong region and small
+sub-regions.</p>
 <p>AUC:
 <img src="visualization_files/figure-html/unnamed-chunk-15-1.png" width="672"></p>
 <p><strong>Example</strong> The coverage heatmap plot below presents the
