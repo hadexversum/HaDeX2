@@ -82,7 +82,7 @@ get_protein_redundancy <- function(dat,
 #' Get number of replicates
 #' 
 #' @description Calculates the number of replicates from 
-#' the experimnetal data.
+#' the experimental data.
 #' 
 #' @importFrom dplyr pull
 #' @importFrom data.table uniqueN
@@ -130,7 +130,7 @@ get_n_replicates <- function(dat,
 #' @details Function returns peptide sequence for selected parameters. 
 #' Peptide sequence is often required to properly identify peptide of 
 #' interest, and to avoid mistakes sequence is returned by the function.
-#' Moreover, function uses the modification value to select petide sequence.
+#' Moreover, function uses the modification value to select peptide sequence.
 #' 
 #' @return a \code{\link{character}} value.
 #' 

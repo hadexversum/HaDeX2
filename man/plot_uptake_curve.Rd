@@ -46,7 +46,7 @@ the deuterium uptake curve for selected peptides
 from selected protein.
 On X-axis there are time points of measurements. On Y-axis there
 is deuterium uptake in selected form. The combined and propagated
-uncertainty can be presentes as ribbons or error bars.
+uncertainty can be presented as ribbons or error bars.
 }
 \examples{
 dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))

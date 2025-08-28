@@ -3,7 +3,7 @@
 \docType{data}
 \name{alpha_dat}
 \alias{alpha_dat}
-\title{Elongation factor eEF1B subnit alpha}
+\title{Elongation factor eEF1B subunit alpha}
 \description{
 Originally published in:
 Bondarchuk, T. V., Shalak, V. F., Lozhko, D. M., Fatalska, A., Szczepanowski, R. H., 

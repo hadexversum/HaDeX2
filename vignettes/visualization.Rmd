@@ -97,7 +97,7 @@ plot_differential(., fractional = TRUE, show_houde_interval = TRUE) +
  * fractional/absolute values
  * fractional values calculated with respect of theoretical/experimental maximal uptake
  * plots with different time points can be plotted next to each other
- * peptides classified as statistically unsignificant can be hidden
+ * peptides classified as statistically insignificant can be hidden
  * tooltips available in GUI
 
 # Butterfly plot
@@ -169,7 +169,7 @@ plot_differential_butterfly(fractional = TRUE, show_houde_interval = TRUE)
 
 # Chiclet plot
 
-Chiclet plot shows the fractional deuterium uptake in the form of a heatmap for the peptides in a given biological state. One tile indicates the peptide (identified by its ID - number arranged by the start position) in a time point of measurement. The color of the tile indicates the fractinal deuterium uptake (according to the legend below the plot). 
+Chiclet plot shows the fractional deuterium uptake in the form of a heatmap for the peptides in a given biological state. One tile indicates the peptide (identified by its ID - number arranged by the start position) in a time point of measurement. The color of the tile indicates the fractional deuterium uptake (according to the legend below the plot). 
 
 **Example** In the chiclet plot below, we can see the deuterium uptake values for peptides (indicated by their ID) in state eEF1B$\alpha$ during the time course of the experiment. The cross symbols indicate the uncertainty of the measurement (the bigger the cross sign, the bigger the uncertainty). 
 
@@ -235,7 +235,7 @@ diff_uptake_dat %>%
 
 # Volcano plot
 
-The volcano plot shows the deuterium uptake difference for two biological states for peptide and its p-value for double testing on statistical significance (Weis et al.). On the x-axis, there is a deuterium uptake difference with its uncertainty (combined and propagated). On the y-axis, there is a P-value calculated for each peptide in a specifc time point of a measurement as a un-paired t-test on given significance level (on mass measurement from the replicates to indicate if the measured mean is significantly different between two states, as the deuterium uptake difference between states can be rewritten as 
+The volcano plot shows the deuterium uptake difference for two biological states for peptide and its p-value for double testing on statistical significance (Weis et al.). On the x-axis, there is a deuterium uptake difference with its uncertainty (combined and propagated). On the y-axis, there is a P-value calculated for each peptide in a specific time point of a measurement as a un-paired t-test on given significance level (on mass measurement from the replicates to indicate if the measured mean is significantly different between two states, as the deuterium uptake difference between states can be rewritten as 
 
 $$\Delta D = D_{A} - D_{B} = m_{t, A} - m_{0} - (m_{t, B} - m_{0}) = m_{t, A} - m_{t, B} $$
 
@@ -268,7 +268,7 @@ plot_volcano(p_dat, show_confidence_limits = T)
 
  * selected time points
  * absolute/fractional values s
- * hidden unsignificant values
+ * hidden insignificant values
  * tooltips available in GUI
  
 # Uptake curve
@@ -333,7 +333,7 @@ plot_uncertainty(.)
 Manhattan plot is a novel plot, presenting the P-value of statistical significance between two states. 
 
 **Example** In this example, we present the P values of difference between two biological states: eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$.
-We can see the regions where the difference is statisticaly significant - above the significance level (detailed as option in create_p_diff_uptake_dataset, or by default 0.98).
+We can see the regions where the difference is statistically significant - above the significance level (detailed as option in create_p_diff_uptake_dataset, or by default 0.98).
 
 ```{r}
 
@@ -497,9 +497,9 @@ plot_aggregated_uptake_structure(aggregated_dat,
 
 # Coverage heatmap
 
-Coverage heatmap plot is a variation of standard coverage plot - but with each peptide is colored to signal specific value. This plot is particulary useful when presenting AUC or back-exchange values, as they are specified for peptide uptake curve.
+Coverage heatmap plot is a variation of standard coverage plot - but with each peptide is colored to signal specific value. This plot is particularly useful when presenting AUC or back-exchange values, as they are specified for peptide uptake curve.
 
-**Example** Plot below presents the AUC values for eEF1B$\alpha$. We see that for the majority of regions the AUC values is close to 1, significating fast exchange with exception for one strong region and small sub-regions.
+**Example** Plot below presents the AUC values for eEF1B$\alpha$. We see that for the majority of regions the AUC values is close to 1, signifying fast exchange with exception for one strong region and small sub-regions.
 
 AUC:
 ```{r}

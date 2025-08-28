@@ -23,7 +23,7 @@
 #' from selected protein.
 #' On X-axis there are time points of measurements. On Y-axis there
 #' is deuterium uptake in selected form. The combined and propagated
-#' uncertainty can be presentes as ribbons or error bars.
+#' uncertainty can be presented as ribbons or error bars.
 #' 
 #' @return a \code{\link{ggplot}} object
 #'  

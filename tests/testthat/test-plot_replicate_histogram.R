@@ -5,9 +5,9 @@ test_that("plot_replicate_histogram class is right",
 )
 
 test_that("plot works",
-          vdiffr::expect_doppelganger("Repliates histogram - all time", replicate_plot)
+          vdiffr::expect_doppelganger("Replicates histogram - all time", replicate_plot)
 )
 
 test_that("one time",
-          vdiffr::expect_doppelganger("Repliates histogram - one time", plot_replicate_histogram(rep_dat[rep_dat[["Exposure"]] == 5, ])))
+          vdiffr::expect_doppelganger("Replicates histogram - one time", plot_replicate_histogram(rep_dat[rep_dat[["Exposure"]] == 5, ])))
 

@@ -1,4 +1,4 @@
-#' Elongation factor eEF1B subnit alpha
+#' Elongation factor eEF1B subunit alpha
 #'
 #' Originally published in:
 #' Bondarchuk, T. V., Shalak, V. F., Lozhko, D. M., Fatalska, A., Szczepanowski, R. H., 

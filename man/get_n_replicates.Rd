@@ -16,7 +16,7 @@ a \code{\link{numeric}} value.
 }
 \description{
 Calculates the number of replicates from 
-the experimnetal data.
+the experimental data.
 }
 \details{
 Calculate the number of replicates of experiment.

@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_aggregated_uptake_structure.R
 \name{get_structure_color}
 \alias{get_structure_color}
-\title{Get color pallette for 3D structure}
+\title{Get color palette for 3D structure}
 \usage{
 get_structure_color(
   aggregated_dat,
@@ -22,7 +22,7 @@ results}
 
 \item{theoretical}{indicator if theoretical values are used}
 
-\item{time_t}{time point from aggregated_dat to be shown on the strucutre}
+\item{time_t}{time point from aggregated_dat to be shown on the structure}
 }
 \value{
 a list

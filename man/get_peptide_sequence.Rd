@@ -36,7 +36,7 @@ Gets the peptide sequence based on selected parameters
 Function returns peptide sequence for selected parameters. 
 Peptide sequence is often required to properly identify peptide of 
 interest, and to avoid mistakes sequence is returned by the function.
-Moreover, function uses the modification value to select petide sequence.
+Moreover, function uses the modification value to select peptide sequence.
 }
 \examples{
 get_peptide_sequence(alpha_dat, start = 1, end = 11)

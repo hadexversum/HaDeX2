@@ -46,7 +46,7 @@ show_overlap_data <- function(dat,
 
 #' Plot overlap data
 #' 
-#' @description Generates overapping peptide plot based 
+#' @description Generates overlapping peptide plot based 
 #' on supplied data and parameters. 
 #' 
 #' @param dat data imported by the \code{\link{read_hdx}} function.

@@ -23,7 +23,7 @@ results}
 
 \item{theoretical}{indicator if theoretical values are used}
 
-\item{time_t}{time point from aggregated_dat to be shown on the strucutre}
+\item{time_t}{time point from aggregated_dat to be shown on the structure}
 
 \item{pdb_file_path}{file path to the pdb file}
 }

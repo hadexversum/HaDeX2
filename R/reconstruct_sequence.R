@@ -14,7 +14,7 @@
 #' generates protein sequence from supplied experimental data. 
 #' For a position not covered, letter x is shown.
 #' If the C-terminus of protein is not covered, there is a
-#' possibility to manually fix the protein lenght by passing
+#' possibility to manually fix the protein length by passing
 #' a value to the `end` parameter.
 #' 
 #' @return a \code{\link{character}} object.

@@ -47,7 +47,7 @@ for given peptide in multiple biological states.
 \details{
 Function \code{\link{calculate_peptide_kinetics}} calculates
 kinetic data for chosen peptide in chosen biological states.
-It is a wrapper for \code{\link{calculate_kinetics}} but for mutltiple
+It is a wrapper for \code{\link{calculate_kinetics}} but for multiple
 states.
 The output of this function can be visualized using \code{\link{plot_uptake_curve}}.
 IMPORTANT! The kinetic data is often described as deuterium uptake curve data. 

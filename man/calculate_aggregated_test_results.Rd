@@ -19,7 +19,7 @@ calculate_aggregated_test_results(
 \item{time_t}{...}
 
 \item{skip_amino}{\code{integer}, indicator
-how many aminos from the N-termins should be 
+how many aminos from the N-terminus should be 
 omitted in visualization}
 }
 \value{

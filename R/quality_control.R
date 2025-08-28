@@ -23,7 +23,7 @@
 #' experimental calculations depends on `time_100` variable. The results are 
 #' either in form of fractional or absolute values depending on the `fractional` 
 #' parameter supplied by the user. 
-#' This data can be useful for general overview of the experiment and analyse 
+#' This data can be useful for general overview of the experiment and analyze 
 #' of the chosen time parameters. 
 #' 
 #' @return \code{\link{data.frame}} object with mean uncertainty per different 

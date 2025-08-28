@@ -13,7 +13,7 @@ add_stat_dependency(
 }
 \arguments{
 \item{calc_dat}{data produced by \code{\link{calculate_diff_uptake}}
-funcion.}
+function.}
 
 \item{confidence_level}{confidence limit - from range [0, 1].}
 

@@ -8,7 +8,7 @@
 #' @param method ...
 #' @param time_t ...
 #' @param skip_amino \code{integer}, indicator
-#' how many aminos from the N-termins should be 
+#' how many aminos from the N-terminus should be 
 #' omitted in visualization
 #' 
 #' @details Only peptides without modification are 

@@ -16,7 +16,7 @@ a \code{data.frame} object.
 Get residue positions
 }
 \details{
-Prepares data table for high-resoultion values. It creates a long data frame 
+Prepares data table for high-resolution values. It creates a long data frame 
 with each position in the sequence accompanied by the amino acid placed in this
 position.
 }

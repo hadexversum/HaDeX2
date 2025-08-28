@@ -7,7 +7,7 @@
 #' results
 #' @param fractional indicator if fractional values are used
 #' @param theoretical indicator if theoretical values are used
-#' @param time_t time point from aggregated_dat to be shown on the strucutre
+#' @param time_t time point from aggregated_dat to be shown on the structure
 #' @param pdb_file_path file path to the pdb file 
 #' 
 #' @description Function plots the aggregated data (either one state deuterium uptake or
@@ -93,14 +93,14 @@ plot_aggregated_uptake_structure <- function(aggregated_dat,
 }
 
 
-#' Get color pallette for 3D structure
+#' Get color palette for 3D structure
 #' 
 #' @param aggregated_dat aggregated data, either for single uptake or differential
 #' @param differential indicator if the aggregated_dat contains differential 
 #' results
 #' @param fractional indicator if fractional values are used
 #' @param theoretical indicator if theoretical values are used
-#' @param time_t time point from aggregated_dat to be shown on the strucutre
+#' @param time_t time point from aggregated_dat to be shown on the structure
 #' 
 #' @description
 #' This function provides a set of color codes associated with aggregated values

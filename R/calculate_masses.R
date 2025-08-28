@@ -102,7 +102,7 @@ calculate_exp_masses <- function(dat){
 #' 
 #' @details This function calculates the mass of the singly charged monoisotopic (or not)
 #' molecular ion for given peptide. It is the sum of the residue masses plus the masses
-#' of the terminationg group (H and OH). The source of the masses can be found here:
+#' of the terminating group (H and OH). The source of the masses can be found here:
 #' \url{http://www.matrixscience.com/help/aa_help.html}. Keep in mind that this function
 #' returns the value of an unmodified peptide.
 #' 
