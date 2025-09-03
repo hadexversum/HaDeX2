@@ -2,12 +2,16 @@
 #' 
 #' @importFrom ggiraph geom_tile_interactive
 #' 
-#' @param aggregated_dat ...
-#' @param fractional ...
-#' @param theoretical ...
-#' @param time_100 ...
-#' @param panels ...
-#' @param interactive ...
+#' @param aggregated_dat aggregated differential 
+#' uptake data as calculated by \code{\link{create_aggregated_uptake_dataset}}
+#' @param theoretical \code{logical}, determines if values are theoretical
+#' @param fractional \code{logical}, determines if values are fractional
+#' @param time_100 maximal exchange control time point of measurement [min]
+#' @param panels \code{logical}, indicator if plot should be divided 
+#' into panels or not
+#' @param interactive \code{logical}, whether plot should have an interactive 
+#' layer created with with ggiraph, which would add tooltips to the plot in an
+#' interactive display (HTML/Markdown documents or shiny app).
 #'
 #' @examples
 #' kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN")

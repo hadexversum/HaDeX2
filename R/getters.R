@@ -6,11 +6,11 @@
 #' @importFrom stringi stri_count_fixed
 #' @importFrom checkmate assert
 #' 
-#' @param dat data imported by the \code{\link{read_hdx}} function.
+#' @param dat data imported by the \code{\link{read_hdx}} function
 #' @param protein_length \code{\link{numeric}}, indicates the length of 
 #' the protein. If not provided, the maximal end value from the file is used.
-#' @param states ...
-#' @param protein ...
+#' @param states selected biological states
+#' @param protein selected protein
 #' 
 #' @details Function \code{\link{get_protein_coverage}} calculates the 
 #' percentage coverage of the protein sequence, rounded to two decimal places.
@@ -88,7 +88,7 @@ get_protein_redundancy <- function(dat,
 #' @importFrom data.table uniqueN
 #' 
 #' @param dat data imported by the \code{\link{read_hdx}} function.
-#' @param protein ...
+#' @param protein chosen protein
 #' 
 #' @details Calculate the number of replicates of experiment.
 #' 

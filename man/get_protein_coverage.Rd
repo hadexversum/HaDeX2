@@ -12,11 +12,11 @@ get_protein_coverage(
 )
 }
 \arguments{
-\item{dat}{data imported by the \code{\link{read_hdx}} function.}
+\item{dat}{data imported by the \code{\link{read_hdx}} function}
 
-\item{protein}{...}
+\item{protein}{selected protein}
 
-\item{states}{...}
+\item{states}{selected biological states}
 
 \item{protein_length}{\code{\link{numeric}}, indicates the length of 
 the protein. If not provided, the maximal end value from the file is used.}

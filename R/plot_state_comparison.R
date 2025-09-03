@@ -13,10 +13,13 @@
 #' calculated using theoretical controls
 #' @param fractional \code{logical}, indicator if values are shown 
 #' in fractional form 
-#' @param line_size ...
-#' @param all_times ...
-#' @param time_t ...
-#' @param interactive ...
+#' @param line_size line size for the plot
+#' @param all_times \code{logical}, indicator is all all time should
+#' be ploted next to each other
+#' @param time_t chosen time point
+#' @param interactive \code{logical}, whether plot should have an interactive 
+#' layer created with with ggiraph, which would add tooltips to the plot in an
+#' interactive display (HTML/Markdown documents or shiny app)
 #' 
 #' @details The function \code{\link{plot_state_comparison}} generates
 #' a comparison plot, presenting deuterium uptake values of peptides 

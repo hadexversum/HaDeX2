@@ -6,17 +6,17 @@
 #' @importFrom tidyr gather
 #' @importFrom data.table rbindlist melt.data.table dcast setorderv :=
 #' 
-#' @param dat data imported by the \code{\link{read_hdx}} function.
-#' @param protein chosen protein. 
+#' @param dat data imported by the \code{\link{read_hdx}} function
+#' @param protein chosen protein 
 #' @param states vector of two states for chosen protein. Order is important, as the 
-#' deuterium uptake difference is calculated as state_1 - state_2.
-#' @param time_0 minimal exchange control time point of measurement [min].
+#' deuterium uptake difference is calculated as state_1 - state_2
+#' @param time_0 minimal exchange control time point of measurement [min]
 #' @param time_t time point of the measurement for which the calculations
-#' are done [min]. 
-#' @param time_100 maximal exchange control time point of measurement [min].
+#' are done [min]
+#' @param time_100 maximal exchange control time point of measurement [min]
 #' @param deut_part deuterium percentage in solution used in experiment, 
-#' value from range [0, 1].
-#' 
+#' value from range [0, 1]
+#'
 #' @details Function \code{\link{calculate_diff_uptake}} calculates
 #' differential values based on provided criteria for peptides for chosen
 #' protein in selected states. The methods of calculation of deuterium uptake

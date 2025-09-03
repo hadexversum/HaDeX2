@@ -36,7 +36,7 @@ calculate_back_exchange <- function(dat,
   
   dat <- dat[Protein == protein & State %in% states]
   
-  uptake_dat <- as.data.table(create_uptake_dataset(dat))
+  uptake_dat <- as.data.table(create_uptake_dataset(dat, time_100 = time_100))
   
   uptake_dat <- uptake_dat[Exposure == time_100, .(Protein, Start, End, State, Sequence, Modification, theo_frac_deut_uptake, err_theo_frac_deut_uptake)]
   

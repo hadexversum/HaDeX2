@@ -8,12 +8,15 @@
 #' @param x_dat data created using calculate_ or create_ 
 #' function
 #' @param protein selected protein
-#' @param state ...
+#' @param state selected biological state
 #' @param value value to be presented
-#' @param time_t ...
-#' @param interactive ...
+#' @param time_t chosen time point
+#' @param interactive \code{logical}, whether plot should have an interactive 
+#' layer created with with ggiraph, which would add tooltips to the plot in an
+#' interactive display (HTML/Markdown documents or shiny app)
 #' 
-#' @details ...
+#' @details Plots standard protein coverage but colored with 
+#' desired value.
 #' 
 #' @return a \code{\link{ggplot}} object
 #' 

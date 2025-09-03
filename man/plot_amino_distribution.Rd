@@ -15,11 +15,11 @@ plot_amino_distribution(
 \arguments{
 \item{position_in_sequence}{custom format}
 
-\item{hydro_properties}{...}
+\item{hydro_properties}{data with hydrofobic properties}
 
-\item{protein}{...}
+\item{protein}{chosen protein}
 
-\item{charge_colors}{...}
+\item{charge_colors}{vector of desired colors}
 
 \item{interactive}{\code{logical}, whether plot should have an interactive 
 layer created with with ggiraph, which would add tooltips to the plot in an

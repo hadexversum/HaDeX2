@@ -12,7 +12,9 @@
 #' data is aggregated on replicate level
 #' @param log_x \code{logical}, indicator if the X axis values 
 #' are transformed to log10
-#' @param interactive ...
+#' @param interactive \code{logical}, whether plot should have an interactive 
+#' layer created with with ggiraph, which would add tooltips to the plot in an
+#' interactive display (HTML/Markdown documents or shiny app)
 #' 
 #' @details The function \code{\link{plot_replicate_mass_uptake}}
 #' generates a plot showing the mass uptake for selected protein 

@@ -10,8 +10,10 @@
 #' @param protein selected protein
 #' @param states selected biological states for given protein
 #' @param show_blanks \code{logical}, indicator if the non-covered
-#' regions of the sequence are indicated in red.
-#' @param interactive ...
+#' regions of the sequence are indicated in red
+#' @param interactive \code{logical}, whether plot should have an interactive 
+#' layer created with with ggiraph, which would add tooltips to the plot in an
+#' interactive display (HTML/Markdown documents or shiny app)
 #' 
 #' @details The function \code{\link{plot_coverage}} generates
 #' sequence coverage plot based on experimental data for 

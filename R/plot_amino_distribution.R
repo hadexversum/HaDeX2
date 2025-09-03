@@ -5,9 +5,9 @@
 #' or hydrophylic.
 #' 
 #' @param position_in_sequence custom format
-#' @param hydro_properties ...
-#' @param protein ...
-#' @param charge_colors ...
+#' @param hydro_properties data with hydrofobic properties
+#' @param protein chosen protein
+#' @param charge_colors vector of desired colors
 #' @inheritParams plot_butterfly
 #' 
 #' @details The data for this function is not packaged yet.

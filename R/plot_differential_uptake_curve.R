@@ -4,16 +4,18 @@
 #' between two biological states.  
 #' 
 #' @param diff_uptake_dat produced by \code{\link{create_diff_uptake_dataset}} function
-#' @param diff_p_uptake_dat ...
-#' @param sequence sequence of chosen peptide.
-#' @param theoretical \code{logical}, determines if plot shows theoretical values.
-#' @param fractional \code{logical}, determines if plot shows fractional values.
+#' @param diff_p_uptake_dat differential uptake data 
+#' alongside the P-value as calculated by 
+#' \code{\link{create_p_diff_uptake_dataset}}
+#' @param sequence sequence of chosen peptide
+#' @param theoretical \code{logical}, determines if plot shows theoretical values
+#' @param fractional \code{logical}, determines if plot shows fractional values
 #' @param uncertainty_type type of presenting uncertainty, possible values:
-#' "ribbon", "bars" or "bars + line".
-#' @param log_x \code{logical}, determines if x axis shows logarithmic values.
-#' @param show_houde_interval \code{logical}, determines if houde interval is shown.
+#' "ribbon", "bars" or "bars + line"
+#' @param log_x \code{logical}, determines if x axis shows logarithmic values
+#' @param show_houde_interval \code{logical}, determines if houde interval is shown
 #' @param show_tstud_confidence \code{logical}, determines if t-Student test validity 
-#' is shown.
+#' is shown
 #' @inheritParams plot_butterfly
 #' 
 #' @details This plot shows the differential deuterium uptake between two biological 

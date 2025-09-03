@@ -19,13 +19,15 @@ function}
 
 \item{protein}{selected protein}
 
-\item{state}{...}
+\item{state}{selected biological state}
 
 \item{value}{value to be presented}
 
-\item{time_t}{...}
+\item{time_t}{chosen time point}
 
-\item{interactive}{...}
+\item{interactive}{\code{logical}, whether plot should have an interactive 
+layer created with with ggiraph, which would add tooltips to the plot in an
+interactive display (HTML/Markdown documents or shiny app)}
 }
 \value{
 a \code{\link{ggplot}} object
@@ -35,7 +37,8 @@ Coverage heatmap with color indicating
 specific value
 }
 \details{
-...
+Plots standard protein coverage but colored with 
+desired value.
 }
 \examples{
 uptake_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN")

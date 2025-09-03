@@ -34,7 +34,9 @@ values for different time points are presented separately}
 \item{show_threshold}{\code{logical}, indicator if the 
 threshold of significance is shown}
 
-\item{interactive}{...}
+\item{interactive}{\code{logical}, whether plot should have an interactive 
+layer created with with ggiraph, which would add tooltips to the plot in an
+interactive display (HTML/Markdown documents or shiny app)}
 }
 \value{
 a \code{\link{ggplot}} object

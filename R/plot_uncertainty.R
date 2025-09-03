@@ -15,7 +15,9 @@
 #' values for different time points are presented separately
 #' @param show_threshold \code{logical}, indicator if the 
 #' threshold of significance is shown
-#' @param interactive ...
+#' @param interactive \code{logical}, whether plot should have an interactive 
+#' layer created with with ggiraph, which would add tooltips to the plot in an
+#' interactive display (HTML/Markdown documents or shiny app)
 #' 
 #' @details The function \code{\link{plot_uncertainty}} generates 
 #' a plot of uncertainty of mass measurement of each peptide from

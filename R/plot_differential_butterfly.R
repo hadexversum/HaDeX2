@@ -6,16 +6,19 @@
 #' @importFrom ggplot2 scale_linetype_manual scale_colour_identity
 #'
 #' @param diff_uptake_dat data produced by
-#' \code{\link{create_diff_uptake_dataset}} function.
-#' @param diff_p_uptake_dat ...
+#' \code{\link{create_diff_uptake_dataset}} function
+#' @param diff_p_uptake_dat differential uptake data 
+#' alongside the P-value as calculated by 
+#' \code{\link{create_p_diff_uptake_dataset}}
 #' @param theoretical \code{logical}, determines if values are theoretical
 #' @param fractional \code{logical}, determines if values are fractional
-#' @param show_houde_interval \code{logical}, determines if houde interval is shown.
+#' @param show_houde_interval \code{logical}, determines if houde interval is shown
 #' @param show_tstud_confidence \code{logical}, determines if t-Student test validity 
-#' is shown.
-#' @param confidence_level confidence level for the test, from range [0, 1].
-#' Important if selected show_confidence_limit.
-#' @param uncertainty_type ...
+#' is shown
+#' @param confidence_level confidence level for the test, from range [0, 1]
+#' Important if selected show_confidence_limit
+#' @param uncertainty_type type of presenting uncertainty, possible values:
+#' "ribbon", "bars" or "bars + line"
 #' @inheritParams plot_butterfly
 #'
 #' @details Function \code{\link{plot_differential_butterfly}} generates

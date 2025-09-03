@@ -28,13 +28,16 @@ calculated using theoretical controls}
 \item{fractional}{\code{logical}, indicator if values are shown 
 in fractional form}
 
-\item{line_size}{...}
+\item{line_size}{line size for the plot}
 
-\item{all_times}{...}
+\item{all_times}{\code{logical}, indicator is all all time should
+be ploted next to each other}
 
-\item{time_t}{...}
+\item{time_t}{chosen time point}
 
-\item{interactive}{...}
+\item{interactive}{\code{logical}, whether plot should have an interactive 
+layer created with with ggiraph, which would add tooltips to the plot in an
+interactive display (HTML/Markdown documents or shiny app)}
 }
 \value{
 a \code{ggplot} object

@@ -18,24 +18,26 @@ plot_differential_chiclet(
 }
 \arguments{
 \item{diff_uptake_dat}{data produced by
-\code{\link{create_diff_uptake_dataset}} function.}
+\code{\link{create_diff_uptake_dataset}} function}
 
-\item{diff_p_uptake_dat}{...}
+\item{diff_p_uptake_dat}{differential uptake data 
+alongside the P-value as calculated by 
+\code{\link{create_p_diff_uptake_dataset}}}
 
-\item{theoretical}{\code{logical}, determines if values are theoretical.}
+\item{theoretical}{\code{logical}, determines if values are theoretical}
 
-\item{fractional}{\code{logical}, determines if values are fractional.}
+\item{fractional}{\code{logical}, determines if values are fractional}
 
-\item{show_houde_interval}{\code{logical}, determines if houde interval is shown.}
+\item{show_houde_interval}{\code{logical}, determines if houde interval is shown}
 
 \item{show_tstud_confidence}{\code{logical}, determines if t-Student test validity 
-is shown.}
+is shown}
 
-\item{confidence_level}{confidence level for the test, from range [0, 1].
-Important if selected show_confidence_limit.}
+\item{confidence_level}{confidence level for the test, from range [0, 1]
+Important if selected show_confidence_limit}
 
 \item{show_uncertainty}{\code{logical}, determines if the
-uncertainty is shown.}
+uncertainty is shown}
 
 \item{interactive}{\code{logical}, whether plot should have an interactive 
 layer created with with ggiraph, which would add tooltips to the plot in an

@@ -12,11 +12,14 @@ calculate_aggregated_test_results(
 )
 }
 \arguments{
-\item{p_diff_uptake_conf_dat}{...}
+\item{p_diff_uptake_conf_dat}{uptake data with confidence, 
+as produced by \code{\link{create_p_diff_uptake_dataset_with_confidence}}
+function}
 
-\item{method}{...}
+\item{method}{method of aggregation: significance or
+weiss method}
 
-\item{time_t}{...}
+\item{time_t}{chosen time point}
 
 \item{skip_amino}{\code{integer}, indicator
 how many aminos from the N-terminus should be 
@@ -26,7 +29,11 @@ omitted in visualization}
 a \code{\link{data.frame}} object
 }
 \description{
-...
+Function aggregates peptide-level
+information into residue level. Significance method
+indicates if the difference is significant or not -
+if the number of significant peptides over this residue 
+is bigger than the number of insignificant.
 }
 \details{
 Only peptides without modification are 
@@ -38,9 +45,6 @@ p_diff_uptake_conf_dat <- create_p_diff_uptake_dataset_with_confidence(p_diff_up
 calculate_aggregated_test_results(p_diff_uptake_conf_dat, method = "significance")
 calculate_aggregated_test_results(p_diff_uptake_conf_dat, method = "weiss")
 
-}
-\references{
-...
 }
 \seealso{
 \code{\link{read_hdx}}

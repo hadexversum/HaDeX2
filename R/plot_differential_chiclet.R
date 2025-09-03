@@ -4,17 +4,19 @@
 #' between two biological states in time.
 #' 
 #' @param diff_uptake_dat data produced by
-#' \code{\link{create_diff_uptake_dataset}} function.
-#' @param diff_p_uptake_dat ...
-#' @param theoretical \code{logical}, determines if values are theoretical.
-#' @param fractional \code{logical}, determines if values are fractional.
+#' \code{\link{create_diff_uptake_dataset}} function
+#' @param diff_p_uptake_dat differential uptake data 
+#' alongside the P-value as calculated by 
+#' \code{\link{create_p_diff_uptake_dataset}}
+#' @param theoretical \code{logical}, determines if values are theoretical
+#' @param fractional \code{logical}, determines if values are fractional
 #' @param show_uncertainty \code{logical}, determines if the
-#' uncertainty is shown.
-#' @param show_houde_interval \code{logical}, determines if houde interval is shown.
+#' uncertainty is shown
+#' @param show_houde_interval \code{logical}, determines if houde interval is shown
 #' @param show_tstud_confidence \code{logical}, determines if t-Student test validity 
-#' is shown.
-#' @param confidence_level confidence level for the test, from range [0, 1].
-#' Important if selected show_confidence_limit.
+#' is shown
+#' @param confidence_level confidence level for the test, from range [0, 1]
+#' Important if selected show_confidence_limit
 #' @inheritParams plot_butterfly
 #'
 #' @details Function \code{\link{plot_differential_chiclet}} generates

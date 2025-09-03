@@ -13,15 +13,19 @@ create_p_diff_uptake_dataset_with_confidence(
 )
 }
 \arguments{
-\item{p_diff_uptake_dat}{...}
+\item{p_diff_uptake_dat}{differential uptake data 
+alongside the P-value as calculated by 
+\code{\link{create_p_diff_uptake_dataset}}}
 
-\item{houde_interval}{...}
+\item{houde_interval}{interval value, as calculated by
+\code{\link{calculate_confidence_limit_values}}}
 
-\item{houde_interval_times}{...}
+\item{houde_interval_times}{specified time points to 
+be used in calculcation}
 
-\item{theoretical}{...}
+\item{theoretical}{\code{logical}, determines if values are theoretical}
 
-\item{fractional}{...}
+\item{fractional}{\code{logical}, determines if values are fractional}
 }
 \value{
 a \code{\link{data.frame}} object.
@@ -30,7 +34,8 @@ a \code{\link{data.frame}} object.
 Create differential dataset with statistical validity
 }
 \details{
-...
+Function provides additional information 
+on statistical relevance based on supplied data.
 }
 \examples{
 p_diff_uptake_dat <- create_p_diff_uptake_dataset(alpha_dat)

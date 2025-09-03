@@ -20,23 +20,25 @@ plot_differential_uptake_curve(
 \arguments{
 \item{diff_uptake_dat}{produced by \code{\link{create_diff_uptake_dataset}} function}
 
-\item{diff_p_uptake_dat}{...}
+\item{diff_p_uptake_dat}{differential uptake data 
+alongside the P-value as calculated by 
+\code{\link{create_p_diff_uptake_dataset}}}
 
-\item{sequence}{sequence of chosen peptide.}
+\item{sequence}{sequence of chosen peptide}
 
-\item{theoretical}{\code{logical}, determines if plot shows theoretical values.}
+\item{theoretical}{\code{logical}, determines if plot shows theoretical values}
 
-\item{fractional}{\code{logical}, determines if plot shows fractional values.}
+\item{fractional}{\code{logical}, determines if plot shows fractional values}
 
 \item{uncertainty_type}{type of presenting uncertainty, possible values:
-"ribbon", "bars" or "bars + line".}
+"ribbon", "bars" or "bars + line"}
 
-\item{log_x}{\code{logical}, determines if x axis shows logarithmic values.}
+\item{log_x}{\code{logical}, determines if x axis shows logarithmic values}
 
-\item{show_houde_interval}{\code{logical}, determines if houde interval is shown.}
+\item{show_houde_interval}{\code{logical}, determines if houde interval is shown}
 
 \item{show_tstud_confidence}{\code{logical}, determines if t-Student test validity 
-is shown.}
+is shown}
 
 \item{interactive}{\code{logical}, whether plot should have an interactive 
 layer created with with ggiraph, which would add tooltips to the plot in an

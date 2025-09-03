@@ -21,7 +21,7 @@ calculate_confidence_limit_values(
 
 \item{fractional}{\code{logical}, determines if values are fractional}
 
-\item{n_rep}{...}
+\item{n_rep}{number of replicates}
 }
 \value{
 range of confidence limit interval

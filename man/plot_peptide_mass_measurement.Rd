@@ -16,19 +16,23 @@ plot_peptide_mass_measurement(
 }
 \arguments{
 \item{dat}{data produced by 
-\code{\link{read_hdx}} function.}
+\code{\link{read_hdx}} function}
 
-\item{protein}{chosen protein.}
+\item{protein}{chosen protein}
 
-\item{state}{biological state for chosen protein.}
+\item{state}{biological state for chosen protein}
 
-\item{sequence}{sequence of chosen peptide.}
+\item{sequence}{sequence of chosen peptide}
 
-\item{show_charge_values}{...}
+\item{show_charge_values}{\code{logical}, indicator if the data
+is shown for replicates or for charge values within the 
+replicates}
 
-\item{time_t}{time point of the measurement.}
+\item{time_t}{chosen time point}
 
-\item{interactive}{...}
+\item{interactive}{\code{logical}, whether plot should have an interactive 
+layer created with with ggiraph, which would add tooltips to the plot in an
+interactive display (HTML/Markdown documents or shiny app)}
 }
 \value{
 a \code{\link{ggplot}} object.

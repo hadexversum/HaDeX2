@@ -6,13 +6,17 @@
 #' @importFrom ggplot2 geom_vline annotate
 #' 
 #' @param dat data produced by 
-#' \code{\link{read_hdx}} function.
-#' @param protein chosen protein. 
-#' @param state biological state for chosen protein.
-#' @param sequence sequence of chosen peptide.
-#' @param show_charge_values ...
-#' @param time_t time point of the measurement.
-#' @param interactive ...
+#' \code{\link{read_hdx}} function
+#' @param protein chosen protein
+#' @param state biological state for chosen protein
+#' @param sequence sequence of chosen peptide
+#' @param show_charge_values \code{logical}, indicator if the data
+#' is shown for replicates or for charge values within the 
+#' replicates
+#' @param time_t chosen time point
+#' @param interactive  \code{logical}, whether plot should have an interactive 
+#' layer created with with ggiraph, which would add tooltips to the plot in an
+#' interactive display (HTML/Markdown documents or shiny app)
 #'
 #' @details This function shows the measurements of mass from
 #' different replicates for specific peptide in specific state

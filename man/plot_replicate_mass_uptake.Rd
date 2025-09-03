@@ -30,7 +30,9 @@ data is aggregated on replicate level}
 \item{log_x}{\code{logical}, indicator if the X axis values 
 are transformed to log10}
 
-\item{interactive}{...}
+\item{interactive}{\code{logical}, whether plot should have an interactive 
+layer created with with ggiraph, which would add tooltips to the plot in an
+interactive display (HTML/Markdown documents or shiny app)}
 }
 \value{
 a \code{\link{ggplot}} object

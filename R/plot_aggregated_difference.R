@@ -1,12 +1,20 @@
 #' Plots aggregated uptake difference
 #'
-#' @param aggregated_diff_dat ...
-#' @param fractional ...
-#' @param theoretical ...
-#' @param time_100 ...
-#' @param panels ...
-#' @param interactive ...
+#' @param aggregated_diff_dat aggregated differential 
+#' uptake data as calculated by \code{\link{create_aggregated_diff_uptake_dataset}}
+#' @param theoretical \code{logical}, determines if values are theoretical
+#' @param fractional \code{logical}, determines if values are fractional
+#' @param time_100 maximal exchange control time point of measurement [min]
+#' @param panels \code{logical}, indicator if plot should be divided 
+#' into panels or not
+#' @param interactive \code{logical}, whether plot should have an interactive 
+#' layer created with with ggiraph, which would add tooltips to the plot in an
+#' interactive display (HTML/Markdown documents or shiny app)
 #'
+#' @seealso 
+#' \code{\link{create_diff_uptake_dataset}}
+#' \code{\link{create_aggregated_diff_uptake_dataset}}
+#' 
 #' @examples
 #' diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 #' aggregated_diff_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)

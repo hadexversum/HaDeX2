@@ -9,7 +9,7 @@ get_n_replicates(dat, protein = dat[["Protein"]][1])
 \arguments{
 \item{dat}{data imported by the \code{\link{read_hdx}} function.}
 
-\item{protein}{...}
+\item{protein}{chosen protein}
 }
 \value{
 a \code{\link{numeric}} value.

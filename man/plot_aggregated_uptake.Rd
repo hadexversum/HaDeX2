@@ -14,17 +14,21 @@ plot_aggregated_uptake(
 )
 }
 \arguments{
-\item{aggregated_dat}{...}
+\item{aggregated_dat}{aggregated differential 
+uptake data as calculated by \code{\link{create_aggregated_uptake_dataset}}}
 
-\item{fractional}{...}
+\item{fractional}{\code{logical}, determines if values are fractional}
 
-\item{theoretical}{...}
+\item{theoretical}{\code{logical}, determines if values are theoretical}
 
-\item{time_100}{...}
+\item{time_100}{maximal exchange control time point of measurement [min]}
 
-\item{panels}{...}
+\item{panels}{\code{logical}, indicator if plot should be divided 
+into panels or not}
 
-\item{interactive}{...}
+\item{interactive}{\code{logical}, whether plot should have an interactive 
+layer created with with ggiraph, which would add tooltips to the plot in an
+interactive display (HTML/Markdown documents or shiny app).}
 }
 \description{
 Plots aggregated uptake

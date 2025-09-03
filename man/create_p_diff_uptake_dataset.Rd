@@ -20,7 +20,7 @@ create_p_diff_uptake_dataset(
 \arguments{
 \item{dat}{data imported by the \code{\link{read_hdx}} function.}
 
-\item{diff_uptake_dat}{...}
+\item{diff_uptake_dat}{differential uptake data}
 
 \item{protein}{chosen protein.}
 

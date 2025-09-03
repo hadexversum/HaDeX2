@@ -1,23 +1,28 @@
 #' Aggregate test result
 #' 
-#' @description ...
-#'
 #' @importFrom data.table fifelse
 #' 
-#' @param p_diff_uptake_conf_dat ...
-#' @param method ...
-#' @param time_t ...
+#' @param p_diff_uptake_conf_dat uptake data with confidence, 
+#' as produced by \code{\link{create_p_diff_uptake_dataset_with_confidence}}
+#' function
+#' @param method method of aggregation: significance or
+#' weiss method
+#' @param time_t chosen time point
 #' @param skip_amino \code{integer}, indicator
 #' how many aminos from the N-terminus should be 
 #' omitted in visualization
+#' 
+#' @description Function aggregates peptide-level
+#' information into residue level. Significance method
+#' indicates if the difference is significant or not -
+#' if the number of significant peptides over this residue 
+#' is bigger than the number of insignificant.
 #' 
 #' @details Only peptides without modification are 
 #' aggregated.
 #' 
 #' @return a \code{\link{data.frame}} object
 #' 
-#' @references ...
-#'
 #' @seealso 
 #' \code{\link{read_hdx}}
 #' 

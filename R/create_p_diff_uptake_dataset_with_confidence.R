@@ -1,12 +1,17 @@
 #' Create differential dataset with statistical validity
 #'
-#' @param p_diff_uptake_dat ...
-#' @param houde_interval ...
-#' @param houde_interval_times ...
-#' @param theoretical ...
-#' @param fractional ...
+#' @param p_diff_uptake_dat differential uptake data 
+#' alongside the P-value as calculated by 
+#' \code{\link{create_p_diff_uptake_dataset}}
+#' @param houde_interval interval value, as calculated by
+#' \code{\link{calculate_confidence_limit_values}}
+#' @param houde_interval_times specified time points to 
+#' be used in calculcation
+#' @param theoretical \code{logical}, determines if values are theoretical
+#' @param fractional \code{logical}, determines if values are fractional
 #' 
-#' @details ...
+#' @details Function provides additional information 
+#' on statistical relevance based on supplied data.
 #' 
 #' @return a \code{\link{data.frame}} object. 
 #' 

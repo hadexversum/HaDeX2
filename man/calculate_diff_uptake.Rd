@@ -15,22 +15,22 @@ calculate_diff_uptake(
 )
 }
 \arguments{
-\item{dat}{data imported by the \code{\link{read_hdx}} function.}
+\item{dat}{data imported by the \code{\link{read_hdx}} function}
 
-\item{protein}{chosen protein.}
+\item{protein}{chosen protein}
 
 \item{states}{vector of two states for chosen protein. Order is important, as the 
-deuterium uptake difference is calculated as state_1 - state_2.}
+deuterium uptake difference is calculated as state_1 - state_2}
 
-\item{time_0}{minimal exchange control time point of measurement [min].}
+\item{time_0}{minimal exchange control time point of measurement [min]}
 
 \item{time_t}{time point of the measurement for which the calculations
-are done [min].}
+are done [min]}
 
-\item{time_100}{maximal exchange control time point of measurement [min].}
+\item{time_100}{maximal exchange control time point of measurement [min]}
 
 \item{deut_part}{deuterium percentage in solution used in experiment, 
-value from range [0, 1].}
+value from range [0, 1]}
 }
 \value{
 a \code{\link{data.frame}} object.
