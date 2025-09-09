@@ -18,14 +18,10 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Introduction
 
-This document summarizes functions of HaDeX2 web server by describing example data analysis. The example dataset we will use here is part of a previously published dataset on the SecA ATPase protein. SecA is an essential part of the bacterial Sec protein secretion system where it interacts with secretory client proteins as well as its associated cytoplasmic chaperones and is ultimately targeted to the SecYEG membrane channel where it interacts with both non-folded clients as well as the export channel, thereby regulating or powering protein export. 
+This document summarizes functions of HaDeX2 web server by describing example data analysis. The example dataset we will use here is part of a previously published dataset on the SecA ATPase protein \key{krishnamurthyNexusIntrinsicDynamics2021b}. SecA is an essential part of the bacterial Sec protein secretion system where it interacts with secretory client proteins as well as its associated cytoplasmic chaperones and is ultimately targeted to the SecYEG membrane channel where it interacts with both non-folded clients as well as the export channel, thereby regulating or powering protein export. 
 
-SecA is a DEAD motor domain ATPase [cite], and in the cytoplasm the protein predominantly exists as a dimeric, ADP bound 'quiescent' state. Only through a series of interactions with the translocate and secretory clients does SecA become fully activated and reaches the actively ATP hydrolyzing monomeric state, functioning as a molecular motor, driving protein translocation. 
+SecA is a DEAD motor domain ATPase, and in the cytoplasm the protein predominantly exists as a dimeric, ADP bound 'quiescent' state. Only through a series of interactions with the translocate and secretory clients does SecA become fully activated and reaches the actively ATP hydrolyzing monomeric state, functioning as a molecular motor, driving protein translocation. 
 
-
-```{r}
-knitr::include_graphics("du.PNG")
-```
 
 # Data analysis with HaDeX2
 
@@ -76,7 +72,7 @@ To zoom in on this phenomenon, we can view the uptake curve of a single peptide 
 
 ## Time-based data
 
-TBD
+The 'Time-based data' tab provides more information on replicates and statistical significance between states. The 'Replicates' view gives a quick overview of the replicates for each state and timepoint. For example, the second plot on this page shows directly that for the non-deuterated control (0s), there are a couple of peptides where one or more replicates are missing. We can use this information to quickly identify peptides which might need to be excluded or we need to collect additional data. The Manhattan plot provides similar information the Woods plot, but instead of reporting on deuterium uptake differences, it shows the statistical significance of these differences. This can be an important tool when judging how to interpret deuterium uptake differences between peptides. In our example data, the Manhattan plot shows that generally we have obtained a lot of peptide with statistically significant differences, where regions with low or no differnces in D-uptake also show low statistical significance. Finally, in the uncr 
 
 ## Hi-res + 3D
 
@@ -88,12 +84,27 @@ knitr::include_graphics("differential_heatmap-display_plot.png")
 
 In the differential heatmap, we can now see our regions of interest with residue-level resolution. The two main regions, 102-114 and 410-428, are clearly visible, as well as the more subtle differences in 570-587 and 630-645. The region around 772-782 is less clear in this view, likely because this region is only subtly affected and only at later timepoints.
 
+The 3D viewer provides an interactive way to explore these differences in the context of the protein structure. By mapping the differential HDX data onto the 3D structure of SecA, we can directly see how ADP binding rigidifies specific regions of the protein (red \@ref{fig:fig_differential_structure}). In the figure below, we can clearly see the strongest response in helicase motif I, rigidifying upon ADP binding, as well as the allosteric propagation of this effect through the scaffold regions ultimately resulting in a long-range allosteric response in the client-binding PPD domain. 
 
-[JHS: plot name]
-[JHS: hdx viewer link is not correct / or its down]
-
-paragraph on the 3D viewer
-
-```{r fig_differential_heatmap, fig.cap="3D view of differential HDX data on the structure of SecA"}
+For more control over the visualization colors and plot ranges, the residue-level data can be exported in a .csv format and subsequently visualized by [HDX-Viewer](http://hdxviewer.ipbs.fr:8080/) @key{BouyssieHDXViewerinteractive3D2019}. When exporting the data to HDX-Viewer, click the 'Export data for HDXViewer' and follow the steps described in the popup window. 
+```{r fig_differential_structure, fig.cap="3D view of differential HDX data on the structure of SecA"}
 knitr::include_graphics("seca_3d_vis.png")
 ```
+
+## Measurements
+
+The 'Measurements' tab allows us to delve deeper into the individual replicate measurement results. This tab provides a per-peptide view where we can use the peptide table in the sidebar to select peptides of interest. Then, for the selected exposure time, we can now inspect each replicate measurement, see how they are distributed and we see which charged states were used and how they compare. The second graphs shows this information for all timepoints as a peptide uptake curve. 
+
+## Sequence data
+
+The 'Sequence data' tab can be used to reconstruct the sequence from the uploaded data, and shows the coverage and sequence length. This can be used as a quick sanity check to confirm the correct sequence information was used. This tab also provides peptide coverage plots. The 'Coverage' graph (@\ref{fig:fig_coverage}) gives a quick overview of which peptides were identified and which regions have no coverage. The 'Position Frequency' graph on this page shows for each residue how many peptides cover this region, providing information on peptide redundancy. 
+
+[JHS: for my data the redundancy field is empty. ]
+
+```{r fig_coverage, fig.cap="Peptide coverage for SecA WT"}
+knitr::include_graphics("peptide_coverage-display_plot.png")
+```
+
+## Summary
+
+The summary is a very convienent and quick way to generate a summary report of the uploaded data, according to community recommendations \key{massonRecommendationsReportingHydrogen2019}. The report can be exported in a variety of formats.
