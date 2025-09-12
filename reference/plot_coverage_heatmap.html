@@ -121,8 +121,17 @@ desired value.</p>
 <span class="r-in"><span><span class="fu">plot_coverage_heatmap</span><span class="op">(</span><span class="va">uptake_dat</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot_coverage_heatmap-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="fu">plot_coverage_heatmap</span><span class="op">(</span>x_dat <span class="op">=</span> <span class="va">uptake_dat</span>, value <span class="op">=</span> <span class="st">"frac_deut_uptake"</span>, time_t <span class="op">=</span> <span class="fl">0.167</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`aes_string()` was deprecated in ggplot2 3.0.0.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Please use tidy evaluation idioms with `aes()`.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> See also `vignette("ggplot2-in-packages")` for more information.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> The deprecated feature was likely used in the <span style="color: #0000BB;">HaDeX</span> package.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span>   Please report the issue to the authors.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Ignoring unknown labels:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> <span style="color: #00BB00;">colour</span> : <span style="color: #0000BB;">"Exposure"</span></span>
 <span class="r-plt img"><img src="plot_coverage_heatmap-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="fu">plot_coverage_heatmap</span><span class="op">(</span><span class="va">uptake_dat</span>, value <span class="op">=</span> <span class="st">"err_frac_deut_uptake"</span>, time_t <span class="op">=</span> <span class="fl">0.167</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Ignoring unknown labels:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> <span style="color: #00BB00;">colour</span> : <span style="color: #0000BB;">"Exposure"</span></span>
 <span class="r-plt img"><img src="plot_coverage_heatmap-3.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">diff_uptake_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_diff_uptake_dataset.html">create_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span></span></span>
@@ -132,18 +141,26 @@ desired value.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> No time point selected!</span>
 <span class="r-plt img"><img src="plot_coverage_heatmap-5.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="fu">plot_coverage_heatmap</span><span class="op">(</span><span class="va">diff_uptake_dat</span>, value <span class="op">=</span> <span class="st">"diff_frac_deut_uptake"</span>, time_t <span class="op">=</span> <span class="fl">0.167</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Ignoring unknown labels:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> <span style="color: #00BB00;">colour</span> : <span style="color: #0000BB;">"Exposure"</span></span>
 <span class="r-plt img"><img src="plot_coverage_heatmap-6.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="fu">plot_coverage_heatmap</span><span class="op">(</span><span class="va">diff_uptake_dat</span>, value <span class="op">=</span> <span class="st">"err_diff_frac_deut_uptake"</span>, time_t <span class="op">=</span> <span class="fl">0.167</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Scale for <span style="color: #00BB00;">fill</span> is already present.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Adding another scale for <span style="color: #00BB00;">fill</span>, which will replace the existing scale.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Ignoring unknown labels:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> <span style="color: #00BB00;">colour</span> : <span style="color: #0000BB;">"Exposure"</span></span>
 <span class="r-plt img"><img src="plot_coverage_heatmap-7.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">auc_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="calculate_auc.html">calculate_auc</a></span><span class="op">(</span><span class="fu"><a href="create_uptake_dataset.html">create_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">plot_coverage_heatmap</span><span class="op">(</span><span class="va">auc_dat</span>, value <span class="op">=</span> <span class="st">"auc"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Ignoring unknown labels:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> <span style="color: #00BB00;">colour</span> : <span style="color: #0000BB;">"Exposure"</span></span>
 <span class="r-plt img"><img src="plot_coverage_heatmap-8.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">bex_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="calculate_back_exchange.html">calculate_back_exchange</a></span><span class="op">(</span><span class="va">alpha_dat</span>, state <span class="op">=</span> <span class="st">"Alpha_KSCN"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">plot_coverage_heatmap</span><span class="op">(</span><span class="va">bex_dat</span>, value <span class="op">=</span> <span class="st">"back_exchange"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Ignoring unknown labels:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> <span style="color: #00BB00;">colour</span> : <span style="color: #0000BB;">"Exposure"</span></span>
 <span class="r-plt img"><img src="plot_coverage_heatmap-9.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
