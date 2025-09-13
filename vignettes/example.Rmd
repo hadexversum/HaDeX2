@@ -37,7 +37,7 @@ Next, we set the parameters for the analysis of this data. We select the correct
 <!-- ## Inspecting HDX peptides -->
 ## Deuterium uptake
 
-We can start by looking at deuterium uptake per peptide/timepoint. The first plot generated is the Deuterium uptake plot (Figure \@ref{fig:fig_d_uptake}). This shows replicate-averaged deuterium uptake values per peptide, for all selected states, at a given timepoint. It provides a good starting point to inspect the data, and verify no peptide deuterium uptake exceeds the maximal uptake control uptake. 
+We can start by looking at deuterium uptake per peptide/time point. The first plot generated is the Deuterium uptake plot (Figure \@ref{fig:fig_d_uptake}). This shows replicate-averaged deuterium uptake values per peptide, for all selected states, at a given time point. It provides a good starting point to inspect the data, and verify no peptide deuterium uptake exceeds the maximal uptake control uptake. 
 
 ```{r fig_d_uptake, fig.cap="Deuterium uptake plot"}
 knitr::include_graphics("comparison-display_plot.png")
@@ -47,30 +47,30 @@ The second plot on this page is the Woods plot. This plot shows the deuterium up
 
 If we want to inspect these regions in more detail, we can use the 'Ranges' section in the sidebar to zoom the x range to the regions of interest. 
 
-Next, to explore the data further, we can switch the plot to 'Fractional uptake', where we use the maximal exchange control as reference. Select the checkbox 'Calculation > Fractional values' and then at 'Timepoints' make sure to select 'chosen control' for 'Deut 100% Exposure'. With these settings the Woods plot shows the differential HDX data in terms of fractional deuterium uptake differences, removing the bias of peptide length. Again, we see the same two regions stand out, and if we explore more timepoints ('Timepoints > Measurement Exposure > 2'), we find additional peptides which show rigidification, such as 570-587 (motif VI, NBD2) and 630-645 (scaffold domain). 
+Next, to explore the data further, we can switch the plot to 'Fractional uptake', where we use the maximal exchange control as reference. Select the checkbox 'Calculation > Fractional values' and then at 'time points' make sure to select 'chosen control' for 'Deut 100% Exposure'. With these settings the Woods plot shows the differential HDX data in terms of fractional deuterium uptake differences, removing the bias of peptide length. Again, we see the same two regions stand out, and if we explore more time points ('time points > Measurement Exposure > 2'), we find additional peptides which show rigidification, such as 570-587 (motif VI, NBD2) and 630-645 (scaffold domain). 
 
 
 ```{r fig_woods, fig.cap="Woods plot"}
 knitr::include_graphics("woods-display_plot.png")
 ```
 
-The 'Butterfly Differential plot' provides a more comprehensive view of all timepoints simultaneously. Switching to this view, we can more easily track the evolution of deuterium uptake differences over time and therefore all four regions of interest are clearly visible (Figure \@ref{fig:fig_butterfly}). This view reviews another potenially rigidified region, showing only at later toimepoints, around the region 772-782.
+The 'Butterfly Differential plot' provides a more comprehensive view of all time points simultaneously. Switching to this view, we can more easily track the evolution of deuterium uptake differences over time and therefore all four regions of interest are clearly visible (Figure \@ref{fig:fig_butterfly}). This view reviews another potenially rigidified region, showing only at later toimepoints, around the region 772-782.
 
 ```{r fig_butterfly, fig.cap="Butterfly Differential plot"}
 knitr::include_graphics("butterfly-display_plot.png")
 ```
 
-The 'Chiclet Plot' provides a direct overview of the time-evolution of differentially exchanged regions. Switching the plot to 'Fractional Values', we can see that two regions (102-114, 410-428) are present independent of the timepoint, while the differences in 570-587 increase over time, and the 630-645 regions shows a 'appear-disappear' behavior, being most prominent at intermediate timepoints (Figure \@ref{fig:fig_chiclet}).
+The 'Chiclet Plot' provides a direct overview of the time-evolution of differentially exchanged regions. Switching the plot to 'Fractional Values', we can see that two regions (102-114, 410-428) are present independent of the time point, while the differences in 570-587 increase over time, and the 630-645 regions shows a 'appear-disappear' behavior, being most prominent at intermediate time points (Figure \@ref{fig:fig_chiclet}).
 
 ```{r fig_chiclet, fig.cap="Chiclet Plot"}
 knitr::include_graphics("chiclet-display_plot.png")
 ```
 
-To zoom in on this phenomenon, we can view the uptake curve of a single peptide using the 'Uptake Curves Plot / Differental Plot'. A single peptide can be selected in the "Peptide" section of the sidebar. Filter for sequence 'AIANAQRKVE', and choose this particular peptide from the filtered table. Now, we can confirm that indeed for this peptide, SecA WT initially takes up deuterium faster compared to SecA bound to ADP, but at later timepoints the curves converge. The 'Differential Plot' directly shows the differences as a rise and decay. 
+To zoom in on this phenomenon, we can view the uptake curve of a single peptide using the 'Uptake Curves Plot / Differental Plot'. A single peptide can be selected in the "Peptide" section of the sidebar. Filter for sequence 'AIANAQRKVE', and choose this particular peptide from the filtered table. Now, we can confirm that indeed for this peptide, SecA WT initially takes up deuterium faster compared to SecA bound to ADP, but at later time points the curves converge. The 'Differential Plot' directly shows the differences as a rise and decay. 
 
 ## Time-based data
 
-The 'Time-based data' tab provides more information on replicates and statistical significance between states. The 'Replicates' view gives a quick overview of the replicates for each state and timepoint. For example, the second plot on this page shows directly that for the non-deuterated control (0s), there are a couple of peptides where one or more replicates are missing. We can use this information to quickly identify peptides which might need to be excluded or we need to collect additional data. The Manhattan plot provides similar information the Woods plot, but instead of reporting on deuterium uptake differences, it shows the statistical significance of these differences. This can be an important tool when judging how to interpret deuterium uptake differences between peptides. In our example data, the Manhattan plot shows that generally we have obtained a lot of peptide with statistically significant differences, where regions with low or no differences in D-uptake also show low statistical significance. Finally, in the uncertainty plot we can see the calculated standard error of the mean for the replicates to indicate regions of higher measurement uncertainty for optional double-check, part of quality control.
+The 'Time-based data' tab provides more information on replicates and statistical significance between states. The 'Replicates' view gives a quick overview of the replicates for each state and time point. For example, the second plot on this page shows directly that for the non-deuterated control (0s), there are a couple of peptides where one or more replicates are missing. We can use this information to quickly identify peptides which might need to be excluded or we need to collect additional data. The Manhattan plot provides similar information the Woods plot, but instead of reporting on deuterium uptake differences, it shows the statistical significance of these differences. This can be an important tool when judging how to interpret deuterium uptake differences between peptides. In our example data, the Manhattan plot shows that generally we have obtained a lot of peptide with statistically significant differences, where regions with low or no differences in D-uptake also show low statistical significance. Finally, in the uncertainty plot we can see the calculated standard error of the mean for the replicates to indicate regions of higher measurement uncertainty for optional double-check, part of quality control.
 
 ## Hi-res + 3D
 
@@ -80,7 +80,7 @@ Because we have provided a structural model alongside our peptide data, HaDeX2 a
 knitr::include_graphics("differential_heatmap-display_plot.png")
 ```
 
-In the differential heatmap, we can now see our regions of interest with residue-level resolution. The two main regions, 102-114 and 410-428, are clearly visible, as well as the more subtle differences in 570-587 and 630-645. The region around 772-782 is less clear in this view, likely because this region is only subtly affected and only at later timepoints.
+In the differential heatmap, we can now see our regions of interest with residue-level resolution. The two main regions, 102-114 and 410-428, are clearly visible, as well as the more subtle differences in 570-587 and 630-645. The region around 772-782 is less clear in this view, likely because this region is only subtly affected and only at later time points.
 
 The 3D viewer provides an interactive way to explore these differences in the context of the protein structure. By mapping the differential HDX data onto the 3D structure of SecA, we can directly see how ADP binding rigidifies specific regions of the protein (red \@ref{fig:fig_differential_structure}). In the figure below, we can clearly see the strongest response in helicase motif I, rigidifying upon ADP binding, as well as the allosteric propagation of this effect through the scaffold regions ultimately resulting in a long-range allosteric response in the client-binding PPD domain. 
 
@@ -91,7 +91,7 @@ knitr::include_graphics("seca_3d_vis.png")
 
 ## Measurements
 
-The 'Measurements' tab allows us to delve deeper into the individual replicate measurement results. This tab provides a per-peptide view where we can use the peptide table in the sidebar to select peptides of interest. Then, for the selected exposure time, we can now inspect each replicate measurement, see how they are distributed and we see which charged states were used and how they compare. The second graphs shows this information for all timepoints as a peptide uptake curve. 
+The 'Measurements' tab allows us to delve deeper into the individual replicate measurement results. This tab provides a per-peptide view where we can use the peptide table in the sidebar to select peptides of interest. Then, for the selected exposure time, we can now inspect each replicate measurement, see how they are distributed and we see which charged states were used and how they compare. The second graphs shows this information for all time points as a peptide uptake curve. 
 
 ## Sequence data
 
