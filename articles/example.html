@@ -85,7 +85,7 @@
 </h2>
 <p>This document summarizes functions of HaDeX2 web server by describing
 example data analysis. The example dataset we will use here is part of a
-previously published dataset on the SecA ATPase protein . SecA is an
+previously published dataset on the SecA ATPase protein <span class="citation">(Krishnamurthy et al. 2021)</span>. SecA is an
 essential part of the bacterial Sec protein secretion system where it
 interacts with secretory client proteins as well as its associated
 cytoplasmic chaperones and is ultimately targeted to the SecYEG membrane
@@ -117,14 +117,11 @@ file <code>data/SecA_cluster_wt_ADP.csv</code>, after which the ‘File
 status’ should report the file is valid and is of the Dynamx3.0 format.
 For this dataset, we also have a structure file available,
 <code>data/SecA_monomer.pdb</code> (modified from RCSB PDB entry 2VDA),
-and it can be uploaded below in a similar fashion. [JHS suggestion:
-perhaps at this stage we don’t want to get into this but placing the
-upload form for the structure next to the data upload would make more
-sense from a data input flow perspective]</p>
+and it can be uploaded below in a similar fashion.</p>
 <p>Next, we set the parameters for the analysis of this data. We select
 the correct protein (‘Accession’), then choose which peptides correspond
 to the Maximal exchange control (Accession | Full Deuteration control |
-0.167). The No deuterated time point is set to 0.</p>
+0.167). The <code>No deuterated</code> time point is set to 0.</p>
 <!-- ## Inspecting HDX peptides -->
 <div class="section level3">
 <h3 id="deuterium-uptake">Deuterium uptake<a class="anchor" aria-label="anchor" href="#deuterium-uptake"></a>
@@ -140,19 +137,14 @@ peptide deuterium uptake exceeds the maximal uptake control uptake.</p>
 </div>
 <p>The second plot on this page is the Woods plot. This plot shows the
 deuterium uptake difference between two selected states, in our case
-this is a comparison between SecA dimer WT and SecA dimer + ADP. [JHS
-comment: the significance threshold is rather low here, this is because
-this dataset has very low variability. I’m leaving out statistical
-discussion for now. Side note: I can select both houde and student-t
-(side-side note: should be Student’s T-test rather than t-Student test),
-this should be an OR toggle?]. From the generated figure (@), we can
-immediately see that two regions stand out, both part of the SecA
-nucleotide-binding cleft, the first around 102-114 (Helicse motif I,
-NBD1) and the second at 410-428 (NBD linker region). Deuterium uptake
-differences in these regions are positive (red), indicating that these
-regions rigidify upon ADP binding, and this rigidification
-allosterically propagates to SecA’s client-binding clamp, thereby
-regulating its client interactions and activity.</p>
+this is a comparison between SecA dimer WT and SecA dimer + ADP. From
+the generated figure (@), we can immediately see that two regions stand
+out, both part of the SecA nucleotide-binding cleft, the first around
+102-114 (Helicse motif I, NBD1) and the second at 410-428 (NBD linker
+region). Deuterium uptake differences in these regions are positive
+(red), indicating that these regions rigidify upon ADP binding, and this
+rigidification allosterically propagates to SecA’s client-binding clamp,
+thereby regulating its client interactions and activity.</p>
 <p>If we want to inspect these regions in more detail, we can use the
 ‘Ranges’ section in the sidebar to zoom the x range to the regions of
 interest.</p>
@@ -160,13 +152,12 @@ interest.</p>
 ‘Fractional uptake’, where we use the maximal exchange control as
 reference. Select the checkbox ‘Calculation &gt; Fractional values’ and
 then at ‘Timepoints’ make sure to select ‘chosen control’ for ‘Deut 100%
-Exposure’ [JHS: this should be the default?]. With these settings the
-Woods plot shows the differental HDX data in terms of fractional
-deuterium uptake differences, removing the bias of peptide length.
-Again, we see the same two regions stand out, and if we explore more
-timepoints (‘Timepoints &gt; Measurement Exposure &gt; 2’), we find
-additional peptides which show rigidification, such as 570-587 (motif
-VI, NBD2) and 630-645 (scaffold domain).</p>
+Exposure’. With these settings the Woods plot shows the differential HDX
+data in terms of fractional deuterium uptake differences, removing the
+bias of peptide length. Again, we see the same two regions stand out,
+and if we explore more timepoints (‘Timepoints &gt; Measurement Exposure
+&gt; 2’), we find additional peptides which show rigidification, such as
+570-587 (motif VI, NBD2) and 630-645 (scaffold domain).</p>
 <div class="float">
 <img src="woods-display_plot.png" alt="Woods plot"><div class="figcaption">Woods plot</div>
 </div>
@@ -180,9 +171,6 @@ rigidified region, showing only at later toimepoints, around the region
 <div class="float">
 <img src="butterfly-display_plot.png" alt="Butterfly Differential plot"><div class="figcaption">Butterfly Differential plot</div>
 </div>
-<p>[JHS comment: butterfly plot exports as ‘display_plot.png’, should be
-‘butterfly_display_plot.png’ to avoid overwriting the previous
-plot?]</p>
 <p>The ‘Chiclet Plot’ provides a direct overview of the time-evolution
 of differentially exchanged regions. Switching the plot to ‘Fractional
 Values’, we can see that two regions (102-114, 410-428) are present
@@ -283,7 +271,6 @@ information was used. This tab also provides peptide coverage plots. The
 identified, and which regions have no coverage. The ‘Position Frequency’
 graph on this page shows for each residue how many peptides cover this
 region, providing information on peptide redundancy.</p>
-<p>[JHS: for my data the redundancy field is empty. ]</p>
 <div class="float">
 <img src="peptide_coverage-display_plot.png" alt="Peptide coverage for SecA WT"><div class="figcaption">Peptide coverage for SecA WT</div>
 </div>
@@ -294,6 +281,19 @@ region, providing information on peptide redundancy.</p>
 <p>The summary is a very convienent and quick way to generate a summary
 report of the uploaded data, according to community recommendations .
 The report can be exported in a variety of formats.</p>
+</div>
+</div>
+<div class="section level2">
+<h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-krishnamurthyNexusIntrinsicDynamics2021b" class="csl-entry">
+Krishnamurthy, Srinath, Nikolaos Eleftheriadis, Konstantina Karathanou,
+Jochem H. Smit, Athina G. Portaliou, Katerina E. Chatzi, Spyridoula
+Karamanou, Ana-Nicoleta Bondar, Giorgos Gouridis, and Anastassios
+Economou. 2021. <span>“A Nexus of Intrinsic Dynamics Underlies
+Translocase Priming.”</span> <em>Structure</em> 29 (8): 846–858.e7. <a href="https://doi.org/10.1016/j.str.2021.03.015" class="external-link">https://doi.org/10.1016/j.str.2021.03.015</a>.
+</div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
