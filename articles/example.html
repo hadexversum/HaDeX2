@@ -66,8 +66,6 @@
 </nav><div class="container template-article">
 
 
-
-
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
@@ -80,220 +78,124 @@
 
     
     
-<div class="section level2">
-<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+<div class="section level2" number="1">
+<h2 id="introduction">
+<span class="header-section-number">1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p>This document summarizes functions of HaDeX2 web server by describing
-example data analysis. The example dataset we will use here is part of a
-previously published dataset on the SecA ATPase protein <span class="citation">(Krishnamurthy et al. 2021)</span>. SecA is an
-essential part of the bacterial Sec protein secretion system where it
-interacts with secretory client proteins as well as its associated
-cytoplasmic chaperones and is ultimately targeted to the SecYEG membrane
-channel where it interacts with both non-folded clients as well as the
-export channel, thereby regulating or powering protein export.</p>
-<p>SecA is a DEAD motor domain ATPase, and in the cytoplasm the protein
-predominantly exists as a dimeric, ADP bound ‘quiescent’ state. Only
-through a series of interactions with the translocate and secretory
-clients does SecA become fully activated and reaches the actively ATP
-hydrolysing monomeric state, functioning as a molecular motor, driving
-protein translocation.</p>
+<p>This document summarizes functions of HaDeX2 web server by describing example data analysis. The example dataset we will use here is part of a previously published dataset on the SecA ATPase protein <span class="citation">(<a href="#ref-krishnamurthyNexusIntrinsicDynamics2021b">Krishnamurthy et al. 2021</a>)</span>. SecA is an essential part of the bacterial Sec protein secretion system where it interacts with secretory client proteins as well as its associated cytoplasmic chaperones and is ultimately targeted to the SecYEG membrane channel where it interacts with both non-folded clients as well as the export channel, thereby regulating or powering protein export.</p>
+<p>SecA is a DEAD motor domain ATPase, and in the cytoplasm the protein predominantly exists as a dimeric, ADP bound ‘quiescent’ state. Only through a series of interactions with the translocate and secretory clients does SecA become fully activated and reaches the actively ATP hydrolysing monomeric state, functioning as a molecular motor, driving protein translocation.</p>
 </div>
-<div class="section level2">
-<h2 id="data-analysis-with-hadex2">Data analysis with HaDeX2<a class="anchor" aria-label="anchor" href="#data-analysis-with-hadex2"></a>
+<div class="section level2" number="2">
+<h2 id="data-analysis-with-hadex2">
+<span class="header-section-number">2</span> Data analysis with HaDeX2<a class="anchor" aria-label="anchor" href="#data-analysis-with-hadex2"></a>
 </h2>
-<p>In the next sections we will take the SecA example data and stepwise
-run it though the analysis pipeline of the HaDeX2 web server. In this
-example we focus on SecA in its dimeric state, and we compare how
-binding to ADP, switching the protein to its quiescent state, affects
-the structural dynamics of SecA.</p>
+<p>In the next sections we will take the SecA example data and stepwise run it though the analysis pipeline of the HaDeX2 web server. In this example we focus on SecA in its dimeric state, and we compare how binding to ADP, switching the protein to its quiescent state, affects the structural dynamics of SecA.</p>
 </div>
-<div class="section level2">
-<h2 id="input-data">Input Data<a class="anchor" aria-label="anchor" href="#input-data"></a>
+<div class="section level2" number="3">
+<h2 id="input-data">
+<span class="header-section-number">3</span> Input Data<a class="anchor" aria-label="anchor" href="#input-data"></a>
 </h2>
-<p>The first step in our HDX-MS data analysis is to upload the data. In
-the HaDeX2 webserver, in the ‘Input data’ tab, we can upload the data as
-DynamX 3.0 ‘cluster’ files. Click ‘Browse’ to select the example data
-file <code>data/SecA_cluster_wt_ADP.csv</code>, after which the ‘File
-status’ should report the file is valid and is of the Dynamx3.0 format.
-For this dataset, we also have a structure file available,
-<code>data/SecA_monomer.pdb</code> (modified from RCSB PDB entry 2VDA),
-and it can be uploaded below in a similar fashion.</p>
-<p>Next, we set the parameters for the analysis of this data. We select
-the correct protein (‘Accession’), then choose which peptides correspond
-to the Maximal exchange control (Accession | Full Deuteration control |
-0.167). The <code>No deuterated</code> time point is set to 0.</p>
+<p>The first step in our HDX-MS data analysis is to upload the data. In the HaDeX2 webserver, in the ‘Input data’ tab, we can upload the data as DynamX 3.0 ‘cluster’ files. Click ‘Browse’ to select the example data file <code>data/SecA_cluster_wt_ADP.csv</code>, after which the ‘File status’ should report the file is valid and is of the Dynamx3.0 format.
+For this dataset, we also have a structure file available, <code>data/SecA_monomer.pdb</code> (modified from RCSB PDB entry 2VDA), and it can be uploaded below in a similar fashion.</p>
+<p>Next, we set the parameters for the analysis of this data. We select the correct protein (‘Accession’), then choose which peptides correspond to the Maximal exchange control (Accession | Full Deuteration control | 0.167). The <code>No deuterated</code> time point is set to 0.</p>
 <!-- ## Inspecting HDX peptides -->
-<div class="section level3">
-<h3 id="deuterium-uptake">Deuterium uptake<a class="anchor" aria-label="anchor" href="#deuterium-uptake"></a>
+<div class="section level3" number="3.1">
+<h3 id="deuterium-uptake">
+<span class="header-section-number">3.1</span> Deuterium uptake<a class="anchor" aria-label="anchor" href="#deuterium-uptake"></a>
 </h3>
-<p>We can start by looking at deuterium uptake per peptide/time point.
-The first plot generated is the Deuterium uptake plot (Figure
-@ref{fig:fig_d_uptake}). This shows replicate-averaged deuterium uptake
-values per peptide, for all selected states, at a given time point. It
-provides a good starting point to inspect the data, and verify no
-peptide deuterium uptake exceeds the maximal uptake control uptake.</p>
-<div class="float">
-<img src="comparison-display_plot.png" alt="Deuterium uptake plot"><div class="figcaption">Deuterium uptake plot</div>
+<p>We can start by looking at deuterium uptake per peptide/time point. The first plot generated is the Deuterium uptake plot (Figure <a href="#fig:uptake">3.1</a>). This shows replicate-averaged deuterium uptake values per peptide, for all selected states, at a given time point. It provides a good starting point to inspect the data, and verify no peptide deuterium uptake exceeds the maximal uptake control uptake.</p>
+<div class="figure">
+<span style="display:block;" id="fig:uptake"></span>
+<img src="comparison-display_plot.png" alt="Deuterium uptake plot."><p class="caption">
+Figure 3.1: Deuterium uptake plot.
+</p>
 </div>
-<p>The second plot on this page is the Woods plot. This plot shows the
-deuterium uptake difference between two selected states, in our case
-this is a comparison between SecA dimer WT and SecA dimer + ADP. From
-the generated figure (@), we can immediately see that two regions stand
-out, both part of the SecA nucleotide-binding cleft, the first around
-102-114 (Helicse motif I, NBD1) and the second at 410-428 (NBD linker
-region). Deuterium uptake differences in these regions are positive
-(red), indicating that these regions rigidify upon ADP binding, and this
-rigidification allosterically propagates to SecA’s client-binding clamp,
-thereby regulating its client interactions and activity.</p>
-<p>If we want to inspect these regions in more detail, we can use the
-‘Ranges’ section in the sidebar to zoom the x range to the regions of
-interest.</p>
-<p>Next, to explore the data further, we can switch the plot to
-‘Fractional uptake’, where we use the maximal exchange control as
-reference. Select the checkbox ‘Calculation &gt; Fractional values’ and
-then at ‘time points’ make sure to select ‘chosen control’ for ‘Deut
-100% Exposure’. With these settings the Woods plot shows the
-differential HDX data in terms of fractional deuterium uptake
-differences, removing the bias of peptide length. Again, we see the same
-two regions stand out, and if we explore more time points (‘time points
-&gt; Measurement Exposure &gt; 2’), we find additional peptides which
-show rigidification, such as 570-587 (motif VI, NBD2) and 630-645
-(scaffold domain).</p>
-<div class="float">
-<img src="woods-display_plot.png" alt="Woods plot"><div class="figcaption">Woods plot</div>
+<p>The second plot on this page is the Woods plot. This plot shows the deuterium uptake difference between two selected states, in our case this is a comparison between SecA dimer WT and SecA dimer + ADP. From the generated figure (Figure <a href="#fig:woods">3.2</a>, we can immediately see that two regions stand out, both part of the SecA nucleotide-binding cleft, the first around 102-114 (Helicse motif I, NBD1) and the second at 410-428 (NBD linker region). Deuterium uptake differences in these regions are positive (red), indicating that these regions rigidify upon ADP binding, and this rigidification allosterically propagates to SecA’s client-binding clamp, thereby regulating its client interactions and activity.</p>
+<p>If we want to inspect these regions in more detail, we can use the ‘Ranges’ section in the sidebar to zoom the x range to the regions of interest.</p>
+<p>Next, to explore the data further, we can switch the plot to ‘Fractional uptake’, where we use the maximal exchange control as reference. Select the checkbox ‘Calculation &gt; Fractional values’ and then at ‘time points’ make sure to select ‘chosen control’ for ‘Deut 100% Exposure’. With these settings the Woods plot shows the differential HDX data in terms of fractional deuterium uptake differences, removing the bias of peptide length. Again, we see the same two regions stand out, and if we explore more time points (‘time points &gt; Measurement Exposure &gt; 2’), we find additional peptides which show rigidification, such as 570-587 (motif VI, NBD2) and 630-645 (scaffold domain).</p>
+<div class="figure">
+<span style="display:block;" id="fig:woods"></span>
+<img src="woods-display_plot.png" alt="Woods plot"><p class="caption">
+Figure 3.2: Woods plot
+</p>
 </div>
-<p>The ‘Butterfly Differential plot’ provides a more comprehensive view
-of all time points simultaneously. Switching to this view, we can more
-easily track the evolution of deuterium uptake differences over time and
-therefore all four regions of interest are clearly visible (Figure
-@ref{fig:fig_butterfly}). This view reviews another potenially
-rigidified region, showing only at later toimepoints, around the region
-772-782.</p>
-<div class="float">
-<img src="butterfly-display_plot.png" alt="Butterfly Differential plot"><div class="figcaption">Butterfly Differential plot</div>
+<p>The ‘Butterfly Differential plot’ provides a more comprehensive view of all time points simultaneously. Switching to this view, we can more easily track the evolution of deuterium uptake differences over time and therefore all four regions of interest are clearly visible (Figure <a href="#fig:butterfly">3.3</a>). This view reviews another potenially rigidified region, showing only at later toimepoints, around the region 772-782.</p>
+<div class="figure">
+<span style="display:block;" id="fig:butterfly"></span>
+<img src="butterfly-display_plot.png" alt="Butterfly Differential plot."><p class="caption">
+Figure 3.3: Butterfly Differential plot.
+</p>
 </div>
-<p>The ‘Chiclet Plot’ provides a direct overview of the time-evolution
-of differentially exchanged regions. Switching the plot to ‘Fractional
-Values’, we can see that two regions (102-114, 410-428) are present
-independent of the time point, while the differences in 570-587 increase
-over time, and the 630-645 regions shows a ‘appear-disappear’ behavior,
-being most prominent at intermediate time points (Figure
-@ref{fig:fig_chiclet}).</p>
-<div class="float">
-<img src="chiclet-display_plot.png" alt="Chiclet Plot"><div class="figcaption">Chiclet Plot</div>
+<p>The ‘Chiclet Plot’ provides a direct overview of the time-evolution of differentially exchanged regions. Switching the plot to ‘Fractional Values’, we can see that two regions (102-114, 410-428) are present independent of the time point, while the differences in 570-587 increase over time, and the 630-645 regions shows a ‘appear-disappear’ behavior, being most prominent at intermediate time points (Figure <a href="#fig:chiclet">3.4</a>).</p>
+<div class="figure">
+<span style="display:block;" id="fig:chiclet"></span>
+<img src="chiclet-display_plot.png" alt="Chiclet Plot."><p class="caption">
+Figure 3.4: Chiclet Plot.
+</p>
 </div>
-<p>To zoom in on this phenomenon, we can view the uptake curve of a
-single peptide using the ‘Uptake Curves Plot / Differental Plot’. A
-single peptide can be selected in the “Peptide” section of the sidebar.
-Filter for sequence ‘AIANAQRKVE’, and choose this particular peptide
-from the filtered table. Now, we can confirm that indeed for this
-peptide, SecA WT initially takes up deuterium faster compared to SecA
-bound to ADP, but at later time points the curves converge. The
-‘Differential Plot’ directly shows the differences as a rise and
-decay.</p>
+<p>To zoom in on this phenomenon, we can view the uptake curve of a single peptide using the ‘Uptake Curves Plot / Differental Plot’. A single peptide can be selected in the “Peptide” section of the sidebar. Filter for sequence ‘AIANAQRKVE’, and choose this particular peptide from the filtered table. Now, we can confirm that indeed for this peptide, SecA WT initially takes up deuterium faster compared to SecA bound to ADP, but at later time points the curves converge. The ‘Differential Plot’ directly shows the differences as a rise and decay.</p>
 </div>
-<div class="section level3">
-<h3 id="time-based-data">Time-based data<a class="anchor" aria-label="anchor" href="#time-based-data"></a>
+<div class="section level3" number="3.2">
+<h3 id="time-based-data">
+<span class="header-section-number">3.2</span> Time-based data<a class="anchor" aria-label="anchor" href="#time-based-data"></a>
 </h3>
-<p>The ‘Time-based data’ tab provides more information on replicates and
-statistical significance between states. The ‘Replicates’ view gives a
-quick overview of the replicates for each state and time point. For
-example, the second plot on this page shows directly that for the
-non-deuterated control (0s), there are a couple of peptides where one or
-more replicates are missing. We can use this information to quickly
-identify peptides which might need to be excluded or we need to collect
-additional data. The Manhattan plot provides similar information the
-Woods plot, but instead of reporting on deuterium uptake differences, it
-shows the statistical significance of these differences. This can be an
-important tool when judging how to interpret deuterium uptake
-differences between peptides. In our example data, the Manhattan plot
-shows that generally we have obtained a lot of peptide with
-statistically significant differences, where regions with low or no
-differences in D-uptake also show low statistical significance. Finally,
-in the uncertainty plot we can see the calculated standard error of the
-mean for the replicates to indicate regions of higher measurement
-uncertainty for optional double-check, part of quality control.</p>
+<p>The ‘Time-based data’ tab provides more information on replicates and statistical significance between states. The ‘Replicates’ view gives a quick overview of the replicates for each state and time point. For example, the second plot on this page shows directly that for the non-deuterated control (0s), there are a couple of peptides where one or more replicates are missing. We can use this information to quickly identify peptides which might need to be excluded or we need to collect additional data. The Manhattan plot provides similar information the Woods plot, but instead of reporting on deuterium uptake differences, it shows the statistical significance of these differences. This can be an important tool when judging how to interpret deuterium uptake differences between peptides. In our example data, the Manhattan plot shows that generally we have obtained a lot of peptide with statistically significant differences, where regions with low or no differences in D-uptake also show low statistical significance. Finally, in the uncertainty plot we can see the calculated standard error of the mean for the replicates to indicate regions of higher measurement uncertainty for optional double-check, part of quality control.</p>
 </div>
-<div class="section level3">
-<h3 id="hi-res-3d">Hi-res + 3D<a class="anchor" aria-label="anchor" href="#hi-res-3d"></a>
+<div class="section level3" number="3.3">
+<h3 id="hi-res-3d">
+<span class="header-section-number">3.3</span> Hi-res + 3D<a class="anchor" aria-label="anchor" href="#hi-res-3d"></a>
 </h3>
-<p>Because we have provided a structural model alongside our peptide
-data, HaDeX2 allows us to directly visualize residue-level data mapped
-onto the structure. To achieve this, we can use ‘Differential Heatmap +
-3D Vis’. Again, we use ‘Fractional values’, and set ‘Deut 100% Exposure’
-to ‘chosen control’. The generated heatmap (Figure
-@ref{fig:fig_heatmap}) shows the same regions of interest, with as
-critical difference that now instead of looking at peptide-level, the
-data has been mapped to individual residues by weighted averaging.</p>
-<div class="float">
-<img src="differential_heatmap-display_plot.png" alt="Differential Heatmap"><div class="figcaption">Differential Heatmap</div>
+<p>Because we have provided a structural model alongside our peptide data, HaDeX2 allows us to directly visualize residue-level data mapped onto the structure. To achieve this, we can use ‘Differential Heatmap + 3D Vis’. Again, we use ‘Fractional values’, and set ‘Deut 100% Exposure’ to ‘chosen control’. The generated heatmap (Figure <a href="#fig:differential-heatmap">3.5</a>) shows the same regions of interest, with as critical difference that now instead of looking at peptide-level, the data has been mapped to individual residues by weighted averaging.</p>
+<div class="figure">
+<span style="display:block;" id="fig:differential-heatmap"></span>
+<img src="differential_heatmap-display_plot.png" alt="Differential hcheatmap."><p class="caption">
+Figure 3.5: Differential hcheatmap.
+</p>
 </div>
-<p>In the differential heatmap, we can now see our regions of interest
-with residue-level resolution. The two main regions, 102-114 and
-410-428, are clearly visible, as well as the more subtle differences in
-570-587 and 630-645. The region around 772-782 is less clear in this
-view, likely because this region is only subtly affected and only at
-later time points.</p>
-<p>The 3D viewer provides an interactive way to explore these
-differences in the context of the protein structure. By mapping the
-differential HDX data onto the 3D structure of SecA, we can directly see
-how ADP binding rigidifies specific regions of the protein (red
-@ref{fig:fig_differential_structure}). In the figure below, we can
-clearly see the strongest response in helicase motif I, rigidifying upon
-ADP binding, as well as the allosteric propagation of this effect
-through the scaffold regions ultimately resulting in a long-range
-allosteric response in the client-binding PPD domain.</p>
-<p>For more control over the visualization colors and plot ranges, the
-residue-level data can be exported in a .csv format and subsequently
-visualized by <a href="http://hdxviewer.ipbs.fr:8080/" class="external-link">HDX-Viewer</a>
-<span class="citation">(<strong>key?</strong>)</span>{BouyssieHDXViewerinteractive3D2019}.
-When exporting the data to HDX-Viewer, click the ‘Export data for
-HDXViewer’ and follow the steps described in the popup window. <img src="seca_3d_vis.png" alt="3D view of differential HDX data on the structure of SecA"></p>
+<p>In the differential heatmap, we can now see our regions of interest with residue-level resolution. The two main regions, 102-114 and 410-428, are clearly visible, as well as the more subtle differences in 570-587 and 630-645. The region around 772-782 is less clear in this view, likely because this region is only subtly affected and only at later time points.</p>
+<p>The 3D viewer provides an interactive way to explore these differences in the context of the protein structure. By mapping the differential HDX data onto the 3D structure of SecA, we can directly see how ADP binding rigidifies specific regions of the protein (Figure <a href="#fig:differential-structure">3.6</a>). In the figure below, we can clearly see the strongest response in helicase motif I, rigidifying upon ADP binding, as well as the allosteric propagation of this effect through the scaffold regions ultimately resulting in a long-range allosteric response in the client-binding PPD domain.</p>
+<p>For more control over the visualization colors and plot ranges, the residue-level data can be exported in a .csv format and subsequently visualized by <a href="http://hdxviewer.ipbs.fr:8080/" class="external-link">HDX-Viewer</a> <span class="citation">(<a href="#ref-BouyssieHDXViewerinteractive3D2019">Bouyssié et al. 2019</a>)</span>. When exporting the data to HDX-Viewer, click the ‘Export data for HDXViewer’ and follow the steps described in the popup window.</p>
+<div class="figure">
+<span style="display:block;" id="fig:differential-structure"></span>
+<img src="seca_3d_vis.png" alt="3D view of differential HDX data on the structure of SecA."><p class="caption">
+Figure 3.6: 3D view of differential HDX data on the structure of SecA.
+</p>
 </div>
-<div class="section level3">
-<h3 id="measurements">Measurements<a class="anchor" aria-label="anchor" href="#measurements"></a>
+</div>
+<div class="section level3" number="3.4">
+<h3 id="measurements">
+<span class="header-section-number">3.4</span> Measurements<a class="anchor" aria-label="anchor" href="#measurements"></a>
 </h3>
-<p>The ‘Measurements’ tab allows us to delve deeper into the individual
-replicate measurement results. This tab provides a per-peptide view
-where we can use the peptide table in the sidebar to select peptides of
-interest. Then, for the selected exposure time, we can now inspect each
-replicate measurement, see how they are distributed and we see which
-charged states were used and how they compare. The second graphs shows
-this information for all time points as a peptide uptake curve.</p>
+<p>The ‘Measurements’ tab allows us to delve deeper into the individual replicate measurement results. This tab provides a per-peptide view where we can use the peptide table in the sidebar to select peptides of interest. Then, for the selected exposure time, we can now inspect each replicate measurement, see how they are distributed and we see which charged states were used and how they compare. The second graphs shows this information for all time points as a peptide uptake curve.</p>
 </div>
-<div class="section level3">
-<h3 id="sequence-data">Sequence data<a class="anchor" aria-label="anchor" href="#sequence-data"></a>
+<div class="section level3" number="3.5">
+<h3 id="sequence-data">
+<span class="header-section-number">3.5</span> Sequence data<a class="anchor" aria-label="anchor" href="#sequence-data"></a>
 </h3>
-<p>The ‘Sequence data’ tab can be used to reconstruct the sequence from
-the uploaded data and shows the coverage and sequence length. This can
-be used as a quick sanity check to confirm the correct sequence
-information was used. This tab also provides peptide coverage plots. The
-‘Coverage’ graph (@) gives a quick overview of which peptides were
-identified, and which regions have no coverage. The ‘Position Frequency’
-graph on this page shows for each residue how many peptides cover this
-region, providing information on peptide redundancy.</p>
-<div class="float">
-<img src="peptide_coverage-display_plot.png" alt="Peptide coverage for SecA WT"><div class="figcaption">Peptide coverage for SecA WT</div>
+<p>The ‘Sequence data’ tab can be used to reconstruct the sequence from the uploaded data and shows the coverage and sequence length. This can be used as a quick sanity check to confirm the correct sequence information was used. This tab also provides peptide coverage plots. The ‘Coverage’ graph (Figure <a href="#fig:coverage">3.7</a>) gives a quick overview of which peptides were identified, and which regions have no coverage. The ‘Position Frequency’ graph on this page shows for each residue how many peptides cover this region, providing information on peptide redundancy.</p>
+<div class="figure">
+<span style="display:block;" id="fig:coverage"></span>
+<img src="peptide_coverage-display_plot.png" alt="Peptide coverage for SecA WT."><p class="caption">
+Figure 3.7: Peptide coverage for SecA WT.
+</p>
 </div>
 </div>
-<div class="section level3">
-<h3 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
+<div class="section level3" number="3.6">
+<h3 id="summary">
+<span class="header-section-number">3.6</span> Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
 </h3>
-<p>The summary is a very convienent and quick way to generate a summary
-report of the uploaded data, according to community recommendations .
-The report can be exported in a variety of formats.</p>
+<p>The summary is a very convienent and quick way to generate a summary report of the uploaded data, according to community recommendations . The report can be exported in a variety of formats.</p>
 </div>
 </div>
 <div class="section level2">
-<h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-BouyssieHDXViewerinteractive3D2019" class="csl-entry">
+Bouyssié, David, Jean Lesne, Marie Locard-Paulet, Renaud Albigot, Odile Burlet-Schiltz, and Julien Marcoux. 2019. <span>“<span>HDX</span>-<span>Viewer</span>: Interactive <span>3D</span> Visualization of Hydrogen-Deuterium Exchange Data.”</span> <em>Bioinformatics (Oxford, England)</em>, July. <a href="https://doi.org/10.1093/bioinformatics/btz550" class="external-link">https://doi.org/10.1093/bioinformatics/btz550</a>.
+</div>
 <div id="ref-krishnamurthyNexusIntrinsicDynamics2021b" class="csl-entry">
-Krishnamurthy, Srinath, Nikolaos Eleftheriadis, Konstantina Karathanou,
-Jochem H. Smit, Athina G. Portaliou, Katerina E. Chatzi, Spyridoula
-Karamanou, Ana-Nicoleta Bondar, Giorgos Gouridis, and Anastassios
-Economou. 2021. <span>“A Nexus of Intrinsic Dynamics Underlies
-Translocase Priming.”</span> <em>Structure</em> 29 (8): 846–858.e7. <a href="https://doi.org/10.1016/j.str.2021.03.015" class="external-link">https://doi.org/10.1016/j.str.2021.03.015</a>.
+Krishnamurthy, Srinath, Nikolaos Eleftheriadis, Konstantina Karathanou, Jochem H. Smit, Athina G. Portaliou, Katerina E. Chatzi, Spyridoula Karamanou, Ana-Nicoleta Bondar, Giorgos Gouridis, and Anastassios Economou. 2021. <span>“A Nexus of Intrinsic Dynamics Underlies Translocase Priming.”</span> <em>Structure</em> 29 (8): 846–858.e7. <a href="https://doi.org/10.1016/j.str.2021.03.015" class="external-link">https://doi.org/10.1016/j.str.2021.03.015</a>.
 </div>
 </div>
 </div>
