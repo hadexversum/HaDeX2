@@ -44,6 +44,7 @@ Imports:
   	tidyr,
   	ggiraph
 Suggests:
+    bookdown,
     digest,
     gridExtra,
     knitr,
