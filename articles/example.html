@@ -106,7 +106,7 @@ For this dataset, we also have a structure file available, <code>data/SecA_monom
 <p>We can start by looking at deuterium uptake per peptide/time point. The first plot generated is the Deuterium uptake plot (Figure <a href="#fig:uptake">3.1</a>). This shows replicate-averaged deuterium uptake values per peptide, for all selected states, at a given time point. It provides a good starting point to inspect the data, and verify no peptide deuterium uptake exceeds the maximal uptake control uptake.</p>
 <div class="figure">
 <span style="display:block;" id="fig:uptake"></span>
-<img src="comparison-display_plot.png" alt="Deuterium uptake plot."><p class="caption">
+<img src="comparison-display_plot.png" alt="Deuterium uptake plot." width="90%"><p class="caption">
 Figure 3.1: Deuterium uptake plot.
 </p>
 </div>
@@ -115,21 +115,21 @@ Figure 3.1: Deuterium uptake plot.
 <p>Next, to explore the data further, we can switch the plot to ‘Fractional uptake’, where we use the maximal exchange control as reference. Select the checkbox ‘Calculation &gt; Fractional values’ and then at ‘time points’ make sure to select ‘chosen control’ for ‘Deut 100% Exposure’. With these settings the Woods plot shows the differential HDX data in terms of fractional deuterium uptake differences, removing the bias of peptide length. Again, we see the same two regions stand out, and if we explore more time points (‘time points &gt; Measurement Exposure &gt; 2’), we find additional peptides which show rigidification, such as 570-587 (motif VI, NBD2) and 630-645 (scaffold domain).</p>
 <div class="figure">
 <span style="display:block;" id="fig:woods"></span>
-<img src="woods-display_plot.png" alt="Woods plot"><p class="caption">
+<img src="woods-display_plot.png" alt="Woods plot" width="90%"><p class="caption">
 Figure 3.2: Woods plot
 </p>
 </div>
 <p>The ‘Butterfly Differential plot’ provides a more comprehensive view of all time points simultaneously. Switching to this view, we can more easily track the evolution of deuterium uptake differences over time and therefore all four regions of interest are clearly visible (Figure <a href="#fig:butterfly">3.3</a>). This view reviews another potenially rigidified region, showing only at later toimepoints, around the region 772-782.</p>
 <div class="figure">
 <span style="display:block;" id="fig:butterfly"></span>
-<img src="butterfly-display_plot.png" alt="Butterfly Differential plot."><p class="caption">
+<img src="butterfly-display_plot.png" alt="Butterfly Differential plot." width="90%"><p class="caption">
 Figure 3.3: Butterfly Differential plot.
 </p>
 </div>
 <p>The ‘Chiclet Plot’ provides a direct overview of the time-evolution of differentially exchanged regions. Switching the plot to ‘Fractional Values’, we can see that two regions (102-114, 410-428) are present independent of the time point, while the differences in 570-587 increase over time, and the 630-645 regions shows a ‘appear-disappear’ behavior, being most prominent at intermediate time points (Figure <a href="#fig:chiclet">3.4</a>).</p>
 <div class="figure">
 <span style="display:block;" id="fig:chiclet"></span>
-<img src="chiclet-display_plot.png" alt="Chiclet Plot."><p class="caption">
+<img src="chiclet-display_plot.png" alt="Chiclet Plot." width="90%"><p class="caption">
 Figure 3.4: Chiclet Plot.
 </p>
 </div>
@@ -148,7 +148,7 @@ Figure 3.4: Chiclet Plot.
 <p>Because we have provided a structural model alongside our peptide data, HaDeX2 allows us to directly visualize residue-level data mapped onto the structure. To achieve this, we can use ‘Differential Heatmap + 3D Vis’. Again, we use ‘Fractional values’, and set ‘Deut 100% Exposure’ to ‘chosen control’. The generated heatmap (Figure <a href="#fig:differential-heatmap">3.5</a>) shows the same regions of interest, with as critical difference that now instead of looking at peptide-level, the data has been mapped to individual residues by weighted averaging.</p>
 <div class="figure">
 <span style="display:block;" id="fig:differential-heatmap"></span>
-<img src="differential_heatmap-display_plot.png" alt="Differential hcheatmap."><p class="caption">
+<img src="differential_heatmap-display_plot.png" alt="Differential hcheatmap." width="90%"><p class="caption">
 Figure 3.5: Differential hcheatmap.
 </p>
 </div>
@@ -157,7 +157,7 @@ Figure 3.5: Differential hcheatmap.
 <p>For more control over the visualization colors and plot ranges, the residue-level data can be exported in a .csv format and subsequently visualized by <a href="http://hdxviewer.ipbs.fr:8080/" class="external-link">HDX-Viewer</a> <span class="citation">(<a href="#ref-BouyssieHDXViewerinteractive3D2019">Bouyssié et al. 2019</a>)</span>. When exporting the data to HDX-Viewer, click the ‘Export data for HDXViewer’ and follow the steps described in the popup window.</p>
 <div class="figure">
 <span style="display:block;" id="fig:differential-structure"></span>
-<img src="seca_3d_vis.png" alt="3D view of differential HDX data on the structure of SecA."><p class="caption">
+<img src="seca_3d_vis.png" alt="3D view of differential HDX data on the structure of SecA." width="90%"><p class="caption">
 Figure 3.6: 3D view of differential HDX data on the structure of SecA.
 </p>
 </div>
@@ -175,7 +175,7 @@ Figure 3.6: 3D view of differential HDX data on the structure of SecA.
 <p>The ‘Sequence data’ tab can be used to reconstruct the sequence from the uploaded data and shows the coverage and sequence length. This can be used as a quick sanity check to confirm the correct sequence information was used. This tab also provides peptide coverage plots. The ‘Coverage’ graph (Figure <a href="#fig:coverage">3.7</a>) gives a quick overview of which peptides were identified, and which regions have no coverage. The ‘Position Frequency’ graph on this page shows for each residue how many peptides cover this region, providing information on peptide redundancy.</p>
 <div class="figure">
 <span style="display:block;" id="fig:coverage"></span>
-<img src="peptide_coverage-display_plot.png" alt="Peptide coverage for SecA WT."><p class="caption">
+<img src="peptide_coverage-display_plot.png" alt="Peptide coverage for SecA WT." width="90%"><p class="caption">
 Figure 3.7: Peptide coverage for SecA WT.
 </p>
 </div>
@@ -184,7 +184,7 @@ Figure 3.7: Peptide coverage for SecA WT.
 <h3 id="summary">
 <span class="header-section-number">3.6</span> Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
 </h3>
-<p>The summary is a very convienent and quick way to generate a summary report of the uploaded data, according to community recommendations . The report can be exported in a variety of formats.</p>
+<p>The summary is a very convienent and quick way to generate a summary report of the uploaded data, according to community recommendations <span class="citation">(<a href="#ref-MassonRecommendationsperforminginterpreting2019">Masson et al. 2019</a>)</span>. The report can be exported in a variety of tabular formats.</p>
 </div>
 </div>
 <div class="section level2">
@@ -196,6 +196,9 @@ Bouyssié, David, Jean Lesne, Marie Locard-Paulet, Renaud Albigot, Odile Burlet-
 </div>
 <div id="ref-krishnamurthyNexusIntrinsicDynamics2021b" class="csl-entry">
 Krishnamurthy, Srinath, Nikolaos Eleftheriadis, Konstantina Karathanou, Jochem H. Smit, Athina G. Portaliou, Katerina E. Chatzi, Spyridoula Karamanou, Ana-Nicoleta Bondar, Giorgos Gouridis, and Anastassios Economou. 2021. <span>“A Nexus of Intrinsic Dynamics Underlies Translocase Priming.”</span> <em>Structure</em> 29 (8): 846–858.e7. <a href="https://doi.org/10.1016/j.str.2021.03.015" class="external-link">https://doi.org/10.1016/j.str.2021.03.015</a>.
+</div>
+<div id="ref-MassonRecommendationsperforminginterpreting2019" class="csl-entry">
+Masson, Glenn R., John E. Burke, Natalie G. Ahn, Ganesh S. Anand, Christoph Borchers, Sébastien Brier, George M. Bou-Assaf, et al. 2019. <span>“Recommendations for Performing, Interpreting and Reporting Hydrogen Deuterium Exchange Mass Spectrometry (<span>HDX</span>-<span>MS</span>) Experiments.”</span> <em>Nature Methods</em> 16 (7): 595–602. <a href="https://doi.org/10.1038/s41592-019-0459-y" class="external-link">https://doi.org/10.1038/s41592-019-0459-y</a>.
 </div>
 </div>
 </div>
