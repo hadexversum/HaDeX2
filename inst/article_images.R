@@ -29,7 +29,9 @@ plt_1 <- alpha_dat %>%
     sequence           = "FGDLKSPAGL",
     state = "ALPHA_Gamma",
     time_t             = 1) +
-  labs(title = TeX("Peptide FGDLKSPAGL at 1 min (eEF1B$\\alpha\\gamma$)")) +
+  labs(title = TeX("Peptide FGDLKSPAGL at 1 min (eEF1B$\\alpha\\gamma$)"), 
+       size = "Relative intensity",
+       y = "Replicate ID") +
   theme(legend.direction = "horizontal")
 
 
