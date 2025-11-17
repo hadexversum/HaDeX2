@@ -108,7 +108,7 @@ once.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rep_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_replicate_dataset.html">create_replicate_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/plot_replicate_histogram.html">plot_replicate_histogram</a></span><span class="op">(</span><span class="va">rep_dat</span><span class="op">)</span></span></code></pre></div>
-<p><img src="quality_control_files/figure-html/unnamed-chunk-2-1.png" width="672"></p>
+<p><img src="quality_control_files/figure-html/unnamed-chunk-2-1.png" class="r-plt" width="672"></p>
 </div>
 <div class="section level2">
 <h2 id="uncertainty">Uncertainty<a class="anchor" aria-label="anchor" href="#uncertainty"></a>
@@ -130,7 +130,7 @@ uncertainty. Of course, those values differ depending on the region or
 peptide length, but overall are not exceeding 0.25 Da.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_uncertainty.html">plot_uncertainty</a></span><span class="op">(</span><span class="va">alpha_dat</span>, state <span class="op">=</span> <span class="st">"Alpha_KSCN"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="quality_control_files/figure-html/unnamed-chunk-3-1.png" width="672"></p>
+<p><img src="quality_control_files/figure-html/unnamed-chunk-3-1.png" class="r-plt" width="672"></p>
 </div>
 <div class="section level2">
 <h2 id="measurements">Measurements<a class="anchor" aria-label="anchor" href="#measurements"></a>
@@ -149,7 +149,7 @@ line, with red area indicating the uncertainty surrounding calculated
 value.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_peptide_mass_measurement.html">plot_peptide_mass_measurement</a></span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span></span></code></pre></div>
-<p><img src="quality_control_files/figure-html/unnamed-chunk-4-1.png" width="672"></p>
+<p><img src="quality_control_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" width="672"></p>
 <p>The peptide recognized as under-measured using previous plot, is
 peptide “CVRSIQA” in state
 eEF1B<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>.
@@ -160,7 +160,7 @@ of calculating statistical significance when using this peptide in
 comparative analysis.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_replicate_mass_uptake.html">plot_replicate_mass_uptake</a></span><span class="op">(</span><span class="va">alpha_dat</span>, sequence <span class="op">=</span> <span class="st">"CVRSIQA"</span>, aggregated <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="quality_control_files/figure-html/unnamed-chunk-5-1.png" width="672"></p>
+<p><img src="quality_control_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" width="672"></p>
 </div>
 <div class="section level2">
 <h2 id="back-exchange">Back-exchange<a class="anchor" aria-label="anchor" href="#back-exchange"></a>
@@ -173,7 +173,7 @@ for shorter peptides.</p>
 <span><span class="fu"><a href="../reference/plot_coverage_heatmap.html">plot_coverage_heatmap</a></span><span class="op">(</span><span class="va">bex_dat</span>, value <span class="op">=</span> <span class="st">"back_exchange"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Ignoring unknown labels:</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> <span style="color: #00BB00;">colour</span> : <span style="color: #0000BB;">"Exposure"</span></span></span></code></pre></div>
-<p><img src="quality_control_files/figure-html/unnamed-chunk-6-1.png" width="672"></p>
+<p><img src="quality_control_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" width="672"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
@@ -186,7 +186,7 @@ for shorter peptides.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>

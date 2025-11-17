@@ -1,0 +1,242 @@
+![](https://raw.githubusercontent.com/hadexversum/HaDeX/master/inst/HaDeX/HaDeX.png)
+
+## HaDeX: Analysis and Visualisation of Hydrogen/Deuterium Exchange Mass Spectrometry Data
+
+Hydrogen/Deuterium eXchange Mass Spectrometry (HDX-MS) is a staple
+technology in structural proteomics. HaDeX provides a analytic workflow
+for HDX-MS data available both as [web
+server](https://hadex2.mslab-ibb.pl/) or **R** package, accompanied by
+dedicated application
+[HaDeXGUI](https://github.com/hadexversum/HaDeXGUI). This is a second
+version on previously published
+[HaDeX](https://academic.oup.com/bioinformatics/article/36/16/4516/5862011).
+
+### Local instance of HaDeX package
+
+You can install the latest development version of the package:
+
+``` r
+devtools::install_github("hadexversum/HaDeX2")
+```
+
+After installation GUI can be accessed locally:
+
+``` r
+library(HaDeX)
+HaDeX_GUI()
+```
+
+To run the GUI, the dedicated package HaDeXGUI is needed. If is not
+installed, the called function will check and install it after the
+confirmation from the user.
+
+### Online manual
+
+The HaDeX documentation is available
+[online](https://hadexversum.github.io/HaDeX2/).
+
+### Funding
+
+This work is supported by Foundation of Polish Science (TEAM TECH CORE
+FACILITY/2016-2/2 *Mass Spectrometry of Biopharmaceuticals - improved
+methodologies for qualitative, quantitative and structural
+characterization of drugs, proteinaceous drug targets and diagnostic
+molecules)*, Narodowe Centrum Nauki (Preludium Bis 1 2019/35/O/NZ2/03745
+*Wysokorozdzielcza analiza danych z eksperymentów wymiany proton-deuter
+monitorowanych spektrometrią mas*) as well as (Sonata 19
+2023/51/D/NZ7/02847 *Ujarzmić agregację z AmyloGraphem 2.0: baza danych
+i model predykcyjny modulatorów samoorganizacji amyloidowej*), and
+Narodowa Agencja Wymiany Akademickiej (PPN/STA/2021/1/00025).
+
+# Package index
+
+## All functions
+
+- [`HaDeX-package`](https://hadexversum.github.io/HaDeX2/reference/HaDeX-package.md)
+  [`HaDeX`](https://hadexversum.github.io/HaDeX2/reference/HaDeX-package.md)
+  : HaDeX
+- [`HaDeX_GUI()`](https://hadexversum.github.io/HaDeX2/reference/HaDeX_GUI.md)
+  : HaDeX Graphical User Interface
+- [`HaDeXify()`](https://hadexversum.github.io/HaDeX2/reference/HaDeXify.md)
+  : HaDeX customized ggplot theme
+- [`add_stat_dependency()`](https://hadexversum.github.io/HaDeX2/reference/add_stat_dependency.md)
+  : Calculates confidence limits
+- [`alpha_dat`](https://hadexversum.github.io/HaDeX2/reference/alpha_dat.md)
+  : Elongation factor eEF1B subunit alpha
+- [`calculate_MHP()`](https://hadexversum.github.io/HaDeX2/reference/calculate_MHP.md)
+  : Calculate MHP of the peptide
+- [`calculate_aggregated_diff_uptake()`](https://hadexversum.github.io/HaDeX2/reference/calculate_aggregated_diff_uptake.md)
+  : Calculates aggregated deuterium uptake difference for one time point
+- [`calculate_aggregated_test_results()`](https://hadexversum.github.io/HaDeX2/reference/calculate_aggregated_test_results.md)
+  : Aggregate test result
+- [`calculate_aggregated_uptake()`](https://hadexversum.github.io/HaDeX2/reference/calculate_aggregated_uptake.md)
+  : Calculates aggregated deuterium uptake for one time point
+- [`calculate_auc()`](https://hadexversum.github.io/HaDeX2/reference/calculate_auc.md)
+  : Calculate Area Under the Curve
+- [`calculate_back_exchange()`](https://hadexversum.github.io/HaDeX2/reference/calculate_back_exchange.md)
+  : Back exchange estimation
+- [`calculate_confidence_limit_values()`](https://hadexversum.github.io/HaDeX2/reference/calculate_confidence_limit_values.md)
+  : Calculate the value of confidence limit
+- [`calculate_diff_uptake()`](https://hadexversum.github.io/HaDeX2/reference/calculate_diff_uptake.md)
+  : Calculate differential uptake
+- [`calculate_exp_masses()`](https://hadexversum.github.io/HaDeX2/reference/calculate_exp_masses.md)
+  : Calculate measured mass, aggregated from the replicates of the
+  experiment
+- [`calculate_exp_masses_per_replicate()`](https://hadexversum.github.io/HaDeX2/reference/calculate_exp_masses_per_replicate.md)
+  : Calculate measured mass for each replicate of the experiment
+- [`calculate_kinetics()`](https://hadexversum.github.io/HaDeX2/reference/calculate_kinetics.md)
+  : Calculate kinetics data
+- [`calculate_p_value()`](https://hadexversum.github.io/HaDeX2/reference/calculate_p_value.md)
+  : Create p-value dataset
+- [`calculate_peptide_kinetics()`](https://hadexversum.github.io/HaDeX2/reference/calculate_peptide_kinetics.md)
+  : Calculate kinetics dataset
+- [`calculate_state_uptake()`](https://hadexversum.github.io/HaDeX2/reference/calculate_state_uptake.md)
+  : Calculate deuterium uptake
+- [`create_aggregated_diff_uptake_dataset()`](https://hadexversum.github.io/HaDeX2/reference/create_aggregated_diff_uptake_dataset.md)
+  : Calculates aggregated uptake difference for peptide pool
+- [`create_aggregated_uptake_dataset()`](https://hadexversum.github.io/HaDeX2/reference/create_aggregated_uptake_dataset.md)
+  : Calculates the aggregated uptake for peptide pool
+- [`create_control_dataset()`](https://hadexversum.github.io/HaDeX2/reference/create_control_dataset.md)
+  : Create dataset with control
+- [`create_diff_uptake_dataset()`](https://hadexversum.github.io/HaDeX2/reference/create_diff_uptake_dataset.md)
+  : Generate differential dataset
+- [`create_kinetic_dataset()`](https://hadexversum.github.io/HaDeX2/reference/create_kinetic_dataset.md)
+  : Create kinetics dataset for a list of peptides and their states
+- [`create_overlap_distribution_dataset()`](https://hadexversum.github.io/HaDeX2/reference/create_overlap_distribution_dataset.md)
+  : Show overlap distribution data
+- [`create_p_diff_uptake_dataset()`](https://hadexversum.github.io/HaDeX2/reference/create_p_diff_uptake_dataset.md)
+  : Create differential uptake dataset with p-value
+- [`create_p_diff_uptake_dataset_with_confidence()`](https://hadexversum.github.io/HaDeX2/reference/create_p_diff_uptake_dataset_with_confidence.md)
+  : Create differential dataset with statistical validity
+- [`create_quality_control_dataset()`](https://hadexversum.github.io/HaDeX2/reference/create_quality_control_dataset.md)
+  : Experiment quality control
+- [`create_replicate_dataset()`](https://hadexversum.github.io/HaDeX2/reference/create_replicate_dataset.md)
+  : Create replicates data
+- [`create_state_comparison_dataset()`](https://hadexversum.github.io/HaDeX2/reference/create_state_comparison_dataset.md)
+  : Creates comparison uptake dataset
+- [`create_state_uptake_dataset()`](https://hadexversum.github.io/HaDeX2/reference/create_state_uptake_dataset.md)
+  : Create uptake dataset for chosen state
+- [`create_uptake_dataset()`](https://hadexversum.github.io/HaDeX2/reference/create_uptake_dataset.md)
+  : Create uptake dataset for multiple states
+- [`get_n_replicates()`](https://hadexversum.github.io/HaDeX2/reference/get_n_replicates.md)
+  : Get number of replicates
+- [`get_peptide_sequence()`](https://hadexversum.github.io/HaDeX2/reference/get_peptide_sequence.md)
+  : Get peptide sequence based on the position
+- [`get_protein_coverage()`](https://hadexversum.github.io/HaDeX2/reference/get_protein_coverage.md)
+  : Get protein coverage
+- [`get_protein_redundancy()`](https://hadexversum.github.io/HaDeX2/reference/get_protein_redundancy.md)
+  : Get protein redundancy
+- [`get_replicate_list_sd()`](https://hadexversum.github.io/HaDeX2/reference/get_replicate_list_sd.md)
+  : Get replicates sd
+- [`get_residue_positions()`](https://hadexversum.github.io/HaDeX2/reference/get_residue_positions.md)
+  : Get residue positions
+- [`get_structure_color()`](https://hadexversum.github.io/HaDeX2/reference/get_structure_color.md)
+  : Get color palette for 3D structure
+- [`install_GUI()`](https://hadexversum.github.io/HaDeX2/reference/install_GUI.md)
+  : Installs GUI package from GitHub
+- [`is_GUI_installed()`](https://hadexversum.github.io/HaDeX2/reference/is_GUI_installed.md)
+  : Checks if GUI package is installed
+- [`plot_aggregated_differential_uptake()`](https://hadexversum.github.io/HaDeX2/reference/plot_aggregated_differential_uptake.md)
+  : Plots aggregated uptake difference
+- [`plot_aggregated_uptake()`](https://hadexversum.github.io/HaDeX2/reference/plot_aggregated_uptake.md)
+  : Plots aggregated uptake
+- [`plot_aggregated_uptake_structure()`](https://hadexversum.github.io/HaDeX2/reference/plot_aggregated_uptake_structure.md)
+  : Plot aggregated uptake on the 3D structure
+- [`plot_amino_distribution()`](https://hadexversum.github.io/HaDeX2/reference/plot_amino_distribution.md)
+  : generate_amino_distribution
+- [`plot_butterfly()`](https://hadexversum.github.io/HaDeX2/reference/plot_butterfly.md)
+  : Butterfly deuterium uptake plot
+- [`plot_chiclet()`](https://hadexversum.github.io/HaDeX2/reference/plot_chiclet.md)
+  : Chiclet deuterium uptake plot
+- [`plot_coverage()`](https://hadexversum.github.io/HaDeX2/reference/plot_coverage.md)
+  : Peptide coverage
+- [`plot_coverage_heatmap()`](https://hadexversum.github.io/HaDeX2/reference/plot_coverage_heatmap.md)
+  : Coverage heatmap
+- [`plot_differential()`](https://hadexversum.github.io/HaDeX2/reference/plot_differential.md)
+  : Differential plot
+- [`plot_differential_butterfly()`](https://hadexversum.github.io/HaDeX2/reference/plot_differential_butterfly.md)
+  : Butterfly differential deuterium uptake plot
+- [`plot_differential_chiclet()`](https://hadexversum.github.io/HaDeX2/reference/plot_differential_chiclet.md)
+  : Chiclet differential deuterium uptake plot
+- [`plot_differential_uptake_curve()`](https://hadexversum.github.io/HaDeX2/reference/plot_differential_uptake_curve.md)
+  : Plot differential uptake curve
+- [`plot_manhattan()`](https://hadexversum.github.io/HaDeX2/reference/plot_manhattan.md)
+  : Manhattan plot
+- [`plot_overlap()`](https://hadexversum.github.io/HaDeX2/reference/plot_overlap.md)
+  : Plot overlap data
+- [`plot_overlap_distribution()`](https://hadexversum.github.io/HaDeX2/reference/plot_overlap_distribution.md)
+  : Plot overlap distribution
+- [`plot_peptide_charge_measurement()`](https://hadexversum.github.io/HaDeX2/reference/plot_peptide_charge_measurement.md)
+  : Plot peptide charge measurement
+- [`plot_peptide_mass_measurement()`](https://hadexversum.github.io/HaDeX2/reference/plot_peptide_mass_measurement.md)
+  : Plot peptide mass measurement
+- [`plot_position_frequency()`](https://hadexversum.github.io/HaDeX2/reference/plot_position_frequency.md)
+  : Position frequency
+- [`plot_quality_control()`](https://hadexversum.github.io/HaDeX2/reference/plot_quality_control.md)
+  : Plot quality control data
+- [`plot_replicate_histogram()`](https://hadexversum.github.io/HaDeX2/reference/plot_replicate_histogram.md)
+  : Plot replicates histogram
+- [`plot_replicate_mass_uptake()`](https://hadexversum.github.io/HaDeX2/reference/plot_replicate_mass_uptake.md)
+  : Replicate mass uptake curve
+- [`plot_state_comparison()`](https://hadexversum.github.io/HaDeX2/reference/plot_state_comparison.md)
+  : State deuterium uptake comparison
+- [`plot_uncertainty()`](https://hadexversum.github.io/HaDeX2/reference/plot_uncertainty.md)
+  : Uncertainty of the peptide measurements
+- [`plot_uptake_curve()`](https://hadexversum.github.io/HaDeX2/reference/plot_uptake_curve.md)
+  : Deuterium uptake curve
+- [`plot_volcano()`](https://hadexversum.github.io/HaDeX2/reference/plot_volcano.md)
+  : Volcano plot
+- [`prepare_hdxviewer_export()`](https://hadexversum.github.io/HaDeX2/reference/prepare_hdxviewer_export.md)
+  : Prepares data export for HDX-Viewer
+- [`read_hdx()`](https://hadexversum.github.io/HaDeX2/reference/read_hdx.md)
+  : Read HDX-MS data file
+- [`reconstruct_sequence()`](https://hadexversum.github.io/HaDeX2/reference/reconstruct_sequence.md)
+  : Reconstruct protein sequence
+- [`show_aggregated_uptake_data()`](https://hadexversum.github.io/HaDeX2/reference/show_aggregated_uptake_data.md)
+  : Show aggregated values in friendly form
+- [`show_coverage_heatmap_data()`](https://hadexversum.github.io/HaDeX2/reference/show_coverage_heatmap_data.md)
+  : Coverage heatmap data
+- [`show_diff_uptake_data()`](https://hadexversum.github.io/HaDeX2/reference/show_diff_uptake_data.md)
+  : Differential deuterium uptake data
+- [`show_diff_uptake_data_confidence()`](https://hadexversum.github.io/HaDeX2/reference/show_diff_uptake_data_confidence.md)
+  : Differential uptake data with confidence
+- [`show_overlap_data()`](https://hadexversum.github.io/HaDeX2/reference/show_overlap_data.md)
+  : Show data on peptide overlap
+- [`show_p_diff_uptake_data()`](https://hadexversum.github.io/HaDeX2/reference/show_p_diff_uptake_data.md)
+  : Differential deuterium uptake data
+- [`show_peptide_charge_measurement()`](https://hadexversum.github.io/HaDeX2/reference/show_peptide_charge_measurement.md)
+  : Show peptide charge measurement
+- [`show_peptide_mass_measurement()`](https://hadexversum.github.io/HaDeX2/reference/show_peptide_mass_measurement.md)
+  : Show peptide mass measurement
+- [`show_quality_control_data()`](https://hadexversum.github.io/HaDeX2/reference/show_quality_control_data.md)
+  : Show quality control data
+- [`show_replicate_histogram_data()`](https://hadexversum.github.io/HaDeX2/reference/show_replicate_histogram_data.md)
+  : Show replicate data
+- [`show_summary_data()`](https://hadexversum.github.io/HaDeX2/reference/show_summary_data.md)
+  : Summary data
+- [`show_uc_data()`](https://hadexversum.github.io/HaDeX2/reference/show_uc_data.md)
+  : Deuterium uptake curve data
+- [`show_uptake_data()`](https://hadexversum.github.io/HaDeX2/reference/show_uptake_data.md)
+  : Deuterium uptake data
+- [`update_hdexaminer_file()`](https://hadexversum.github.io/HaDeX2/reference/update_hdexaminer_file.md)
+  : Update HDeXaminer datafile
+
+# Articles
+
+### All vignettes
+
+- [Importing
+  data](https://hadexversum.github.io/HaDeX2/articles/data_input.md):
+- [Calculations](https://hadexversum.github.io/HaDeX2/articles/datafiles.md):
+- [Example HDX-MS data
+  analysis](https://hadexversum.github.io/HaDeX2/articles/example.md):
+- [Glossary](https://hadexversum.github.io/HaDeX2/articles/glossary.md):
+- [Mass
+  calculation](https://hadexversum.github.io/HaDeX2/articles/mass_comparison.md):
+- [Quality
+  control](https://hadexversum.github.io/HaDeX2/articles/quality_control.md):
+- [Data
+  aggregation](https://hadexversum.github.io/HaDeX2/articles/transformation.md):
+- [Code usage](https://hadexversum.github.io/HaDeX2/articles/usage.md):
+- [Data
+  visualization](https://hadexversum.github.io/HaDeX2/articles/visualization.md):

@@ -171,21 +171,21 @@ peptide. The result of a measurement is in column
 - this is a geometrical centroid of an isotopic envelope - the product
 of the measurement from a mass spectrometer.</p>
 <p>Let’s take a look for values for each replicate.</p>
-<p><img src="transformation_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
+<p><img src="transformation_files/figure-html/unnamed-chunk-3-1.png" class="r-plt" width="700"></p>
 <p>The centroid values for different charge values are not useful. We
 have to transform it to the mass values, according to an equation:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>g</mi><mi>g</mi><mi>M</mi><mi>a</mi><mi>s</mi><mi>s</mi><mo>=</mo><mi>z</mi><mo>*</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>C</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo>−</mo><mi>p</mi><mi>r</mi><mi>o</mi><mi>t</mi><mi>o</mi><mi>n</mi><mi>M</mi><mi>a</mi><mi>s</mi><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex"> aggMass = z*(Center - protonMass)</annotation></semantics></math>
 The results are shown below.</p>
-<p><img src="transformation_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
+<p><img src="transformation_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" width="700"></p>
 <p>This results are just for one repetition. We have four of them:</p>
-<p><img src="transformation_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+<p><img src="transformation_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" width="700"></p>
 <p>Values from each replicate are aggregated into one value, using
 weighted mean (with intensity value as weight):</p>
-<p><img src="transformation_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
+<p><img src="transformation_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" width="700"></p>
 <p>The results from replicates are aggregated into the final result
 (mean), and the uncertainty (standard deviation of the mean) is
 calculated.</p>
-<p><img src="transformation_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
+<p><img src="transformation_files/figure-html/unnamed-chunk-7-1.png" class="r-plt" width="700"></p>
 <p>Now we have the mass value for chosen peptide in the chosen state,
 measured in the chosen time point. This calculation is done for every
 other peptide, and these values of mass and uncertainty are used in the
@@ -202,7 +202,7 @@ calculation of deuterium uptake, as described in the
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>
