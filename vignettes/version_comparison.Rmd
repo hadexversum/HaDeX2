@@ -1,0 +1,96 @@
+---
+title: "Comparison between versions"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    number_sections: true
+    always_allow_html: yes
+bibliography: HDX.bib
+vignette: >
+  %\VignetteIndexEntry{Comparison between versions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This article discuss differences between the first version of HaDeX, and the current version of the package and web-server. As the second version is significantly more complex than the previous one, we ultimately decided against expanding the first version. Instead we created a new entity. But how are they different?
+
+# Functionalities
+
+Let us start by discussing methods of visualization:
+
+```{r echo = FALSE}
+data.frame(plot_type = c("comparison", "woods", 
+                     "uptake curve", "diff uptake curve", 
+                     "butterfly", "diff butterfly", 
+                     "chiclet", "diff chiclet", 
+                     "heatmap", "diff heatmap", 
+                     "3D structure",
+                     "volcano", 
+                     "manhattan",
+                     "uncertainty",
+                     "coverage", "coverage heatmap",
+                     "measurement variablity", "mass uptake curve"),
+           HaDeX = c(TRUE, TRUE, 
+                     TRUE, FALSE,
+                     FALSE, FALSE,
+                     FALSE, FALSE,
+                     FALSE, FALSE,
+                     FALSE, 
+                     FALSE, 
+                     FALSE, 
+                     FALSE, 
+                     TRUE, FALSE, 
+                     FALSE, FALSE),
+           HaDeX2 = c(TRUE, TRUE,
+                      TRUE, TRUE,
+                      TRUE, TRUE, 
+                      TRUE, TRUE,
+                      TRUE, TRUE,
+                      TRUE,
+                      TRUE,
+                      TRUE,
+                      TRUE,
+                      TRUE, TRUE, 
+                      TRUE, TRUE)
+           )
+```
+
+
+
+# Package functions
+
+Finally, let's take a look at package functions from HaDeX2 and see if there is a similar function in HaDeX (even under different name)
+
+```{r echo=FALSE}
+data.frame(HaDeX2 = c("add_stat_dependency", "calculate_aggregated_diff_uptake", "calculate_aggregated_test_results", "calculate_aggregated_uptake", "calculate_auc", "calculate_back_exchange", "calculate_confidence_limit_values", "calculate_diff_uptake", "calculate_exp_masses", "calculate_exp_masses_per_replicate", "calculate_kinetics", "calculate_MHP", "calculate_p_value", "calculate_peptide_kinetics", "calculate_state_uptake", "create_aggregated_diff_uptake_dataset", "create_aggregated_uptake_dataset", "create_control_dataset", "create_diff_uptake_dataset", "create_kinetic_dataset", "create_overlap_distribution_dataset", "create_p_diff_uptake_dataset", 
+"create_p_diff_uptake_dataset_with_confidence", "quality_control_dataset", "create_replicate_dataset", "create_state_comparison_dataset", "create_state_uptake_dataset", "create_uptake_dataset", "get_n_replicates", "get_peptide_sequence", "get_protein_coverage", 
+"get_protein_redundancy", "get_replicate_list_sd", "get_residue_positions", "get_structure_color", 
+"HaDeX_GUI", "HaDeXify", "install_GUI", "plot_aggregated_differential_uptake",  "plot_aggregated_uptake", "plot_aggregated_uptake_structure", "plot_amino_distribution", 
+"plot_butterfly", "plot_chiclet", "plot_coverage", "plot_coverage_heatmap", 
+"plot_differential", "plot_differential_butterfly", "plot_differential_chiclet",   
+"plot_differential_uptake_curve", "plot_manhattan", "plot_overlap", "plot_overlap_distribution", "plot_peptide_charge_measurement", "plot_peptide_mass_measurement", "plot_position_frequency", "plot_quality_control", "plot_replicate_histogram", "plot_replicate_mass_uptake", "plot_state_comparison", "plot_uncertainty", "plot_uptake_curve", "plot_volcano", "prepare_hdxviewer_export", "read_hdx", "reconstruct_sequence", "show_aggregated_uptake_data", 
+"show_coverage_heatmap_data", "show_diff_uptake_data", "show_diff_uptake_data_confidence", "show_overlap_data", "show_p_diff_uptake_data", "show_peptide_charge_measurement", "show_peptide_mass_measurement", "show_quality_control_data", "show_replicate_histogram_data", "show_summary_data", "show_uc_data", "show_uptake_data", "update_hdexaminer_file"),
+HaDeX = c("add_stat_dependency", NA, NA,NA, NA, NA, "calculate_confidence_limit_values", NA, NA, NA, "calculate_kinetics",
+NA, NA, NA, NA, NA, NA, NA, NA, NA, 
+
+NA, NA, NA, NA, NA, NA, "calculate_state_deuteration", NA, NA, NA,
+NA, NA, NA, NA, NA, "HaDeX_gui", NA, NA, NA, NA,
+NA, NA, NA, NA, "plot_coverage", NA, "woods_plot", NA, NA, NA,
+NA, NA, "plot_position_frequency", NA, NA, NA, NA, NA, NA, "comparison_plot",
+
+NA, "plot_kinetics", NA, NA, "read_hdx", "reconstruct_sequence", NA, NA, NA, NA,
+NA, NA, NA, NA, NA, NA, NA, NA, NA, NA))
+
+
+```
+For pairs of functions, we can conduct the analysis of speed using our exemplary data.
+
+
+# Calculation speeds compared
+
+Now we establish the common functionalities for both versions of the package. Using our exemplary data set, we will check the calculation times.
+
