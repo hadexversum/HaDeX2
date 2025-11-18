@@ -17,3 +17,4 @@ vignettes/*.R
 .Renviron
 docs
 inst/doc
+inst/example.pdf
