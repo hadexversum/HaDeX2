@@ -15,5 +15,7 @@
 - [Data
   aggregation](https://hadexversum.github.io/HaDeX2/articles/transformation.md):
 - [Code usage](https://hadexversum.github.io/HaDeX2/articles/usage.md):
+- [Comparison between
+  versions](https://hadexversum.github.io/HaDeX2/articles/version_comparison.md):
 - [Data
   visualization](https://hadexversum.github.io/HaDeX2/articles/visualization.md):
