@@ -6,9 +6,10 @@ is significantly more complex than the previous one, we ultimately
 decided against expanding the first version. Instead we created a new
 entity. But how are they different?
 
-## Functionalities
+## Methods of visualization
 
-Let us start by discussing methods of visualization:
+Let’s start by discussing methods of visualization available in the
+packages and web-servers:
 
     ##                 plot_type HaDeX HaDeX2
     ## 1              comparison  TRUE   TRUE
@@ -29,6 +30,26 @@ Let us start by discussing methods of visualization:
     ## 16       coverage heatmap FALSE   TRUE
     ## 17 measurement variablity FALSE   TRUE
     ## 18      mass uptake curve FALSE   TRUE
+
+## Web-server features
+
+Let’s see how the features in web-servers differ.
+
+    ##                     option HaDeX HaDeX2
+    ## 1                 tooltips  TRUE   TRUE
+    ## 2                  helpers  TRUE   TRUE
+    ## 3             tabular data  TRUE   TRUE
+    ## 4 times next to each other FALSE   TRUE
+    ## 5 export to external tools FALSE   TRUE
+
+In the table there are shortened names. *Tabular data* means that the
+tabular data is available for the plot. *Times next to each other* means
+the option of showing all time point data in two forms: one plot or
+smaller plots next to each other for time point separately. *Export to
+external tools* means an option to dowload data for tools such as
+HDXViewer or ChimeraX.
+
+Moreover, in HaDeX2 more visualization options are available.
 
 ## Package functions
 
@@ -206,3 +227,106 @@ exemplary data.
 Now we establish the common functionalities for both versions of the
 package. Using our exemplary data set, we will check the calculation
 times.
+
+Here, I use outputs produced outside of this article, as I need to
+compare two packages with the same name.
+
+### Reading a file
+
+#### HaDeX
+
+Unit: milliseconds expr dat \<-
+read_hdx(“C:\\Users\\User\\Desktop\\alpha dane\\alpha_cut.csv”)
+
+      min       lq      mean   median        uq      max neval
+
+28.0388 29.1341 32.51439 29.7644 31.62845 171.7444 100
+
+#### HaDeX2
+
+Unit: milliseconds expr dat \<-
+read_hdx(“C:\\Users\\User\\Desktop\\alpha dane\\alpha_cut.csv”)
+
+     min       lq     mean  median        uq      max neval
+
+91.6636 93.69305 99.43469 95.7432 102.23875 247.0202 100
+
+#### Results
+
+Both packages have a same-called read_hdx function. However, the backend
+of HaDeX2 is way more complex as there is a specific data class used,
+and several additional check resulting in the speed of reading and
+processing a file.
+
+### Ploting a deuterium uptake curve for one state
+
+#### HaDeX
+
+Unit: milliseconds expr plt_uc \<- dat %\>% calculate_kinetics(sequence
+= “GFGDLKSPAGL”, state = “Alpha_KSCN”, start = 1, end = 11, time_in = 0,
+time_out = 1440) %\>% plot_kinetics()
+
+    min       lq      mean   median        uq      max neval
+
+136.4894 146.8239 150.48729 150.3550 154.47640 163.5035 100
+
+#### HaDeX2
+
+Unit: milliseconds expr plt_uc \<- dat %\>%
+calculate_peptide_kinetics(sequence = “GFGDLKSPAGL”, state =
+“Alpha_KSCN”, start = 1, end = 11, time_0 = 0, time_100 = 1440) %\>%
+plot_uptake_curve()
+
+     min       lq     mean  median        uq      max neval
+
+58.4832 60.72755 66.37970 62.4120 69.29155 187.8984 100
+
+#### Results
+
+HaDeX2 plots uptake curve significantly faster.
+
+### Plotting a comparison plot
+
+#### HaDeX
+
+Unit: milliseconds
+
+expr
+
+kin_dat \<- prepare_dataset(dat = dat, in_state_first = “Alpha_KSCN_0”,
+chosen_state_first = “Alpha_KSCN_1”, out_state_first =
+“Alpha_KSCN_1440”, in_state_second = “ALPHA_Gamma_0”,
+chosen_state_second = “ALPHA_Gamma_1”, out_state_second =
+“ALPHA_Gamma_1440”)
+
+plt_comparison \<- comparison_plot(calc_dat = kin_dat, theoretical =
+FALSE, relative = TRUE, state_first = “Alpha_KSCN”, state_second =
+“ALPHA_Gamma”)
+
+      min        lq      mean    median       uq      max neval
+
+157.7022 165.72550 172.73356 170.71385 175.2435 318.6424 100 9.3999
+10.19565 12.02505 10.55955 10.9895 38.9871 100
+
+#### HaDeX2
+
+### Plotting a Woods’s plot
+
+#### HaDeX
+
+Unit: milliseconds
+
+expr
+
+kin_dat \<- prepare_dataset(dat = dat, in_state_first = “Alpha_KSCN_0”,
+chosen_state_first = “Alpha_KSCN_1”, out_state_first =
+“Alpha_KSCN_1440”, in_state_second = “ALPHA_Gamma_0”,
+chosen_state_second = “ALPHA_Gamma_1”, out_state_second =
+“ALPHA_Gamma_1440”) plt_woods \<- woods_plot(calc_dat = kin_dat,
+theoretical = FALSE, relative = TRUE, confidence_limit = 0.98,
+confidence_limit_2 = 0.98)
+
+      min       lq      mean   median        uq      max neval
+
+161.3896 167.9713 176.92851 172.3157 179.08035 326.0088 100 21.7723
+23.4672 25.36956 23.9711 24.80085 53.3279 100
