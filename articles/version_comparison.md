@@ -233,10 +233,14 @@ compare two packages with the same name.
 
 ### Reading a file
 
+This function is called only once, in the beginning of the analysis.
+Here, we use an external file to call the read_hdx function.
+
 #### HaDeX
 
-Unit: milliseconds expr dat \<-
-read_hdx(“C:\\Users\\User\\Desktop\\alpha dane\\alpha_cut.csv”)
+Unit: milliseconds expr
+
+dat \<- read_hdx(“C:\\Users\\User\\Desktop\\alpha dane\\alpha_cut.csv”)
 
       min       lq      mean   median        uq      max neval
 
@@ -244,8 +248,9 @@ read_hdx(“C:\\Users\\User\\Desktop\\alpha dane\\alpha_cut.csv”)
 
 #### HaDeX2
 
-Unit: milliseconds expr dat \<-
-read_hdx(“C:\\Users\\User\\Desktop\\alpha dane\\alpha_cut.csv”)
+Unit: milliseconds expr
+
+dat \<- read_hdx(“C:\\Users\\User\\Desktop\\alpha dane\\alpha_cut.csv”)
 
      min       lq     mean  median        uq      max neval
 
@@ -262,9 +267,13 @@ processing a file.
 
 #### HaDeX
 
-Unit: milliseconds expr plt_uc \<- dat %\>% calculate_kinetics(sequence
-= “GFGDLKSPAGL”, state = “Alpha_KSCN”, start = 1, end = 11, time_in = 0,
-time_out = 1440) %\>% plot_kinetics()
+Unit: milliseconds
+
+expr
+
+plt_uc \<- dat %\>% calculate_kinetics(sequence = “GFGDLKSPAGL”, state =
+“Alpha_KSCN”, start = 1, end = 11, time_in = 0, time_out = 1440) %\>%
+plot_kinetics()
 
     min       lq      mean   median        uq      max neval
 
@@ -272,10 +281,11 @@ time_out = 1440) %\>% plot_kinetics()
 
 #### HaDeX2
 
-Unit: milliseconds expr plt_uc \<- dat %\>%
-calculate_peptide_kinetics(sequence = “GFGDLKSPAGL”, state =
-“Alpha_KSCN”, start = 1, end = 11, time_0 = 0, time_100 = 1440) %\>%
-plot_uptake_curve()
+Unit: milliseconds
+
+expr plt_uc \<- dat %\>% calculate_peptide_kinetics(sequence =
+“GFGDLKSPAGL”, state = “Alpha_KSCN”, start = 1, end = 11, time_0 = 0,
+time_100 = 1440) %\>% plot_uptake_curve()
 
      min       lq     mean  median        uq      max neval
 
@@ -287,7 +297,7 @@ HaDeX2 plots uptake curve significantly faster.
 
 ### Plotting a comparison plot
 
-#### HaDeX
+HaDeX plots the comparison plot only for two states. \### HaDeX
 
 Unit: milliseconds
 
@@ -310,6 +320,22 @@ FALSE, relative = TRUE, state_first = “Alpha_KSCN”, state_second =
 
 #### HaDeX2
 
+Unit: milliseconds expr
+
+kin_dat \<- create_state_comparison_dataset(dat = dat, states =
+c(“Alpha_KSCN”, “ALPHA_Gamma”), time_0 = 0, time_100 = 1440)
+
+plt_comparison \<- plot_state_comparison(kin_dat, theoretical = FALSE,
+fractional = TRUE, time_t = 1) min lq mean median uq max neval 41.5048
+42.95650 46.76892 43.78060 45.16160 182.4834 100 10.8284 11.47095
+12.03373 11.78595 12.25255 21.2830 100
+
+#### Results
+
+The calculations are significantly faster in HaDeX2, but the difference
+in plotting time is resulting by new options e.q. selecting the line
+size, or interactive mode for GUI.
+
 ### Plotting a Woods’s plot
 
 #### HaDeX
@@ -330,3 +356,32 @@ confidence_limit_2 = 0.98)
 
 161.3896 167.9713 176.92851 172.3157 179.08035 326.0088 100 21.7723
 23.4672 25.36956 23.9711 24.80085 53.3279 100
+
+#### HaDeX2
+
+Unit: milliseconds
+
+expr
+
+diff_uptake_dat \<- create_diff_uptake_dataset(alpha_dat, state_1 =
+“Alpha_KSCN”, state_2 = “ALPHA_Gamma”, time_0 = 0, time_100 = 1440)
+
+plt_woods \<- plot_differential(diff_uptake_dat = diff_uptake_dat,
+time_t = 1, theoretical = FALSE, fractional = TRUE, show_houde_interval
+= TRUE, confidence_level = 0.98) min lq mean median uq max neval
+300.9806 311.9323 331.69155 316.9297 323.84895 1387.3480 100 20.9315
+22.2258 23.62265 22.9664 23.85335 33.9916 100
+
+#### Results
+
+As above, the plotting takes more time as it coping with option to
+include hybrid statistical testing, as proposed in *Hageman TS, Weis DD.
+Reliable Identification of Significant Differences in Differential
+Hydrogen Exchange-Mass Spectrometry Measurements Using a Hybrid
+Significance Testing Approach. Anal Chem. 2019 Jul 2;91(13):8008-8016.
+doi: 10.1021/acs.analchem.9b01325. Epub 2019 Jun 11. PMID: 31099554*. \#
+Conclusions
+
+The HaDeX2 package is significantly more powerful than the previous
+version. Moreover, it was rewritten for the comfort of use - as can be
+shown even by the glance of parameteres supplied to the function.

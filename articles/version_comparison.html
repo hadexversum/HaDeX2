@@ -310,19 +310,23 @@ compare two packages with the same name.</p>
 <div class="section level3">
 <h3 id="reading-a-file">Reading a file<a class="anchor" aria-label="anchor" href="#reading-a-file"></a>
 </h3>
+<p>This function is called only once, in the beginning of the analysis.
+Here, we use an external file to call the read_hdx function.</p>
 <div class="section level4">
 <h4 id="hadex">HaDeX<a class="anchor" aria-label="anchor" href="#hadex"></a>
 </h4>
-<p>Unit: milliseconds expr dat &lt;-
-read_hdx(“C:\\Users\\User\\Desktop\\alpha dane\\alpha_cut.csv”)</p>
+<p>Unit: milliseconds expr</p>
+<p>dat &lt;- read_hdx(“C:\\Users\\User\\Desktop\\alpha
+dane\\alpha_cut.csv”)</p>
 <pre><code>  min       lq      mean   median        uq      max neval</code></pre>
 <p>28.0388 29.1341 32.51439 29.7644 31.62845 171.7444 100</p>
 </div>
 <div class="section level4">
 <h4 id="hadex2">HaDeX2<a class="anchor" aria-label="anchor" href="#hadex2"></a>
 </h4>
-<p>Unit: milliseconds expr dat &lt;-
-read_hdx(“C:\\Users\\User\\Desktop\\alpha dane\\alpha_cut.csv”)</p>
+<p>Unit: milliseconds expr</p>
+<p>dat &lt;- read_hdx(“C:\\Users\\User\\Desktop\\alpha
+dane\\alpha_cut.csv”)</p>
 <pre><code> min       lq     mean  median        uq      max neval</code></pre>
 <p>91.6636 93.69305 99.43469 95.7432 102.23875 247.0202 100</p>
 </div>
@@ -341,19 +345,21 @@ processing a file.</p>
 <div class="section level4">
 <h4 id="hadex-1">HaDeX<a class="anchor" aria-label="anchor" href="#hadex-1"></a>
 </h4>
-<p>Unit: milliseconds expr plt_uc &lt;- dat %&gt;%
-calculate_kinetics(sequence = “GFGDLKSPAGL”, state = “Alpha_KSCN”, start
-= 1, end = 11, time_in = 0, time_out = 1440) %&gt;% plot_kinetics()</p>
+<p>Unit: milliseconds</p>
+<p>expr</p>
+<p>plt_uc &lt;- dat %&gt;% calculate_kinetics(sequence = “GFGDLKSPAGL”,
+state = “Alpha_KSCN”, start = 1, end = 11, time_in = 0, time_out = 1440)
+%&gt;% plot_kinetics()</p>
 <pre><code>min       lq      mean   median        uq      max neval</code></pre>
 <p>136.4894 146.8239 150.48729 150.3550 154.47640 163.5035 100</p>
 </div>
 <div class="section level4">
 <h4 id="hadex2-1">HaDeX2<a class="anchor" aria-label="anchor" href="#hadex2-1"></a>
 </h4>
-<p>Unit: milliseconds expr plt_uc &lt;- dat %&gt;%
-calculate_peptide_kinetics(sequence = “GFGDLKSPAGL”, state =
-“Alpha_KSCN”, start = 1, end = 11, time_0 = 0, time_100 = 1440) %&gt;%
-plot_uptake_curve()</p>
+<p>Unit: milliseconds</p>
+<p>expr plt_uc &lt;- dat %&gt;% calculate_peptide_kinetics(sequence =
+“GFGDLKSPAGL”, state = “Alpha_KSCN”, start = 1, end = 11, time_0 = 0,
+time_100 = 1440) %&gt;% plot_uptake_curve()</p>
 <pre><code> min       lq     mean  median        uq      max neval</code></pre>
 <p>58.4832 60.72755 66.37970 62.4120 69.29155 187.8984 100</p>
 </div>
@@ -366,9 +372,7 @@ plot_uptake_curve()</p>
 <div class="section level3">
 <h3 id="plotting-a-comparison-plot">Plotting a comparison plot<a class="anchor" aria-label="anchor" href="#plotting-a-comparison-plot"></a>
 </h3>
-<div class="section level4">
-<h4 id="hadex-2">HaDeX<a class="anchor" aria-label="anchor" href="#hadex-2"></a>
-</h4>
+<p>HaDeX plots the comparison plot only for two states. ### HaDeX</p>
 <p>Unit: milliseconds</p>
 <p>expr</p>
 <p>kin_dat &lt;- prepare_dataset(dat = dat, in_state_first =
@@ -382,17 +386,30 @@ chosen_state_second = “ALPHA_Gamma_1”, out_state_second =
 <pre><code>  min        lq      mean    median       uq      max neval</code></pre>
 <p>157.7022 165.72550 172.73356 170.71385 175.2435 318.6424 100 9.3999
 10.19565 12.02505 10.55955 10.9895 38.9871 100</p>
-</div>
 <div class="section level4">
 <h4 id="hadex2-2">HaDeX2<a class="anchor" aria-label="anchor" href="#hadex2-2"></a>
 </h4>
+<p>Unit: milliseconds expr</p>
+<p>kin_dat &lt;- create_state_comparison_dataset(dat = dat, states =
+c(“Alpha_KSCN”, “ALPHA_Gamma”), time_0 = 0, time_100 = 1440)</p>
+<p>plt_comparison &lt;- plot_state_comparison(kin_dat, theoretical =
+FALSE, fractional = TRUE, time_t = 1) min lq mean median uq max neval
+41.5048 42.95650 46.76892 43.78060 45.16160 182.4834 100 10.8284
+11.47095 12.03373 11.78595 12.25255 21.2830 100</p>
+</div>
+<div class="section level4">
+<h4 id="results-2">Results<a class="anchor" aria-label="anchor" href="#results-2"></a>
+</h4>
+<p>The calculations are significantly faster in HaDeX2, but the
+difference in plotting time is resulting by new options e.q. selecting
+the line size, or interactive mode for GUI.</p>
 </div>
 </div>
 <div class="section level3">
 <h3 id="plotting-a-woodss-plot">Plotting a Woods’s plot<a class="anchor" aria-label="anchor" href="#plotting-a-woodss-plot"></a>
 </h3>
 <div class="section level4">
-<h4 id="hadex-3">HaDeX<a class="anchor" aria-label="anchor" href="#hadex-3"></a>
+<h4 id="hadex-2">HaDeX<a class="anchor" aria-label="anchor" href="#hadex-2"></a>
 </h4>
 <p>Unit: milliseconds</p>
 <p>expr</p>
@@ -406,6 +423,33 @@ confidence_limit_2 = 0.98)</p>
 <pre><code>  min       lq      mean   median        uq      max neval</code></pre>
 <p>161.3896 167.9713 176.92851 172.3157 179.08035 326.0088 100 21.7723
 23.4672 25.36956 23.9711 24.80085 53.3279 100</p>
+</div>
+<div class="section level4">
+<h4 id="hadex2-3">HaDeX2<a class="anchor" aria-label="anchor" href="#hadex2-3"></a>
+</h4>
+<p>Unit: milliseconds</p>
+<p>expr</p>
+<p>diff_uptake_dat &lt;- create_diff_uptake_dataset(alpha_dat, state_1 =
+“Alpha_KSCN”, state_2 = “ALPHA_Gamma”, time_0 = 0, time_100 = 1440)</p>
+<p>plt_woods &lt;- plot_differential(diff_uptake_dat = diff_uptake_dat,
+time_t = 1, theoretical = FALSE, fractional = TRUE, show_houde_interval
+= TRUE, confidence_level = 0.98) min lq mean median uq max neval
+300.9806 311.9323 331.69155 316.9297 323.84895 1387.3480 100 20.9315
+22.2258 23.62265 22.9664 23.85335 33.9916 100</p>
+</div>
+<div class="section level4">
+<h4 id="results-3">Results<a class="anchor" aria-label="anchor" href="#results-3"></a>
+</h4>
+<p>As above, the plotting takes more time as it coping with option to
+include hybrid statistical testing, as proposed in <em>Hageman TS, Weis
+DD. Reliable Identification of Significant Differences in Differential
+Hydrogen Exchange-Mass Spectrometry Measurements Using a Hybrid
+Significance Testing Approach. Anal Chem. 2019 Jul 2;91(13):8008-8016.
+doi: 10.1021/acs.analchem.9b01325. Epub 2019 Jun 11. PMID:
+31099554</em>. # Conclusions</p>
+<p>The HaDeX2 package is significantly more powerful than the previous
+version. Moreover, it was rewritten for the comfort of use - as can be
+shown even by the glance of parameteres supplied to the function.</p>
 </div>
 </div>
 </div>
