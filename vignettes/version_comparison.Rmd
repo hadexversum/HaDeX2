@@ -23,7 +23,7 @@ This article discuss differences between the first version of HaDeX, and the cur
 Let's start by discussing methods of visualization available in the packages and web-servers:
 
 ```{r echo = FALSE}
-data.frame(plot_type = c("comparison", "woods", 
+knitr::kable(data.frame(plot_type = c("comparison", "woods", 
                      "uptake curve", "diff uptake curve", 
                      "butterfly", "diff butterfly", 
                      "chiclet", "diff chiclet", 
@@ -56,7 +56,7 @@ data.frame(plot_type = c("comparison", "woods",
                       TRUE,
                       TRUE, TRUE, 
                       TRUE, TRUE)
-           )
+           ))
 ```
 
 # Web-server features
@@ -64,9 +64,9 @@ data.frame(plot_type = c("comparison", "woods",
 Let's see how the features in web-servers differ.
 
 ```{r echo=FALSE}
-data.frame(option = c("tooltips", "helpers", "tabular data", "times next to each other", "export to external tools"),
+knitr::kable(data.frame(option = c("tooltips", "helpers", "tabular data", "times next to each other", "export to external tools"),
            HaDeX = c(TRUE, TRUE, TRUE, FALSE, FALSE), 
-           HaDeX2 = c(TRUE, TRUE, TRUE, TRUE, TRUE))
+           HaDeX2 = c(TRUE, TRUE, TRUE, TRUE, TRUE)))
 ```
 
 In the table there are shortened names. *Tabular data* means that the tabular data is available for the plot. *Times next to each other* means the option of showing all time point data in two forms: one plot or smaller plots next to each other for time point separately. *Export to external tools* means an option to dowload data for tools such as HDXViewer or ChimeraX.
@@ -78,7 +78,7 @@ Moreover, in HaDeX2 more visualization options are available.
 Finally, let's take a look at package functions from HaDeX2 and see if there is a similar function in HaDeX (even under different name)
 
 ```{r echo=FALSE}
-data.frame(HaDeX2 = c("add_stat_dependency", "calculate_aggregated_diff_uptake", "calculate_aggregated_test_results", "calculate_aggregated_uptake", "calculate_auc", "calculate_back_exchange", "calculate_confidence_limit_values", "calculate_diff_uptake", "calculate_exp_masses", "calculate_exp_masses_per_replicate", "calculate_kinetics", "calculate_MHP", "calculate_p_value", "calculate_peptide_kinetics", "calculate_state_uptake", "create_aggregated_diff_uptake_dataset", "create_aggregated_uptake_dataset", "create_control_dataset", "create_diff_uptake_dataset", "create_kinetic_dataset", "create_overlap_distribution_dataset", "create_p_diff_uptake_dataset", 
+knitr::kable(data.frame(HaDeX2 = c("add_stat_dependency", "calculate_aggregated_diff_uptake", "calculate_aggregated_test_results", "calculate_aggregated_uptake", "calculate_auc", "calculate_back_exchange", "calculate_confidence_limit_values", "calculate_diff_uptake", "calculate_exp_masses", "calculate_exp_masses_per_replicate", "calculate_kinetics", "calculate_MHP", "calculate_p_value", "calculate_peptide_kinetics", "calculate_state_uptake", "create_aggregated_diff_uptake_dataset", "create_aggregated_uptake_dataset", "create_control_dataset", "create_diff_uptake_dataset", "create_kinetic_dataset", "create_overlap_distribution_dataset", "create_p_diff_uptake_dataset", 
 "create_p_diff_uptake_dataset_with_confidence", "quality_control_dataset", "create_replicate_dataset", "create_state_comparison_dataset", "create_state_uptake_dataset", "create_uptake_dataset", "get_n_replicates", "get_peptide_sequence", "get_protein_coverage", 
 "get_protein_redundancy", "get_replicate_list_sd", "get_residue_positions", "get_structure_color", 
 "HaDeX_GUI", "HaDeXify", "install_GUI", "plot_aggregated_differential_uptake",  "plot_aggregated_uptake", "plot_aggregated_uptake_structure", "plot_amino_distribution", 
@@ -95,7 +95,7 @@ NA, NA, NA, NA, "plot_coverage", NA, "woods_plot", NA, NA, NA,
 NA, NA, "plot_position_frequency", NA, NA, NA, NA, NA, NA, "comparison_plot",
 
 NA, "plot_kinetics", NA, NA, "read_hdx", "reconstruct_sequence", NA, NA, NA, NA,
-NA, NA, NA, NA, NA, NA, NA, NA, NA, NA))
+NA, NA, NA, NA, NA, NA, NA, NA, NA, NA)))
 
 
 ```
