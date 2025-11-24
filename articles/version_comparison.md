@@ -11,36 +11,38 @@ entity. But how are they different?
 Let’s start by discussing methods of visualization available in the
 packages and web-servers:
 
-    ##                 plot_type HaDeX HaDeX2
-    ## 1              comparison  TRUE   TRUE
-    ## 2                   woods  TRUE   TRUE
-    ## 3            uptake curve  TRUE   TRUE
-    ## 4       diff uptake curve FALSE   TRUE
-    ## 5               butterfly FALSE   TRUE
-    ## 6          diff butterfly FALSE   TRUE
-    ## 7                 chiclet FALSE   TRUE
-    ## 8            diff chiclet FALSE   TRUE
-    ## 9                 heatmap FALSE   TRUE
-    ## 10           diff heatmap FALSE   TRUE
-    ## 11           3D structure FALSE   TRUE
-    ## 12                volcano FALSE   TRUE
-    ## 13              manhattan FALSE   TRUE
-    ## 14            uncertainty FALSE   TRUE
-    ## 15               coverage  TRUE   TRUE
-    ## 16       coverage heatmap FALSE   TRUE
-    ## 17 measurement variablity FALSE   TRUE
-    ## 18      mass uptake curve FALSE   TRUE
+| plot_type              | HaDeX | HaDeX2 |
+|:-----------------------|:------|:-------|
+| comparison             | TRUE  | TRUE   |
+| woods                  | TRUE  | TRUE   |
+| uptake curve           | TRUE  | TRUE   |
+| diff uptake curve      | FALSE | TRUE   |
+| butterfly              | FALSE | TRUE   |
+| diff butterfly         | FALSE | TRUE   |
+| chiclet                | FALSE | TRUE   |
+| diff chiclet           | FALSE | TRUE   |
+| heatmap                | FALSE | TRUE   |
+| diff heatmap           | FALSE | TRUE   |
+| 3D structure           | FALSE | TRUE   |
+| volcano                | FALSE | TRUE   |
+| manhattan              | FALSE | TRUE   |
+| uncertainty            | FALSE | TRUE   |
+| coverage               | TRUE  | TRUE   |
+| coverage heatmap       | FALSE | TRUE   |
+| measurement variablity | FALSE | TRUE   |
+| mass uptake curve      | FALSE | TRUE   |
 
 ## Web-server features
 
 Let’s see how the features in web-servers differ.
 
-    ##                     option HaDeX HaDeX2
-    ## 1                 tooltips  TRUE   TRUE
-    ## 2                  helpers  TRUE   TRUE
-    ## 3             tabular data  TRUE   TRUE
-    ## 4 times next to each other FALSE   TRUE
-    ## 5 export to external tools FALSE   TRUE
+| option                   | HaDeX | HaDeX2 |
+|:-------------------------|:------|:-------|
+| tooltips                 | TRUE  | TRUE   |
+| helpers                  | TRUE  | TRUE   |
+| tabular data             | TRUE  | TRUE   |
+| times next to each other | FALSE | TRUE   |
+| export to external tools | FALSE | TRUE   |
 
 In the table there are shortened names. *Tabular data* means that the
 tabular data is available for the plot. *Times next to each other* means
@@ -56,168 +58,88 @@ Moreover, in HaDeX2 more visualization options are available.
 Finally, let’s take a look at package functions from HaDeX2 and see if
 there is a similar function in HaDeX (even under different name)
 
-    ##                                          HaDeX2
-    ## 1                           add_stat_dependency
-    ## 2              calculate_aggregated_diff_uptake
-    ## 3             calculate_aggregated_test_results
-    ## 4                   calculate_aggregated_uptake
-    ## 5                                 calculate_auc
-    ## 6                       calculate_back_exchange
-    ## 7             calculate_confidence_limit_values
-    ## 8                         calculate_diff_uptake
-    ## 9                          calculate_exp_masses
-    ## 10           calculate_exp_masses_per_replicate
-    ## 11                           calculate_kinetics
-    ## 12                                calculate_MHP
-    ## 13                            calculate_p_value
-    ## 14                   calculate_peptide_kinetics
-    ## 15                       calculate_state_uptake
-    ## 16        create_aggregated_diff_uptake_dataset
-    ## 17             create_aggregated_uptake_dataset
-    ## 18                       create_control_dataset
-    ## 19                   create_diff_uptake_dataset
-    ## 20                       create_kinetic_dataset
-    ## 21          create_overlap_distribution_dataset
-    ## 22                 create_p_diff_uptake_dataset
-    ## 23 create_p_diff_uptake_dataset_with_confidence
-    ## 24                      quality_control_dataset
-    ## 25                     create_replicate_dataset
-    ## 26              create_state_comparison_dataset
-    ## 27                  create_state_uptake_dataset
-    ## 28                        create_uptake_dataset
-    ## 29                             get_n_replicates
-    ## 30                         get_peptide_sequence
-    ## 31                         get_protein_coverage
-    ## 32                       get_protein_redundancy
-    ## 33                        get_replicate_list_sd
-    ## 34                        get_residue_positions
-    ## 35                          get_structure_color
-    ## 36                                    HaDeX_GUI
-    ## 37                                     HaDeXify
-    ## 38                                  install_GUI
-    ## 39          plot_aggregated_differential_uptake
-    ## 40                       plot_aggregated_uptake
-    ## 41             plot_aggregated_uptake_structure
-    ## 42                      plot_amino_distribution
-    ## 43                               plot_butterfly
-    ## 44                                 plot_chiclet
-    ## 45                                plot_coverage
-    ## 46                        plot_coverage_heatmap
-    ## 47                            plot_differential
-    ## 48                  plot_differential_butterfly
-    ## 49                    plot_differential_chiclet
-    ## 50               plot_differential_uptake_curve
-    ## 51                               plot_manhattan
-    ## 52                                 plot_overlap
-    ## 53                    plot_overlap_distribution
-    ## 54              plot_peptide_charge_measurement
-    ## 55                plot_peptide_mass_measurement
-    ## 56                      plot_position_frequency
-    ## 57                         plot_quality_control
-    ## 58                     plot_replicate_histogram
-    ## 59                   plot_replicate_mass_uptake
-    ## 60                        plot_state_comparison
-    ## 61                             plot_uncertainty
-    ## 62                            plot_uptake_curve
-    ## 63                                 plot_volcano
-    ## 64                     prepare_hdxviewer_export
-    ## 65                                     read_hdx
-    ## 66                         reconstruct_sequence
-    ## 67                  show_aggregated_uptake_data
-    ## 68                   show_coverage_heatmap_data
-    ## 69                        show_diff_uptake_data
-    ## 70             show_diff_uptake_data_confidence
-    ## 71                            show_overlap_data
-    ## 72                      show_p_diff_uptake_data
-    ## 73              show_peptide_charge_measurement
-    ## 74                show_peptide_mass_measurement
-    ## 75                    show_quality_control_data
-    ## 76                show_replicate_histogram_data
-    ## 77                            show_summary_data
-    ## 78                                 show_uc_data
-    ## 79                             show_uptake_data
-    ## 80                       update_hdexaminer_file
-    ##                                HaDeX
-    ## 1                add_stat_dependency
-    ## 2                               <NA>
-    ## 3                               <NA>
-    ## 4                               <NA>
-    ## 5                               <NA>
-    ## 6                               <NA>
-    ## 7  calculate_confidence_limit_values
-    ## 8                               <NA>
-    ## 9                               <NA>
-    ## 10                              <NA>
-    ## 11                calculate_kinetics
-    ## 12                              <NA>
-    ## 13                              <NA>
-    ## 14                              <NA>
-    ## 15                              <NA>
-    ## 16                              <NA>
-    ## 17                              <NA>
-    ## 18                              <NA>
-    ## 19                              <NA>
-    ## 20                              <NA>
-    ## 21                              <NA>
-    ## 22                              <NA>
-    ## 23                              <NA>
-    ## 24                              <NA>
-    ## 25                              <NA>
-    ## 26                              <NA>
-    ## 27       calculate_state_deuteration
-    ## 28                              <NA>
-    ## 29                              <NA>
-    ## 30                              <NA>
-    ## 31                              <NA>
-    ## 32                              <NA>
-    ## 33                              <NA>
-    ## 34                              <NA>
-    ## 35                              <NA>
-    ## 36                         HaDeX_gui
-    ## 37                              <NA>
-    ## 38                              <NA>
-    ## 39                              <NA>
-    ## 40                              <NA>
-    ## 41                              <NA>
-    ## 42                              <NA>
-    ## 43                              <NA>
-    ## 44                              <NA>
-    ## 45                     plot_coverage
-    ## 46                              <NA>
-    ## 47                        woods_plot
-    ## 48                              <NA>
-    ## 49                              <NA>
-    ## 50                              <NA>
-    ## 51                              <NA>
-    ## 52                              <NA>
-    ## 53           plot_position_frequency
-    ## 54                              <NA>
-    ## 55                              <NA>
-    ## 56                              <NA>
-    ## 57                              <NA>
-    ## 58                              <NA>
-    ## 59                              <NA>
-    ## 60                   comparison_plot
-    ## 61                              <NA>
-    ## 62                     plot_kinetics
-    ## 63                              <NA>
-    ## 64                              <NA>
-    ## 65                          read_hdx
-    ## 66              reconstruct_sequence
-    ## 67                              <NA>
-    ## 68                              <NA>
-    ## 69                              <NA>
-    ## 70                              <NA>
-    ## 71                              <NA>
-    ## 72                              <NA>
-    ## 73                              <NA>
-    ## 74                              <NA>
-    ## 75                              <NA>
-    ## 76                              <NA>
-    ## 77                              <NA>
-    ## 78                              <NA>
-    ## 79                              <NA>
-    ## 80                              <NA>
+| HaDeX2                                       | HaDeX                             |
+|:---------------------------------------------|:----------------------------------|
+| add_stat_dependency                          | add_stat_dependency               |
+| calculate_aggregated_diff_uptake             | NA                                |
+| calculate_aggregated_test_results            | NA                                |
+| calculate_aggregated_uptake                  | NA                                |
+| calculate_auc                                | NA                                |
+| calculate_back_exchange                      | NA                                |
+| calculate_confidence_limit_values            | calculate_confidence_limit_values |
+| calculate_diff_uptake                        | NA                                |
+| calculate_exp_masses                         | NA                                |
+| calculate_exp_masses_per_replicate           | NA                                |
+| calculate_kinetics                           | calculate_kinetics                |
+| calculate_MHP                                | NA                                |
+| calculate_p_value                            | NA                                |
+| calculate_peptide_kinetics                   | NA                                |
+| calculate_state_uptake                       | NA                                |
+| create_aggregated_diff_uptake_dataset        | NA                                |
+| create_aggregated_uptake_dataset             | NA                                |
+| create_control_dataset                       | NA                                |
+| create_diff_uptake_dataset                   | NA                                |
+| create_kinetic_dataset                       | NA                                |
+| create_overlap_distribution_dataset          | NA                                |
+| create_p_diff_uptake_dataset                 | NA                                |
+| create_p_diff_uptake_dataset_with_confidence | NA                                |
+| quality_control_dataset                      | NA                                |
+| create_replicate_dataset                     | NA                                |
+| create_state_comparison_dataset              | NA                                |
+| create_state_uptake_dataset                  | calculate_state_deuteration       |
+| create_uptake_dataset                        | NA                                |
+| get_n_replicates                             | NA                                |
+| get_peptide_sequence                         | NA                                |
+| get_protein_coverage                         | NA                                |
+| get_protein_redundancy                       | NA                                |
+| get_replicate_list_sd                        | NA                                |
+| get_residue_positions                        | NA                                |
+| get_structure_color                          | NA                                |
+| HaDeX_GUI                                    | HaDeX_gui                         |
+| HaDeXify                                     | NA                                |
+| install_GUI                                  | NA                                |
+| plot_aggregated_differential_uptake          | NA                                |
+| plot_aggregated_uptake                       | NA                                |
+| plot_aggregated_uptake_structure             | NA                                |
+| plot_amino_distribution                      | NA                                |
+| plot_butterfly                               | NA                                |
+| plot_chiclet                                 | NA                                |
+| plot_coverage                                | plot_coverage                     |
+| plot_coverage_heatmap                        | NA                                |
+| plot_differential                            | woods_plot                        |
+| plot_differential_butterfly                  | NA                                |
+| plot_differential_chiclet                    | NA                                |
+| plot_differential_uptake_curve               | NA                                |
+| plot_manhattan                               | NA                                |
+| plot_overlap                                 | NA                                |
+| plot_overlap_distribution                    | plot_position_frequency           |
+| plot_peptide_charge_measurement              | NA                                |
+| plot_peptide_mass_measurement                | NA                                |
+| plot_position_frequency                      | NA                                |
+| plot_quality_control                         | NA                                |
+| plot_replicate_histogram                     | NA                                |
+| plot_replicate_mass_uptake                   | NA                                |
+| plot_state_comparison                        | comparison_plot                   |
+| plot_uncertainty                             | NA                                |
+| plot_uptake_curve                            | plot_kinetics                     |
+| plot_volcano                                 | NA                                |
+| prepare_hdxviewer_export                     | NA                                |
+| read_hdx                                     | read_hdx                          |
+| reconstruct_sequence                         | reconstruct_sequence              |
+| show_aggregated_uptake_data                  | NA                                |
+| show_coverage_heatmap_data                   | NA                                |
+| show_diff_uptake_data                        | NA                                |
+| show_diff_uptake_data_confidence             | NA                                |
+| show_overlap_data                            | NA                                |
+| show_p_diff_uptake_data                      | NA                                |
+| show_peptide_charge_measurement              | NA                                |
+| show_peptide_mass_measurement                | NA                                |
+| show_quality_control_data                    | NA                                |
+| show_replicate_histogram_data                | NA                                |
+| show_summary_data                            | NA                                |
+| show_uc_data                                 | NA                                |
+| show_uptake_data                             | NA                                |
+| update_hdexaminer_file                       | NA                                |
 
 For pairs of functions, we can conduct the analysis of speed using our
 exemplary data.
