@@ -14,6 +14,10 @@ vignette: >
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+library(HaDeX)
+library(microbenchmark)
+library(dplyr)
 ```
 
 This article discuss differences between the first version of HaDeX, and the current version of the package and web-server. As the second version is significantly more complex than the previous one, we ultimately decided against expanding the first version. Instead we created a new entity. But how are they different?
@@ -126,13 +130,22 @@ dat <- read_hdx("C:\\\\Users\\\\User\\\\Desktop\\\\alpha dane\\\\alpha_cut.csv")
  
 ### HaDeX2
 
-Unit: milliseconds
-                                                                         expr
-                                                                         
-dat <- read_hdx("C:\\\\Users\\\\User\\\\Desktop\\\\alpha dane\\\\alpha_cut.csv")
 
-     min       lq     mean  median        uq      max neval
- 91.6636 93.69305 99.43469 95.7432 102.23875 247.0202   100
+```{r message=FALSE}
+microbenchmark(
+  
+  dat <- HaDeX::read_hdx("C:\\\\Users\\\\User\\\\Desktop\\\\alpha dane\\\\alpha_cut.csv")
+
+)
+```
+
+<!-- Unit: milliseconds -->
+<!--                                                                          expr -->
+
+<!-- dat <- read_hdx("C:\\\\Users\\\\User\\\\Desktop\\\\alpha dane\\\\alpha_cut.csv") -->
+
+<!--      min       lq     mean  median        uq      max neval -->
+<!--  91.6636 93.69305 99.43469 95.7432 102.23875 247.0202   100 -->
 
  
 ### Results
@@ -154,14 +167,28 @@ plt_uc <- dat %>% calculate_kinetics(sequence = "GFGDLKSPAGL",      state = "Alp
                                                                                                 
 ### HaDeX2
 
-Unit: milliseconds
 
-expr
-plt_uc <- dat %>% calculate_peptide_kinetics(sequence = "GFGDLKSPAGL",      state = "Alpha_KSCN", start = 1, end = 11, time_0 = 0, time_100 = 1440) %>%      plot_uptake_curve()
+```{r}
+microbenchmark(
+  
+  plt_uc <- dat %>% 
+    HaDeX::calculate_peptide_kinetics(sequence = "GFGDLKSPAGL",      
+                               state = "Alpha_KSCN", 
+                               start = 1, end = 11, 
+                               time_0 = 0, time_100 = 1440) %>%      
+    HaDeX::plot_uptake_curve()
 
-     min       lq     mean  median        uq      max neval
- 58.4832 60.72755 66.37970 62.4120  69.29155 187.8984   100
- 
+  
+)
+```
+
+<!-- Unit: milliseconds -->
+
+<!-- expr -->
+
+<!--      min       lq     mean  median        uq      max neval -->
+<!--  58.4832 60.72755 66.37970 62.4120  69.29155 187.8984   100 -->
+
 ### Results
 
 HaDeX2 plots uptake curve significantly faster.
@@ -185,15 +212,28 @@ plt_comparison <- comparison_plot(calc_dat = kin_dat, theoretical = FALSE,      
 
 ### HaDeX2
 
-Unit: milliseconds
-                                                                         expr
-                                                                         
- kin_dat <- create_state_comparison_dataset(dat = dat, states = c("Alpha_KSCN",      "ALPHA_Gamma"), time_0 = 0, time_100 = 1440)
+```{r}
+microbenchmark(
+  
+  create_state_comparison_dataset(dat = dat, 
+                                             states = c("Alpha_KSCN", "ALPHA_Gamma"), 
+                                             time_0 = 0, time_100 = 1440) %>%
+  plot_state_comparison(uptake_dat = ., 
+                                          theoretical = FALSE,      
+                                          fractional = TRUE, 
+                                          time_t = 1)
+  
+)
+```
 
-plt_comparison <- plot_state_comparison(kin_dat, theoretical = FALSE,      fractional = TRUE, time_t = 1)
-     min       lq     mean   median       uq      max neval
- 41.5048 42.95650 46.76892 43.78060 45.16160 182.4834   100
- 10.8284 11.47095 12.03373 11.78595 12.25255  21.2830   100
+
+<!-- Unit: milliseconds -->
+<!--                                                                          expr -->
+
+
+<!--      min       lq     mean   median       uq      max neval -->
+<!--  41.5048 42.95650 46.76892 43.78060 45.16160 182.4834   100 -->
+<!--  10.8284 11.47095 12.03373 11.78595 12.25255  21.2830   100 -->
 
 ### Results
 
@@ -216,20 +256,41 @@ kin_dat <- prepare_dataset(dat = dat, in_state_first = "Alpha_KSCN_0",      chos
 
 ### HaDeX2
 
-Unit: milliseconds
+```{r}
 
-expr
+microbenchmark(
+  
+  
+  diff_uptake_dat <- create_diff_uptake_dataset(dat, 
+                                                state_1 = "Alpha_KSCN",      
+                                                state_2 = "ALPHA_Gamma", 
+                                                time_0 = 0, time_100 = 1440) %>%   plot_differential(diff_uptake_dat = .,      
+                                 time_t = 1, 
+                                 theoretical = FALSE, 
+                                 fractional = TRUE, 
+                                 show_houde_interval = TRUE,      
+                                 confidence_level = 0.98)
+  
+)
+```
 
-diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat, state_1 = "Alpha_KSCN",      state_2 = "ALPHA_Gamma", time_0 = 0, time_100 = 1440)
 
-plt_woods <- plot_differential(diff_uptake_dat = diff_uptake_dat,      time_t = 1, theoretical = FALSE, fractional = TRUE, show_houde_interval = TRUE,      confidence_level = 0.98)
-      min       lq      mean   median        uq       max neval
- 300.9806 311.9323 331.69155 316.9297 323.84895 1387.3480   100
-  20.9315  22.2258  23.62265  22.9664  23.85335   33.9916   100
+<!-- Unit: milliseconds -->
+
+<!-- expr -->
+
+<!-- diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat, state_1 = "Alpha_KSCN",      state_2 = "ALPHA_Gamma", time_0 = 0, time_100 = 1440) -->
+
+<!-- plt_woods <- plot_differential(diff_uptake_dat = diff_uptake_dat,      time_t = 1, theoretical = FALSE, fractional = TRUE, show_houde_interval = TRUE,      confidence_level = 0.98) -->
+<!--       min       lq      mean   median        uq       max neval -->
+<!--  300.9806 311.9323 331.69155 316.9297 323.84895 1387.3480   100 -->
+<!--   20.9315  22.2258  23.62265  22.9664  23.85335   33.9916   100 -->
 
 ### Results 
 
 As above, the plotting takes more time as it coping with option to include hybrid statistical testing, as proposed in *Hageman TS, Weis DD. Reliable Identification of Significant Differences in Differential Hydrogen Exchange-Mass Spectrometry Measurements Using a Hybrid Significance Testing Approach. Anal Chem. 2019 Jul 2;91(13):8008-8016. doi: 10.1021/acs.analchem.9b01325. Epub 2019 Jun 11. PMID: 31099554*.
+
+
 # Conclusions
 
 The HaDeX2 package is significantly more powerful than the previous version. Moreover, it was rewritten for the comfort of use - as can be shown even by the glance of parameteres supplied to the function. 

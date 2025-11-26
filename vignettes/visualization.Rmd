@@ -508,6 +508,8 @@ plot_coverage_heatmap(auc_dat, value = "auc")
 
 ```
 
+Each of the AUC value for different biological state is calcualted separately. In order to meaningfully compare AUC values, we must select the same fully deuterated control for all of them - to have the same reference point of 100 % exchange. Otherwise, when the uptake curves have different values in the plus infinity, the AUC values described only the speed of the exchange taken separately. 
+
 **Example** The coverage heatmap plot below presents the back-exchange values for peptides form eEF1B$\alpha$. Back-exchange is believed to be on average close to 30%, as we see on the plot. Some peptides - especially shorter ones - have grater back-exchange.
 
 ```{r}
