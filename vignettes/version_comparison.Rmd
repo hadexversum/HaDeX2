@@ -16,6 +16,7 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 
 library(HaDeX)
+library(HaDeX2)
 library(microbenchmark)
 library(dplyr)
 ```
@@ -119,13 +120,15 @@ This function is called only once, in the beginning of the analysis. Here, we us
  
 ### HaDeX
 
-Unit: milliseconds
-                                                                         expr
-                                                                         
-dat <- read_hdx("C:\\\\Users\\\\User\\\\Desktop\\\\alpha dane\\\\alpha_cut.csv")
+```{r message=FALSE}
 
-      min       lq      mean   median        uq      max neval
-  28.0388  29.1341  32.51439  29.7644  31.62845 171.7444   100
+microbenchmark(
+  
+  dat <- HaDeX::read_hdx("C:\\\\Users\\\\User\\\\Desktop\\\\alpha dane\\\\alpha_cut.csv")
+)
+
+```
+
 
  
 ### HaDeX2
@@ -134,20 +137,12 @@ dat <- read_hdx("C:\\\\Users\\\\User\\\\Desktop\\\\alpha dane\\\\alpha_cut.csv")
 ```{r message=FALSE}
 microbenchmark(
   
-  dat <- HaDeX::read_hdx("C:\\\\Users\\\\User\\\\Desktop\\\\alpha dane\\\\alpha_cut.csv")
+  dat2 <- HaDeX2::read_hdx("C:\\\\Users\\\\User\\\\Desktop\\\\alpha dane\\\\alpha_cut.csv")
 
 )
 ```
 
-<!-- Unit: milliseconds -->
-<!--                                                                          expr -->
 
-<!-- dat <- read_hdx("C:\\\\Users\\\\User\\\\Desktop\\\\alpha dane\\\\alpha_cut.csv") -->
-
-<!--      min       lq     mean  median        uq      max neval -->
-<!--  91.6636 93.69305 99.43469 95.7432 102.23875 247.0202   100 -->
-
- 
 ### Results
 
 Both packages have a same-called read_hdx function. However, the backend of HaDeX2 is way more complex as there is a specific data class used, and several additional check resulting in the speed of reading and processing a file. 
@@ -156,38 +151,39 @@ Both packages have a same-called read_hdx function. However, the backend of HaDe
 
 ### HaDeX
 
-Unit: milliseconds
-                                                                    
-expr
+```{r message=FALSE}
 
-plt_uc <- dat %>% calculate_kinetics(sequence = "GFGDLKSPAGL",      state = "Alpha_KSCN", start = 1, end = 11, time_in = 0, time_out = 1440) %>%      plot_kinetics()
+microbenchmark(
+  
+dat %>% 
+  HaDeX::calculate_kinetics(sequence = "GFGDLKSPAGL",      
+                            state = "Alpha_KSCN", 
+                            start = 1, end = 11, 
+                            time_in = 0, time_out = 1440) %>%      
+  HaDeX::plot_kinetics(kin_dat = .)
+)
 
-    min       lq      mean   median        uq      max neval
-136.4894 146.8239 150.48729 150.3550 154.47640 163.5035   100                                                                                                
+```
+
+                                                     
                                                                                                 
 ### HaDeX2
 
 
 ```{r}
-microbenchmark(
-  
-  plt_uc <- dat %>% 
-    HaDeX::calculate_peptide_kinetics(sequence = "GFGDLKSPAGL",      
-                               state = "Alpha_KSCN", 
-                               start = 1, end = 11, 
-                               time_0 = 0, time_100 = 1440) %>%      
-    HaDeX::plot_uptake_curve()
-
-  
-)
+# microbenchmark(
+#   
+#   # dat2 %>% 
+#   #   HaDeX2::calculate_peptide_kinetics(sequence = "GFGDLKSPAGL",      
+#   #                              state = "Alpha_KSCN", 
+#   #                              start = 1, end = 11, 
+#   #                              time_0 = 0, time_100 = 1440) %>%      
+#   #   HaDeX2::plot_uptake_curve(uc_dat = .)
+# 
+#   
+# )
 ```
 
-<!-- Unit: milliseconds -->
-
-<!-- expr -->
-
-<!--      min       lq     mean  median        uq      max neval -->
-<!--  58.4832 60.72755 66.37970 62.4120  69.29155 187.8984   100 -->
 
 ### Results
 
@@ -196,44 +192,45 @@ HaDeX2 plots uptake curve significantly faster.
 ## Plotting a comparison plot
 
 HaDeX plots the comparison plot only for two states.
+
 ### HaDeX 
 
-Unit: milliseconds
+```{r message=FALSE}
 
-expr
+microbenchmark(
+  
+ HaDeX::prepare_dataset(dat = dat, 
+                        in_state_first = "Alpha_KSCN_0",      
+                        chosen_state_first = "Alpha_KSCN_1", 
+                        out_state_first = "Alpha_KSCN_1440",      
+                        in_state_second = "ALPHA_Gamma_0", 
+                        chosen_state_second = "ALPHA_Gamma_1",      
+                        out_state_second = "ALPHA_Gamma_1440") %>%
+   HaDeX::comparison_plot(calc_dat = ., 
+                          theoretical = FALSE,      
+                          relative = TRUE, 
+                          state_first = "Alpha_KSCN", 
+                          state_second = "ALPHA_Gamma")
+)
 
-kin_dat <- prepare_dataset(dat = dat, in_state_first = "Alpha_KSCN_0",      chosen_state_first = "Alpha_KSCN_1", out_state_first = "Alpha_KSCN_1440",      in_state_second = "ALPHA_Gamma_0", chosen_state_second = "ALPHA_Gamma_1",      out_state_second = "ALPHA_Gamma_1440")
-
-plt_comparison <- comparison_plot(calc_dat = kin_dat, theoretical = FALSE,      relative = TRUE, state_first = "Alpha_KSCN", state_second = "ALPHA_Gamma")
-
-      min        lq      mean    median       uq      max neval
- 157.7022 165.72550 172.73356 170.71385 175.2435 318.6424   100
-   9.3999  10.19565  12.02505  10.55955  10.9895  38.9871   100
+```
 
 ### HaDeX2
 
 ```{r}
-microbenchmark(
-  
-  create_state_comparison_dataset(dat = dat, 
-                                             states = c("Alpha_KSCN", "ALPHA_Gamma"), 
-                                             time_0 = 0, time_100 = 1440) %>%
-  plot_state_comparison(uptake_dat = ., 
-                                          theoretical = FALSE,      
-                                          fractional = TRUE, 
-                                          time_t = 1)
-  
-)
+# microbenchmark(
+#   
+#   # HaDeX2::create_state_comparison_dataset(dat = dat2, 
+#   #                                            states = c("Alpha_KSCN", "ALPHA_Gamma"), 
+#   #                                            time_0 = 0, time_100 = 1440) %>%
+#   # HaDeX2::plot_state_comparison(uptake_dat = ., 
+#   #                                         theoretical = FALSE,      
+#   #                                         fractional = TRUE, 
+#   #                                         time_t = 1)
+#   
+# )
 ```
 
-
-<!-- Unit: milliseconds -->
-<!--                                                                          expr -->
-
-
-<!--      min       lq     mean   median       uq      max neval -->
-<!--  41.5048 42.95650 46.76892 43.78060 45.16160 182.4834   100 -->
-<!--  10.8284 11.47095 12.03373 11.78595 12.25255  21.2830   100 -->
 
 ### Results
 
@@ -243,48 +240,50 @@ The calculations are significantly faster in HaDeX2, but the difference in plott
 
 ### HaDeX
 
-Unit: milliseconds
+```{r message=FALSE}
 
-expr
+microbenchmark(
+  
+  HaDeX::prepare_dataset(dat = dat, 
+                         in_state_first = "Alpha_KSCN_0",      
+                         chosen_state_first = "Alpha_KSCN_1", 
+                         out_state_first = "Alpha_KSCN_1440",      
+                         in_state_second = "ALPHA_Gamma_0", 
+                         chosen_state_second = "ALPHA_Gamma_1",      
+                         out_state_second = "ALPHA_Gamma_1440") %>%
+    HaDeX::woods_plot(calc_dat = ., 
+                      theoretical = FALSE,      
+                      relative = TRUE, 
+                      confidence_limit = 0.98, 
+                      confidence_limit_2 = 0.98)
+                                                                         
+)
 
-kin_dat <- prepare_dataset(dat = dat, in_state_first = "Alpha_KSCN_0",      chosen_state_first = "Alpha_KSCN_1", out_state_first = "Alpha_KSCN_1440",      in_state_second = "ALPHA_Gamma_0", chosen_state_second = "ALPHA_Gamma_1",      out_state_second = "ALPHA_Gamma_1440")
-                                                                         plt_woods <- woods_plot(calc_dat = kin_dat, theoretical = FALSE,      relative = TRUE, confidence_limit = 0.98, confidence_limit_2 = 0.98)
+```
 
-      min       lq      mean   median        uq      max neval
- 161.3896 167.9713 176.92851 172.3157 179.08035 326.0088   100
-  21.7723  23.4672  25.36956  23.9711  24.80085  53.3279   100
 
 ### HaDeX2
 
 ```{r}
 
-microbenchmark(
-  
-  
-  diff_uptake_dat <- create_diff_uptake_dataset(dat, 
-                                                state_1 = "Alpha_KSCN",      
-                                                state_2 = "ALPHA_Gamma", 
-                                                time_0 = 0, time_100 = 1440) %>%   plot_differential(diff_uptake_dat = .,      
-                                 time_t = 1, 
-                                 theoretical = FALSE, 
-                                 fractional = TRUE, 
-                                 show_houde_interval = TRUE,      
-                                 confidence_level = 0.98)
-  
-)
+# microbenchmark(
+#   
+#   
+#   # HaDeX2::create_diff_uptake_dataset(dat2, 
+#   #                                    state_1 = "Alpha_KSCN",      
+#   #                                    state_2 = "ALPHA_Gamma", 
+#   #                                    time_0 = 0, time_100 = 1440) %>%
+#   #   HaDeX2::plot_differential(diff_uptake_dat = .,      
+#   #                             time_t = 1, 
+#   #                             theoretical = FALSE, 
+#   #                             fractional = TRUE, 
+#   #                             show_houde_interval = TRUE,      
+#   #                             confidence_level = 0.98)
+#   
+# )
 ```
 
 
-<!-- Unit: milliseconds -->
-
-<!-- expr -->
-
-<!-- diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat, state_1 = "Alpha_KSCN",      state_2 = "ALPHA_Gamma", time_0 = 0, time_100 = 1440) -->
-
-<!-- plt_woods <- plot_differential(diff_uptake_dat = diff_uptake_dat,      time_t = 1, theoretical = FALSE, fractional = TRUE, show_houde_interval = TRUE,      confidence_level = 0.98) -->
-<!--       min       lq      mean   median        uq       max neval -->
-<!--  300.9806 311.9323 331.69155 316.9297 323.84895 1387.3480   100 -->
-<!--   20.9315  22.2258  23.62265  22.9664  23.85335   33.9916   100 -->
 
 ### Results 
 

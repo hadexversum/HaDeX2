@@ -1,0 +1,29 @@
+---
+title: "statistics"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{statistics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(HaDeX2)
+```
+
+Here, we sum up the statistics in HaDeX2. However, some of the elements are discussed in other articles, in appropriate places, but it was suggested to create a one document to discuss them all.  
+
+## global threshold estimation
+
+## per-timepoint testing
+
+## cross-timepoint/FDR control
+
+## uncertainty propagation

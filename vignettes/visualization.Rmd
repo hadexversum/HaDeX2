@@ -19,7 +19,7 @@ knitr::opts_chunk$set(fig.width = 7, fig.height = 5)
 ```
 
 ```{r, include=FALSE}
-library(HaDeX)
+library(HaDeX2)
 library(ggplot2)
 library(dplyr)
 library(r3dmol)

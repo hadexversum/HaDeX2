@@ -1,4 +1,4 @@
-Package: HaDeX
+Package: HaDeX2
 Title: Analysis and Visualisation of Hydrogen/Deuterium Exchange Mass Spectrometry Data 
 Version: 2.0
 Authors@R: c(person("Weronika", "Puchala", 
