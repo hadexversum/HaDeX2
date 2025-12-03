@@ -53,6 +53,7 @@ Suggests:
     pander,
     renv,
     rmarkdown,
+    microbenchmark,
     shinycustomloader,
     shinyhelper,
     shinyjs,
