@@ -31,7 +31,7 @@ in fractional form}
 \item{line_size}{line size for the plot}
 
 \item{all_times}{\code{logical}, indicator is all all time should
-be ploted next to each other}
+be plotted next to each other}
 
 \item{time_t}{chosen time point}
 

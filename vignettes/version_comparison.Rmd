@@ -124,7 +124,7 @@ This function is called only once, in the beginning of the analysis. Here, we us
 
 microbenchmark(
   
-  dat <- HaDeX::read_hdx("C:/Users/User/Desktop/alpha dane/alpha_cut.csv")
+  dat <- HaDeX::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
 )
 
 ```
@@ -137,7 +137,7 @@ microbenchmark(
 ```{r message=FALSE}
 microbenchmark(
 
-  dat2 <- HaDeX2::read_hdx("C:/Users/User/Desktop/alpha dane/alpha_cut.csv")
+  dat2 <- HaDeX2::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
 
 )
 ```

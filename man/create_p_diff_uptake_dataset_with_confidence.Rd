@@ -21,7 +21,7 @@ alongside the P-value as calculated by
 \code{\link{calculate_confidence_limit_values}}}
 
 \item{houde_interval_times}{specified time points to 
-be used in calculcation}
+be used in calculation}
 
 \item{theoretical}{\code{logical}, determines if values are theoretical}
 
