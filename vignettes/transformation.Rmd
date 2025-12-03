@@ -17,7 +17,7 @@ The aggregation of the hydrogen-deuterium exchange experimental data is complex.
 ## Aggregation of the data - visualization
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-library(HaDeX)
+library(HaDeX2)
 library(dplyr) 
 library(ggplot2)
 

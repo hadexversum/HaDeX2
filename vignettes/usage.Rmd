@@ -41,7 +41,7 @@ Variables:
 ## Example of use
 
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
-library(HaDeX)
+library(HaDeX2)
 library(magrittr)
 ```
 
