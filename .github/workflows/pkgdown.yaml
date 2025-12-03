@@ -54,6 +54,10 @@ jobs:
       - name: Install bookdown
         run: pak::pkg_install("bookdown")
         shell: Rscript {0}
+        
+      - name: Install microbenchmark
+        run: pak::pkg_install("microbenchmark")
+        shell: Rscript {0}
 
       - name: Build site
         run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
