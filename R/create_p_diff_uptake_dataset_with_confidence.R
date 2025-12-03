@@ -6,7 +6,7 @@
 #' @param houde_interval interval value, as calculated by
 #' \code{\link{calculate_confidence_limit_values}}
 #' @param houde_interval_times specified time points to 
-#' be used in calculcation
+#' be used in calculation
 #' @param theoretical \code{logical}, determines if values are theoretical
 #' @param fractional \code{logical}, determines if values are fractional
 #' 

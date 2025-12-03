@@ -74,7 +74,7 @@ knitr::kable(data.frame(option = c("tooltips", "helpers", "tabular data", "times
            HaDeX2 = c(TRUE, TRUE, TRUE, TRUE, TRUE)))
 ```
 
-In the table there are shortened names. *Tabular data* means that the tabular data is available for the plot. *Times next to each other* means the option of showing all time point data in two forms: one plot or smaller plots next to each other for time point separately. *Export to external tools* means an option to dowload data for tools such as HDXViewer or ChimeraX.
+In the table there are shortened names. *Tabular data* means that the tabular data is available for the plot. *Times next to each other* means the option of showing all time point data in two forms: one plot or smaller plots next to each other for time point separately. *Export to external tools* means an option to download data for tools such as HDXViewer or ChimeraX.
 
 Moreover, in HaDeX2 more visualization options are available. 
 
@@ -124,7 +124,7 @@ This function is called only once, in the beginning of the analysis. Here, we us
 
 microbenchmark(
   
-  dat <- HaDeX::read_hdx("C:\\\\Users\\\\User\\\\Desktop\\\\alpha dane\\\\alpha_cut.csv")
+  dat <- HaDeX::read_hdx("C:/Users/User/Desktop/alpha dane/alpha_cut.csv")
 )
 
 ```
@@ -136,8 +136,8 @@ microbenchmark(
 
 ```{r message=FALSE}
 microbenchmark(
-  
-  dat2 <- HaDeX2::read_hdx("C:\\\\Users\\\\User\\\\Desktop\\\\alpha dane\\\\alpha_cut.csv")
+
+  dat2 <- HaDeX2::read_hdx("C:/Users/User/Desktop/alpha dane/alpha_cut.csv")
 
 )
 ```
@@ -147,7 +147,7 @@ microbenchmark(
 
 Both packages have a same-called read_hdx function. However, the backend of HaDeX2 is way more complex as there is a specific data class used, and several additional check resulting in the speed of reading and processing a file. 
 
-## Ploting a deuterium uptake curve for one state
+## Plotting a deuterium uptake curve for one state
 
 ### HaDeX
 
@@ -171,17 +171,17 @@ dat %>%
 
 
 ```{r}
-# microbenchmark(
-#   
-#   # dat2 %>% 
-#   #   HaDeX2::calculate_peptide_kinetics(sequence = "GFGDLKSPAGL",      
-#   #                              state = "Alpha_KSCN", 
-#   #                              start = 1, end = 11, 
-#   #                              time_0 = 0, time_100 = 1440) %>%      
-#   #   HaDeX2::plot_uptake_curve(uc_dat = .)
-# 
-#   
-# )
+microbenchmark(
+
+  dat2 %>%
+    HaDeX2::calculate_peptide_kinetics(sequence = "GFGDLKSPAGL",
+                               state = "Alpha_KSCN",
+                               start = 1, end = 11,
+                               time_0 = 0, time_100 = 1440) %>%
+    HaDeX2::plot_uptake_curve(uc_dat = .)
+
+
+)
 ```
 
 
@@ -218,17 +218,17 @@ microbenchmark(
 ### HaDeX2
 
 ```{r}
-# microbenchmark(
-#   
-#   # HaDeX2::create_state_comparison_dataset(dat = dat2, 
-#   #                                            states = c("Alpha_KSCN", "ALPHA_Gamma"), 
-#   #                                            time_0 = 0, time_100 = 1440) %>%
-#   # HaDeX2::plot_state_comparison(uptake_dat = ., 
-#   #                                         theoretical = FALSE,      
-#   #                                         fractional = TRUE, 
-#   #                                         time_t = 1)
-#   
-# )
+microbenchmark(
+
+  HaDeX2::create_state_comparison_dataset(dat = dat2,
+                                             states = c("Alpha_KSCN", "ALPHA_Gamma"),
+                                             time_0 = 0, time_100 = 1440) %>%
+  HaDeX2::plot_state_comparison(uptake_dat = .,
+                                          theoretical = FALSE,
+                                          fractional = TRUE,
+                                          time_t = 1)
+
+)
 ```
 
 
@@ -266,21 +266,21 @@ microbenchmark(
 
 ```{r}
 
-# microbenchmark(
-#   
-#   
-#   # HaDeX2::create_diff_uptake_dataset(dat2, 
-#   #                                    state_1 = "Alpha_KSCN",      
-#   #                                    state_2 = "ALPHA_Gamma", 
-#   #                                    time_0 = 0, time_100 = 1440) %>%
-#   #   HaDeX2::plot_differential(diff_uptake_dat = .,      
-#   #                             time_t = 1, 
-#   #                             theoretical = FALSE, 
-#   #                             fractional = TRUE, 
-#   #                             show_houde_interval = TRUE,      
-#   #                             confidence_level = 0.98)
-#   
-# )
+microbenchmark(
+
+
+  HaDeX2::create_diff_uptake_dataset(dat2,
+                                     state_1 = "Alpha_KSCN",
+                                     state_2 = "ALPHA_Gamma",
+                                     time_0 = 0, time_100 = 1440) %>%
+    HaDeX2::plot_differential(diff_uptake_dat = .,
+                              time_t = 1,
+                              theoretical = FALSE,
+                              fractional = TRUE,
+                              show_houde_interval = TRUE,
+                              confidence_level = 0.98)
+
+)
 ```
 
 
@@ -292,4 +292,4 @@ As above, the plotting takes more time as it coping with option to include hybri
 
 # Conclusions
 
-The HaDeX2 package is significantly more powerful than the previous version. Moreover, it was rewritten for the comfort of use - as can be shown even by the glance of parameteres supplied to the function. 
+The HaDeX2 package is significantly more powerful than the previous version. Moreover, it was rewritten for the comfort of use - as can be shown even by the glance of parameters supplied to the function. 

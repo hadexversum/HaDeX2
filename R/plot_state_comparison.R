@@ -15,7 +15,7 @@
 #' in fractional form 
 #' @param line_size line size for the plot
 #' @param all_times \code{logical}, indicator is all all time should
-#' be ploted next to each other
+#' be plotted next to each other
 #' @param time_t chosen time point
 #' @param interactive \code{logical}, whether plot should have an interactive 
 #' layer created with with ggiraph, which would add tooltips to the plot in an

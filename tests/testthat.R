@@ -1,7 +1,7 @@
 library(testthat)
-library(HaDeX)
+library(HaDeX2)
 library(stringr)
 
 options(digits=10)
 
-test_check("HaDeX")
+test_check("HaDeX2")

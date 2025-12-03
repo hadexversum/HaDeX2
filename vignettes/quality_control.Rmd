@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(HaDeX)
+library(HaDeX2)
 ```
 
 Data analysis is vital step, but firstly, we must make sure that the experiment was conducted correctly. How to do that using HaDeX functionalities? There are multiple ways to do that.

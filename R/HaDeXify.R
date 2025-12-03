@@ -26,7 +26,7 @@
 
 HaDeXify <- function(plt) {
 
-  bitmap <- readRDS(system.file(package = "HaDeX",
+  bitmap <- readRDS(system.file(package = "HaDeX2",
                                 "HaDeX/www/HaDeX_logo.RDS"))
   img <- image_read(bitmap)
 
