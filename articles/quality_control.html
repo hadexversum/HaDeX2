@@ -39,7 +39,7 @@
     <li><a class="dropdown-item" href="../articles/glossary.html">Glossary</a></li>
     <li><a class="dropdown-item" href="../articles/mass_comparison.html">Mass calculation</a></li>
     <li><a class="dropdown-item" href="../articles/quality_control.html">Quality control</a></li>
-    <li><a class="dropdown-item" href="../articles/statistics.html">statistics</a></li>
+    <li><a class="dropdown-item" href="../articles/statistics.html">Statistics</a></li>
     <li><a class="dropdown-item" href="../articles/transformation.html">Data aggregation</a></li>
     <li><a class="dropdown-item" href="../articles/usage.html">Code usage</a></li>
     <li><a class="dropdown-item" href="../articles/version_comparison.html">Comparison between versions</a></li>
@@ -139,16 +139,22 @@ peptide length, but overall are not exceeding 0.25 Da.</p>
 </h2>
 <p>Once we have the overview of the situation, we can dig deeper into
 the peptides of interest.</p>
-<p>Below, we present the measurement plots for peptide “GDGDLKSPAGL” in
-one state, for three replicates. The measurements were done for two
-possible charge values: 1 and 2, indicated by color. We see that the
-latter was occuring with greater intensity, indicated by the point size.
-The aggregated value for each replicate was done by weighting the mass
-measurements with regard to their measured intensity. Then, the we
-calculated the mean value, that is the final aggregated value for this
-peptide in this time point. This value is indicated by the red vertical
-line, with red area indicating the uncertainty surrounding calculated
-value.</p>
+<p>Below, we present the measurement variability plot for peptide
+“GDGDLKSPAGL” in one state, for three replicates.The process of two-step
+aggregation is described in the article <code>transformation</code>, but
+this plot allows investigation of each measurement.</p>
+<p>Here, in case of peptide “GDGDLKSPAGL”, there were only two possible
+charge values: 1 and 2. The mass was measured for each of them
+separately, and the centroid value from isotopic envelope was
+calculated, as well as the appropriate intensity. On the Y axis of the
+plot, there are replicates: and each replicate has its two points for
+each charge - with colors indicating charge and size indicating
+intensity. Then, those two values within replicate are aggregated - as a
+weighted mean, with intensity beeing the weight. For each replicate we
+have now one value - black dot. Those values are averaged with
+accompanied standard deviation - our final aggregated mass measurement
+from all the replicates. The final value is shown as the horizontal
+dotted line, with its sd value indicated by the red area.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_peptide_mass_measurement.html">plot_peptide_mass_measurement</a></span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span></span></code></pre></div>
 <p><img src="quality_control_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" width="672"></p>

@@ -518,7 +518,9 @@ separately. In order to meaningfully compare AUC values, we must select
 the same fully deuterated control for all of them - to have the same
 reference point of 100 % exchange. Otherwise, when the uptake curves
 have different values in the plus infinity, the AUC values described
-only the speed of the exchange taken separately.
+only the speed of the exchange taken separately. In the end, this value
+is more useful when used to compare uptake curves for a specific peptide
+under different biological conditions.
 
 **Example** The coverage heatmap plot below presents the back-exchange
 values for peptides form eEF1B$\alpha$. Back-exchange is believed to be

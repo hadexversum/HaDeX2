@@ -67,16 +67,23 @@ plot_uncertainty(alpha_dat, state = "Alpha_KSCN")
 Once we have the overview of the situation, we can dig deeper into the
 peptides of interest.
 
-Below, we present the measurement plots for peptide “GDGDLKSPAGL” in one
-state, for three replicates. The measurements were done for two possible
-charge values: 1 and 2, indicated by color. We see that the latter was
-occuring with greater intensity, indicated by the point size. The
-aggregated value for each replicate was done by weighting the mass
-measurements with regard to their measured intensity. Then, the we
-calculated the mean value, that is the final aggregated value for this
-peptide in this time point. This value is indicated by the red vertical
-line, with red area indicating the uncertainty surrounding calculated
-value.
+Below, we present the measurement variability plot for peptide
+“GDGDLKSPAGL” in one state, for three replicates.The process of two-step
+aggregation is described in the article `transformation`, but this plot
+allows investigation of each measurement.
+
+Here, in case of peptide “GDGDLKSPAGL”, there were only two possible
+charge values: 1 and 2. The mass was measured for each of them
+separately, and the centroid value from isotopic envelope was
+calculated, as well as the appropriate intensity. On the Y axis of the
+plot, there are replicates: and each replicate has its two points for
+each charge - with colors indicating charge and size indicating
+intensity. Then, those two values within replicate are aggregated - as a
+weighted mean, with intensity beeing the weight. For each replicate we
+have now one value - black dot. Those values are averaged with
+accompanied standard deviation - our final aggregated mass measurement
+from all the replicates. The final value is shown as the horizontal
+dotted line, with its sd value indicated by the red area.
 
 ``` r
 plot_peptide_mass_measurement(alpha_dat)

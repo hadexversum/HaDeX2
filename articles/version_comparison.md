@@ -170,8 +170,8 @@ microbenchmark(
     ## Unit: milliseconds
     ##                                                                             expr
     ##  dat <- HaDeX::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
-    ##       min      lq     mean   median       uq      max neval
-    ##  24.70061 25.1521 26.36272 25.44187 25.86563 41.66284   100
+    ##       min      lq     mean   median     uq      max neval
+    ##  24.86281 25.0969 26.30288 25.33751 25.909 41.43575   100
 
 #### HaDeX2
 
@@ -187,7 +187,7 @@ microbenchmark(
     ##                                                                               expr
     ##  dat2 <- HaDeX2::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
     ##       min       lq     mean   median       uq      max neval
-    ##  39.75807 40.38457 41.76301 40.81557 43.78149 51.86255   100
+    ##  39.22972 39.94664 41.29878 40.43491 42.07871 51.35258   100
 
 #### Results
 
@@ -215,8 +215,8 @@ dat %>%
     ## Unit: milliseconds
     ##                                                                                                                                                                             expr
     ##  dat %>% HaDeX::calculate_kinetics(sequence = "GFGDLKSPAGL", state = "Alpha_KSCN",      start = 1, end = 11, time_in = 0, time_out = 1440) %>% HaDeX::plot_kinetics(kin_dat = .)
-    ##      min       lq    mean   median       uq      max neval
-    ##  152.165 155.8672 160.925 158.4734 162.5209 280.1747   100
+    ##      min       lq     mean   median      uq      max neval
+    ##  149.168 153.1667 157.4358 156.0006 158.505 265.9157   100
 
 #### HaDeX2
 
@@ -237,8 +237,8 @@ microbenchmark(
     ## Unit: milliseconds
     ##                                                                                                                                                                                               expr
     ##  dat2 %>% HaDeX2::calculate_peptide_kinetics(sequence = "GFGDLKSPAGL",      state = "Alpha_KSCN", start = 1, end = 11, time_0 = 0, time_100 = 1440) %>%      HaDeX2::plot_uptake_curve(uc_dat = .)
-    ##       min       lq    mean   median       uq      max neval
-    ##  54.54968 55.62285 60.2895 59.70725 61.35958 196.5798   100
+    ##       min       lq     mean   median       uq      max neval
+    ##  53.18119 54.66618 58.87527 57.64562 59.79235 185.1071   100
 
 #### Results
 
@@ -272,7 +272,7 @@ microbenchmark(
     ##                                                                                                                                                                                                                                                                                                                                                                                                                             expr
     ##  HaDeX::prepare_dataset(dat = dat, in_state_first = "Alpha_KSCN_0",      chosen_state_first = "Alpha_KSCN_1", out_state_first = "Alpha_KSCN_1440",      in_state_second = "ALPHA_Gamma_0", chosen_state_second = "ALPHA_Gamma_1",      out_state_second = "ALPHA_Gamma_1440") %>% HaDeX::comparison_plot(calc_dat = .,      theoretical = FALSE, relative = TRUE, state_first = "Alpha_KSCN",      state_second = "ALPHA_Gamma")
     ##       min       lq     mean   median       uq      max neval
-    ##  190.8068 202.4171 208.0342 206.0385 211.5375 342.0225   100
+    ##  190.1847 200.9135 206.3287 204.7049 210.0829 324.1743   100
 
 #### HaDeX2
 
@@ -301,8 +301,8 @@ microbenchmark(
     ## Unit: milliseconds
     ##                                                                                                                                                                                                                                       expr
     ##  HaDeX2::create_state_comparison_dataset(dat = dat2, states = c("Alpha_KSCN",      "ALPHA_Gamma"), time_0 = 0, time_100 = 1440) %>% HaDeX2::plot_state_comparison(uptake_dat = .,      theoretical = FALSE, fractional = TRUE, time_t = 1)
-    ##       min       lq     mean   median       uq      max neval
-    ##  38.08609 38.59651 41.27619 39.00507 43.20759 79.93956   100
+    ##       min       lq     mean  median       uq      max neval
+    ##  38.32261 39.23972 41.97947 39.8712 43.52799 78.85301   100
 
 #### Results
 
@@ -336,8 +336,8 @@ microbenchmark(
     ## Unit: milliseconds
     ##                                                                                                                                                                                                                                                                                                                                                                                                                  expr
     ##  HaDeX::prepare_dataset(dat = dat, in_state_first = "Alpha_KSCN_0",      chosen_state_first = "Alpha_KSCN_1", out_state_first = "Alpha_KSCN_1440",      in_state_second = "ALPHA_Gamma_0", chosen_state_second = "ALPHA_Gamma_1",      out_state_second = "ALPHA_Gamma_1440") %>% HaDeX::woods_plot(calc_dat = .,      theoretical = FALSE, relative = TRUE, confidence_limit = 0.98,      confidence_limit_2 = 0.98)
-    ##       min       lq     mean   median     uq      max neval
-    ##  209.5881 222.3444 235.5371 233.2661 243.36 364.2117   100
+    ##       min       lq     mean   median       uq      max neval
+    ##  210.5745 225.1637 236.8397 235.0303 243.4254 394.5095   100
 
 #### HaDeX2
 
@@ -363,7 +363,7 @@ microbenchmark(
     ##                                                                                                                                                                                                                                                                                                            expr
     ##  HaDeX2::create_diff_uptake_dataset(dat2, state_1 = "Alpha_KSCN",      state_2 = "ALPHA_Gamma", time_0 = 0, time_100 = 1440) %>%      HaDeX2::plot_differential(diff_uptake_dat = ., time_t = 1,          theoretical = FALSE, fractional = TRUE, show_houde_interval = TRUE,          confidence_level = 0.98)
     ##       min       lq     mean   median       uq      max neval
-    ##  213.0222 219.6826 231.7009 227.7324 234.0742 367.1806   100
+    ##  214.9072 221.7829 232.2498 226.5549 233.9414 360.3848   100
 
 #### Results
 

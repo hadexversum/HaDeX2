@@ -209,7 +209,9 @@ Back-exchange ($bex$) is calculated for each peptide and is defined as
 the difference between fractional theoretical deuterium uptake of the
 experimental maximal deuterium control and 100% of exchange.
 
-$$bex = 100 - D_{theo,frac}\left( t_{100} \right)$$ \# AUC
+$$bex = 100 - D_{theo,frac}\left( t_{100} \right)$$
+
+## AUC
 
 Area under the curve describes the whole plot. It is calculated with
 respect to the last time point, used as normalizing value to obtain the
@@ -219,4 +221,4 @@ axis.
 If the AUC value exceeds the value 1, it is an indicator of
 back-exchange.
 
-$$auc = \sum\limits_{i}\sum\limits_{j}\left( du_{frac,i + 1} - du_{frac,i} \right) \cdot \left( t_{norm,j + 1} - t_{norm,j} \right) \cdot \frac{1}{2}$$
+$$auc = \sum\limits_{i}\left( du_{frac,i + 1} + du_{frac,i} \right) \cdot \left( t_{norm,i + 1} - t_{norm,i} \right) \cdot \frac{1}{2}$$
