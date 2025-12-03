@@ -28,7 +28,7 @@ create_p_diff_uptake_dataset_with_confidence(
 
 - houde_interval_times:
 
-  specified time points to be used in calculcation
+  specified time points to be used in calculation
 
 - theoretical:
 

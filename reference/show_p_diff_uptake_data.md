@@ -56,7 +56,6 @@ changed to user-friendly ones.
 
 ``` r
 dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#> [1] ""
 p_diff_uptake_dat <- create_p_diff_uptake_dataset(dat)
 head(show_p_diff_uptake_data(p_diff_uptake_dat))
 #>     Protein    ID        Sequence Modification Start   End Exposure

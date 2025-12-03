@@ -46,7 +46,7 @@ plot_state_comparison(
 
 - all_times:
 
-  `logical`, indicator is all all time should be ploted next to each
+  `logical`, indicator is all all time should be plotted next to each
   other
 
 - time_t:

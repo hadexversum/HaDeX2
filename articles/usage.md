@@ -34,8 +34,6 @@ Variables:
 dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
 ```
 
-    ## [1] ""
-
 ``` r
 # dat %>%
 #   calculate_state_uptake() %>%
@@ -109,7 +107,7 @@ plot_butterfly(uptake_dat)
 
     ## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
     ## ℹ Please use `linewidth` instead.
-    ## ℹ The deprecated feature was likely used in the HaDeX package.
+    ## ℹ The deprecated feature was likely used in the HaDeX2 package.
     ##   Please report the issue to the authors.
     ## This warning is displayed once every 8 hours.
     ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
@@ -125,7 +123,7 @@ plot_chiclet(uptake_dat)
 
     ## Warning: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.
     ## ℹ Please use the `linewidth` argument instead.
-    ## ℹ The deprecated feature was likely used in the HaDeX package.
+    ## ℹ The deprecated feature was likely used in the HaDeX2 package.
     ##   Please report the issue to the authors.
     ## This warning is displayed once every 8 hours.
     ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was

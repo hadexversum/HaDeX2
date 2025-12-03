@@ -14,7 +14,7 @@ For the analysis, we use the example file from HaDeX in its raw form,
 directly exported from DynamX:
 
 ``` r
-library(HaDeX)
+library(HaDeX2)
 dat <- read.csv(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
 ```
 

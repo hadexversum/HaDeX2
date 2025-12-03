@@ -3,7 +3,7 @@
 Class hdx_data is the base of any calculation done in HaDeX. It
 structuralizes the data from the data file read by the
 [`read_hdx`](https://hadexversum.github.io/HaDeX2/reference/read_hdx.md)
-function. The obiect preserves the information of the data file origin -
+function. The object preserves the information of the data file origin -
 for now, the function accepts datafiles from DynamX2.0, DynamX3.0 and
 HDeXaminer. The data from the datafile is checked and put in one format
 suitable for the package workflow, regardless of its origin.

@@ -38,7 +38,6 @@ a [`data.frame`](https://rdrr.io/r/base/data.frame.html) object
 
 ``` r
 dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#> [1] ""
 kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN")
 head(create_aggregated_uptake_dataset(kin_dat))
 #>   position aa frac_deut_uptake err_frac_deut_uptake deut_uptake err_deut_uptake

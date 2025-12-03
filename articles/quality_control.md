@@ -1,7 +1,7 @@
 # Quality control
 
 ``` r
-library(HaDeX)
+library(HaDeX2)
 ```
 
 Data analysis is vital step, but firstly, we must make sure that the

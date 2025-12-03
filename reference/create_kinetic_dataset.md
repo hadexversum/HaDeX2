@@ -65,7 +65,6 @@ but for the peptide list instead of one peptide.
 
 ``` r
 dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#> [1] ""
 peptide_list <- data.frame(Sequence = c("INITSSASQEGTRLN", "INITSSASQEGTRLN"), 
                            state = c("CD160", "CD160_HVEM"), 
                            start = c(1, 1), end = c(15, 15))

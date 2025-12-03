@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Calculations • HaDeX</title>
+<title>Calculations • HaDeX2</title>
 <script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
@@ -18,9 +18,9 @@
 
     <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
-    <a class="navbar-brand me-2" href="../index.html">HaDeX</a>
+    <a class="navbar-brand me-2" href="../index.html">HaDeX2</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,6 +39,7 @@
     <li><a class="dropdown-item" href="../articles/glossary.html">Glossary</a></li>
     <li><a class="dropdown-item" href="../articles/mass_comparison.html">Mass calculation</a></li>
     <li><a class="dropdown-item" href="../articles/quality_control.html">Quality control</a></li>
+    <li><a class="dropdown-item" href="../articles/statistics.html">statistics</a></li>
     <li><a class="dropdown-item" href="../articles/transformation.html">Data aggregation</a></li>
     <li><a class="dropdown-item" href="../articles/usage.html">Code usage</a></li>
     <li><a class="dropdown-item" href="../articles/version_comparison.html">Comparison between versions</a></li>
@@ -91,11 +92,9 @@ described values, see <code><a href="../articles/visualization.html">vignette("v
 <code>cluster</code> format from DynamX. For more information about
 accepted datafiles see <code><a href="../articles/data_input.html">vignette("data_input")</a></code></p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://hadexversum.github.io/HaDeX2/">HaDeX</a></span><span class="op">)</span></span>
-<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_hdx.html">read_hdx</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"HaDeX"</span>, <span class="st">"HaDeX/data/KD_180110_CD160_HVEM.csv"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] ""</span></span></code></pre>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dat</span>, <span class="fl">6</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://hadexversum.github.io/HaDeX2/">HaDeX2</a></span><span class="op">)</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_hdx.html">read_hdx</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"HaDeX"</span>, <span class="st">"HaDeX/data/KD_180110_CD160_HVEM.csv"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dat</span>, <span class="fl">6</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##     Protein Start   End        Sequence Modification MaxUptake      MHP  State</span></span>
 <span><span class="co">##      &lt;char&gt; &lt;int&gt; &lt;int&gt;          &lt;char&gt;       &lt;lgcl&gt;     &lt;num&gt;    &lt;num&gt; &lt;char&gt;</span></span>
 <span><span class="co">## 1: db_CD160     1    15 INITSSASQEGTRLN           NA        14 1590.808  CD160</span></span>
@@ -339,6 +338,15 @@ fractional theoretical deuterium uptake of the experimental maximal
 deuterium control and 100% of exchange.</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>e</mi><mi>x</mi><mo>=</mo><mn>100</mn><mo>−</mo><msub><mi>D</mi><mrow><mi>t</mi><mi>h</mi><mi>e</mi><mi>o</mi><mo>,</mo><mi>f</mi><mi>r</mi><mi>a</mi><mi>c</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>t</mi><mn>100</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
 bex = 100 - D_{theo, frac}(t_{100})
+</annotation></semantics></math> # AUC</p>
+<p>Area under the curve describes the whole plot. It is calculated with
+respect to the last time point, used as normalizing value to obtain the
+result from range [0, 1]. The normalization is done also for the time
+axis.</p>
+<p>If the AUC value exceeds the value 1, it is an indicator of
+back-exchange.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>u</mi><mi>c</mi><mo>=</mo><munder><mo>∑</mo><mi>i</mi></munder><munder><mo>∑</mo><mi>j</mi></munder><mrow><mo stretchy="true" form="prefix">(</mo><mi>d</mi><msub><mi>u</mi><mrow><mi>f</mi><mi>r</mi><mi>a</mi><mi>c</mi><mo>,</mo><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><mi>d</mi><msub><mi>u</mi><mrow><mi>f</mi><mi>r</mi><mi>a</mi><mi>c</mi><mo>,</mo><mi>i</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>t</mi><mrow><mi>n</mi><mi>o</mi><mi>r</mi><mi>m</mi><mo>,</mo><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>t</mi><mrow><mi>n</mi><mi>o</mi><mi>r</mi><mi>m</mi><mo>,</mo><mi>j</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">
+auc = \sum_i \sum_j (du_{frac, i+1} - du_{frac, i}) \cdot (t_{norm, j+1} - t_{norm, j}) \cdot \frac{1}{2}
 </annotation></semantics></math></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

@@ -12,6 +12,7 @@
   calculation](https://hadexversum.github.io/HaDeX2/articles/mass_comparison.md):
 - [Quality
   control](https://hadexversum.github.io/HaDeX2/articles/quality_control.md):
+- [statistics](https://hadexversum.github.io/HaDeX2/articles/statistics.md):
 - [Data
   aggregation](https://hadexversum.github.io/HaDeX2/articles/transformation.md):
 - [Code usage](https://hadexversum.github.io/HaDeX2/articles/usage.md):

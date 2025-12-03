@@ -35,7 +35,6 @@ the GUI.
 
 ``` r
 dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#> [1] ""
 qc_dat <- create_quality_control_dataset(dat)  
 show_quality_control_data(qc_dat)
 #>   Out time Mean error - state 1 [%] Mean error - state 2 [%]

@@ -91,8 +91,8 @@ The ‘Butterfly Differential plot’ provides a more comprehensive view of
 all time points simultaneously. Switching to this view, we can more
 easily track the evolution of deuterium uptake differences over time and
 therefore all four regions of interest are clearly visible (Figure
-[3.3](#fig:butterfly)). This view reviews another potenially rigidified
-region, showing only at later toimepoints, around the region 772-782.
+[3.3](#fig:butterfly)). This view reviews another potentially rigidified
+region, showing only at later timepoints, around the region 772-782.
 
 ![Butterfly Differential plot.](butterfly-display_plot.png)
 
@@ -111,7 +111,7 @@ being most prominent at intermediate time points (Figure
 Figure 3.4: Chiclet Plot.
 
 To zoom in on this phenomenon, we can view the uptake curve of a single
-peptide using the ‘Uptake Curves Plot / Differental Plot’. A single
+peptide using the ‘Uptake Curves Plot / Differential Plot’. A single
 peptide can be selected in the “Peptide” section of the sidebar. Filter
 for sequence ‘AIANAQRKVE’, and choose this particular peptide from the
 filtered table. Now, we can confirm that indeed for this peptide, SecA

@@ -36,7 +36,7 @@ diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 HaDeXify(plot_differential(diff_uptake_dat))
 #> Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 #> ℹ Please use `linewidth` instead.
-#> ℹ The deprecated feature was likely used in the HaDeX package.
+#> ℹ The deprecated feature was likely used in the HaDeX2 package.
 #>   Please report the issue to the authors.
 
 ```

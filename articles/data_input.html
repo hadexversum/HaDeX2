@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Importing data • HaDeX</title>
+<title>Importing data • HaDeX2</title>
 <script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
@@ -18,9 +18,9 @@
 
     <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
-    <a class="navbar-brand me-2" href="../index.html">HaDeX</a>
+    <a class="navbar-brand me-2" href="../index.html">HaDeX2</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,6 +39,7 @@
     <li><a class="dropdown-item" href="../articles/glossary.html">Glossary</a></li>
     <li><a class="dropdown-item" href="../articles/mass_comparison.html">Mass calculation</a></li>
     <li><a class="dropdown-item" href="../articles/quality_control.html">Quality control</a></li>
+    <li><a class="dropdown-item" href="../articles/statistics.html">statistics</a></li>
     <li><a class="dropdown-item" href="../articles/transformation.html">Data aggregation</a></li>
     <li><a class="dropdown-item" href="../articles/usage.html">Code usage</a></li>
     <li><a class="dropdown-item" href="../articles/version_comparison.html">Comparison between versions</a></li>
@@ -82,7 +83,7 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://hadexversum.github.io/HaDeX2/">HaDeX</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://hadexversum.github.io/HaDeX2/">HaDeX2</a></span><span class="op">)</span></span></code></pre></div>
 <p>Although the HaDeX application accepts only csv file exported from
 DynamX in <code>cluster</code> format, it is not impossible to use HaDeX
 package with other formats. Here, we present a little guide to mocking
@@ -99,7 +100,7 @@ will be glad to help!</em></p>
 <p>The best way to check if the file is suitable for the application is
 load in (using e.q. web-server) and see the file status. If the file is
 in wrong format, there should be appropriate message.</p>
-<p>The main function for data import is <code><a href="../reference/read_hdx.html">HaDeX::read_hdx()</a></code>
+<p>The main function for data import is <code><a href="https://rdrr.io/pkg/HaDeX/man/read_hdx.html" class="external-link">HaDeX::read_hdx()</a></code>
 function.</p>
 <div class="section level2">
 <h2 id="dynamx-cluster-file">DynamX cluster file<a class="anchor" aria-label="anchor" href="#dynamx-cluster-file"></a>
@@ -110,7 +111,7 @@ processing. The required columns are:</p>
 <span><span class="co">#&gt;  [6] "Fragment"     "MaxUptake"    "MHP"          "State"        "Exposure"    </span></span>
 <span><span class="co">#&gt; [11] "File"         "z"            "RT"           "Inten"        "Center"</span></span></code></pre>
 <p>If the file have all required columns, it should be accepted by the
-<code><a href="../reference/read_hdx.html">HaDeX::read_hdx()</a></code> function.</p>
+<code><a href="https://rdrr.io/pkg/HaDeX/man/read_hdx.html" class="external-link">HaDeX::read_hdx()</a></code> function.</p>
 </div>
 <div class="section level2">
 <h2 id="dynamx-state-file">DynamX state file<a class="anchor" aria-label="anchor" href="#dynamx-state-file"></a>
@@ -178,7 +179,7 @@ measurement:</p>
 <span>  </span></code></pre></div>
 <p>If FD is labeled differently, adjust the code.</p>
 <p>Calculated kin_dat can be used in e.q.
-<code><a href="../reference/plot_chiclet.html">HaDeX::plot_chiclet()</a></code> function. For more information check
+<code>HaDeX::plot_chiclet()</code> function. For more information check
 <code>vignette("code_usage")</code> article.</p>
 </div>
 <div class="section level2">
@@ -193,7 +194,7 @@ them briefly.</p>
 <span><span class="co">#&gt;  [9] "Actual RT"     "# Spectra"     "Peak Width"    "m/z Shift"    </span></span>
 <span><span class="co">#&gt; [13] "Max Inty"      "Exp Cent"      "Theor Cent"    "Score"        </span></span>
 <span><span class="co">#&gt; [17] "Cent Diff"     "# Deut"        "Deut %"        "Confidence"</span></span></code></pre>
-<p>it can be processed with <code><a href="../reference/read_hdx.html">HaDeX::read_hdx()</a></code> from the code
+<p>it can be processed with <code><a href="https://rdrr.io/pkg/HaDeX/man/read_hdx.html" class="external-link">HaDeX::read_hdx()</a></code> from the code
 level, as it requires additional action from the user. Then, this data
 can be used as described in other articles.</p>
 <p>If the file has following columns:</p>

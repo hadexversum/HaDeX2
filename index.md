@@ -22,7 +22,7 @@ devtools::install_github("hadexversum/HaDeX2")
 After installation GUI can be accessed locally:
 
 ``` r
-library(HaDeX)
+library(HaDeX2)
 HaDeX_GUI()
 ```
 

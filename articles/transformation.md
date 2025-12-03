@@ -6,8 +6,6 @@ understanding of the data transformation.
 
 ## Aggregation of the data - visualization
 
-    ## [1] ""
-
 Let’s see how the data is transformed. We will use the example file
 “KD_180110_CD160_HVEM.csv” from the HaDeX package and focus on just one
 peptide - “LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL” in the state “CD160”.

@@ -1,7 +1,7 @@
 # Importing data
 
 ``` r
-library(HaDeX)
+library(HaDeX2)
 ```
 
 Although the HaDeX application accepts only csv file exported from
@@ -24,7 +24,7 @@ load in (using e.q. web-server) and see the file status. If the file is
 in wrong format, there should be appropriate message.
 
 The main function for data import is
-[`HaDeX::read_hdx()`](https://hadexversum.github.io/HaDeX2/reference/read_hdx.md)
+[`HaDeX::read_hdx()`](https://rdrr.io/pkg/HaDeX/man/read_hdx.html)
 function.
 
 ## DynamX cluster file
@@ -37,7 +37,7 @@ The required columns are:
     #> [11] "File"         "z"            "RT"           "Inten"        "Center"
 
 If the file have all required columns, it should be accepted by the
-[`HaDeX::read_hdx()`](https://hadexversum.github.io/HaDeX2/reference/read_hdx.md)
+[`HaDeX::read_hdx()`](https://rdrr.io/pkg/HaDeX/man/read_hdx.html)
 function.
 
 ## DynamX state file
@@ -114,9 +114,8 @@ fd_dat <- filter(kin_dat, Exposure == time_100) %>%
 
 If FD is labeled differently, adjust the code.
 
-Calculated kin_dat can be used in e.q.
-[`HaDeX::plot_chiclet()`](https://hadexversum.github.io/HaDeX2/reference/plot_chiclet.md)
-function. For more information check `vignette("code_usage")` article.
+Calculated kin_dat can be used in e.q. `HaDeX::plot_chiclet()` function.
+For more information check `vignette("code_usage")` article.
 
 ## HDeXaminer
 
@@ -133,9 +132,9 @@ If the file has following columns:
     #> [17] "Cent Diff"     "# Deut"        "Deut %"        "Confidence"
 
 it can be processed with
-[`HaDeX::read_hdx()`](https://hadexversum.github.io/HaDeX2/reference/read_hdx.md)
-from the code level, as it requires additional action from the user.
-Then, this data can be used as described in other articles.
+[`HaDeX::read_hdx()`](https://rdrr.io/pkg/HaDeX/man/read_hdx.html) from
+the code level, as it requires additional action from the user. Then,
+this data can be used as described in other articles.
 
 If the file has following columns:
 

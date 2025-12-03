@@ -2,9 +2,9 @@
 
 ## All functions
 
-- [`HaDeX-package`](https://hadexversum.github.io/HaDeX2/reference/HaDeX-package.md)
-  [`HaDeX`](https://hadexversum.github.io/HaDeX2/reference/HaDeX-package.md)
-  : HaDeX
+- [`HaDeX2-package`](https://hadexversum.github.io/HaDeX2/reference/HaDeX2-package.md)
+  [`HaDeX2`](https://hadexversum.github.io/HaDeX2/reference/HaDeX2-package.md)
+  : HaDeX2
 - [`HaDeX_GUI()`](https://hadexversum.github.io/HaDeX2/reference/HaDeX_GUI.md)
   : HaDeX Graphical User Interface
 - [`HaDeXify()`](https://hadexversum.github.io/HaDeX2/reference/HaDeXify.md)

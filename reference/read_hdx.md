@@ -55,7 +55,6 @@ or
 ``` r
 dat <- read_hdx(system.file(package = "HaDeX", 
                      "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#> [1] ""
 head(dat)
 #>     Protein Start   End        Sequence Modification MaxUptake      MHP  State
 #>      <char> <int> <int>          <char>       <lgcl>     <num>    <num> <char>

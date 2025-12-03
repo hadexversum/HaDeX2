@@ -66,7 +66,7 @@ plot_coverage_heatmap(x_dat = uptake_dat, value = "frac_deut_uptake", time_t = 0
 #> Warning: `aes_string()` was deprecated in ggplot2 3.0.0.
 #> ℹ Please use tidy evaluation idioms with `aes()`.
 #> ℹ See also `vignette("ggplot2-in-packages")` for more information.
-#> ℹ The deprecated feature was likely used in the HaDeX package.
+#> ℹ The deprecated feature was likely used in the HaDeX2 package.
 #>   Please report the issue to the authors.
 #> Ignoring unknown labels:
 #> • colour : "Exposure"

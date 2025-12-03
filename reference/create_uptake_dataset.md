@@ -72,7 +72,6 @@ a form of comparison plot.
 
 ``` r
 dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#> [1] ""
 uptake_dat <- create_uptake_dataset(dat, states = c("CD160", "CD160_HVEM"))
 head(uptake_dat)
 #>    Protein        Sequence Exposure Start End State MaxUptake Modification

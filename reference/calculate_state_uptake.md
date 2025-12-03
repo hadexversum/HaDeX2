@@ -58,7 +58,7 @@ a [`data.frame`](https://rdrr.io/r/base/data.frame.html) object
 The function `calculate_state_uptake` calculates deuterium uptake (in
 different forms) for all of the peptides in given protein in given state
 based on supplied parameters: \`time_0\`, \`time_100\` and \`time_t\`.
-All four variants (fractiona) are supplied (mean values and
+All four variants (fractional) are supplied (mean values and
 uncertainty). Manual correction of percentage of deuterium the protein
 was exposed to during the exchange in theoretical calculations is
 provided.

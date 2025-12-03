@@ -8,11 +8,12 @@ articles:
   glossary: glossary.html
   mass_comparison: mass_comparison.html
   quality_control: quality_control.html
+  statistics: statistics.html
   transformation: transformation.html
   usage: usage.html
   version_comparison: version_comparison.html
   visualization: visualization.html
-last_built: 2025-11-24T10:48Z
+last_built: 2025-12-03T13:48Z
 urls:
   reference: https://hadexversum.github.io/HaDeX2/reference
   article: https://hadexversum.github.io/HaDeX2/articles

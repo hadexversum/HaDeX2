@@ -74,7 +74,6 @@ ribbons or error bars.
 
 ``` r
 dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#> [1] ""
 
 uc_dat <- calculate_kinetics(dat, protein = "db_CD160",
                              sequence = "INITSSASQEGTRLN", 

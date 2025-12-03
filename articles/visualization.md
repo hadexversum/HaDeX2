@@ -34,7 +34,7 @@ indicate the uncertainty of the measurement.
 
     ## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
     ## ℹ Please use `linewidth` instead.
-    ## ℹ The deprecated feature was likely used in the HaDeX package.
+    ## ℹ The deprecated feature was likely used in the HaDeX2 package.
     ##   Please report the issue to the authors.
     ## This warning is displayed once every 8 hours.
     ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
@@ -183,7 +183,7 @@ the uncertainty).
 
     ## Warning: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.
     ## ℹ Please use the `linewidth` argument instead.
-    ## ℹ The deprecated feature was likely used in the HaDeX package.
+    ## ℹ The deprecated feature was likely used in the HaDeX2 package.
     ##   Please report the issue to the authors.
     ## This warning is displayed once every 8 hours.
     ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
@@ -502,7 +502,7 @@ AUC:
     ## Warning: `aes_string()` was deprecated in ggplot2 3.0.0.
     ## ℹ Please use tidy evaluation idioms with `aes()`.
     ## ℹ See also `vignette("ggplot2-in-packages")` for more information.
-    ## ℹ The deprecated feature was likely used in the HaDeX package.
+    ## ℹ The deprecated feature was likely used in the HaDeX2 package.
     ##   Please report the issue to the authors.
     ## This warning is displayed once every 8 hours.
     ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
@@ -512,6 +512,13 @@ AUC:
     ## • colour : "Exposure"
 
 ![](visualization_files/figure-html/unnamed-chunk-15-1.png)
+
+Each of the AUC value for different biological state is calculated
+separately. In order to meaningfully compare AUC values, we must select
+the same fully deuterated control for all of them - to have the same
+reference point of 100 % exchange. Otherwise, when the uptake curves
+have different values in the plus infinity, the AUC values described
+only the speed of the exchange taken separately.
 
 **Example** The coverage heatmap plot below presents the back-exchange
 values for peptides form eEF1B$\alpha$. Back-exchange is believed to be

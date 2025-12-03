@@ -50,7 +50,7 @@ sequence is covered by different peptides.
 plot_position_frequency(alpha_dat)
 #> Warning: The dot-dot notation (`..count..`) was deprecated in ggplot2 3.4.0.
 #> ℹ Please use `after_stat(count)` instead.
-#> ℹ The deprecated feature was likely used in the HaDeX package.
+#> ℹ The deprecated feature was likely used in the HaDeX2 package.
 #>   Please report the issue to the authors.
 
 ```

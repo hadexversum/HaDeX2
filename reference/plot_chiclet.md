@@ -66,7 +66,7 @@ state_uptake_dat <- create_state_uptake_dataset(alpha_dat)
 plot_chiclet(state_uptake_dat)
 #> Warning: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.
 #> ℹ Please use the `linewidth` argument instead.
-#> ℹ The deprecated feature was likely used in the HaDeX package.
+#> ℹ The deprecated feature was likely used in the HaDeX2 package.
 #>   Please report the issue to the authors.
 
 ```

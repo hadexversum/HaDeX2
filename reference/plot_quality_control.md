@@ -34,7 +34,6 @@ exchange control time of measurement. This plot is visible in GUI.
 
 ``` r
 dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-#> [1] ""
 qc_dat <- create_quality_control_dataset(dat)  
 plot_quality_control(qc_dat)
 

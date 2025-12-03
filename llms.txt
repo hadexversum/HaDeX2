@@ -22,7 +22,7 @@ devtools::install_github("hadexversum/HaDeX2")
 After installation GUI can be accessed locally:
 
 ``` r
-library(HaDeX)
+library(HaDeX2)
 HaDeX_GUI()
 ```
 
@@ -52,9 +52,9 @@ Narodowa Agencja Wymiany Akademickiej (PPN/STA/2021/1/00025).
 
 ## All functions
 
-- [`HaDeX-package`](https://hadexversum.github.io/HaDeX2/reference/HaDeX-package.md)
-  [`HaDeX`](https://hadexversum.github.io/HaDeX2/reference/HaDeX-package.md)
-  : HaDeX
+- [`HaDeX2-package`](https://hadexversum.github.io/HaDeX2/reference/HaDeX2-package.md)
+  [`HaDeX2`](https://hadexversum.github.io/HaDeX2/reference/HaDeX2-package.md)
+  : HaDeX2
 - [`HaDeX_GUI()`](https://hadexversum.github.io/HaDeX2/reference/HaDeX_GUI.md)
   : HaDeX Graphical User Interface
 - [`HaDeXify()`](https://hadexversum.github.io/HaDeX2/reference/HaDeXify.md)
@@ -235,6 +235,7 @@ Narodowa Agencja Wymiany Akademickiej (PPN/STA/2021/1/00025).
   calculation](https://hadexversum.github.io/HaDeX2/articles/mass_comparison.md):
 - [Quality
   control](https://hadexversum.github.io/HaDeX2/articles/quality_control.md):
+- [statistics](https://hadexversum.github.io/HaDeX2/articles/statistics.md):
 - [Data
   aggregation](https://hadexversum.github.io/HaDeX2/articles/transformation.md):
 - [Code usage](https://hadexversum.github.io/HaDeX2/articles/usage.md):
