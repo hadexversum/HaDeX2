@@ -25,7 +25,7 @@ Let's start with a glimpse of the datafile - in this case, in `cluster` format f
 
 ```{r warning=FALSE}
 library(HaDeX2)
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
+dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
 head(dat, 6)
 ```
 

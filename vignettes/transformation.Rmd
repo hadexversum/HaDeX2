@@ -26,7 +26,7 @@ tmp_state <- "CD160"
 tmp_time <- "1 min"
 proton_mass <- 1.00727647
 
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv")) %>%
+dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv")) %>%
   filter(Exposure == 1, State == "CD160", Sequence ==  "LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL") 
 ```
 

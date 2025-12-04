@@ -67,7 +67,7 @@ For the analysis, we use the example file from HaDeX in its raw form, directly e
 
 ```{r}
 library(HaDeX2)
-dat <- read.csv(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
+dat <- read.csv(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
 ```
 
 As described, the first step is to transform the $Center$ value (geometric centroid of the isotopic envelope for given peptide in a given state in given time point) and then to aggregate the values measured for different charge values. This is all done within each replicate.

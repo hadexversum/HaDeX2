@@ -4,23 +4,23 @@
 #                           "ggplot"))
 
 theo_frac_r_butterfly_plot <- plot_butterfly(state_uptake_dat,
-                                             theoretical = T,
-                                             fractional = T,
+                                             theoretical = TRUE,
+                                             fractional = TRUE,
                                              uncertainty_type = "ribbon")
 
 frac_r_butterfly_plot <- plot_butterfly(state_uptake_dat,
-                                        theoretical = F,
-                                        fractional = T,
+                                        theoretical = FALSE,
+                                        fractional = TRUE,
                                         uncertainty_type = "ribbon")
 
 theo_b_butterfly_plot <- plot_butterfly(state_uptake_dat,
-                                        theoretical = T,
-                                        fractional = F,
+                                        theoretical = TRUE,
+                                        fractional = FALSE,
                                         uncertainty_type = "bars")
 
 bl_butterfly_plot <- plot_butterfly(state_uptake_dat,
-                                    theoretical = F,
-                                    fractional = F,
+                                    theoretical = FALSE,
+                                    fractional = FALSE,
                                     uncertainty_type = "bars + line")
 
 # test_that("plot parameters",{
