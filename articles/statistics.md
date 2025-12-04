@@ -8,7 +8,7 @@ Here, we sum up the statistics in HaDeX2. Some of the elements are
 discussed in other articles in appropriate places, but this article
 gathers this information in one place.
 
-## 0.1 Uncertainty propagation
+## 1 Uncertainty propagation
 
 The propagation of uncertainty is necessary when we are transforming the
 measured values. In HDX-MS, we repeat the measurements in triplicate in
@@ -43,7 +43,7 @@ Puchała, W. et al. HaDeX: an R package and web-server for analysis of
 data from hydrogen–deuterium exchange mass spectrometry experiments.
 Bioinformatics 36, 4516–4518 (2020).
 
-## 0.2 Hybrid testing
+## 2 Hybrid testing
 
 Hybrid testing is a combination of two statistical approaches to ensure
 that the difference between two biological states is statistically
@@ -58,7 +58,7 @@ Differences in Differential Hydrogen Exchange-Mass Spectrometry
 Measurements Using a Hybrid Significance Testing Approach. Anal. Chem.
 91, 8008–8016 (2019).
 
-### 0.2.1 Houde interval
+### 2.1 Houde interval
 
 This test is done for the time points chosen for a given plot e.q. for
 the volcano plot, where presenting multiple time points of measurement,
@@ -96,7 +96,7 @@ Houde,D. et al. (2011) The utility of hydrogen/deuterium exchange mass
 spectrometry in biopharmaceutical comparability studies. J. Pharm. Sci.,
 100, 2071–2086.
 
-### 0.2.2 Student’s t-test
+### 2.2 Student’s t-test
 
 In order to use student t-test, we need at least three values from each
 group - in the case of the differential analysis - at least three
@@ -129,9 +129,3 @@ p.adjust(p_dat[["P_value"]], method = p_adjustment_method)
 
 P-value is usually presented in the form of \\-log(Pvalue)\\, e.q. on
 the volcano plot.
-
-## 0.3 global threshold estimation
-
-## 0.4 per-timepoint testing
-
-## 0.5 cross-timepoint/FDR control

@@ -221,4 +221,4 @@ axis.
 If the AUC value exceeds the value 1, it is an indicator of
 back-exchange.
 
-$$auc = \sum\limits_{i}\left( du_{frac,i + 1} + du_{frac,i} \right) \cdot \left( t_{norm,i + 1} - t_{norm,i} \right) \cdot \frac{1}{2}$$
+$$auc = \sum\limits_{i}\left( du_{frac,100} + du_{frac,i} \right) \cdot \left( t_{norm,100} - t_{norm,i} \right) \cdot \frac{1}{2}$$
