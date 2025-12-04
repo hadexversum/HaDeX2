@@ -1,14 +1,10 @@
 # Statistics
 
-``` r
-library(HaDeX2)
-```
-
 Here, we sum up the statistics in HaDeX2. Some of the elements are
 discussed in other articles in appropriate places, but this article
 gathers this information in one place.
 
-## 1 Uncertainty propagation
+## Uncertainty propagation
 
 The propagation of uncertainty is necessary when we are transforming the
 measured values. In HDX-MS, we repeat the measurements in triplicate in
@@ -17,33 +13,32 @@ transforming mass measurements into deuterium uptake, we need to
 propagate mass measurement uncertainty, using the Law of Propagation of
 Uncertainty:
 
-\\u\_{c}(y) = \sqrt{\sum\_{k} \left\[ \frac{\partial y}{\partial x\_{k}}
-u(x\_{k}) \right\]^2}\\
+$$u_{c}(y) = \sqrt{\sum\limits_{k}\left\lbrack \frac{\partial y}{\partial x_{k}}u\left( x_{k} \right) \right\rbrack^{2}}$$
 
 Where:
 
-- \\u_c(y)\\ - combined uncertainty of value \\y\\, where \\y\\ is a
-  function of \\x_k\\,
-- \\x_k\\ - values for which the uncertainty is known.
+- $u_{c}(y)$ - combined uncertainty of value $y$, where $y$ is a
+  function of $x_{k}$,
+- $x_{k}$ - values for which the uncertainty is known.
 
 This is a generic equation used the deritatives of functions. It is
 created for deuterium uptake in the appropriate forms (as the equations
 differ based on the parameters of calculations) and described in detail
 in the article `Calculations`.
 
-Joint Committee for Guides in Metrology. (2008) JCGM 100: evaluation of
+*Joint Committee for Guides in Metrology. (2008) JCGM 100: evaluation of
 measurement data – guide to the expression of uncertainty in
-measurement. Technical report, JCGM
+measurement. Technical report, JCGM*
 
-Weis, D. D. Recommendations for the Propagation of Uncertainty in
+*Weis, D. D. Recommendations for the Propagation of Uncertainty in
 Hydrogen Exchange-Mass Spectrometric Measurements. J. Am. Soc. Mass
-Spectrom. 32, 1610–1617 (2021).
+Spectrom. 32, 1610–1617 (2021).*
 
-Puchała, W. et al. HaDeX: an R package and web-server for analysis of
+*Puchała, W. et al. HaDeX: an R package and web-server for analysis of
 data from hydrogen–deuterium exchange mass spectrometry experiments.
-Bioinformatics 36, 4516–4518 (2020).
+Bioinformatics 36, 4516–4518 (2020).*
 
-## 2 Hybrid testing
+## Hybrid testing
 
 Hybrid testing is a combination of two statistical approaches to ensure
 that the difference between two biological states is statistically
@@ -53,12 +48,12 @@ claims the significance.
 However, it can be only achieved when we have the experiment done at
 least in triplicate, as it is the condition to perform Student t-test.
 
-Hageman, T. S. & Weis, D. D. Reliable Identification of Significant
+*Hageman, T. S. & Weis, D. D. Reliable Identification of Significant
 Differences in Differential Hydrogen Exchange-Mass Spectrometry
 Measurements Using a Hybrid Significance Testing Approach. Anal. Chem.
-91, 8008–8016 (2019).
+91, 8008–8016 (2019).*
 
-### 2.1 Houde interval
+### Houde interval
 
 This test is done for the time points chosen for a given plot e.q. for
 the volcano plot, where presenting multiple time points of measurement,
@@ -71,20 +66,21 @@ measurement - or, more precisely, the propagated uncertainty of the
 deuterium uptake (in the same form as values presented on the plot). As
 described in the equation:
 
-\\interval = \frac{\sum_i^n u_c(du_n)}{i}\*tvalue(k) \\ where:
+$$interval = \frac{\sum\limits_{i}^{n}u_{c}\left( du_{n} \right)}{i}*tvalue(k)$$
+where:
 
-- \\n\\ - number of peptides,
-- \\u_c(du_n)\\ - uncertainty of the deuterium uptake for \\i\\th
-  peptide,
-- \\tvalue\\ - value for test for \\k\\ replicates from the table,
-- \\k\\ - number of the replicates of the experiment.
+- $n$ - number of peptides,
+- $u_{c}\left( du_{n} \right)$ - uncertainty of the deuterium uptake for
+  $i$th peptide,
+- $tvalue$ - value for test for $k$ replicates from the table,
+- $k$ - number of the replicates of the experiment.
 
-\\tvalue\\ is calculates as follows, using R-function `qt`:
+$tvalue$ is calculates as follows, using R-function `qt`:
 
-\\tvalue = qt(c(alpha/2, 1-alpha/2), df = k-1)\\
+$$tvalue = qt\left( c(alpha/2,1 - alpha/2),df = k - 1 \right)$$
 
 where the degree of freedom is the number of replicates minus one, and
-alpha is \\1-confidencelimit\\ for the desired confidence level (usually
+alpha is $1 - confidencelimit$ for the desired confidence level (usually
 0.98).
 
 Basically, we take the mean uncertainty of deuterium uptake and widen
@@ -92,11 +88,11 @@ this range by the appropriate value to get an interval. Values under the
 interval are too small and may be mistaken with the uncertainty. We are
 not interested in them.
 
-Houde,D. et al. (2011) The utility of hydrogen/deuterium exchange mass
+*Houde,D. et al. (2011) The utility of hydrogen/deuterium exchange mass
 spectrometry in biopharmaceutical comparability studies. J. Pharm. Sci.,
-100, 2071–2086.
+100, 2071–2086.*
 
-### 2.2 Student’s t-test
+### Student’s t-test
 
 In order to use student t-test, we need at least three values from each
 group - in the case of the differential analysis - at least three
@@ -117,7 +113,7 @@ To calculate P-value we use base R-function `t.test`
 t.test(x = st_1, y = st_2, paired = FALSE, alternative = "two.sided", conf.level = confidence_level)$p.value
 ```
 
-where \\st_1\\ is a set of values from the first state, and \\st_2\\
+where $st_{1}$ is a set of values from the first state, and $st_{2}$
 from the second.
 
 If this option is chosen, we adjust the P-value using appropriate
@@ -127,5 +123,5 @@ adjustment method (with three options: none, BH and bonferonni):
 p.adjust(p_dat[["P_value"]], method = p_adjustment_method)
 ```
 
-P-value is usually presented in the form of \\-log(Pvalue)\\, e.q. on
-the volcano plot.
+P-value is usually presented in the form of $- log(Pvalue)$, e.q. on the
+volcano plot.
