@@ -147,234 +147,106 @@ exemplary data.
 ## Calculation speeds compared
 
 Now we establish the common functionalities for both versions of the
-package. Using our exemplary data set, we will check the calculation
-times.
+package - there are not many. We concentrate on four actions: reading
+experimetal file, plotting from raw data uptake curve for one peptide,
+comparison plot of two states, and differential Woods plot with
+difference between two states.
 
-Here, I use outputs produced outside of this article, as I need to
-compare two packages with the same name.
-
-### Reading a file
-
-This function is called only once, in the beginning of the analysis.
-Here, we use an external file to call the read_hdx function.
-
-#### HaDeX
+Code used to create this comparison is shown below, and then the results
+are presented in a comprehensive form.
 
 ``` r
-microbenchmark(
-  
-  dat <- HaDeX::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
+dat_HaDeX <- HaDeX::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
+dat_HaDeX2 <- HaDeX2::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
+
+version_benchmark <- microbenchmark(
+  list = alist(`HaDeX_1. Read input` = HaDeX::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv")),
+               `HaDeX2_1. Read input` = HaDeX2::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv")),
+               `HaDeX_2. Plot uptake curve` = {HaDeX::calculate_kinetics(dat = dat_HaDeX, 
+                                                                         sequence = "GFGDLKSPAGL",      
+                                                                         state = "Alpha_KSCN", 
+                                                                         start = 1, end = 11, 
+                                                                         time_in = 0, time_out = 1440) %>%      
+                                               HaDeX::plot_kinetics(kin_dat = .)},
+               `HaDeX2_2. Plot uptake curve` = {HaDeX2::calculate_peptide_kinetics(dat = dat_HaDeX2,
+                                                                                   sequence = "GFGDLKSPAGL",
+                                                                                   state = "Alpha_KSCN",
+                                                                                   start = 1, end = 11,
+                                                                                   time_0 = 0, time_100 = 1440) %>%
+                                               HaDeX2::plot_uptake_curve(uc_dat = .)},
+               `HaDeX_3. Plot comparison` = {HaDeX::prepare_dataset(dat = dat_HaDeX, 
+                                                                         in_state_first = "Alpha_KSCN_0",      
+                                                                         chosen_state_first = "Alpha_KSCN_1", 
+                                                                         out_state_first = "Alpha_KSCN_1440",      
+                                                                         in_state_second = "ALPHA_Gamma_0", 
+                                                                         chosen_state_second = "ALPHA_Gamma_1",      
+                                                                         out_state_second = "ALPHA_Gamma_1440") %>%
+                                                     HaDeX::comparison_plot(calc_dat = ., 
+                                                                            theoretical = FALSE,      
+                                                                            relative = TRUE, 
+                                                                            state_first = "Alpha_KSCN", 
+                                                                            state_second = "ALPHA_Gamma")},
+               `HaDeX2_3. Plot comparison` = {HaDeX2::create_state_comparison_dataset(dat = dat_HaDeX2,
+                                                                                           states = c("Alpha_KSCN", "ALPHA_Gamma"),
+                                                                                           time_0 = 0, time_100 = 1440) %>%
+                                                HaDeX2::plot_state_comparison(uptake_dat = .,
+                                                                                        theoretical = FALSE,
+                                                                                        fractional = TRUE,
+                                                                                        time_t = 1)},
+               `HaDeX_4. Plot Woods` = {HaDeX::prepare_dataset(dat = dat_HaDeX, 
+                                                                    in_state_first = "Alpha_KSCN_0",      
+                                                                    chosen_state_first = "Alpha_KSCN_1", 
+                                                                    out_state_first = "Alpha_KSCN_1440",      
+                                                                    in_state_second = "ALPHA_Gamma_0", 
+                                                                    chosen_state_second = "ALPHA_Gamma_1",      
+                                                                    out_state_second = "ALPHA_Gamma_1440") %>%
+                                                HaDeX::woods_plot(calc_dat = ., 
+                                                                  theoretical = FALSE,      
+                                                                  relative = TRUE, 
+                                                                  confidence_limit = 0.98, 
+                                                                  confidence_limit_2 = 0.98)},
+               `HaDeX2_4. Plot Woods` = {HaDeX2::create_diff_uptake_dataset(dat = dat_HaDeX2,
+                                                                                 state_1 = "Alpha_KSCN",
+                                                                                 state_2 = "ALPHA_Gamma",
+                                                                                 time_0 = 0, time_100 = 1440) %>%
+                                                HaDeX2::plot_differential(diff_uptake_dat = .,
+                                                                          time_t = 1,
+                                                                          theoretical = FALSE,
+                                                                          fractional = TRUE,
+                                                                          show_houde_interval = TRUE,
+                                                                          confidence_level = 0.98)}
+               
+               )
 )
+
+saveRDS(version_benchmark, file = "version_benchmark.rds")
 ```
 
-    ## Unit: milliseconds
-    ##                                                                             expr
-    ##  dat <- HaDeX::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
-    ##       min       lq     mean   median       uq      max neval
-    ##  24.66885 24.95391 26.15633 25.18411 25.84983 40.72409   100
+Let’s see how the results presents next to each other, in a graphic
+form.
 
-#### HaDeX2
+![](version_comparison_files/figure-html/unnamed-chunk-5-1.png) We can
+see than in case of reading file, HaDeX2 is a little bit slower, but is
+making way more checks than the first version. Plotting uptake curve and
+comparison plot is way faster in HaDeX2. However, Woods plot is plotted
+slower by HaDeX2, because the hubrid testing is implemented and needs
+additional data checks, and HaDeX lacks that. Other functionalities
+cannot be compared, as they are absent in the first version of the
+package.
 
-``` r
-microbenchmark(
+Below, we present the summary of numeric values used to create this plot
+(in miliseconds):
 
-  dat2 <- HaDeX2::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
-
-)
-```
-
-    ## Unit: milliseconds
-    ##                                                                               expr
-    ##  dat2 <- HaDeX2::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
-    ##       min       lq     mean   median       uq      max neval
-    ##  39.29802 39.82903 41.27035 40.33806 42.07976 51.43172   100
-
-#### Results
-
-Both packages have a same-called read_hdx function. However, the backend
-of HaDeX2 is way more complex as there is a specific data class used,
-and several additional check resulting in the speed of reading and
-processing a file.
-
-### Plotting a deuterium uptake curve for one state
-
-#### HaDeX
-
-``` r
-microbenchmark(
-  
-dat %>% 
-  HaDeX::calculate_kinetics(sequence = "GFGDLKSPAGL",      
-                            state = "Alpha_KSCN", 
-                            start = 1, end = 11, 
-                            time_in = 0, time_out = 1440) %>%      
-  HaDeX::plot_kinetics(kin_dat = .)
-)
-```
-
-    ## Unit: milliseconds
-    ##                                                                                                                                                                             expr
-    ##  dat %>% HaDeX::calculate_kinetics(sequence = "GFGDLKSPAGL", state = "Alpha_KSCN",      start = 1, end = 11, time_in = 0, time_out = 1440) %>% HaDeX::plot_kinetics(kin_dat = .)
-    ##       min       lq    mean   median       uq      max neval
-    ##  148.7843 151.8888 156.132 154.1734 156.7669 275.1587   100
-
-#### HaDeX2
-
-``` r
-microbenchmark(
-
-  dat2 %>%
-    HaDeX2::calculate_peptide_kinetics(sequence = "GFGDLKSPAGL",
-                               state = "Alpha_KSCN",
-                               start = 1, end = 11,
-                               time_0 = 0, time_100 = 1440) %>%
-    HaDeX2::plot_uptake_curve(uc_dat = .)
-
-
-)
-```
-
-    ## Unit: milliseconds
-    ##                                                                                                                                                                                               expr
-    ##  dat2 %>% HaDeX2::calculate_peptide_kinetics(sequence = "GFGDLKSPAGL",      state = "Alpha_KSCN", start = 1, end = 11, time_0 = 0, time_100 = 1440) %>%      HaDeX2::plot_uptake_curve(uc_dat = .)
-    ##       min       lq    mean   median       uq      max neval
-    ##  53.06671 53.78621 58.3272 56.87354 59.85324 188.3547   100
-
-#### Results
-
-HaDeX2 plots uptake curve significantly faster.
-
-### Plotting a comparison plot
-
-HaDeX plots the comparison plot only for two states.
-
-#### HaDeX
-
-``` r
-microbenchmark(
-  
- HaDeX::prepare_dataset(dat = dat, 
-                        in_state_first = "Alpha_KSCN_0",      
-                        chosen_state_first = "Alpha_KSCN_1", 
-                        out_state_first = "Alpha_KSCN_1440",      
-                        in_state_second = "ALPHA_Gamma_0", 
-                        chosen_state_second = "ALPHA_Gamma_1",      
-                        out_state_second = "ALPHA_Gamma_1440") %>%
-   HaDeX::comparison_plot(calc_dat = ., 
-                          theoretical = FALSE,      
-                          relative = TRUE, 
-                          state_first = "Alpha_KSCN", 
-                          state_second = "ALPHA_Gamma")
-)
-```
-
-    ## Unit: milliseconds
-    ##                                                                                                                                                                                                                                                                                                                                                                                                                             expr
-    ##  HaDeX::prepare_dataset(dat = dat, in_state_first = "Alpha_KSCN_0",      chosen_state_first = "Alpha_KSCN_1", out_state_first = "Alpha_KSCN_1440",      in_state_second = "ALPHA_Gamma_0", chosen_state_second = "ALPHA_Gamma_1",      out_state_second = "ALPHA_Gamma_1440") %>% HaDeX::comparison_plot(calc_dat = .,      theoretical = FALSE, relative = TRUE, state_first = "Alpha_KSCN",      state_second = "ALPHA_Gamma")
-    ##       min       lq     mean   median       uq      max neval
-    ##  189.0854 198.6474 203.7586 202.7504 206.6732 309.2219   100
-
-#### HaDeX2
-
-``` r
-microbenchmark(
-
-  HaDeX2::create_state_comparison_dataset(dat = dat2,
-                                             states = c("Alpha_KSCN", "ALPHA_Gamma"),
-                                             time_0 = 0, time_100 = 1440) %>%
-  HaDeX2::plot_state_comparison(uptake_dat = .,
-                                          theoretical = FALSE,
-                                          fractional = TRUE,
-                                          time_t = 1)
-
-)
-```
-
-    ## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-    ## ℹ Please use `linewidth` instead.
-    ## ℹ The deprecated feature was likely used in the HaDeX2 package.
-    ##   Please report the issue to the authors.
-    ## This warning is displayed once every 8 hours.
-    ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-    ## generated.
-
-    ## Unit: milliseconds
-    ##                                                                                                                                                                                                                                       expr
-    ##  HaDeX2::create_state_comparison_dataset(dat = dat2, states = c("Alpha_KSCN",      "ALPHA_Gamma"), time_0 = 0, time_100 = 1440) %>% HaDeX2::plot_state_comparison(uptake_dat = .,      theoretical = FALSE, fractional = TRUE, time_t = 1)
-    ##       min       lq     mean   median       uq      max neval
-    ##  37.42349 38.26927 41.00077 39.05488 42.36558 79.52878   100
-
-#### Results
-
-The calculations are significantly faster in HaDeX2, but the difference
-in plotting time is resulting by new options e.q. selecting the line
-size, or interactive mode for GUI.
-
-### Plotting a Woods’s plot
-
-#### HaDeX
-
-``` r
-microbenchmark(
-  
-  HaDeX::prepare_dataset(dat = dat, 
-                         in_state_first = "Alpha_KSCN_0",      
-                         chosen_state_first = "Alpha_KSCN_1", 
-                         out_state_first = "Alpha_KSCN_1440",      
-                         in_state_second = "ALPHA_Gamma_0", 
-                         chosen_state_second = "ALPHA_Gamma_1",      
-                         out_state_second = "ALPHA_Gamma_1440") %>%
-    HaDeX::woods_plot(calc_dat = ., 
-                      theoretical = FALSE,      
-                      relative = TRUE, 
-                      confidence_limit = 0.98, 
-                      confidence_limit_2 = 0.98)
-                                                                         
-)
-```
-
-    ## Unit: milliseconds
-    ##                                                                                                                                                                                                                                                                                                                                                                                                                  expr
-    ##  HaDeX::prepare_dataset(dat = dat, in_state_first = "Alpha_KSCN_0",      chosen_state_first = "Alpha_KSCN_1", out_state_first = "Alpha_KSCN_1440",      in_state_second = "ALPHA_Gamma_0", chosen_state_second = "ALPHA_Gamma_1",      out_state_second = "ALPHA_Gamma_1440") %>% HaDeX::woods_plot(calc_dat = .,      theoretical = FALSE, relative = TRUE, confidence_limit = 0.98,      confidence_limit_2 = 0.98)
-    ##       min       lq     mean   median       uq      max neval
-    ##  210.3428 222.9372 235.6713 234.0407 243.1741 389.9217   100
-
-#### HaDeX2
-
-``` r
-microbenchmark(
-
-
-  HaDeX2::create_diff_uptake_dataset(dat2,
-                                     state_1 = "Alpha_KSCN",
-                                     state_2 = "ALPHA_Gamma",
-                                     time_0 = 0, time_100 = 1440) %>%
-    HaDeX2::plot_differential(diff_uptake_dat = .,
-                              time_t = 1,
-                              theoretical = FALSE,
-                              fractional = TRUE,
-                              show_houde_interval = TRUE,
-                              confidence_level = 0.98)
-
-)
-```
-
-    ## Unit: milliseconds
-    ##                                                                                                                                                                                                                                                                                                            expr
-    ##  HaDeX2::create_diff_uptake_dataset(dat2, state_1 = "Alpha_KSCN",      state_2 = "ALPHA_Gamma", time_0 = 0, time_100 = 1440) %>%      HaDeX2::plot_differential(diff_uptake_dat = ., time_t = 1,          theoretical = FALSE, fractional = TRUE, show_houde_interval = TRUE,          confidence_level = 0.98)
-    ##       min       lq     mean   median       uq      max neval
-    ##  217.4347 225.6886 238.5873 234.8887 244.4107 382.8483   100
-
-#### Results
-
-As above, the plotting takes more time as it coping with option to
-include hybrid statistical testing, as proposed in *Hageman TS, Weis DD.
-Reliable Identification of Significant Differences in Differential
-Hydrogen Exchange-Mass Spectrometry Measurements Using a Hybrid
-Significance Testing Approach. Anal Chem. 2019 Jul 2;91(13):8008-8016.
-doi: 10.1021/acs.analchem.9b01325. Epub 2019 Jun 11. PMID: 31099554*.
-
-## Conclusions
+| tool   | task                  |    median |       lq |        uq |
+|:-------|:----------------------|----------:|---------:|----------:|
+| HaDeX  | 1\. Read input        |  33.44495 |  32.1839 |  35.30410 |
+| HaDeX2 | 1\. Read input        | 105.27765 | 102.8357 | 110.21350 |
+| HaDeX  | 2\. Plot uptake curve | 163.12015 | 158.5743 | 168.96835 |
+| HaDeX2 | 2\. Plot uptake curve |  65.14970 |  63.1914 |  70.07895 |
+| HaDeX  | 3\. Plot comparison   | 180.56545 | 174.0696 | 187.73510 |
+| HaDeX2 | 3\. Plot comparison   |  58.37120 |  56.3455 |  64.30860 |
+| HaDeX  | 4\. Plot Woods        | 195.51855 | 190.1901 | 201.42075 |
+| HaDeX2 | 4\. Plot Woods        | 342.40110 | 337.0913 | 353.72510 |
 
 The HaDeX2 package is significantly more powerful than the previous
 version. Moreover, it was rewritten for the comfort of use - as can be

@@ -582,237 +582,156 @@ our exemplary data.</p>
 <h2 id="calculation-speeds-compared">Calculation speeds compared<a class="anchor" aria-label="anchor" href="#calculation-speeds-compared"></a>
 </h2>
 <p>Now we establish the common functionalities for both versions of the
-package. Using our exemplary data set, we will check the calculation
-times.</p>
-<p>Here, I use outputs produced outside of this article, as I need to
-compare two packages with the same name.</p>
-<div class="section level3">
-<h3 id="reading-a-file">Reading a file<a class="anchor" aria-label="anchor" href="#reading-a-file"></a>
-</h3>
-<p>This function is called only once, in the beginning of the analysis.
-Here, we use an external file to call the read_hdx function.</p>
-<div class="section level4">
-<h4 id="hadex">HaDeX<a class="anchor" aria-label="anchor" href="#hadex"></a>
-</h4>
+package - there are not many. We concentrate on four actions: reading
+experimetal file, plotting from raw data uptake curve for one peptide,
+comparison plot of two states, and differential Woods plot with
+difference between two states.</p>
+<p>Code used to create this comparison is shown below, and then the
+results are presented in a comprehensive form.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">microbenchmark</span><span class="op">(</span></span>
-<span>  </span>
-<span>  <span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">HaDeX</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/HaDeX/man/read_hdx.html" class="external-link">read_hdx</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"HaDeX2"</span>, <span class="st">"HaDeX/data/alpha.csv"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Unit: milliseconds</span></span>
-<span><span class="co">##                                                                             expr</span></span>
-<span><span class="co">##  dat &lt;- HaDeX::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))</span></span>
-<span><span class="co">##       min       lq     mean   median       uq      max neval</span></span>
-<span><span class="co">##  24.66885 24.95391 26.15633 25.18411 25.84983 40.72409   100</span></span></code></pre>
-</div>
-<div class="section level4">
-<h4 id="hadex2">HaDeX2<a class="anchor" aria-label="anchor" href="#hadex2"></a>
-</h4>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">microbenchmark</span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">dat_HaDeX</span> <span class="op">&lt;-</span> <span class="fu">HaDeX</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/HaDeX/man/read_hdx.html" class="external-link">read_hdx</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"HaDeX2"</span>, <span class="st">"HaDeX/data/alpha.csv"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">dat_HaDeX2</span> <span class="op">&lt;-</span> <span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/read_hdx.html">read_hdx</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"HaDeX2"</span>, <span class="st">"HaDeX/data/alpha.csv"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span>  <span class="va">dat2</span> <span class="op">&lt;-</span> <span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/read_hdx.html">read_hdx</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"HaDeX2"</span>, <span class="st">"HaDeX/data/alpha.csv"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">version_benchmark</span> <span class="op">&lt;-</span> <span class="fu">microbenchmark</span><span class="op">(</span></span>
+<span>  list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">alist</a></span><span class="op">(</span>`HaDeX_1. Read input` <span class="op">=</span> <span class="fu">HaDeX</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/HaDeX/man/read_hdx.html" class="external-link">read_hdx</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"HaDeX2"</span>, <span class="st">"HaDeX/data/alpha.csv"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>               `HaDeX2_1. Read input` <span class="op">=</span> <span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/read_hdx.html">read_hdx</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"HaDeX2"</span>, <span class="st">"HaDeX/data/alpha.csv"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>               `HaDeX_2. Plot uptake curve` <span class="op">=</span> <span class="op">{</span><span class="fu">HaDeX</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/HaDeX/man/calculate_kinetics.html" class="external-link">calculate_kinetics</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">dat_HaDeX</span>, </span>
+<span>                                                                         sequence <span class="op">=</span> <span class="st">"GFGDLKSPAGL"</span>,      </span>
+<span>                                                                         state <span class="op">=</span> <span class="st">"Alpha_KSCN"</span>, </span>
+<span>                                                                         start <span class="op">=</span> <span class="fl">1</span>, end <span class="op">=</span> <span class="fl">11</span>, </span>
+<span>                                                                         time_in <span class="op">=</span> <span class="fl">0</span>, time_out <span class="op">=</span> <span class="fl">1440</span><span class="op">)</span> <span class="op">%&gt;%</span>      </span>
+<span>                                               <span class="fu">HaDeX</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/HaDeX/man/plot_kinetics.html" class="external-link">plot_kinetics</a></span><span class="op">(</span>kin_dat <span class="op">=</span> <span class="va">.</span><span class="op">)</span><span class="op">}</span>,</span>
+<span>               `HaDeX2_2. Plot uptake curve` <span class="op">=</span> <span class="op">{</span><span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/calculate_peptide_kinetics.html">calculate_peptide_kinetics</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">dat_HaDeX2</span>,</span>
+<span>                                                                                   sequence <span class="op">=</span> <span class="st">"GFGDLKSPAGL"</span>,</span>
+<span>                                                                                   state <span class="op">=</span> <span class="st">"Alpha_KSCN"</span>,</span>
+<span>                                                                                   start <span class="op">=</span> <span class="fl">1</span>, end <span class="op">=</span> <span class="fl">11</span>,</span>
+<span>                                                                                   time_0 <span class="op">=</span> <span class="fl">0</span>, time_100 <span class="op">=</span> <span class="fl">1440</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>                                               <span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_uptake_curve.html">plot_uptake_curve</a></span><span class="op">(</span>uc_dat <span class="op">=</span> <span class="va">.</span><span class="op">)</span><span class="op">}</span>,</span>
+<span>               `HaDeX_3. Plot comparison` <span class="op">=</span> <span class="op">{</span><span class="fu">HaDeX</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/HaDeX/man/prepare_dataset.html" class="external-link">prepare_dataset</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">dat_HaDeX</span>, </span>
+<span>                                                                         in_state_first <span class="op">=</span> <span class="st">"Alpha_KSCN_0"</span>,      </span>
+<span>                                                                         chosen_state_first <span class="op">=</span> <span class="st">"Alpha_KSCN_1"</span>, </span>
+<span>                                                                         out_state_first <span class="op">=</span> <span class="st">"Alpha_KSCN_1440"</span>,      </span>
+<span>                                                                         in_state_second <span class="op">=</span> <span class="st">"ALPHA_Gamma_0"</span>, </span>
+<span>                                                                         chosen_state_second <span class="op">=</span> <span class="st">"ALPHA_Gamma_1"</span>,      </span>
+<span>                                                                         out_state_second <span class="op">=</span> <span class="st">"ALPHA_Gamma_1440"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>                                                     <span class="fu">HaDeX</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/HaDeX/man/comparison_plot.html" class="external-link">comparison_plot</a></span><span class="op">(</span>calc_dat <span class="op">=</span> <span class="va">.</span>, </span>
+<span>                                                                            theoretical <span class="op">=</span> <span class="cn">FALSE</span>,      </span>
+<span>                                                                            relative <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>                                                                            state_first <span class="op">=</span> <span class="st">"Alpha_KSCN"</span>, </span>
+<span>                                                                            state_second <span class="op">=</span> <span class="st">"ALPHA_Gamma"</span><span class="op">)</span><span class="op">}</span>,</span>
+<span>               `HaDeX2_3. Plot comparison` <span class="op">=</span> <span class="op">{</span><span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/create_state_comparison_dataset.html">create_state_comparison_dataset</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">dat_HaDeX2</span>,</span>
+<span>                                                                                           states <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Alpha_KSCN"</span>, <span class="st">"ALPHA_Gamma"</span><span class="op">)</span>,</span>
+<span>                                                                                           time_0 <span class="op">=</span> <span class="fl">0</span>, time_100 <span class="op">=</span> <span class="fl">1440</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>                                                <span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_state_comparison.html">plot_state_comparison</a></span><span class="op">(</span>uptake_dat <span class="op">=</span> <span class="va">.</span>,</span>
+<span>                                                                                        theoretical <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                                                                                        fractional <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                                                                                        time_t <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">}</span>,</span>
+<span>               `HaDeX_4. Plot Woods` <span class="op">=</span> <span class="op">{</span><span class="fu">HaDeX</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/HaDeX/man/prepare_dataset.html" class="external-link">prepare_dataset</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">dat_HaDeX</span>, </span>
+<span>                                                                    in_state_first <span class="op">=</span> <span class="st">"Alpha_KSCN_0"</span>,      </span>
+<span>                                                                    chosen_state_first <span class="op">=</span> <span class="st">"Alpha_KSCN_1"</span>, </span>
+<span>                                                                    out_state_first <span class="op">=</span> <span class="st">"Alpha_KSCN_1440"</span>,      </span>
+<span>                                                                    in_state_second <span class="op">=</span> <span class="st">"ALPHA_Gamma_0"</span>, </span>
+<span>                                                                    chosen_state_second <span class="op">=</span> <span class="st">"ALPHA_Gamma_1"</span>,      </span>
+<span>                                                                    out_state_second <span class="op">=</span> <span class="st">"ALPHA_Gamma_1440"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>                                                <span class="fu">HaDeX</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/HaDeX/man/woods_plot.html" class="external-link">woods_plot</a></span><span class="op">(</span>calc_dat <span class="op">=</span> <span class="va">.</span>, </span>
+<span>                                                                  theoretical <span class="op">=</span> <span class="cn">FALSE</span>,      </span>
+<span>                                                                  relative <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>                                                                  confidence_limit <span class="op">=</span> <span class="fl">0.98</span>, </span>
+<span>                                                                  confidence_limit_2 <span class="op">=</span> <span class="fl">0.98</span><span class="op">)</span><span class="op">}</span>,</span>
+<span>               `HaDeX2_4. Plot Woods` <span class="op">=</span> <span class="op">{</span><span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/create_diff_uptake_dataset.html">create_diff_uptake_dataset</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">dat_HaDeX2</span>,</span>
+<span>                                                                                 state_1 <span class="op">=</span> <span class="st">"Alpha_KSCN"</span>,</span>
+<span>                                                                                 state_2 <span class="op">=</span> <span class="st">"ALPHA_Gamma"</span>,</span>
+<span>                                                                                 time_0 <span class="op">=</span> <span class="fl">0</span>, time_100 <span class="op">=</span> <span class="fl">1440</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>                                                <span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_differential.html">plot_differential</a></span><span class="op">(</span>diff_uptake_dat <span class="op">=</span> <span class="va">.</span>,</span>
+<span>                                                                          time_t <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>                                                                          theoretical <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                                                                          fractional <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                                                                          show_houde_interval <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                                                                          confidence_level <span class="op">=</span> <span class="fl">0.98</span><span class="op">)</span><span class="op">}</span></span>
+<span>               </span>
+<span>               <span class="op">)</span></span>
+<span><span class="op">)</span></span>
 <span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Unit: milliseconds</span></span>
-<span><span class="co">##                                                                               expr</span></span>
-<span><span class="co">##  dat2 &lt;- HaDeX2::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))</span></span>
-<span><span class="co">##       min       lq     mean   median       uq      max neval</span></span>
-<span><span class="co">##  39.29802 39.82903 41.27035 40.33806 42.07976 51.43172   100</span></span></code></pre>
-</div>
-<div class="section level4">
-<h4 id="results">Results<a class="anchor" aria-label="anchor" href="#results"></a>
-</h4>
-<p>Both packages have a same-called read_hdx function. However, the
-backend of HaDeX2 is way more complex as there is a specific data class
-used, and several additional check resulting in the speed of reading and
-processing a file.</p>
-</div>
-</div>
-<div class="section level3">
-<h3 id="plotting-a-deuterium-uptake-curve-for-one-state">Plotting a deuterium uptake curve for one state<a class="anchor" aria-label="anchor" href="#plotting-a-deuterium-uptake-curve-for-one-state"></a>
-</h3>
-<div class="section level4">
-<h4 id="hadex-1">HaDeX<a class="anchor" aria-label="anchor" href="#hadex-1"></a>
-</h4>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">microbenchmark</span><span class="op">(</span></span>
-<span>  </span>
-<span><span class="va">dat</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">HaDeX</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/HaDeX/man/calculate_kinetics.html" class="external-link">calculate_kinetics</a></span><span class="op">(</span>sequence <span class="op">=</span> <span class="st">"GFGDLKSPAGL"</span>,      </span>
-<span>                            state <span class="op">=</span> <span class="st">"Alpha_KSCN"</span>, </span>
-<span>                            start <span class="op">=</span> <span class="fl">1</span>, end <span class="op">=</span> <span class="fl">11</span>, </span>
-<span>                            time_in <span class="op">=</span> <span class="fl">0</span>, time_out <span class="op">=</span> <span class="fl">1440</span><span class="op">)</span> <span class="op">%&gt;%</span>      </span>
-<span>  <span class="fu">HaDeX</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/HaDeX/man/plot_kinetics.html" class="external-link">plot_kinetics</a></span><span class="op">(</span>kin_dat <span class="op">=</span> <span class="va">.</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Unit: milliseconds</span></span>
-<span><span class="co">##                                                                                                                                                                             expr</span></span>
-<span><span class="co">##  dat %&gt;% HaDeX::calculate_kinetics(sequence = "GFGDLKSPAGL", state = "Alpha_KSCN",      start = 1, end = 11, time_in = 0, time_out = 1440) %&gt;% HaDeX::plot_kinetics(kin_dat = .)</span></span>
-<span><span class="co">##       min       lq    mean   median       uq      max neval</span></span>
-<span><span class="co">##  148.7843 151.8888 156.132 154.1734 156.7669 275.1587   100</span></span></code></pre>
-</div>
-<div class="section level4">
-<h4 id="hadex2-1">HaDeX2<a class="anchor" aria-label="anchor" href="#hadex2-1"></a>
-</h4>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">microbenchmark</span><span class="op">(</span></span>
-<span></span>
-<span>  <span class="va">dat2</span> <span class="op">%&gt;%</span></span>
-<span>    <span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/calculate_peptide_kinetics.html">calculate_peptide_kinetics</a></span><span class="op">(</span>sequence <span class="op">=</span> <span class="st">"GFGDLKSPAGL"</span>,</span>
-<span>                               state <span class="op">=</span> <span class="st">"Alpha_KSCN"</span>,</span>
-<span>                               start <span class="op">=</span> <span class="fl">1</span>, end <span class="op">=</span> <span class="fl">11</span>,</span>
-<span>                               time_0 <span class="op">=</span> <span class="fl">0</span>, time_100 <span class="op">=</span> <span class="fl">1440</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>    <span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_uptake_curve.html">plot_uptake_curve</a></span><span class="op">(</span>uc_dat <span class="op">=</span> <span class="va">.</span><span class="op">)</span></span>
-<span></span>
-<span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Unit: milliseconds</span></span>
-<span><span class="co">##                                                                                                                                                                                               expr</span></span>
-<span><span class="co">##  dat2 %&gt;% HaDeX2::calculate_peptide_kinetics(sequence = "GFGDLKSPAGL",      state = "Alpha_KSCN", start = 1, end = 11, time_0 = 0, time_100 = 1440) %&gt;%      HaDeX2::plot_uptake_curve(uc_dat = .)</span></span>
-<span><span class="co">##       min       lq    mean   median       uq      max neval</span></span>
-<span><span class="co">##  53.06671 53.78621 58.3272 56.87354 59.85324 188.3547   100</span></span></code></pre>
-</div>
-<div class="section level4">
-<h4 id="results-1">Results<a class="anchor" aria-label="anchor" href="#results-1"></a>
-</h4>
-<p>HaDeX2 plots uptake curve significantly faster.</p>
-</div>
-</div>
-<div class="section level3">
-<h3 id="plotting-a-comparison-plot">Plotting a comparison plot<a class="anchor" aria-label="anchor" href="#plotting-a-comparison-plot"></a>
-</h3>
-<p>HaDeX plots the comparison plot only for two states.</p>
-<div class="section level4">
-<h4 id="hadex-2">HaDeX<a class="anchor" aria-label="anchor" href="#hadex-2"></a>
-</h4>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">microbenchmark</span><span class="op">(</span></span>
-<span>  </span>
-<span> <span class="fu">HaDeX</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/HaDeX/man/prepare_dataset.html" class="external-link">prepare_dataset</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">dat</span>, </span>
-<span>                        in_state_first <span class="op">=</span> <span class="st">"Alpha_KSCN_0"</span>,      </span>
-<span>                        chosen_state_first <span class="op">=</span> <span class="st">"Alpha_KSCN_1"</span>, </span>
-<span>                        out_state_first <span class="op">=</span> <span class="st">"Alpha_KSCN_1440"</span>,      </span>
-<span>                        in_state_second <span class="op">=</span> <span class="st">"ALPHA_Gamma_0"</span>, </span>
-<span>                        chosen_state_second <span class="op">=</span> <span class="st">"ALPHA_Gamma_1"</span>,      </span>
-<span>                        out_state_second <span class="op">=</span> <span class="st">"ALPHA_Gamma_1440"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>   <span class="fu">HaDeX</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/HaDeX/man/comparison_plot.html" class="external-link">comparison_plot</a></span><span class="op">(</span>calc_dat <span class="op">=</span> <span class="va">.</span>, </span>
-<span>                          theoretical <span class="op">=</span> <span class="cn">FALSE</span>,      </span>
-<span>                          relative <span class="op">=</span> <span class="cn">TRUE</span>, </span>
-<span>                          state_first <span class="op">=</span> <span class="st">"Alpha_KSCN"</span>, </span>
-<span>                          state_second <span class="op">=</span> <span class="st">"ALPHA_Gamma"</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Unit: milliseconds</span></span>
-<span><span class="co">##                                                                                                                                                                                                                                                                                                                                                                                                                             expr</span></span>
-<span><span class="co">##  HaDeX::prepare_dataset(dat = dat, in_state_first = "Alpha_KSCN_0",      chosen_state_first = "Alpha_KSCN_1", out_state_first = "Alpha_KSCN_1440",      in_state_second = "ALPHA_Gamma_0", chosen_state_second = "ALPHA_Gamma_1",      out_state_second = "ALPHA_Gamma_1440") %&gt;% HaDeX::comparison_plot(calc_dat = .,      theoretical = FALSE, relative = TRUE, state_first = "Alpha_KSCN",      state_second = "ALPHA_Gamma")</span></span>
-<span><span class="co">##       min       lq     mean   median       uq      max neval</span></span>
-<span><span class="co">##  189.0854 198.6474 203.7586 202.7504 206.6732 309.2219   100</span></span></code></pre>
-</div>
-<div class="section level4">
-<h4 id="hadex2-2">HaDeX2<a class="anchor" aria-label="anchor" href="#hadex2-2"></a>
-</h4>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">microbenchmark</span><span class="op">(</span></span>
-<span></span>
-<span>  <span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/create_state_comparison_dataset.html">create_state_comparison_dataset</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">dat2</span>,</span>
-<span>                                             states <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Alpha_KSCN"</span>, <span class="st">"ALPHA_Gamma"</span><span class="op">)</span>,</span>
-<span>                                             time_0 <span class="op">=</span> <span class="fl">0</span>, time_100 <span class="op">=</span> <span class="fl">1440</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_state_comparison.html">plot_state_comparison</a></span><span class="op">(</span>uptake_dat <span class="op">=</span> <span class="va">.</span>,</span>
-<span>                                          theoretical <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                                          fractional <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                                          time_t <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.</span></span>
-<span><span class="co">## <span style="color: #00BBBB;">ℹ</span> Please use `linewidth` instead.</span></span>
-<span><span class="co">## <span style="color: #00BBBB;">ℹ</span> The deprecated feature was likely used in the <span style="color: #0000BB;">HaDeX2</span> package.</span></span>
-<span><span class="co">##   Please report the issue to the authors.</span></span>
-<span><span class="co">## <span style="color: #555555;">This warning is displayed once every 8 hours.</span></span></span>
-<span><span class="co">## <span style="color: #555555;">Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span></span>
-<span><span class="co">## <span style="color: #555555;">generated.</span></span></span></code></pre>
-<pre><code><span><span class="co">## Unit: milliseconds</span></span>
-<span><span class="co">##                                                                                                                                                                                                                                       expr</span></span>
-<span><span class="co">##  HaDeX2::create_state_comparison_dataset(dat = dat2, states = c("Alpha_KSCN",      "ALPHA_Gamma"), time_0 = 0, time_100 = 1440) %&gt;% HaDeX2::plot_state_comparison(uptake_dat = .,      theoretical = FALSE, fractional = TRUE, time_t = 1)</span></span>
-<span><span class="co">##       min       lq     mean   median       uq      max neval</span></span>
-<span><span class="co">##  37.42349 38.26927 41.00077 39.05488 42.36558 79.52878   100</span></span></code></pre>
-</div>
-<div class="section level4">
-<h4 id="results-2">Results<a class="anchor" aria-label="anchor" href="#results-2"></a>
-</h4>
-<p>The calculations are significantly faster in HaDeX2, but the
-difference in plotting time is resulting by new options e.q. selecting
-the line size, or interactive mode for GUI.</p>
-</div>
-</div>
-<div class="section level3">
-<h3 id="plotting-a-woodss-plot">Plotting a Woods’s plot<a class="anchor" aria-label="anchor" href="#plotting-a-woodss-plot"></a>
-</h3>
-<div class="section level4">
-<h4 id="hadex-3">HaDeX<a class="anchor" aria-label="anchor" href="#hadex-3"></a>
-</h4>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">microbenchmark</span><span class="op">(</span></span>
-<span>  </span>
-<span>  <span class="fu">HaDeX</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/HaDeX/man/prepare_dataset.html" class="external-link">prepare_dataset</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">dat</span>, </span>
-<span>                         in_state_first <span class="op">=</span> <span class="st">"Alpha_KSCN_0"</span>,      </span>
-<span>                         chosen_state_first <span class="op">=</span> <span class="st">"Alpha_KSCN_1"</span>, </span>
-<span>                         out_state_first <span class="op">=</span> <span class="st">"Alpha_KSCN_1440"</span>,      </span>
-<span>                         in_state_second <span class="op">=</span> <span class="st">"ALPHA_Gamma_0"</span>, </span>
-<span>                         chosen_state_second <span class="op">=</span> <span class="st">"ALPHA_Gamma_1"</span>,      </span>
-<span>                         out_state_second <span class="op">=</span> <span class="st">"ALPHA_Gamma_1440"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>    <span class="fu">HaDeX</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/HaDeX/man/woods_plot.html" class="external-link">woods_plot</a></span><span class="op">(</span>calc_dat <span class="op">=</span> <span class="va">.</span>, </span>
-<span>                      theoretical <span class="op">=</span> <span class="cn">FALSE</span>,      </span>
-<span>                      relative <span class="op">=</span> <span class="cn">TRUE</span>, </span>
-<span>                      confidence_limit <span class="op">=</span> <span class="fl">0.98</span>, </span>
-<span>                      confidence_limit_2 <span class="op">=</span> <span class="fl">0.98</span><span class="op">)</span></span>
-<span>                                                                         </span>
-<span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Unit: milliseconds</span></span>
-<span><span class="co">##                                                                                                                                                                                                                                                                                                                                                                                                                  expr</span></span>
-<span><span class="co">##  HaDeX::prepare_dataset(dat = dat, in_state_first = "Alpha_KSCN_0",      chosen_state_first = "Alpha_KSCN_1", out_state_first = "Alpha_KSCN_1440",      in_state_second = "ALPHA_Gamma_0", chosen_state_second = "ALPHA_Gamma_1",      out_state_second = "ALPHA_Gamma_1440") %&gt;% HaDeX::woods_plot(calc_dat = .,      theoretical = FALSE, relative = TRUE, confidence_limit = 0.98,      confidence_limit_2 = 0.98)</span></span>
-<span><span class="co">##       min       lq     mean   median       uq      max neval</span></span>
-<span><span class="co">##  210.3428 222.9372 235.6713 234.0407 243.1741 389.9217   100</span></span></code></pre>
-</div>
-<div class="section level4">
-<h4 id="hadex2-3">HaDeX2<a class="anchor" aria-label="anchor" href="#hadex2-3"></a>
-</h4>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">microbenchmark</span><span class="op">(</span></span>
-<span></span>
-<span></span>
-<span>  <span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/create_diff_uptake_dataset.html">create_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">dat2</span>,</span>
-<span>                                     state_1 <span class="op">=</span> <span class="st">"Alpha_KSCN"</span>,</span>
-<span>                                     state_2 <span class="op">=</span> <span class="st">"ALPHA_Gamma"</span>,</span>
-<span>                                     time_0 <span class="op">=</span> <span class="fl">0</span>, time_100 <span class="op">=</span> <span class="fl">1440</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>    <span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_differential.html">plot_differential</a></span><span class="op">(</span>diff_uptake_dat <span class="op">=</span> <span class="va">.</span>,</span>
-<span>                              time_t <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>                              theoretical <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                              fractional <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                              show_houde_interval <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                              confidence_level <span class="op">=</span> <span class="fl">0.98</span><span class="op">)</span></span>
-<span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Unit: milliseconds</span></span>
-<span><span class="co">##                                                                                                                                                                                                                                                                                                            expr</span></span>
-<span><span class="co">##  HaDeX2::create_diff_uptake_dataset(dat2, state_1 = "Alpha_KSCN",      state_2 = "ALPHA_Gamma", time_0 = 0, time_100 = 1440) %&gt;%      HaDeX2::plot_differential(diff_uptake_dat = ., time_t = 1,          theoretical = FALSE, fractional = TRUE, show_houde_interval = TRUE,          confidence_level = 0.98)</span></span>
-<span><span class="co">##       min       lq     mean   median       uq      max neval</span></span>
-<span><span class="co">##  217.4347 225.6886 238.5873 234.8887 244.4107 382.8483   100</span></span></code></pre>
-</div>
-<div class="section level4">
-<h4 id="results-3">Results<a class="anchor" aria-label="anchor" href="#results-3"></a>
-</h4>
-<p>As above, the plotting takes more time as it coping with option to
-include hybrid statistical testing, as proposed in <em>Hageman TS, Weis
-DD. Reliable Identification of Significant Differences in Differential
-Hydrogen Exchange-Mass Spectrometry Measurements Using a Hybrid
-Significance Testing Approach. Anal Chem. 2019 Jul 2;91(13):8008-8016.
-doi: 10.1021/acs.analchem.9b01325. Epub 2019 Jun 11. PMID:
-31099554</em>.</p>
-</div>
-</div>
-</div>
-<div class="section level2">
-<h2 id="conclusions">Conclusions<a class="anchor" aria-label="anchor" href="#conclusions"></a>
-</h2>
+<span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">saveRDS</a></span><span class="op">(</span><span class="va">version_benchmark</span>, file <span class="op">=</span> <span class="st">"version_benchmark.rds"</span><span class="op">)</span></span></code></pre></div>
+<p>Let’s see how the results presents next to each other, in a graphic
+form.</p>
+<p><img src="version_comparison_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" width="100%">
+We can see than in case of reading file, HaDeX2 is a little bit slower,
+but is making way more checks than the first version. Plotting uptake
+curve and comparison plot is way faster in HaDeX2. However, Woods plot
+is plotted slower by HaDeX2, because the hubrid testing is implemented
+and needs additional data checks, and HaDeX lacks that. Other
+functionalities cannot be compared, as they are absent in the first
+version of the package.</p>
+<p>Below, we present the summary of numeric values used to create this
+plot (in miliseconds):</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">tool</th>
+<th align="left">task</th>
+<th align="right">median</th>
+<th align="right">lq</th>
+<th align="right">uq</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">HaDeX</td>
+<td align="left">1. Read input</td>
+<td align="right">33.44495</td>
+<td align="right">32.1839</td>
+<td align="right">35.30410</td>
+</tr>
+<tr class="even">
+<td align="left">HaDeX2</td>
+<td align="left">1. Read input</td>
+<td align="right">105.27765</td>
+<td align="right">102.8357</td>
+<td align="right">110.21350</td>
+</tr>
+<tr class="odd">
+<td align="left">HaDeX</td>
+<td align="left">2. Plot uptake curve</td>
+<td align="right">163.12015</td>
+<td align="right">158.5743</td>
+<td align="right">168.96835</td>
+</tr>
+<tr class="even">
+<td align="left">HaDeX2</td>
+<td align="left">2. Plot uptake curve</td>
+<td align="right">65.14970</td>
+<td align="right">63.1914</td>
+<td align="right">70.07895</td>
+</tr>
+<tr class="odd">
+<td align="left">HaDeX</td>
+<td align="left">3. Plot comparison</td>
+<td align="right">180.56545</td>
+<td align="right">174.0696</td>
+<td align="right">187.73510</td>
+</tr>
+<tr class="even">
+<td align="left">HaDeX2</td>
+<td align="left">3. Plot comparison</td>
+<td align="right">58.37120</td>
+<td align="right">56.3455</td>
+<td align="right">64.30860</td>
+</tr>
+<tr class="odd">
+<td align="left">HaDeX</td>
+<td align="left">4. Plot Woods</td>
+<td align="right">195.51855</td>
+<td align="right">190.1901</td>
+<td align="right">201.42075</td>
+</tr>
+<tr class="even">
+<td align="left">HaDeX2</td>
+<td align="left">4. Plot Woods</td>
+<td align="right">342.40110</td>
+<td align="right">337.0913</td>
+<td align="right">353.72510</td>
+</tr>
+</tbody>
+</table>
 <p>The HaDeX2 package is significantly more powerful than the previous
 version. Moreover, it was rewritten for the comfort of use - as can be
 shown even by the glance of parameters supplied to the function.</p>

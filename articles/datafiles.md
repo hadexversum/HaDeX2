@@ -13,7 +13,7 @@ format from DynamX. For more information about accepted datafiles see
 
 ``` r
 library(HaDeX2)
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
+dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
 head(dat, 6)
 ```
 

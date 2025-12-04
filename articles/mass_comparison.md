@@ -15,7 +15,7 @@ directly exported from DynamX:
 
 ``` r
 library(HaDeX2)
-dat <- read.csv(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
+dat <- read.csv(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
 ```
 
 As described, the first step is to transform the $Center$ value
