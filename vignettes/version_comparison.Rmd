@@ -19,6 +19,7 @@ library(HaDeX)
 library(HaDeX2)
 library(microbenchmark)
 library(dplyr)
+library(ggplot2)
 ```
 
 This article discuss differences between the first version of HaDeX, and the current version of the package and web-server. As the second version is significantly more complex than the previous one, we ultimately decided against expanding the first version. Instead we created a new entity. But how are they different?
@@ -120,29 +121,44 @@ This function is called only once, in the beginning of the analysis. Here, we us
  
 ### HaDeX
 
-```{r message=FALSE}
+```{r message = FALSE, eval=FALSE, echo = TRUE}
+dat_HaDeX <- HaDeX::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
+dat_HaDeX2 <- HaDeX2::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
 
-microbenchmark(
+version_benchmark <- microbenchmark(
+  list = alist(`HaDeX_1. Read input` = HaDeX::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv")),
+               `HaDeX2_1. Read input` = HaDeX2::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv")),
+               `HaDeX_2. Plot uptake curve` = {dat_HaDeX %>% 
+                   HaDeX::calculate_kinetics(sequence = "GFGDLKSPAGL",      
+                                             state = "Alpha_KSCN", 
+                                             start = 1, end = 11, 
+                                             time_in = 0, time_out = 1440) %>%      
+                   HaDeX::plot_kinetics(kin_dat = .)},
+               `HaDeX2_2. Plot uptake curve` = {dat_HaDeX2 %>%
+                   HaDeX2::calculate_peptide_kinetics(sequence = "GFGDLKSPAGL",
+                                                      state = "Alpha_KSCN",
+                                                      start = 1, end = 11,
+                                                      time_0 = 0, time_100 = 1440) %>%
+                   HaDeX2::plot_uptake_curve(uc_dat = .)})
+)
+```
+
+```{r message = FALSE, echo=FALSE,results='asis'}
+data.frame(version_benchmark) %>% 
+   mutate(tool = sapply(strsplit(as.character(expr), "_"), first),
+         task = sapply(strsplit(as.character(expr), "_"), last)) %>% 
+  ggplot(aes(x = tool, y = time)) +
+  geom_boxplot() +
+  facet_wrap(~task, scales = "free_y")
+
+summary(version_benchmark) %>% 
+  mutate(tool = sapply(strsplit(as.character(expr), "_"), first),
+         task = sapply(strsplit(as.character(expr), "_"), last)) %>% 
+  select(tool, task, median, lq, uq) %>% 
+  knitr::kable()
+
   
-  dat <- HaDeX::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
-)
-
 ```
-
-
- 
-### HaDeX2
-
-
-```{r message=FALSE}
-microbenchmark(
-
-  dat2 <- HaDeX2::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
-
-)
-```
-
-
 ### Results
 
 Both packages have a same-called read_hdx function. However, the backend of HaDeX2 is way more complex as there is a specific data class used, and several additional check resulting in the speed of reading and processing a file. 
