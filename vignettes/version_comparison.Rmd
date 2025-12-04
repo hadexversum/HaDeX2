@@ -15,7 +15,6 @@ vignette: >
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-library(HaDeX)
 library(HaDeX2)
 library(microbenchmark)
 library(dplyr)
@@ -116,6 +115,8 @@ Code used to create this comparison is shown below, and then the results are pre
 
 
 ```{r message=FALSE, eval=FALSE, echo=TRUE}
+library(HaDeX)
+
 dat_HaDeX <- HaDeX::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
 dat_HaDeX2 <- HaDeX2::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
 

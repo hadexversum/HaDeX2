@@ -28,7 +28,7 @@ approach` (defined in `vignette("datafiles"))`. For
 visualization use \code{\link{plot_aggregated_uptake}}
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
+dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
 kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN")
 head(create_aggregated_uptake_dataset(kin_dat))
 

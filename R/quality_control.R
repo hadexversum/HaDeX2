@@ -123,7 +123,7 @@ create_quality_control_dataset <- function(dat,
 #' \code{\link{show_quality_control_data}} 
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
+#' dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
 #' qc_dat <- create_quality_control_dataset(dat)  
 #' plot_quality_control(qc_dat)
 #' 
@@ -164,7 +164,7 @@ plot_quality_control <- function(qc_dat){
 #' \code{\link{plot_quality_control}} 
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
+#' dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
 #' qc_dat <- create_quality_control_dataset(dat)  
 #' show_quality_control_data(qc_dat)
 #' 

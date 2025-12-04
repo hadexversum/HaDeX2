@@ -33,7 +33,7 @@
 #' \code{\link{create_state_uptake_dataset}} 
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
+#' dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
 #' uptake_dat <- create_uptake_dataset(dat, states = c("CD160", "CD160_HVEM"))
 #' head(uptake_dat)
 #' 

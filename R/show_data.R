@@ -141,7 +141,7 @@ show_uptake_data <- function(uptake_dat,
 #' \code{\link{plot_differential}}
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
+#' dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
 #' diff_uptake_dat <- create_diff_uptake_dataset(dat)
 #' show_diff_uptake_data_confidence(diff_uptake_dat)
 #' 
@@ -267,7 +267,7 @@ show_diff_uptake_data_confidence <- function(diff_uptake_dat,
 #' \code{\link{read_hdx}} 
 #' 
 #' @examples 
-#' dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
+#' dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
 #' show_summary_data(dat)
 #' 
 #' @export show_summary_data

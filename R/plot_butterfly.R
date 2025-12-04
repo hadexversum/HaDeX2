@@ -103,7 +103,7 @@ plot_butterfly <- function(uptake_dat,
   ) else geom_point()
   
   chosen_uncertainty_geom <- if(uncertainty_type == "ribbon") {
-    geom_ribbon(alpha = 0.5, size = 0, linetype = "blank")
+    geom_ribbon(alpha = 0.5, linewidth = 0, linetype = "blank")
   } else { geom_errorbar(width = 0.25, alpha = 0.5) }
   
   butterfly_plot <- ggplot(
