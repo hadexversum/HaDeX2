@@ -168,5 +168,5 @@ If the AUC value exceeds the value 1, it is an indicator of back-exchange.
 
 
 $$
-auc = \sum_i (du_{frac, i+1} + du_{frac, i}) \cdot (t_{norm, i+1} - t_{norm, i}) \cdot \frac{1}{2}
+auc = \sum_i (du_{frac, 100} + du_{frac, i}) \cdot (t_{norm, 100} - t_{norm, i}) \cdot \frac{1}{2}
 $$

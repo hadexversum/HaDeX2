@@ -28,7 +28,7 @@ library(HaDeX2)
 
 Here, we sum up the statistics in HaDeX2. Some of the elements are discussed in other articles in appropriate places, but this article gathers this information in one place.
 
-## Uncertainty propagation
+# Uncertainty propagation
 
 The propagation of uncertainty is necessary when we are transforming the measured values. In HDX-MS, we repeat the measurements in triplicate in order to calculate the uncertainty of mass measurement. However, when transforming mass measurements into deuterium uptake, we need to propagate mass measurement uncertainty, using the Law of Propagation of Uncertainty:
 
@@ -47,7 +47,7 @@ Weis, D. D. Recommendations for the Propagation of Uncertainty in Hydrogen Excha
 
 Puchała, W. et al. HaDeX: an R package and web-server for analysis of data from hydrogen–deuterium exchange mass spectrometry experiments. Bioinformatics 36, 4516–4518 (2020).
 
-## Hybrid testing 
+# Hybrid testing 
 
 Hybrid testing is a combination of two statistical approaches to ensure that the difference between two biological states is statistically significant. The difference is significant if two tests simultaneously claims the significance.
 
@@ -55,7 +55,7 @@ However, it can be only achieved when we have the experiment done at least in tr
 
 Hageman, T. S. & Weis, D. D. Reliable Identification of Significant Differences in Differential Hydrogen Exchange-Mass Spectrometry Measurements Using a Hybrid Significance Testing Approach. Anal. Chem. 91, 8008–8016 (2019).
 
-### Houde interval
+## Houde interval
 
 This test is done for the time points chosen for a given plot e.q. for the volcano plot, where presenting multiple time points of measurement, we take the values from all of the presented time points. However, for Woods Plot we only take into account only one time point - presented on the plot.
 
@@ -79,7 +79,7 @@ Basically, we take the mean uncertainty of deuterium uptake and widen this range
 
 Houde,D. et al. (2011) The utility of hydrogen/deuterium exchange mass spectrometry in biopharmaceutical comparability studies. J. Pharm. Sci., 100, 2071–2086.
 
-### Student's t-test
+## Student's t-test
 
 In order to use student t-test, we need at least three values from each group - in the case of the differential analysis - at least three replicate values at given time for each biological state.
 
@@ -103,9 +103,4 @@ p.adjust(p_dat[["P_value"]], method = p_adjustment_method)
 
 P-value is usually presented in the form of $-log(Pvalue)$, e.q. on the volcano plot.
 
-## global threshold estimation
-
-## per-timepoint testing
-
-## cross-timepoint/FDR control
 
