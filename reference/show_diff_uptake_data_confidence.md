@@ -62,7 +62,7 @@ The names of columns are changed to user-friendly ones.
 ## Examples
 
 ``` r
-dat <- read_hdx(system.file(package = "HaDeX", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
+dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
 diff_uptake_dat <- create_diff_uptake_dataset(dat)
 show_diff_uptake_data_confidence(diff_uptake_dat)
 #>       Protein        Sequence    ID Modification Start   End Exposure

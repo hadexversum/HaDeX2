@@ -53,7 +53,7 @@ or
 ## Examples
 
 ``` r
-dat <- read_hdx(system.file(package = "HaDeX", 
+dat <- read_hdx(system.file(package = "HaDeX2", 
                      "HaDeX/data/KD_180110_CD160_HVEM.csv"))
 head(dat)
 #>     Protein Start   End        Sequence Modification MaxUptake      MHP  State

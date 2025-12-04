@@ -156,6 +156,8 @@ Code used to create this comparison is shown below, and then the results
 are presented in a comprehensive form.
 
 ``` r
+library(HaDeX)
+
 dat_HaDeX <- HaDeX::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
 dat_HaDeX2 <- HaDeX2::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
 
