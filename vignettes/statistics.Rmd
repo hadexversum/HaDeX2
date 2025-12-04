@@ -1,14 +1,11 @@
 ---
 title: "Statistics"
 output: 
-  bookdown::html_document2:
-    base_format: rmarkdown::html_vignette
-    fig_caption: yes
+  rmarkdown::html_vignette:
     toc: true
-pkgdown:
-  as_is: true
+    number_sections: true
+    always_allow_html: yes
 bibliography: HDX.bib
-link-citations: yes
 vignette: >
   %\VignetteIndexEntry{Statistics}
   %\VignetteEngine{knitr::rmarkdown}
@@ -20,11 +17,10 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-```
 
-```{r setup}
 library(HaDeX2)
 ```
+
 
 Here, we sum up the statistics in HaDeX2. Some of the elements are discussed in other articles in appropriate places, but this article gathers this information in one place.
 
@@ -41,11 +37,11 @@ Where:
 
 This is a generic equation used the deritatives of functions. It is created for deuterium uptake in the appropriate forms (as the equations differ based on the parameters of calculations) and described in detail in the article `Calculations`.
 
-Joint Committee for Guides in Metrology. (2008) JCGM 100: evaluation of measurement data – guide to the expression of uncertainty in measurement. Technical report, JCGM
+*Joint Committee for Guides in Metrology. (2008) JCGM 100: evaluation of measurement data – guide to the expression of uncertainty in measurement. Technical report, JCGM*
 
-Weis, D. D. Recommendations for the Propagation of Uncertainty in Hydrogen Exchange-Mass Spectrometric Measurements. J. Am. Soc. Mass Spectrom. 32, 1610–1617 (2021).
+*Weis, D. D. Recommendations for the Propagation of Uncertainty in Hydrogen Exchange-Mass Spectrometric Measurements. J. Am. Soc. Mass Spectrom. 32, 1610–1617 (2021).*
 
-Puchała, W. et al. HaDeX: an R package and web-server for analysis of data from hydrogen–deuterium exchange mass spectrometry experiments. Bioinformatics 36, 4516–4518 (2020).
+*Puchała, W. et al. HaDeX: an R package and web-server for analysis of data from hydrogen–deuterium exchange mass spectrometry experiments. Bioinformatics 36, 4516–4518 (2020).*
 
 # Hybrid testing 
 
@@ -53,7 +49,7 @@ Hybrid testing is a combination of two statistical approaches to ensure that the
 
 However, it can be only achieved when we have the experiment done at least in triplicate, as it is the condition to perform Student t-test.
 
-Hageman, T. S. & Weis, D. D. Reliable Identification of Significant Differences in Differential Hydrogen Exchange-Mass Spectrometry Measurements Using a Hybrid Significance Testing Approach. Anal. Chem. 91, 8008–8016 (2019).
+*Hageman, T. S. & Weis, D. D. Reliable Identification of Significant Differences in Differential Hydrogen Exchange-Mass Spectrometry Measurements Using a Hybrid Significance Testing Approach. Anal. Chem. 91, 8008–8016 (2019).*
 
 ## Houde interval
 
@@ -77,7 +73,7 @@ where the degree of freedom is the number of replicates minus one, and alpha is 
 
 Basically, we take the mean uncertainty of deuterium uptake and widen this range by the appropriate value to get an interval. Values under the interval are too small and may be mistaken with the uncertainty. We are not interested in them.
 
-Houde,D. et al. (2011) The utility of hydrogen/deuterium exchange mass spectrometry in biopharmaceutical comparability studies. J. Pharm. Sci., 100, 2071–2086.
+*Houde,D. et al. (2011) The utility of hydrogen/deuterium exchange mass spectrometry in biopharmaceutical comparability studies. J. Pharm. Sci., 100, 2071–2086.*
 
 ## Student's t-test
 
