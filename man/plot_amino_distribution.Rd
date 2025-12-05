@@ -15,7 +15,7 @@ plot_amino_distribution(
 \arguments{
 \item{position_in_sequence}{custom format}
 
-\item{hydro_properties}{data with hydrofobic properties}
+\item{hydro_properties}{data with hydrophobic properties}
 
 \item{protein}{chosen protein}
 

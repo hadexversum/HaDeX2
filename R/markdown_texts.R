@@ -11,7 +11,7 @@ markdown_funding <- function(){
 
 markdown_citation_v1 <- function(){
   
-  "Puchala, W., Burdukiewicz, M., Kistowski, M., Dabrowska, K.A., Badaczewska-Dawid, A.E., Cysewski, D., and Dadlez, M. (2020). HaDeX: an R package and web-server for analysis of data from hydrogen–deuterium exchange mass spectrometry experiments. Bioinformatics 36, 4516–4518 (10.1093/bioinformatics/btaa587)."
+  "Puchala, W., Burdukiewicz, M., Kistowski, M., Dabrowska, K.A., Badaczewska-Dawid, A.E., Cysewski, D., and Dadlez, M. (2020). HaDeX: an R package and web-server for analysis of data from hydrogen-deuterium exchange mass spectrometry experiments. Bioinformatics 36, 4516-4518 (10.1093/bioinformatics/btaa587)."
   
 }
 
