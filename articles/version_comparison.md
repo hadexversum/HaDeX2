@@ -231,13 +231,13 @@ form.
 see than in case of reading file, HaDeX2 is a little bit slower, but is
 making way more checks than the first version. Plotting uptake curve and
 comparison plot is way faster in HaDeX2. However, Woods plot is plotted
-slower by HaDeX2, because the hubrid testing is implemented and needs
+slower by HaDeX2, because the hybrid testing is implemented and needs
 additional data checks, and HaDeX lacks that. Other functionalities
 cannot be compared, as they are absent in the first version of the
 package.
 
 Below, we present the summary of numeric values used to create this plot
-(in miliseconds):
+(in milliseconds):
 
 | tool   | task                  |    median |       lq |        uq |
 |:-------|:----------------------|----------:|---------:|----------:|

@@ -212,7 +212,7 @@ Figure 3.7: Peptide coverage for SecA WT.
 
 ### 3.6 Summary
 
-The summary is a very convienent and quick way to generate a summary
+The summary is a very convenient and quick way to generate a summary
 report of the uploaded data, according to community recommendations
 ([Masson et al.
 2019](#ref-MassonRecommendationsperforminginterpreting2019)). The report

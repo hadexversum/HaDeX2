@@ -79,7 +79,7 @@ calculated, as well as the appropriate intensity. On the Y axis of the
 plot, there are replicates: and each replicate has its two points for
 each charge - with colors indicating charge and size indicating
 intensity. Then, those two values within replicate are aggregated - as a
-weighted mean, with intensity beeing the weight. For each replicate we
+weighted mean, with intensity being the weight. For each replicate we
 have now one value - black dot. Those values are averaged with
 accompanied standard deviation - our final aggregated mass measurement
 from all the replicates. The final value is shown as the horizontal

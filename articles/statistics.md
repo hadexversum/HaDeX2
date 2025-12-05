@@ -21,7 +21,7 @@ Where:
   function of $x_{k}$,
 - $x_{k}$ - values for which the uncertainty is known.
 
-This is a generic equation used the deritatives of functions. It is
+This is a generic equation used the derivatives of functions. It is
 created for deuterium uptake in the appropriate forms (as the equations
 differ based on the parameters of calculations) and described in detail
 in the article `Calculations`.
