@@ -35,7 +35,7 @@ Where:
 * $u_c(y)$ - combined uncertainty of value $y$, where $y$ is a function of $x_k$,
 * $x_k$ - values for which the uncertainty is known.
 
-This is a generic equation used the deritatives of functions. It is created for deuterium uptake in the appropriate forms (as the equations differ based on the parameters of calculations) and described in detail in the article `Calculations`.
+This is a generic equation used the derivatives of functions. It is created for deuterium uptake in the appropriate forms (as the equations differ based on the parameters of calculations) and described in detail in the article `Calculations`.
 
 *Joint Committee for Guides in Metrology. (2008) JCGM 100: evaluation of measurement data – guide to the expression of uncertainty in measurement. Technical report, JCGM*
 

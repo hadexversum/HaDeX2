@@ -107,6 +107,6 @@ knitr::include_graphics("peptide_coverage-display_plot.png")
 
 ## Summary
 
-The summary is a very convienent and quick way to generate a summary report of the uploaded data, according to community recommendations [@MassonRecommendationsperforminginterpreting2019]. The report can be exported in a variety of tabular formats.
+The summary is a very convenient and quick way to generate a summary report of the uploaded data, according to community recommendations [@MassonRecommendationsperforminginterpreting2019]. The report can be exported in a variety of tabular formats.
 
 # References
