@@ -61,7 +61,7 @@ deuterium uptake difference between two selected states, in our case
 this is a comparison between SecA dimer WT and SecA dimer + ADP. From
 the generated figure (Figure [3.2](#fig:woods), we can immediately see
 that two regions stand out, both part of the SecA nucleotide-binding
-cleft, the first around 102-114 (Helicse motif I, NBD1) and the second
+cleft, the first around 102-114 (Helicase motif I, NBD1) and the second
 at 410-428 (NBD linker region). Deuterium uptake differences in these
 regions are positive (red), indicating that these regions rigidify upon
 ADP binding, and this rigidification allosterically propagates to SecA’s

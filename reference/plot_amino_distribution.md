@@ -23,7 +23,7 @@ plot_amino_distribution(
 
 - hydro_properties:
 
-  data with hydrofobic properties
+  data with hydrophobic properties
 
 - protein:
 
