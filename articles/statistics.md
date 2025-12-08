@@ -24,7 +24,8 @@ Where:
 This is a generic equation used the derivatives of functions. It is
 created for deuterium uptake in the appropriate forms (as the equations
 differ based on the parameters of calculations) and described in detail
-in the article `Calculations`.
+in the article
+[`vignette("datafiles")`](https://hadexversum.github.io/HaDeX2/articles/datafiles.md).
 
 *Joint Committee for Guides in Metrology. (2008) JCGM 100: evaluation of
 measurement data – guide to the expression of uncertainty in
@@ -110,7 +111,10 @@ null hypothesis and assume that the distributions are different.
 To calculate P-value we use base R-function `t.test`
 
 ``` r
-t.test(x = st_1, y = st_2, paired = FALSE, alternative = "two.sided", conf.level = confidence_level)$p.value
+t.test(x = st_1, y = st_2, 
+       paired = FALSE, 
+       alternative = "two.sided", 
+       conf.level = confidence_level)$p.value
 ```
 
 where $st_{1}$ is a set of values from the first state, and $st_{2}$

@@ -112,7 +112,7 @@ is a function of
 <p>This is a generic equation used the derivatives of functions. It is
 created for deuterium uptake in the appropriate forms (as the equations
 differ based on the parameters of calculations) and described in detail
-in the article <code>Calculations</code>.</p>
+in the article <code><a href="../articles/datafiles.html">vignette("datafiles")</a></code>.</p>
 <p><em>Joint Committee for Guides in Metrology. (2008) JCGM 100:
 evaluation of measurement data – guide to the expression of uncertainty
 in measurement. Technical report, JCGM</em></p>
@@ -199,7 +199,10 @@ P-value exceeded limit set for chosen confidence limit, we reject the
 null hypothesis and assume that the distributions are different.</p>
 <p>To calculate P-value we use base R-function <code>t.test</code></p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html" class="external-link">t.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">st_1</span>, y <span class="op">=</span> <span class="va">st_2</span>, paired <span class="op">=</span> <span class="cn">FALSE</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span>, conf.level <span class="op">=</span> <span class="va">confidence_level</span><span class="op">)</span><span class="op">$</span><span class="va">p.value</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html" class="external-link">t.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">st_1</span>, y <span class="op">=</span> <span class="va">st_2</span>, </span>
+<span>       paired <span class="op">=</span> <span class="cn">FALSE</span>, </span>
+<span>       alternative <span class="op">=</span> <span class="st">"two.sided"</span>, </span>
+<span>       conf.level <span class="op">=</span> <span class="va">confidence_level</span><span class="op">)</span><span class="op">$</span><span class="va">p.value</span></span></code></pre></div>
 <p>where
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><msub><mi>t</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">st_1</annotation></semantics></math>
 is a set of values from the first state, and

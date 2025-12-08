@@ -181,7 +181,7 @@ experimental control, single-state or differential.
 
 For each residue $i$ there is a subset of peptides ($n$) covering said
 residue. Then, the final $D_{i,agg}$ is calculated from the subset of
-$D_{k}$ (where \$ 0\<k\<n\$), with weights $w_{k}$ inverse proportional
+$D_{k}$ (where $0 < k < n$), with weights $w_{k}$ inverse proportional
 to the max uptake of peptide ($MaxUptake_{k}$) - the shortest the
 peptide the highest the possibility that the uptake took place in said
 residue:
@@ -221,4 +221,4 @@ axis.
 If the AUC value exceeds the value 1, it is an indicator of
 back-exchange.
 
-$$auc = \sum\limits_{i}\left( du_{frac,100} + du_{frac,i} \right) \cdot \left( t_{norm,100} - t_{norm,i} \right) \cdot \frac{1}{2}$$
+$$auc = \sum\limits_{i}^{n - 1}\left( du_{frac,i + 1} + du_{frac,i} \right) \cdot \left( t_{norm,i + 1} - t_{norm,i} \right) \cdot \frac{1}{2}$$

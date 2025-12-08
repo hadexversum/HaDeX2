@@ -299,7 +299,9 @@ covering said residue. Then, the final
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mrow><mi>i</mi><mo>,</mo><mi>a</mi><mi>g</mi><mi>g</mi></mrow></msub><annotation encoding="application/x-tex">D_{i, agg}</annotation></semantics></math>
 is calculated from the subset of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mi>k</mi></msub><annotation encoding="application/x-tex">D_k</annotation></semantics></math>
-(where $ 0&lt;k&lt;n$), with weights
+(where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>k</mi><mo>&lt;</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">0&lt;k&lt;n</annotation></semantics></math>),
+with weights
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>w</mi><mi>k</mi></msub><annotation encoding="application/x-tex">w_k</annotation></semantics></math>
 inverse proportional to the max uptake of peptide
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mi>a</mi><mi>x</mi><mi>U</mi><mi>p</mi><mi>t</mi><mi>a</mi><mi>k</mi><msub><mi>e</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">MaxUptake_k</annotation></semantics></math>)
@@ -349,8 +351,8 @@ result from range [0, 1]. The normalization is done also for the time
 axis.</p>
 <p>If the AUC value exceeds the value 1, it is an indicator of
 back-exchange.</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>u</mi><mi>c</mi><mo>=</mo><munder><mo>∑</mo><mi>i</mi></munder><mrow><mo stretchy="true" form="prefix">(</mo><mi>d</mi><msub><mi>u</mi><mrow><mi>f</mi><mi>r</mi><mi>a</mi><mi>c</mi><mo>,</mo><mn>100</mn></mrow></msub><mo>+</mo><mi>d</mi><msub><mi>u</mi><mrow><mi>f</mi><mi>r</mi><mi>a</mi><mi>c</mi><mo>,</mo><mi>i</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>t</mi><mrow><mi>n</mi><mi>o</mi><mi>r</mi><mi>m</mi><mo>,</mo><mn>100</mn></mrow></msub><mo>−</mo><msub><mi>t</mi><mrow><mi>n</mi><mi>o</mi><mi>r</mi><mi>m</mi><mo>,</mo><mi>i</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">
-auc = \sum_i (du_{frac, 100} + du_{frac, i}) \cdot (t_{norm, 100} - t_{norm, i}) \cdot \frac{1}{2}
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>u</mi><mi>c</mi><mo>=</mo><munderover><mo>∑</mo><mi>i</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></munderover><mrow><mo stretchy="true" form="prefix">(</mo><mi>d</mi><msub><mi>u</mi><mrow><mi>f</mi><mi>r</mi><mi>a</mi><mi>c</mi><mo>,</mo><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>+</mo><mi>d</mi><msub><mi>u</mi><mrow><mi>f</mi><mi>r</mi><mi>a</mi><mi>c</mi><mo>,</mo><mi>i</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>t</mi><mrow><mi>n</mi><mi>o</mi><mi>r</mi><mi>m</mi><mo>,</mo><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>t</mi><mrow><mi>n</mi><mi>o</mi><mi>r</mi><mi>m</mi><mo>,</mo><mi>i</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">
+auc = \sum_i^{n-1} (du_{frac, i+1} + du_{frac, i}) \cdot (t_{norm, i+1} - t_{norm, i}) \cdot \frac{1}{2}
 </annotation></semantics></math></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
