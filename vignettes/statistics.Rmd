@@ -35,7 +35,7 @@ Where:
 * $u_c(y)$ - combined uncertainty of value $y$, where $y$ is a function of $x_k$,
 * $x_k$ - values for which the uncertainty is known.
 
-This is a generic equation used the derivatives of functions. It is created for deuterium uptake in the appropriate forms (as the equations differ based on the parameters of calculations) and described in detail in the article `Calculations`.
+This is a generic equation used the derivatives of functions. It is created for deuterium uptake in the appropriate forms (as the equations differ based on the parameters of calculations) and described in detail in the article `vignette("datafiles")`.
 
 *Joint Committee for Guides in Metrology. (2008) JCGM 100: evaluation of measurement data – guide to the expression of uncertainty in measurement. Technical report, JCGM*
 
@@ -86,7 +86,10 @@ We use the unpaired Student's t-test to calculate P-value. The null hypothesis i
 To calculate P-value we use base R-function `t.test`
 
 ```{r eval=FALSE}
-t.test(x = st_1, y = st_2, paired = FALSE, alternative = "two.sided", conf.level = confidence_level)$p.value
+t.test(x = st_1, y = st_2, 
+       paired = FALSE, 
+       alternative = "two.sided", 
+       conf.level = confidence_level)$p.value
 ```
 
 where $st_1$ is a set of values from the first state, and $st_2$ from the second.

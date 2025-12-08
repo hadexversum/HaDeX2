@@ -123,7 +123,7 @@ The convenient way to present results calculated as described is the comparison 
 
 Aggregation of values is inspired by the article by Keppler and Weis (doi: 10.1007/s13361-014-1033-6). This process can be conducted of any deuterium uptake variation - fractional or absolute, with theoretical or experimental control, single-state or differential. 
 
-For each residue $i$ there is a subset of peptides ($n$) covering said residue. Then, the final $D_{i, agg}$ is calculated from the subset of $D_k$ (where $ 0<k<n$), with weights $w_k$ inverse proportional to the max uptake of peptide ($MaxUptake_k$) - the shortest the peptide the highest the possibility that the uptake took place in said residue:
+For each residue $i$ there is a subset of peptides ($n$) covering said residue. Then, the final $D_{i, agg}$ is calculated from the subset of $D_k$ (where $0<k<n$), with weights $w_k$ inverse proportional to the max uptake of peptide ($MaxUptake_k$) - the shortest the peptide the highest the possibility that the uptake took place in said residue:
 
 $$
 w_k = \frac{\frac{1}{MaxUptake_k}}{\sum_n \frac{1}{MaxUptake_k}}
@@ -168,5 +168,5 @@ If the AUC value exceeds the value 1, it is an indicator of back-exchange.
 
 
 $$
-auc = \sum_i (du_{frac, 100} + du_{frac, i}) \cdot (t_{norm, 100} - t_{norm, i}) \cdot \frac{1}{2}
+auc = \sum_i^{n-1} (du_{frac, i+1} + du_{frac, i}) \cdot (t_{norm, i+1} - t_{norm, i}) \cdot \frac{1}{2}
 $$
