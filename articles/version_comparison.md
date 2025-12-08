@@ -1,10 +1,10 @@
 # Comparison between versions
 
-This article discuss differences between the first version of HaDeX, and
-the current version of the package and web-server. As the second version
-is significantly more complex than the previous one, we ultimately
-decided against expanding the first version. Instead we created a new
-entity. But how are they different?
+This article discuss differences between the first version of HaDeX
+(Puchała et al. 2020), and the current version of the package and
+web-server. As the second version is significantly more complex than the
+previous one, we ultimately decided against expanding the first version.
+Instead we created a new entity. But how are they different?
 
 ## Methods of visualization
 
@@ -253,3 +253,10 @@ Below, we present the summary of numeric values used to create this plot
 The HaDeX2 package is significantly more powerful than the previous
 version. Moreover, it was rewritten for the comfort of use - as can be
 shown even by the glance of parameters supplied to the function.
+
+Puchała, Weronika, Michał Burdukiewicz, Michał Kistowski, Katarzyna A.
+Dąbrowska, Aleksandra E. Badaczewska-Dawid, Dominik Cysewski, and Michał
+Dadlez. 2020. “HaDeX: An R Package and Web-Server for Analysis of Data
+from Hydrogen-Deuterium Exchange Mass Spectrometry Experiments.”
+*Bioinformatics (Oxford, England)* 36 (16): 4516–18.
+<https://doi.org/10.1093/bioinformatics/btaa587>.

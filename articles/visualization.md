@@ -11,11 +11,10 @@ The analyzed protein is the eEF1Bα subunit of the human
 guanine-nucleotide exchange factor (GEF) complex (eEF1B), measured in
 [Mass Spectrometry Lab](https://mslab-ibb.pl/) in [Institute of
 Biochemistry and Biophysics Polish Academy of
-Sciences](https://ibb.edu.pl/en/) and published by [Bondarchuk et
-al](https://doi.org/10.1093/nar/gkac685). In the one-state
-classification, we will focus on pure alpha state - eEF1B$\alpha$. The
-comparative analysis is conducted between eEF1B$\alpha$ and
-eEF1B$\alpha$ in presence of eEF1B$\gamma$.
+Sciences](https://ibb.edu.pl/en/) (Bondarchuk et al. 2022). In the
+one-state classification, we will focus on pure alpha state -
+eEF1B$\alpha$. The comparative analysis is conducted between
+eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$.
 
 ## Comparison plot
 
@@ -549,3 +548,10 @@ The columns indicate:
 We believe that new ways of visualization of the HDX-MS data can be
 developed. If so, we will be happy to include them in HaDeX package and
 update this article.
+
+Bondarchuk, Tetiana V, Vyacheslav F Shalak, Dmytro M Lozhko, Agnieszka
+Fatalska, Roman H Szczepanowski, Vladyslava Liudkovska, Oleksandr Yu
+Tsuvariev, Michal Dadlez, Anna V El’skaya, and Boris S Negrutskii. 2022.
+“Quaternary Organization of the Human eEF1B Complex Reveals Unique
+Multi-GEF Domain Assembly.” *Nucleic Acids Research* 50 (16): 9490–9504.
+<https://doi.org/10.1093/nar/gkac685>.

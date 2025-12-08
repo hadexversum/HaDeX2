@@ -174,9 +174,9 @@ comparison plot and differential plot (Woods’ plot).
 
 ## Deuterium uptake aggregation
 
-Aggregation of values is inspired by the article by Keppler and Weis
-(doi: 10.1007/s13361-014-1033-6). This process can be conducted of any
-deuterium uptake variation - fractional or absolute, with theoretical or
+Aggregation of values is inspired by an already published solution
+(Keppel and Weis 2015). This process can be conducted of any deuterium
+uptake variation - fractional or absolute, with theoretical or
 experimental control, single-state or differential.
 
 For each residue $i$ there is a subset of peptides ($n$) covering said
@@ -222,3 +222,9 @@ If the AUC value exceeds the value 1, it is an indicator of
 back-exchange.
 
 $$auc = \sum\limits_{i}^{n - 1}\left( du_{frac,i + 1} + du_{frac,i} \right) \cdot \left( t_{norm,i + 1} - t_{norm,i} \right) \cdot \frac{1}{2}$$
+
+Keppel, Theodore R., and David D. Weis. 2015. “Mapping Residual
+Structure in Intrinsically Disordered Proteins at Residue Resolution
+Using Millisecond Hydrogen/Deuterium Exchange and Residue Averaging.”
+*Journal of the American Society for Mass Spectrometry* 26 (4): 547–54.
+<https://doi.org/10.1007/s13361-014-1033-6>.

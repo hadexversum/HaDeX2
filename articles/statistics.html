@@ -88,12 +88,13 @@ gathers this information in one place.</p>
 <div class="section level2">
 <h2 id="uncertainty-propagation">Uncertainty propagation<a class="anchor" aria-label="anchor" href="#uncertainty-propagation"></a>
 </h2>
-<p>The propagation of uncertainty is necessary when we are transforming
-the measured values. In HDX-MS, we repeat the measurements in triplicate
-in order to calculate the uncertainty of mass measurement. However, when
+<p>The propagation of uncertainty <span class="citation">(Puchała et al.
+2020; Weis 2021)</span> is necessary when we are transforming the
+measured values. In HDX-MS, we repeat the measurements in triplicate in
+order to calculate the uncertainty of mass measurement. However, when
 transforming mass measurements into deuterium uptake, we need to
 propagate mass measurement uncertainty, using the Law of Propagation of
-Uncertainty:</p>
+Uncertainty []:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mi>c</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msqrt><mrow><munder><mo>∑</mo><mi>k</mi></munder><msup><mrow><mo stretchy="true" form="prefix">[</mo><mfrac><mrow><mi>∂</mi><mi>y</mi></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mi>k</mi></msub></mrow></mfrac><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mi>k</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">u_{c}(y) = \sqrt{\sum_{k} \left[ \frac{\partial y}{\partial x_{k}} u(x_{k}) \right]^2}</annotation></semantics></math></p>
 <p>Where:</p>
 <ul>
@@ -116,27 +117,18 @@ in the article <code><a href="../articles/datafiles.html">vignette("datafiles")<
 <p><em>Joint Committee for Guides in Metrology. (2008) JCGM 100:
 evaluation of measurement data – guide to the expression of uncertainty
 in measurement. Technical report, JCGM</em></p>
-<p><em>Weis, D. D. Recommendations for the Propagation of Uncertainty in
-Hydrogen Exchange-Mass Spectrometric Measurements. J. Am. Soc. Mass
-Spectrom. 32, 1610–1617 (2021).</em></p>
-<p><em>Puchała, W. et al. HaDeX: an R package and web-server for
-analysis of data from hydrogen–deuterium exchange mass spectrometry
-experiments. Bioinformatics 36, 4516–4518 (2020).</em></p>
 </div>
 <div class="section level2">
 <h2 id="hybrid-testing">Hybrid testing<a class="anchor" aria-label="anchor" href="#hybrid-testing"></a>
 </h2>
-<p>Hybrid testing is a combination of two statistical approaches to
-ensure that the difference between two biological states is
-statistically significant. The difference is significant if two tests
-simultaneously claims the significance.</p>
+<p>Hybrid testing <span class="citation">(Hageman and Weis 2019)</span>
+is a combination of two statistical approaches to ensure that the
+difference between two biological states is statistically significant.
+The difference is significant if two tests simultaneously claims the
+significance.</p>
 <p>However, it can be only achieved when we have the experiment done at
 least in triplicate, as it is the condition to perform Student
 t-test.</p>
-<p><em>Hageman, T. S. &amp; Weis, D. D. Reliable Identification of
-Significant Differences in Differential Hydrogen Exchange-Mass
-Spectrometry Measurements Using a Hybrid Significance Testing Approach.
-Anal. Chem. 91, 8008–8016 (2019).</em></p>
 <div class="section level3">
 <h3 id="houde-interval">Houde interval<a class="anchor" aria-label="anchor" href="#houde-interval"></a>
 </h3>
@@ -145,10 +137,11 @@ for the volcano plot, where presenting multiple time points of
 measurement, we take the values from all of the presented time points.
 However, for Woods Plot we only take into account only one time point -
 presented on the plot.</p>
-<p>Houde interval is calculated based on the uncertainty of the
-measurement - or, more precisely, the propagated uncertainty of the
-deuterium uptake (in the same form as values presented on the plot). As
-described in the equation:</p>
+<p>Houde interval <span class="citation">(Houde, Berkowitz, and Engen
+2011)</span> is calculated based on the uncertainty of the measurement -
+or, more precisely, the propagated uncertainty of the deuterium uptake
+(in the same form as values presented on the plot). As described in the
+equation:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>v</mi><mi>a</mi><mi>l</mi><mo>=</mo><mfrac><mrow><munderover><mo>∑</mo><mi>i</mi><mi>n</mi></munderover><msub><mi>u</mi><mi>c</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>d</mi><msub><mi>u</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mi>i</mi></mfrac><mo>*</mo><mi>t</mi><mi>v</mi><mi>a</mi><mi>l</mi><mi>u</mi><mi>e</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">interval = \frac{\sum_i^n u_c(du_n)}{i}*tvalue(k) </annotation></semantics></math>
 where:</p>
 <ul>
@@ -180,9 +173,6 @@ for the desired confidence level (usually 0.98).</p>
 this range by the appropriate value to get an interval. Values under the
 interval are too small and may be mistaken with the uncertainty. We are
 not interested in them.</p>
-<p><em>Houde,D. et al. (2011) The utility of hydrogen/deuterium exchange
-mass spectrometry in biopharmaceutical comparability studies. J. Pharm.
-Sci., 100, 2071–2086.</em></p>
 </div>
 <div class="section level3">
 <h3 id="students-t-test">Student’s t-test<a class="anchor" aria-label="anchor" href="#students-t-test"></a>
@@ -215,6 +205,40 @@ adjustment method (with three options: none, BH and bonferonni):</p>
 <p>P-value is usually presented in the form of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi>l</mi><mi>o</mi><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>P</mi><mi>v</mi><mi>a</mi><mi>l</mi><mi>u</mi><mi>e</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">-log(Pvalue)</annotation></semantics></math>,
 e.q. on the volcano plot.</p>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-hageman_reliable_2019" class="csl-entry">
+Hageman, Tyler S., and David D. Weis. 2019. <span>“Reliable
+<span>Identification</span> of <span>Significant</span>
+<span>Differences</span> in <span>Differential</span>
+<span>Hydrogen</span> <span>Exchange</span>-<span>Mass</span>
+<span>Spectrometry</span> <span>Measurements</span> <span>Using</span> a
+<span>Hybrid</span> <span>Significance</span> <span>Testing</span>
+<span>Approach</span>.”</span> <em>Analytical Chemistry</em> 91 (13):
+8008–16. <a href="https://doi.org/10.1021/acs.analchem.9b01325" class="external-link">https://doi.org/10.1021/acs.analchem.9b01325</a>.
+</div>
+<div id="ref-houde_utility_2011" class="csl-entry">
+Houde, Damian, Steven A. Berkowitz, and John R. Engen. 2011. <span>“The
+Utility of Hydrogen/Deuterium Exchange Mass Spectrometry in
+Biopharmaceutical Comparability Studies.”</span> <em>Journal of
+Pharmaceutical Sciences</em> 100 (6): 2071–86. <a href="https://doi.org/10.1002/jps.22432" class="external-link">https://doi.org/10.1002/jps.22432</a>.
+</div>
+<div id="ref-puchala_hadex_2020" class="csl-entry">
+Puchała, Weronika, Michał Burdukiewicz, Michał Kistowski, Katarzyna A.
+Dąbrowska, Aleksandra E. Badaczewska-Dawid, Dominik Cysewski, and Michał
+Dadlez. 2020. <span>“<span>HaDeX</span>: An <span>R</span> Package and
+Web-Server for Analysis of Data from Hydrogen-Deuterium Exchange Mass
+Spectrometry Experiments.”</span> <em>Bioinformatics (Oxford,
+England)</em> 36 (16): 4516–18. <a href="https://doi.org/10.1093/bioinformatics/btaa587" class="external-link">https://doi.org/10.1093/bioinformatics/btaa587</a>.
+</div>
+<div id="ref-weis_recommendations_2021" class="csl-entry">
+Weis, David D. 2021. <span>“Recommendations for the
+<span>Propagation</span> of <span>Uncertainty</span> in
+<span>Hydrogen</span> <span>Exchange</span>-<span>Mass</span>
+<span>Spectrometric</span> <span>Measurements</span>.”</span>
+<em>Journal of the American Society for Mass Spectrometry</em> 32 (7):
+1610–17. <a href="https://doi.org/10.1021/jasms.0c00475" class="external-link">https://doi.org/10.1021/jasms.0c00475</a>.
+</div>
+</div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
