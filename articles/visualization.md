@@ -32,14 +32,6 @@ point 1 min. The length of the segments represents the length of the
 peptide and the position in the protein sequence. The error bars
 indicate the uncertainty of the measurement.
 
-    ## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-    ## ℹ Please use `linewidth` instead.
-    ## ℹ The deprecated feature was likely used in the HaDeX2 package.
-    ##   Please report the issue to the authors.
-    ## This warning is displayed once every 8 hours.
-    ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-    ## generated.
-
 ![](visualization_files/figure-html/unnamed-chunk-2-1.png)
 
 *Pros:*
@@ -63,9 +55,9 @@ Woods plot presents the deuterium uptake difference between two
 biological states for the peptides. The results are presented with
 respect to the length of the peptide and its position in the protein
 sequence for a given time point of the measurement. The statistical test
-(Houde et al., the confidence level is calculated based on the
-measurements in chosen time point of the measurement) is applied to
-determine the confidence limits values at the chosen level.
+is applied to determine the confidence limits values at the chosen
+level. For more description see the
+[`vignette("statistics")`](https://hadexversum.github.io/HaDeX2/articles/statistics.md).
 
 **Example** On the Woods plot below, we see fractional deuterium uptake
 difference between two biological states eEF1B$\alpha$ and eEF1B$\alpha$
@@ -180,14 +172,6 @@ values for peptides (indicated by their ID) in state eEF1B$\alpha$
 during the time course of the experiment. The cross symbols indicate the
 uncertainty of the measurement (the bigger the cross sign, the bigger
 the uncertainty).
-
-    ## Warning: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.
-    ## ℹ Please use the `linewidth` argument instead.
-    ## ℹ The deprecated feature was likely used in the HaDeX2 package.
-    ##   Please report the issue to the authors.
-    ## This warning is displayed once every 8 hours.
-    ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-    ## generated.
 
 ![](visualization_files/figure-html/unnamed-chunk-6-1.png)
 
@@ -333,17 +317,15 @@ peptide GFGDLKSPAGL in all three states for protein eEF1Ba.
 Uncertainty plot is new visualization method, showing the uncertainty of
 measurement of deuterium uptake for peptides to spot the regions where
 the uncertainty is higher. This plot may be used as a quality control of
-the experiment, as discussed in the `vignette(quality_control)`. The
-presented uncertainty is in Daltons, making the threshold 1 Da as
+the experiment, as discussed in the
+[`vignette("quality_control")`](https://hadexversum.github.io/HaDeX2/articles/quality_control.md).
+The presented uncertainty is in Daltons, making the threshold 1 Da as
 proposed limit of acceptance.
 
 **Example** The plot below presents uncertainty values for multiple time
 points for state eEF1B$\alpha$. We see that the uncertainty is
 relatively low for all the measurement, and none of the value is
 suspicious.
-
-    ## Warning: Removed 1 row containing missing values or values outside the scale range
-    ## (`geom_segment()`).
 
 ![](visualization_files/figure-html/unnamed-chunk-10-1.png)*Pros:*
 
@@ -371,9 +353,6 @@ presence of eEF1B$\gamma$. We can see the regions where the difference
 is statistically significant - above the significance level (detailed as
 option in create_p_diff_uptake_dataset, or by default 0.98).
 
-    ## Warning: Removed 77 rows containing missing values or values outside the scale range
-    ## (`geom_segment()`).
-
 ![](visualization_files/figure-html/unnamed-chunk-11-1.png)
 
 *Pros:*
@@ -395,9 +374,10 @@ option in create_p_diff_uptake_dataset, or by default 0.98).
 The biggest limitation of previous methods of deuterium uptake
 visualization is that the results are on the peptide level. However, we
 offer a method of aggregation of data on peptide level into
-high-resolution level, using the weighted method of aggregation (Keppler
-and Weis (doi: 10.1007/s13361-014-1033-6)). Then, the results are
-presented on the heatmap.
+high-resolution level, using the weighted method of aggregation (as
+described in
+[`vignette("statistics")`](https://hadexversum.github.io/HaDeX2/articles/statistics.md)).
+Then, the results are presented on the heatmap.
 
 **Example**
 
@@ -463,7 +443,7 @@ option is available both for single state uptake and differential
 uptake.
 
 **Example** Structure below is mapped with deuterium uptake values after
-1 minute for eEF1B$\alpha$ state. Values are aggregateed using weighted
+1 minute for eEF1B$\alpha$ state. Values are aggregated using weighted
 approach, color signifies no exchange (white) to high exchange (red).
 
 *Pros:*
@@ -498,15 +478,6 @@ signifying fast exchange with exception for one strong region and small
 sub-regions.
 
 AUC:
-
-    ## Warning: `aes_string()` was deprecated in ggplot2 3.0.0.
-    ## ℹ Please use tidy evaluation idioms with `aes()`.
-    ## ℹ See also `vignette("ggplot2-in-packages")` for more information.
-    ## ℹ The deprecated feature was likely used in the HaDeX2 package.
-    ##   Please report the issue to the authors.
-    ## This warning is displayed once every 8 hours.
-    ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-    ## generated.
 
     ## Ignoring unknown labels:
     ## • colour : "Exposure"
