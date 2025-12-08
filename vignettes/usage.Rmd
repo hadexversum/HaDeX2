@@ -5,7 +5,7 @@ output:
     toc: true
     number_sections: true
     always_allow_html: yes
-bibliography: HDX.bib
+bibliography: hadex2_docs.bib
 vignette: >
   %\VignetteIndexEntry{Code usage}
   %\VignetteEngine{knitr::rmarkdown}
