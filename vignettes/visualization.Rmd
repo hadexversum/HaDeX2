@@ -14,6 +14,7 @@ vignette: >
   
 ```{r setup, include = FALSE, echo = FALSE, warning = FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
 knitr::opts_chunk$set(dev = "png", dev.args = list(type = "cairo-png"))
 knitr::opts_chunk$set(fig.width = 7, fig.height = 5)
 ```
@@ -69,7 +70,7 @@ plot_state_comparison(., fractional = TRUE) +
 
 # Woods plot
 
-Woods plot presents the deuterium uptake difference between two biological states for the peptides. The results are presented with respect to the length of the peptide and its position in the protein sequence for a given time point of the measurement. The statistical test (Houde et al., the confidence level is calculated based on the measurements in chosen time point of the measurement) is applied to determine the confidence limits values at the chosen level.
+Woods plot presents the deuterium uptake difference between two biological states for the peptides. The results are presented with respect to the length of the peptide and its position in the protein sequence for a given time point of the measurement. The statistical test is applied to determine the confidence limits values at the chosen level. For more description see the `vignette("statistics")`.
 
 **Example** On the Woods plot below, we see fractional deuterium uptake difference between two biological states eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$ for protein eEF1B The confidence limits indicate which differences are statistically significant at levels 98%. 
 
@@ -303,7 +304,7 @@ plot_uptake_curve() +
 
 # Uncertainty plot
 
-Uncertainty plot is new visualization method, showing the uncertainty of measurement of deuterium uptake for peptides to spot the regions where the uncertainty is higher. This plot may be used as a quality control of the experiment, as discussed in the `vignette(quality_control)`.
+Uncertainty plot is new visualization method, showing the uncertainty of measurement of deuterium uptake for peptides to spot the regions where the uncertainty is higher. This plot may be used as a quality control of the experiment, as discussed in the `vignette("quality_control")`.
 The presented uncertainty is in Daltons, making the threshold 1 Da as proposed limit of acceptance.
 
 **Example** The plot below presents uncertainty values for multiple time points for state eEF1B$\alpha$. We see that the uncertainty is relatively low for all the measurement, and none of the value is suspicious.
@@ -359,7 +360,7 @@ plot_manhattan(p_diff_dat, show_peptide_position  = TRUE)
 
 # High-resolution plot
 
-The biggest limitation of previous methods of deuterium uptake visualization is that the results are on the peptide level. However, we offer a method of aggregation of data on peptide level into high-resolution level, using the weighted method of aggregation (Keppler and Weis (doi: 10.1007/s13361-014-1033-6)). Then, the results are presented on the heatmap.
+The biggest limitation of previous methods of deuterium uptake visualization is that the results are on the peptide level. However, we offer a method of aggregation of data on peptide level into high-resolution level, using the weighted method of aggregation (as described in `vignette("statistics")`). Then, the results are presented on the heatmap.
 
 **Example**
 
@@ -464,7 +465,7 @@ plot_aggregated_differential_uptake(aggregated_diff_dat, panels = FALSE)
 
 High-resolution values not only can be presented linearly on high-resolution plot (as above), but also on 3D structure, if available. This way, the calculated values are connected with spatial aspect. This option is available both for single state uptake and differential uptake.
 
-**Example** Structure below is mapped with deuterium uptake values after 1 minute for eEF1B$\alpha$ state. Values are aggregateed using weighted approach, color signifies no exchange (white) to high exchange (red).
+**Example** Structure below is mapped with deuterium uptake values after 1 minute for eEF1B$\alpha$ state. Values are aggregated using weighted approach, color signifies no exchange (white) to high exchange (red).
 
 
 ```{r}
