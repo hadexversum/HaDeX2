@@ -5,7 +5,7 @@ output:
     toc: true
     number_sections: true
     always_allow_html: yes
-bibliography: HDX.bib
+bibliography: hadex2_docs.bib
 vignette: >
   %\VignetteIndexEntry{Comparison between versions}
   %\VignetteEngine{knitr::rmarkdown}
@@ -21,7 +21,7 @@ library(dplyr)
 library(ggplot2)
 ```
 
-This article discuss differences between the first version of HaDeX, and the current version of the package and web-server. As the second version is significantly more complex than the previous one, we ultimately decided against expanding the first version. Instead we created a new entity. But how are they different?
+This article discuss differences between the first version of HaDeX [@puchala_hadex_2020], and the current version of the package and web-server. As the second version is significantly more complex than the previous one, we ultimately decided against expanding the first version. Instead we created a new entity. But how are they different?
 
 # Methods of visualization 
 

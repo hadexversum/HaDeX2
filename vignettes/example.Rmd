@@ -7,7 +7,7 @@ output:
     toc: true
 pkgdown:
   as_is: true
-bibliography: HDX.bib
+bibliography: hadex2_docs.bib
 link-citations: yes
 vignette: >
   %\VignetteIndexEntry{Example HDX-MS data analysis}
@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = FALSE, out.width = "90%")
 
 # Introduction
 
-This document summarizes functions of HaDeX2 web server by describing example data analysis. The example dataset we will use here is part of a previously published dataset on the SecA ATPase protein [@krishnamurthyNexusIntrinsicDynamics2021b]. SecA is an essential part of the bacterial Sec protein secretion system where it interacts with secretory client proteins as well as its associated cytoplasmic chaperones and is ultimately targeted to the SecYEG membrane channel where it interacts with both non-folded clients as well as the export channel, thereby regulating or powering protein export. 
+This document summarizes functions of HaDeX2 web server by describing example data analysis. The example dataset we will use here is part of a previously published dataset on the SecA ATPase protein [@krishnamurthy_nexus_2021]. SecA is an essential part of the bacterial Sec protein secretion system where it interacts with secretory client proteins as well as its associated cytoplasmic chaperones and is ultimately targeted to the SecYEG membrane channel where it interacts with both non-folded clients as well as the export channel, thereby regulating or powering protein export. 
 
 SecA is a DEAD motor domain ATPase, and in the cytoplasm the protein predominantly exists as a dimeric, ADP bound 'quiescent' state. Only through a series of interactions with the translocate and secretory clients does SecA become fully activated and reaches the actively ATP hydrolysing monomeric state, functioning as a molecular motor, driving protein translocation. 
 
@@ -30,7 +30,7 @@ SecA is a DEAD motor domain ATPase, and in the cytoplasm the protein predominant
 
 In the next sections we will take the SecA example data and stepwise run it though the analysis pipeline of the HaDeX2 web server. In this example we focus on SecA in its dimeric state, and we compare how binding to ADP, switching the protein to its quiescent state, affects the structural dynamics of SecA.
 
-# Input Data
+## Input Data
 
 The first step in our HDX-MS data analysis is to upload the data. In the HaDeX2 webserver, in the 'Input data' tab, we can upload the data as DynamX 3.0 'cluster' files. Click 'Browse' to select the example data file `inst/HaDeX/data/SecA_cluster_wt_ADP.csv`, after which the 'File status' should report the file is valid and is of the Dynamx3.0 format. 
 For this dataset, we also have a structure file available, `inst/HaDeX/data/SecA_monomer.pdb` (modified from RCSB PDB entry 2VDA), and it can be uploaded below in a similar fashion. 
@@ -87,7 +87,7 @@ In the differential heatmap, we can now see our regions of interest with residue
 
 The 3D viewer provides an interactive way to explore these differences in the context of the protein structure. By mapping the differential HDX data onto the 3D structure of SecA, we can directly see how ADP binding rigidifies specific regions of the protein (Figure \@ref(fig:differential-structure)). In the figure below, we can clearly see the strongest response in helicase motif I, rigidifying upon ADP binding, as well as the allosteric propagation of this effect through the scaffold regions ultimately resulting in a long-range allosteric response in the client-binding PPD domain. 
 
-For more control over the visualization colors and plot ranges, the residue-level data can be exported in a .csv format and subsequently visualized by [HDX-Viewer](http://hdxviewer.ipbs.fr:8080/) [@BouyssieHDXViewerinteractive3D2019]. When exporting the data to HDX-Viewer, click the 'Export data for HDXViewer' and follow the steps described in the popup window. 
+For more control over the visualization colors and plot ranges, the residue-level data can be exported in a .csv format and subsequently visualized by [HDX-Viewer](http://hdxviewer.ipbs.fr:8080/) [@bouyssie_hdx-viewer_2019]. When exporting the data to HDX-Viewer, click the 'Export data for HDXViewer' and follow the steps described in the popup window. 
 
 ```{r differential-structure, fig.cap="3D view of differential HDX data on the structure of SecA."}
 knitr::include_graphics("seca_3d_vis.png")
@@ -107,6 +107,4 @@ knitr::include_graphics("peptide_coverage-display_plot.png")
 
 ## Summary
 
-The summary is a very convenient and quick way to generate a summary report of the uploaded data, according to community recommendations [@MassonRecommendationsperforminginterpreting2019]. The report can be exported in a variety of tabular formats.
-
-# References
+The summary is a very convenient and quick way to generate a summary report of the uploaded data, according to community recommendations [@masson_recommendations_2019]. The report can be exported in a variety of tabular formats.

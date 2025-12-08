@@ -5,7 +5,7 @@ output:
     toc: true
     number_sections: true
     always_allow_html: yes
-bibliography: HDX.bib
+bibliography: hadex2_docs.bib
 vignette: >
   %\VignetteIndexEntry{Data visualization}
   %\VignetteEngine{knitr::rmarkdown}
@@ -37,7 +37,7 @@ Data visualization is a crucial part of the experimental data analysis. The form
 
 In this article, we present methods of data visualization available in the HaDeX2 package, and consecutively in the GUI.
 
-The analyzed protein is the eEF1Bα subunit of the human guanine-nucleotide exchange factor (GEF) complex (eEF1B), measured in [Mass Spectrometry Lab](https://mslab-ibb.pl/) in [Institute of Biochemistry and Biophysics Polish Academy of Sciences](https://ibb.edu.pl/en/) and published by [Bondarchuk et al](https://doi.org/10.1093/nar/gkac685). In the one-state classification, we will focus on pure alpha state - eEF1B$\alpha$. The comparative analysis is conducted between eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$.  
+The analyzed protein is the eEF1Bα subunit of the human guanine-nucleotide exchange factor (GEF) complex (eEF1B), measured in [Mass Spectrometry Lab](https://mslab-ibb.pl/) in [Institute of Biochemistry and Biophysics Polish Academy of Sciences](https://ibb.edu.pl/en/) [@bondarchuk_quaternary_2022]. In the one-state classification, we will focus on pure alpha state - eEF1B$\alpha$. The comparative analysis is conducted between eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$.  
 
 # Comparison plot
 

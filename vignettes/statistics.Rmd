@@ -5,7 +5,7 @@ output:
     toc: true
     number_sections: true
     always_allow_html: yes
-bibliography: HDX.bib
+bibliography: hadex2_docs.bib
 vignette: >
   %\VignetteIndexEntry{Statistics}
   %\VignetteEngine{knitr::rmarkdown}
@@ -26,7 +26,7 @@ Here, we sum up the statistics in HaDeX2. Some of the elements are discussed in 
 
 # Uncertainty propagation
 
-The propagation of uncertainty is necessary when we are transforming the measured values. In HDX-MS, we repeat the measurements in triplicate in order to calculate the uncertainty of mass measurement. However, when transforming mass measurements into deuterium uptake, we need to propagate mass measurement uncertainty, using the Law of Propagation of Uncertainty:
+The propagation of uncertainty [@puchala_hadex_2020; @weis_recommendations_2021] is necessary when we are transforming the measured values. In HDX-MS, we repeat the measurements in triplicate in order to calculate the uncertainty of mass measurement. However, when transforming mass measurements into deuterium uptake, we need to propagate mass measurement uncertainty, using the Law of Propagation of Uncertainty []:
 
 $$u_{c}(y) = \sqrt{\sum_{k} \left[ \frac{\partial y}{\partial x_{k}} u(x_{k}) \right]^2}$$
 
@@ -39,23 +39,17 @@ This is a generic equation used the derivatives of functions. It is created for 
 
 *Joint Committee for Guides in Metrology. (2008) JCGM 100: evaluation of measurement data – guide to the expression of uncertainty in measurement. Technical report, JCGM*
 
-*Weis, D. D. Recommendations for the Propagation of Uncertainty in Hydrogen Exchange-Mass Spectrometric Measurements. J. Am. Soc. Mass Spectrom. 32, 1610–1617 (2021).*
-
-*Puchała, W. et al. HaDeX: an R package and web-server for analysis of data from hydrogen–deuterium exchange mass spectrometry experiments. Bioinformatics 36, 4516–4518 (2020).*
-
 # Hybrid testing 
 
-Hybrid testing is a combination of two statistical approaches to ensure that the difference between two biological states is statistically significant. The difference is significant if two tests simultaneously claims the significance.
+Hybrid testing [@hageman_reliable_2019] is a combination of two statistical approaches to ensure that the difference between two biological states is statistically significant. The difference is significant if two tests simultaneously claims the significance.
 
 However, it can be only achieved when we have the experiment done at least in triplicate, as it is the condition to perform Student t-test.
-
-*Hageman, T. S. & Weis, D. D. Reliable Identification of Significant Differences in Differential Hydrogen Exchange-Mass Spectrometry Measurements Using a Hybrid Significance Testing Approach. Anal. Chem. 91, 8008–8016 (2019).*
 
 ## Houde interval
 
 This test is done for the time points chosen for a given plot e.q. for the volcano plot, where presenting multiple time points of measurement, we take the values from all of the presented time points. However, for Woods Plot we only take into account only one time point - presented on the plot.
 
-Houde interval is calculated based on the uncertainty of the measurement - or, more precisely, the propagated uncertainty of the deuterium uptake (in the same form as values presented on the plot). As described in the equation:
+Houde interval [@houde_utility_2011] is calculated based on the uncertainty of the measurement - or, more precisely, the propagated uncertainty of the deuterium uptake (in the same form as values presented on the plot). As described in the equation:
 
 $$interval = \frac{\sum_i^n u_c(du_n)}{i}*tvalue(k) $$
 where:
@@ -72,8 +66,6 @@ $$tvalue = qt(c(alpha/2, 1-alpha/2), df = k-1)$$
 where the degree of freedom is the number of replicates minus one, and alpha is $1-confidencelimit$ for the desired confidence level (usually 0.98).
 
 Basically, we take the mean uncertainty of deuterium uptake and widen this range by the appropriate value to get an interval. Values under the interval are too small and may be mistaken with the uncertainty. We are not interested in them.
-
-*Houde,D. et al. (2011) The utility of hydrogen/deuterium exchange mass spectrometry in biopharmaceutical comparability studies. J. Pharm. Sci., 100, 2071–2086.*
 
 ## Student's t-test
 
