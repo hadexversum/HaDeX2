@@ -50,26 +50,62 @@ create_diff_uptake_dataset <- function(dat,
                                        time_100 = max(dat[["Exposure"]]),
                                        deut_part = 0.9){
   
-  dat <- as.data.table(dat)  
+  # dat <- as.data.table(dat)  
   
-  all_times <- unique(dat[["Exposure"]])
-  times <- all_times[all_times > time_0 & all_times <= time_100]
+  ## version1
   
-  diff_uptake_dat <- rbindlist(lapply(times, function(time){
-    
-    dt <- setorderv(as.data.table(calculate_diff_uptake(dat = dat,  
-                                          states = c(state_1, state_2), 
-                                          protein = protein, 
-                                          time_0 = time_0, time_t = time, time_100 = time_100,
-                                          deut_part = deut_part), cols = c("Start", "End")))
-    if(nrow(dt) > 0){
-      dt[, `:=`(ID = 1L:nrow(dt), Exposure = time)]
-      
-      col_order <- c("ID", "Exposure", setdiff(colnames(dt), c("ID", "Exposure")))
-      setcolorder(dt, col_order)
-      
-    }
-  }))
+  # all_times <- unique(dat[["Exposure"]])
+  # times <- all_times[all_times > time_0 & all_times <= time_100]
+  # 
+  # diff_uptake_dat <- rbindlist(lapply(times, function(time){
+  #   
+  #   #  setorderv(
+  #   dt <-  as.data.table(calculate_diff_uptake(dat = dat,  
+  #                                         states = c(state_1, state_2), 
+  #                                         protein = protein, 
+  #                                         time_0 = time_0, time_t = time, time_100 = time_100,
+  #                                         deut_part = deut_part), cols = c("Start", "End"))
+  #   if(nrow(dt) > 0){
+  #     dt[, `:=`(ID = 1L:nrow(dt), Exposure = time)]
+  #     # 
+  #     # col_order <- c("ID", "Exposure", setdiff(colnames(dt), c("ID", "Exposure")))
+  #     # setcolorder(dt, col_order)
+  #   }
+  # }))
+  
+  ## version2
+  
+  state_1_uptake_dat <- as.data.table(create_state_uptake_dataset(dat = dat, 
+                                                                  protein = protein, 
+                                                                  state = state_1, 
+                                                                  time_0 = time_0, 
+                                                                  time_100 = time_100, 
+                                                                  deut_part = deut_part))
+  
+  state_2_uptake_dat <- as.data.table(create_state_uptake_dataset(dat = dat, 
+                                                                  protein = protein, 
+                                                                  state = state_2, 
+                                                                  time_0 = time_0, 
+                                                                  time_100 = time_100, 
+                                                                  deut_part = deut_part))
+  
+  diff_uptake_dat <- merge(state_1_uptake_dat, state_2_uptake_dat, 
+                           by = c("ID", "Exposure", "Protein", "Sequence", "Start", "End", "MaxUptake", "Modification", "Med_Sequence"),
+                           suffixes = c("_1", "_2"))
+  diff_uptake_dat[, `:=`(diff_frac_deut_uptake = frac_deut_uptake_1 - frac_deut_uptake_2,
+                         err_diff_frac_deut_uptake = sqrt(err_frac_deut_uptake_1^2 + err_frac_deut_uptake_2^2),
+                         diff_deut_uptake = deut_uptake_1 - deut_uptake_2,
+                         err_diff_deut_uptake = sqrt(err_deut_uptake_1^2 + err_deut_uptake_2^2),
+                         diff_theo_frac_deut_uptake = theo_frac_deut_uptake_1 - theo_frac_deut_uptake_2,
+                         err_diff_theo_frac_deut_uptake = sqrt(err_theo_frac_deut_uptake_1^2 + err_theo_frac_deut_uptake_2^2),
+                         diff_theo_deut_uptake = theo_deut_uptake_1 - theo_deut_uptake_2,
+                         err_diff_theo_deut_uptake = sqrt(err_theo_deut_uptake_1^2 + err_theo_deut_uptake_2^2)) ]
+  
+  # setorderv(diff_uptake_dat, cols = c("Start", "End"))
+  # diff_uptake_dat[, `:=`(ID = 1L:nrow(diff_uptake_dat))]
+  
+  ##
+  
   
   attr(diff_uptake_dat, "protein") <- protein
   attr(diff_uptake_dat, "state_1") <- state_1
@@ -85,3 +121,4 @@ create_diff_uptake_dataset <- function(dat,
   return(diff_uptake_dat)
   
 }
+

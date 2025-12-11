@@ -45,7 +45,7 @@ calculate_diff_uptake  <- function(dat,
                                    time_100 = max(dat[["Exposure"]]),
                                    deut_part = 0.9){
   
-  dat <- as.data.table(dat)
+  # dat <- as.data.table(dat)
   
   diff_dat <- droplevels(rbindlist(lapply(states, function(state) calculate_state_uptake(dat,
                                                                                          protein = protein,
