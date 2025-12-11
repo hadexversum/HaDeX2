@@ -108,10 +108,10 @@ get_n_replicates <- function(dat,
   dat <- as.data.table(dat)
   
   dat <- dat[Protein == protein]
-  dat <- dat[, .(n_rep = uniqueN(File)),
+  dat <- dat[, .(n_rep = length(unique(File))),
              by = c("Protein", "Start", "End", "Sequence", "State", "Exposure")]
-  as.numeric(names(sort(table(dat[["n_rep"]]), decreasing = TRUE)))[1]
   
+  as.numeric(names(sort(table(dat[["n_rep"]]), decreasing = TRUE)))[1]
 }
 
 #' Get peptide sequence based on the position
