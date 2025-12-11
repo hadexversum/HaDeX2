@@ -239,16 +239,16 @@ package.
 Below, we present the summary of numeric values used to create this plot
 (in milliseconds):
 
-| tool   | task                  |    median |       lq |        uq |
-|:-------|:----------------------|----------:|---------:|----------:|
-| HaDeX  | 1\. Read input        |  33.44495 |  32.1839 |  35.30410 |
-| HaDeX2 | 1\. Read input        | 105.27765 | 102.8357 | 110.21350 |
-| HaDeX  | 2\. Plot uptake curve | 163.12015 | 158.5743 | 168.96835 |
-| HaDeX2 | 2\. Plot uptake curve |  65.14970 |  63.1914 |  70.07895 |
-| HaDeX  | 3\. Plot comparison   | 180.56545 | 174.0696 | 187.73510 |
-| HaDeX2 | 3\. Plot comparison   |  58.37120 |  56.3455 |  64.30860 |
-| HaDeX  | 4\. Plot Woods        | 195.51855 | 190.1901 | 201.42075 |
-| HaDeX2 | 4\. Plot Woods        | 342.40110 | 337.0913 | 353.72510 |
+| tool   | task                  |    median |        lq |        uq |
+|:-------|:----------------------|----------:|----------:|----------:|
+| HaDeX  | 1\. Read input        |  36.35380 |  34.58810 |  42.50895 |
+| HaDeX2 | 1\. Read input        |  29.04070 |  28.34905 |  30.64945 |
+| HaDeX  | 2\. Plot uptake curve | 182.13275 | 175.83445 | 187.84845 |
+| HaDeX2 | 2\. Plot uptake curve |  72.27275 |  68.63295 |  78.20930 |
+| HaDeX  | 3\. Plot comparison   | 203.62590 | 196.51045 | 211.50405 |
+| HaDeX2 | 3\. Plot comparison   |  61.84455 |  59.54835 |  68.75025 |
+| HaDeX  | 4\. Plot Woods        | 222.15940 | 209.37170 | 230.77550 |
+| HaDeX2 | 4\. Plot Woods        | 334.18940 | 321.51290 | 341.49115 |
 
 The HaDeX2 package is significantly more powerful than the previous
 version. Moreover, it was rewritten for the comfort of use - as can be
