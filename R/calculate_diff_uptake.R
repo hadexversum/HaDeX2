@@ -96,6 +96,6 @@ calculate_diff_uptake  <- function(dat,
   
   diff_dat <- as.data.frame(diff_dat)
   
-  return(diff_dat)
+  diff_dat
 }
 

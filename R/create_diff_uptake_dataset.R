@@ -118,7 +118,7 @@ create_diff_uptake_dataset <- function(dat,
   
   diff_uptake_dat <- as.data.frame(diff_uptake_dat)
   
-  return(diff_uptake_dat)
+  diff_uptake_dat
   
 }
 
