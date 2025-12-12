@@ -102,6 +102,6 @@ calculate_state_uptake <- function(dat,
   
   uptake_dat <- as.data.frame(uptake_dat)
   
-  return(uptake_dat)
+  uptake_dat
   
 }

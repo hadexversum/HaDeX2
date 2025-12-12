@@ -14,6 +14,8 @@ vignette: >
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
 
 library(HaDeX2)
 library(microbenchmark)
@@ -109,7 +111,7 @@ For pairs of functions, we can conduct the analysis of speed using our exemplary
 
 # Calculation speeds compared
 
-Now we establish the common functionalities for both versions of the package - there are not many. We concentrate on four actions: reading experimetal file, plotting from raw data uptake curve for one peptide, comparison plot of two states, and differential Woods plot with difference between two states.
+Now we established the common functionalities for both versions of the package - there are just a few. We concentrate on four actions: reading data file, plotting (and preparing data) uptake curve for one peptide, comparison plot of two states, and differential Woods plot with difference between two states.
 
 Code used to create this comparison is shown below, and then the results are presented in a comprehensive form.
 
@@ -183,7 +185,7 @@ version_benchmark <- microbenchmark(
 saveRDS(version_benchmark, file = "version_benchmark.rds")
 ```
 
-Let's see how the results presents next to each other, in a graphic form.
+The microbenchmark works as follows: it runs each command 100 times, and presents the summary of running times (in milliseconds). Let's see how the results presents next to each other, in a graphic form.
 
 ```{r message = FALSE, echo=FALSE, results='asis', out.width="100%"}
 
@@ -200,7 +202,7 @@ data.frame(version_benchmark) %>%
 
   
 ```
-We can see than in case of reading file, HaDeX2 is a little bit slower, but is making way more checks than the first version. Plotting uptake curve and comparison plot is way faster in HaDeX2. However, Woods plot is plotted slower by HaDeX2, because the hybrid testing is implemented and needs additional data checks, and HaDeX lacks that. Other functionalities cannot be compared, as they are absent in the first version of the package.
+We can see that tasks 1-3 are completed significantly faster using HaDeX2. In case of task 4 - Woods plot - HaDeX2 is a little bit slower, due to the rewritting of functions, with functionality encapsulation. In HaDeX2, each function has its dedicated task, and it is called by other functions. This design works well with unit testing and improves the code transparency, but may add some calculation time. In this case, the advantages of implemented approach are way greater than small time loss.
 
 Below, we present the summary of numeric values used to create this plot (in milliseconds):
 
@@ -208,7 +210,7 @@ Below, we present the summary of numeric values used to create this plot (in mil
 summary(version_benchmark) %>% 
   mutate(tool = sapply(strsplit(as.character(expr), "_"), first),
          task = sapply(strsplit(as.character(expr), "_"), last)) %>% 
-  select(tool, task, median, lq, uq) %>% 
+  select(tool, task, mean, median, lq, uq) %>% 
   knitr::kable()
 ```
 

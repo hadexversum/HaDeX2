@@ -67,6 +67,6 @@ create_state_uptake_dataset <- function(dat,
   
   state_uptake_dat <- as.data.frame(state_uptake_dat)
   
-  return(state_uptake_dat)
+  state_uptake_dat
   
 }
