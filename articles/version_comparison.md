@@ -146,9 +146,9 @@ exemplary data.
 
 ## Calculation speeds compared
 
-Now we establish the common functionalities for both versions of the
-package - there are not many. We concentrate on four actions: reading
-experimetal file, plotting from raw data uptake curve for one peptide,
+Now we established the common functionalities for both versions of the
+package - there are just a few. We concentrate on four actions: reading
+data file, plotting (and preparing data) uptake curve for one peptide,
 comparison plot of two states, and differential Woods plot with
 difference between two states.
 
@@ -224,31 +224,32 @@ version_benchmark <- microbenchmark(
 saveRDS(version_benchmark, file = "version_benchmark.rds")
 ```
 
-Let’s see how the results presents next to each other, in a graphic
-form.
+The microbenchmark works as follows: it runs each command 100 times, and
+presents the summary of running times (in milliseconds). Let’s see how
+the results presents next to each other, in a graphic form.
 
 ![](version_comparison_files/figure-html/unnamed-chunk-5-1.png) We can
-see than in case of reading file, HaDeX2 is a little bit slower, but is
-making way more checks than the first version. Plotting uptake curve and
-comparison plot is way faster in HaDeX2. However, Woods plot is plotted
-slower by HaDeX2, because the hybrid testing is implemented and needs
-additional data checks, and HaDeX lacks that. Other functionalities
-cannot be compared, as they are absent in the first version of the
-package.
+see that tasks 1-3 are completed significantly faster using HaDeX2. In
+case of task 4 - Woods plot - HaDeX2 is a little bit slower, due to the
+rewritting of functions, with functionality encapsulation. In HaDeX2,
+each function has its dedicated task, and it is called by other
+functions. This design works well with unit testing and improves the
+code transparency, but may add some calculation time. In this case, the
+advantages of implemented approach are way greater than small time loss.
 
 Below, we present the summary of numeric values used to create this plot
 (in milliseconds):
 
-| tool   | task                  |    median |        lq |        uq |
-|:-------|:----------------------|----------:|----------:|----------:|
-| HaDeX  | 1\. Read input        |  36.35380 |  34.58810 |  42.50895 |
-| HaDeX2 | 1\. Read input        |  29.04070 |  28.34905 |  30.64945 |
-| HaDeX  | 2\. Plot uptake curve | 182.13275 | 175.83445 | 187.84845 |
-| HaDeX2 | 2\. Plot uptake curve |  72.27275 |  68.63295 |  78.20930 |
-| HaDeX  | 3\. Plot comparison   | 203.62590 | 196.51045 | 211.50405 |
-| HaDeX2 | 3\. Plot comparison   |  61.84455 |  59.54835 |  68.75025 |
-| HaDeX  | 4\. Plot Woods        | 222.15940 | 209.37170 | 230.77550 |
-| HaDeX2 | 4\. Plot Woods        | 334.18940 | 321.51290 | 341.49115 |
+| tool   | task                  |      mean |    median |        lq |        uq |
+|:-------|:----------------------|----------:|----------:|----------:|----------:|
+| HaDeX  | 1\. Read input        |  37.18147 |  35.32685 |  34.35170 |  37.21250 |
+| HaDeX2 | 1\. Read input        |  29.28257 |  28.51640 |  27.82795 |  29.09095 |
+| HaDeX  | 2\. Plot uptake curve | 191.07246 | 190.38845 | 182.90800 | 197.83050 |
+| HaDeX2 | 2\. Plot uptake curve |  76.78255 |  74.82580 |  70.27920 |  80.56700 |
+| HaDeX  | 3\. Plot comparison   | 194.79112 | 195.33145 | 186.31485 | 203.22940 |
+| HaDeX2 | 3\. Plot comparison   |  55.62862 |  53.71610 |  51.78730 |  59.49965 |
+| HaDeX  | 4\. Plot Woods        | 210.23130 | 207.40895 | 196.61960 | 217.26900 |
+| HaDeX2 | 4\. Plot Woods        | 291.21028 | 290.65670 | 279.03885 | 300.02085 |
 
 The HaDeX2 package is significantly more powerful than the previous
 version. Moreover, it was rewritten for the comfort of use - as can be

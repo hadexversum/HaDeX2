@@ -582,10 +582,10 @@ our exemplary data.</p>
 <div class="section level2">
 <h2 id="calculation-speeds-compared">Calculation speeds compared<a class="anchor" aria-label="anchor" href="#calculation-speeds-compared"></a>
 </h2>
-<p>Now we establish the common functionalities for both versions of the
-package - there are not many. We concentrate on four actions: reading
-experimetal file, plotting from raw data uptake curve for one peptide,
-comparison plot of two states, and differential Woods plot with
+<p>Now we established the common functionalities for both versions of
+the package - there are just a few. We concentrate on four actions:
+reading data file, plotting (and preparing data) uptake curve for one
+peptide, comparison plot of two states, and differential Woods plot with
 difference between two states.</p>
 <p>Code used to create this comparison is shown below, and then the
 results are presented in a comprehensive form.</p>
@@ -656,22 +656,33 @@ results are presented in a comprehensive form.</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">saveRDS</a></span><span class="op">(</span><span class="va">version_benchmark</span>, file <span class="op">=</span> <span class="st">"version_benchmark.rds"</span><span class="op">)</span></span></code></pre></div>
-<p>Let’s see how the results presents next to each other, in a graphic
-form.</p>
+<p>The microbenchmark works as follows: it runs each command 100 times,
+and presents the summary of running times (in milliseconds). Let’s see
+how the results presents next to each other, in a graphic form.</p>
 <p><img src="version_comparison_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" width="100%">
-We can see than in case of reading file, HaDeX2 is a little bit slower,
-but is making way more checks than the first version. Plotting uptake
-curve and comparison plot is way faster in HaDeX2. However, Woods plot
-is plotted slower by HaDeX2, because the hybrid testing is implemented
-and needs additional data checks, and HaDeX lacks that. Other
-functionalities cannot be compared, as they are absent in the first
-version of the package.</p>
+We can see that tasks 1-3 are completed significantly faster using
+HaDeX2. In case of task 4 - Woods plot - HaDeX2 is a little bit slower,
+due to the rewritting of functions, with functionality encapsulation. In
+HaDeX2, each function has its dedicated task, and it is called by other
+functions. This design works well with unit testing and improves the
+code transparency, but may add some calculation time. In this case, the
+advantages of implemented approach are way greater than small time
+loss.</p>
 <p>Below, we present the summary of numeric values used to create this
 plot (in milliseconds):</p>
 <table class="table">
+<colgroup>
+<col width="10%">
+<col width="30%">
+<col width="14%">
+<col width="14%">
+<col width="14%">
+<col width="14%">
+</colgroup>
 <thead><tr class="header">
 <th align="left">tool</th>
 <th align="left">task</th>
+<th align="right">mean</th>
 <th align="right">median</th>
 <th align="right">lq</th>
 <th align="right">uq</th>
@@ -680,58 +691,66 @@ plot (in milliseconds):</p>
 <tr class="odd">
 <td align="left">HaDeX</td>
 <td align="left">1. Read input</td>
-<td align="right">36.35380</td>
-<td align="right">34.58810</td>
-<td align="right">42.50895</td>
+<td align="right">37.18147</td>
+<td align="right">35.32685</td>
+<td align="right">34.35170</td>
+<td align="right">37.21250</td>
 </tr>
 <tr class="even">
 <td align="left">HaDeX2</td>
 <td align="left">1. Read input</td>
-<td align="right">29.04070</td>
-<td align="right">28.34905</td>
-<td align="right">30.64945</td>
+<td align="right">29.28257</td>
+<td align="right">28.51640</td>
+<td align="right">27.82795</td>
+<td align="right">29.09095</td>
 </tr>
 <tr class="odd">
 <td align="left">HaDeX</td>
 <td align="left">2. Plot uptake curve</td>
-<td align="right">182.13275</td>
-<td align="right">175.83445</td>
-<td align="right">187.84845</td>
+<td align="right">191.07246</td>
+<td align="right">190.38845</td>
+<td align="right">182.90800</td>
+<td align="right">197.83050</td>
 </tr>
 <tr class="even">
 <td align="left">HaDeX2</td>
 <td align="left">2. Plot uptake curve</td>
-<td align="right">72.27275</td>
-<td align="right">68.63295</td>
-<td align="right">78.20930</td>
+<td align="right">76.78255</td>
+<td align="right">74.82580</td>
+<td align="right">70.27920</td>
+<td align="right">80.56700</td>
 </tr>
 <tr class="odd">
 <td align="left">HaDeX</td>
 <td align="left">3. Plot comparison</td>
-<td align="right">203.62590</td>
-<td align="right">196.51045</td>
-<td align="right">211.50405</td>
+<td align="right">194.79112</td>
+<td align="right">195.33145</td>
+<td align="right">186.31485</td>
+<td align="right">203.22940</td>
 </tr>
 <tr class="even">
 <td align="left">HaDeX2</td>
 <td align="left">3. Plot comparison</td>
-<td align="right">61.84455</td>
-<td align="right">59.54835</td>
-<td align="right">68.75025</td>
+<td align="right">55.62862</td>
+<td align="right">53.71610</td>
+<td align="right">51.78730</td>
+<td align="right">59.49965</td>
 </tr>
 <tr class="odd">
 <td align="left">HaDeX</td>
 <td align="left">4. Plot Woods</td>
-<td align="right">222.15940</td>
-<td align="right">209.37170</td>
-<td align="right">230.77550</td>
+<td align="right">210.23130</td>
+<td align="right">207.40895</td>
+<td align="right">196.61960</td>
+<td align="right">217.26900</td>
 </tr>
 <tr class="even">
 <td align="left">HaDeX2</td>
 <td align="left">4. Plot Woods</td>
-<td align="right">334.18940</td>
-<td align="right">321.51290</td>
-<td align="right">341.49115</td>
+<td align="right">291.21028</td>
+<td align="right">290.65670</td>
+<td align="right">279.03885</td>
+<td align="right">300.02085</td>
 </tr>
 </tbody>
 </table>
