@@ -6,7 +6,8 @@
 #' @importFrom dplyr case_when coalesce
 #' @importFrom stats qt
 #' 
-#' @param diff_uptake_dat processed data from DynamX file - using prepare_dataset
+#' @param diff_uptake_dat differential data calculated using 
+#' calculate_diff_uptake function
 #' @param confidence_level confidence level for the test, from range [0, 1]
 #' @param theoretical \code{logical}, determines if values are theoretical
 #' @param fractional \code{logical}, determines if values are fractional

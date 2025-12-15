@@ -3,7 +3,8 @@
 #' @description Differential uptake curve for one peptide
 #' between two biological states.  
 #' 
-#' @param diff_uptake_dat produced by \code{\link{create_diff_uptake_dataset}} function
+#' @param diff_uptake_dat produced by \code{\link{calculate_diff_uptake}} or
+#' \code{\link{create_diff_uptake_dataset}} function
 #' @param diff_p_uptake_dat differential uptake data 
 #' alongside the P-value as calculated by 
 #' \code{\link{create_p_diff_uptake_dataset}}
@@ -28,6 +29,7 @@
 #' @seealso 
 #' \code{\link{read_hdx}}
 #' \code{\link{create_diff_uptake_dataset}}
+#' \code{\link{calculate_diff_uptake}}
 #' 
 #' @examples 
 #' diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)

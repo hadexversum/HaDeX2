@@ -174,10 +174,9 @@ version_benchmark <- microbenchmark(
                                      confidence_limit = 0.98, 
                                      confidence_limit_2 = 0.98)},
                `HaDeX2_4. Plot Woods` = {
-                 HaDeX2::create_diff_uptake_dataset(dat = dat_HaDeX2,
-                                                    state_1 = "Alpha_KSCN",
-                                                    state_2 = "ALPHA_Gamma",
-                                                    time_0 = 0, time_100 = 1440) %>%
+                 HaDeX2::calculate_diff_uptake(dat = dat_HaDeX2,
+                                               states = c("Alpha_KSCN", "ALPHA_Gamma"),
+                                               time_t = 1, time_0 = 0, time_100 = 1440) %>%
                    HaDeX2::plot_differential(diff_uptake_dat = .,
                                              time_t = 1,
                                              theoretical = FALSE,
@@ -209,7 +208,7 @@ data.frame(version_benchmark) %>%
   
 ```
 
-Tasks 1-3 are completed significantly faster when using HaDeX2. For task 4 (the Woods plot), HaDeX2 is slightly slower due to the refactoring of the code into a more modular structure with encapsulated functionality. In HaDeX2, each function performs a single, well-defined task and is called by other functions. This approach improves code transparency and supports effective unit testing, but it may introduce a small computational overhead. In this case, the benefits of the implemented design clearly outweigh the minor increase in execution time.
+All the tasks are completed significantly faster when using HaDeX2. 
 
 Below, we present the summary of numeric values used to create this plot (in milliseconds):
 

@@ -3,7 +3,7 @@
 #' @description Chiclet plot of differential deuterium uptake values 
 #' between two biological states in time.
 #' 
-#' @param diff_uptake_dat data produced by
+#' @param diff_uptake_dat data produced by \code{\link{calculate_diff_uptake}} or
 #' \code{\link{create_diff_uptake_dataset}} function
 #' @param diff_p_uptake_dat differential uptake data 
 #' alongside the P-value as calculated by 
@@ -32,6 +32,7 @@
 #'
 #' @seealso
 #' \code{\link{create_diff_uptake_dataset}}
+#' \code{\link{calculate_diff_uptake}}
 #'
 #' @examples
 #' diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)

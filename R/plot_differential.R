@@ -6,7 +6,8 @@
 #' @importFrom ggplot2 facet_wrap
 #' @importFrom data.table as.data.table
 #' 
-#' @param diff_uptake_dat produced by \code{\link{create_diff_uptake_dataset}} 
+#' @param diff_uptake_dat produced by \code{\link{calculate_diff_uptake}} 
+#' or \code{\link{create_diff_uptake_dataset}} 
 #' function.
 #' @param diff_p_uptake_dat produced by \code{\link{create_p_diff_uptake_dataset}} 
 #' function.
@@ -52,11 +53,12 @@
 #' 
 #' @seealso
 #' \code{\link{create_diff_uptake_dataset}}
+#' \code{\link{calculate_diff_uptake}}
 #' \code{\link{show_diff_uptake_data}}
 #'
 #' @examples
-#' diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat, state_1 = "Alpha_KSCN", 
-#'                                               state_2 = "ALPHA_Gamma")
+#' diff_uptake_dat <- calculate_diff_uptake(alpha_dat, state_1 = "Alpha_KSCN", 
+#'                                          state_2 = "ALPHA_Gamma", time_t = 0.167)
 #' plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167) 
 #' plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167, show_houde_interval = TRUE) 
 #' plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167, skip_amino = 0) 
