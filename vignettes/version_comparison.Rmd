@@ -111,7 +111,7 @@ For pairs of functions, we can conduct the analysis of speed using our exemplary
 
 # Calculation speeds compared
 
-Now we established the common functionalities for both versions of the package - there are just a few. We concentrate on four actions: reading data file, plotting (and preparing data) uptake curve for one peptide, comparison plot of two states, and differential Woods plot with difference between two states.
+Now we established the common functionalities for both versions of the package - there are just a few. We concentrate on four major actions: reading data file, plotting (and preparing data) uptake curve for one peptide, comparison plot of two states, and differential Woods plot with difference between two states. The two additional actions are: calculation of confidence limits and reconstruction of the peptide sequence.
 
 Code used to create this comparison is shown below, and then the results are presented in a comprehensive form.
 
