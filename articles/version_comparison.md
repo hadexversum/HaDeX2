@@ -221,7 +221,29 @@ version_benchmark <- microbenchmark(
                                              theoretical = FALSE,
                                              fractional = TRUE,
                                              show_houde_interval = TRUE,
-                                             confidence_level = 0.98)}
+                                             confidence_level = 0.98)},
+               `HaDeX_5. Calculate confidence limit` = {
+                 HaDeX::prepare_dataset(dat = dat_HaDeX, 
+                                        in_state_first = "Alpha_KSCN_0",      
+                                        chosen_state_first = "Alpha_KSCN_1", 
+                                        out_state_first = "Alpha_KSCN_1440",      
+                                        in_state_second = "ALPHA_Gamma_0", 
+                                        chosen_state_second = "ALPHA_Gamma_1",      
+                                        out_state_second = "ALPHA_Gamma_1440") %>%
+                   HaDeX::calculate_confidence_limit_values(calc_dat = .,
+                                                            confidence_limit = 0.98,
+                                                            theoretical = FALSE,
+                                                            relative = TRUE)},
+                `HaDeX2_5. Calculate confidence limit` = {
+                 HaDeX2::calculate_diff_uptake(dat = dat_HaDeX2,
+                                               states = c("Alpha_KSCN", "ALPHA_Gamma"),
+                                               time_0 = 0, time_100 = 1440, time_t = 1) %>%
+                   HaDeX2::calculate_confidence_limit_values(diff_uptake_dat = .,
+                                                             confidence_level  = 0.98,
+                                                             theoretical = FALSE,
+                                                             fractional = TRUE)},
+               `HaDeX_6. Reconstruct sequence` = HaDeX::reconstruct_sequence(dat = dat_HaDeX),
+               `HaDeX2_6. Reconstruct sequence` =  HaDeX2::reconstruct_sequence(dat = dat_HaDeX2)
                
                )
 )
@@ -240,16 +262,20 @@ All the tasks are completed significantly faster when using HaDeX2.
 Below, we present the summary of numeric values used to create this plot
 (in milliseconds):
 
-| tool   | task                  |      mean |    median |        lq |        uq |
-|:-------|:----------------------|----------:|----------:|----------:|----------:|
-| HaDeX  | 1\. Read input        |  38.41018 |  33.80710 |  32.65085 |  40.47310 |
-| HaDeX2 | 1\. Read input        |  29.30550 |  28.23590 |  26.84965 |  29.69735 |
-| HaDeX  | 2\. Plot uptake curve | 173.80928 | 168.36435 | 162.66705 | 175.94405 |
-| HaDeX2 | 2\. Plot uptake curve |  69.73160 |  68.52975 |  63.94375 |  74.30275 |
-| HaDeX  | 3\. Plot comparison   | 193.56969 | 189.81910 | 182.25370 | 200.32995 |
-| HaDeX2 | 3\. Plot comparison   |  60.27757 |  57.92240 |  55.95870 |  63.18185 |
-| HaDeX  | 4\. Plot Woods        | 204.99479 | 205.59275 | 194.01730 | 215.92120 |
-| HaDeX2 | 4\. Plot Woods        |  79.80739 |  78.04320 |  74.90415 |  83.12265 |
+| tool   | task                           |      mean |    median |        lq |        uq |
+|:-------|:-------------------------------|----------:|----------:|----------:|----------:|
+| HaDeX  | 1\. Read input                 |  36.04942 |  34.83070 |  33.79765 |  36.55775 |
+| HaDeX2 | 1\. Read input                 |  30.02836 |  28.86460 |  28.03715 |  30.11475 |
+| HaDeX  | 2\. Plot uptake curve          | 173.86957 | 171.86675 | 164.18100 | 178.13555 |
+| HaDeX2 | 2\. Plot uptake curve          |  67.69649 |  65.38155 |  63.27950 |  69.13810 |
+| HaDeX  | 3\. Plot comparison            | 186.09215 | 186.86305 | 177.49490 | 193.76580 |
+| HaDeX2 | 3\. Plot comparison            |  61.46116 |  59.34140 |  56.71120 |  65.06570 |
+| HaDeX  | 4\. Plot Woods                 | 206.17356 | 201.53030 | 194.60180 | 208.87510 |
+| HaDeX2 | 4\. Plot Woods                 |  82.33466 |  77.75905 |  75.46005 |  83.66395 |
+| HaDeX  | 5\. Calculate confidence limit | 172.99687 | 172.91570 | 165.35330 | 180.32520 |
+| HaDeX2 | 5\. Calculate confidence limit |  54.74279 |  53.16090 |  51.01235 |  55.89160 |
+| HaDeX  | 6\. Reconstruct sequence       |  25.01094 |  24.18105 |  22.30130 |  25.63585 |
+| HaDeX2 | 6\. Reconstruct sequence       |  16.50361 |  15.78765 |  14.62220 |  16.68570 |
 
 ## HaDeX2 design
 

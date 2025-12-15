@@ -655,7 +655,29 @@ results are presented in a comprehensive form.</p>
 <span>                                             theoretical <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>                                             fractional <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                                             show_houde_interval <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>                                             confidence_level <span class="op">=</span> <span class="fl">0.98</span><span class="op">)</span><span class="op">}</span></span>
+<span>                                             confidence_level <span class="op">=</span> <span class="fl">0.98</span><span class="op">)</span><span class="op">}</span>,</span>
+<span>               `HaDeX_5. Calculate confidence limit` <span class="op">=</span> <span class="op">{</span></span>
+<span>                 <span class="fu">HaDeX</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/HaDeX/man/prepare_dataset.html" class="external-link">prepare_dataset</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">dat_HaDeX</span>, </span>
+<span>                                        in_state_first <span class="op">=</span> <span class="st">"Alpha_KSCN_0"</span>,      </span>
+<span>                                        chosen_state_first <span class="op">=</span> <span class="st">"Alpha_KSCN_1"</span>, </span>
+<span>                                        out_state_first <span class="op">=</span> <span class="st">"Alpha_KSCN_1440"</span>,      </span>
+<span>                                        in_state_second <span class="op">=</span> <span class="st">"ALPHA_Gamma_0"</span>, </span>
+<span>                                        chosen_state_second <span class="op">=</span> <span class="st">"ALPHA_Gamma_1"</span>,      </span>
+<span>                                        out_state_second <span class="op">=</span> <span class="st">"ALPHA_Gamma_1440"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>                   <span class="fu">HaDeX</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/HaDeX/man/calculate_confidence_limit_values.html" class="external-link">calculate_confidence_limit_values</a></span><span class="op">(</span>calc_dat <span class="op">=</span> <span class="va">.</span>,</span>
+<span>                                                            confidence_limit <span class="op">=</span> <span class="fl">0.98</span>,</span>
+<span>                                                            theoretical <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                                                            relative <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">}</span>,</span>
+<span>                `HaDeX2_5. Calculate confidence limit` <span class="op">=</span> <span class="op">{</span></span>
+<span>                 <span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/calculate_diff_uptake.html">calculate_diff_uptake</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">dat_HaDeX2</span>,</span>
+<span>                                               states <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Alpha_KSCN"</span>, <span class="st">"ALPHA_Gamma"</span><span class="op">)</span>,</span>
+<span>                                               time_0 <span class="op">=</span> <span class="fl">0</span>, time_100 <span class="op">=</span> <span class="fl">1440</span>, time_t <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>                   <span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/calculate_confidence_limit_values.html">calculate_confidence_limit_values</a></span><span class="op">(</span>diff_uptake_dat <span class="op">=</span> <span class="va">.</span>,</span>
+<span>                                                             confidence_level  <span class="op">=</span> <span class="fl">0.98</span>,</span>
+<span>                                                             theoretical <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                                                             fractional <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">}</span>,</span>
+<span>               `HaDeX_6. Reconstruct sequence` <span class="op">=</span> <span class="fu">HaDeX</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/HaDeX/man/reconstruct_sequence.html" class="external-link">reconstruct_sequence</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">dat_HaDeX</span><span class="op">)</span>,</span>
+<span>               `HaDeX2_6. Reconstruct sequence` <span class="op">=</span>  <span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/reconstruct_sequence.html">reconstruct_sequence</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">dat_HaDeX2</span><span class="op">)</span></span>
 <span>               </span>
 <span>               <span class="op">)</span></span>
 <span><span class="op">)</span></span>
@@ -669,14 +691,14 @@ how the results presents next to each other, in a graphic form.</p>
 HaDeX2.</p>
 <p>Below, we present the summary of numeric values used to create this
 plot (in milliseconds):</p>
-<table class="table">
+<table style="width:100%;" class="table">
 <colgroup>
-<col width="10%">
-<col width="30%">
-<col width="14%">
-<col width="14%">
-<col width="14%">
-<col width="14%">
+<col width="9%">
+<col width="38%">
+<col width="12%">
+<col width="12%">
+<col width="12%">
+<col width="12%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">tool</th>
@@ -690,66 +712,98 @@ plot (in milliseconds):</p>
 <tr class="odd">
 <td align="left">HaDeX</td>
 <td align="left">1. Read input</td>
-<td align="right">38.41018</td>
-<td align="right">33.80710</td>
-<td align="right">32.65085</td>
-<td align="right">40.47310</td>
+<td align="right">36.04942</td>
+<td align="right">34.83070</td>
+<td align="right">33.79765</td>
+<td align="right">36.55775</td>
 </tr>
 <tr class="even">
 <td align="left">HaDeX2</td>
 <td align="left">1. Read input</td>
-<td align="right">29.30550</td>
-<td align="right">28.23590</td>
-<td align="right">26.84965</td>
-<td align="right">29.69735</td>
+<td align="right">30.02836</td>
+<td align="right">28.86460</td>
+<td align="right">28.03715</td>
+<td align="right">30.11475</td>
 </tr>
 <tr class="odd">
 <td align="left">HaDeX</td>
 <td align="left">2. Plot uptake curve</td>
-<td align="right">173.80928</td>
-<td align="right">168.36435</td>
-<td align="right">162.66705</td>
-<td align="right">175.94405</td>
+<td align="right">173.86957</td>
+<td align="right">171.86675</td>
+<td align="right">164.18100</td>
+<td align="right">178.13555</td>
 </tr>
 <tr class="even">
 <td align="left">HaDeX2</td>
 <td align="left">2. Plot uptake curve</td>
-<td align="right">69.73160</td>
-<td align="right">68.52975</td>
-<td align="right">63.94375</td>
-<td align="right">74.30275</td>
+<td align="right">67.69649</td>
+<td align="right">65.38155</td>
+<td align="right">63.27950</td>
+<td align="right">69.13810</td>
 </tr>
 <tr class="odd">
 <td align="left">HaDeX</td>
 <td align="left">3. Plot comparison</td>
-<td align="right">193.56969</td>
-<td align="right">189.81910</td>
-<td align="right">182.25370</td>
-<td align="right">200.32995</td>
+<td align="right">186.09215</td>
+<td align="right">186.86305</td>
+<td align="right">177.49490</td>
+<td align="right">193.76580</td>
 </tr>
 <tr class="even">
 <td align="left">HaDeX2</td>
 <td align="left">3. Plot comparison</td>
-<td align="right">60.27757</td>
-<td align="right">57.92240</td>
-<td align="right">55.95870</td>
-<td align="right">63.18185</td>
+<td align="right">61.46116</td>
+<td align="right">59.34140</td>
+<td align="right">56.71120</td>
+<td align="right">65.06570</td>
 </tr>
 <tr class="odd">
 <td align="left">HaDeX</td>
 <td align="left">4. Plot Woods</td>
-<td align="right">204.99479</td>
-<td align="right">205.59275</td>
-<td align="right">194.01730</td>
-<td align="right">215.92120</td>
+<td align="right">206.17356</td>
+<td align="right">201.53030</td>
+<td align="right">194.60180</td>
+<td align="right">208.87510</td>
 </tr>
 <tr class="even">
 <td align="left">HaDeX2</td>
 <td align="left">4. Plot Woods</td>
-<td align="right">79.80739</td>
-<td align="right">78.04320</td>
-<td align="right">74.90415</td>
-<td align="right">83.12265</td>
+<td align="right">82.33466</td>
+<td align="right">77.75905</td>
+<td align="right">75.46005</td>
+<td align="right">83.66395</td>
+</tr>
+<tr class="odd">
+<td align="left">HaDeX</td>
+<td align="left">5. Calculate confidence limit</td>
+<td align="right">172.99687</td>
+<td align="right">172.91570</td>
+<td align="right">165.35330</td>
+<td align="right">180.32520</td>
+</tr>
+<tr class="even">
+<td align="left">HaDeX2</td>
+<td align="left">5. Calculate confidence limit</td>
+<td align="right">54.74279</td>
+<td align="right">53.16090</td>
+<td align="right">51.01235</td>
+<td align="right">55.89160</td>
+</tr>
+<tr class="odd">
+<td align="left">HaDeX</td>
+<td align="left">6. Reconstruct sequence</td>
+<td align="right">25.01094</td>
+<td align="right">24.18105</td>
+<td align="right">22.30130</td>
+<td align="right">25.63585</td>
+</tr>
+<tr class="even">
+<td align="left">HaDeX2</td>
+<td align="left">6. Reconstruct sequence</td>
+<td align="right">16.50361</td>
+<td align="right">15.78765</td>
+<td align="right">14.62220</td>
+<td align="right">16.68570</td>
 </tr>
 </tbody>
 </table>
