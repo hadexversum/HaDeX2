@@ -4,8 +4,10 @@ Data visualization is a crucial part of the experimental data analysis.
 The forms of visualization should be adjusted to highlight the essential
 result and tailored to satisfy personal needs.
 
-In this article, we present methods of data visualization available in
-the HaDeX2 package, and consecutively in the GUI.
+This article describes the visualization methods available in HaDeX2 and
+explains how different plot types can be used to interpret HDX-MS data.
+It focuses on the biological questions each visualization addresses
+rather than implementation details.
 
 The analyzed protein is the eEF1Bα subunit of the human
 guanine-nucleotide exchange factor (GEF) complex (eEF1B), measured in
@@ -30,6 +32,14 @@ eEF1B$\beta$, from protein eEF1B. The values are calculated for the time
 point 1 min. The length of the segments represents the length of the
 peptide and the position in the protein sequence. The error bars
 indicate the uncertainty of the measurement.
+
+``` r
+create_state_comparison_dataset(alpha_dat, time_t = 1) %>%
+plot_state_comparison(., fractional = TRUE) + 
+  labs(x = "Position in sequence",
+       y = "Fractional deuterium uptake [%]",
+       title = "Measurement after 1 min of exchange")
+```
 
 ![](visualization_files/figure-html/unnamed-chunk-2-1.png)
 
@@ -63,6 +73,14 @@ difference between two biological states eEF1B$\alpha$ and eEF1B$\alpha$
 in presence of eEF1B$\gamma$ for protein eEF1B The confidence limits
 indicate which differences are statistically significant at levels 98%.
 
+``` r
+calculate_diff_uptake(alpha_dat, states = c(states[3], states[1])) %>%
+plot_differential(., fractional = TRUE, show_houde_interval = TRUE) +
+  labs(x = "Position in seqence",
+       y = "Fractional deuterium uptake difference [%]",
+       title = "Measurement after 1 min of uptake")
+```
+
 ![](visualization_files/figure-html/unnamed-chunk-3-1.png)
 
 *Pros:*
@@ -94,6 +112,11 @@ is indicated by a different color. Peptides are identified by their ID
 uptake changes in time for state eEF1B$\alpha$ for protein eEF1B. We see
 the different exchange speed - for some peptides, the change is stable
 in time, and for some peptides, there is no visible change in time.
+
+``` r
+create_state_uptake_dataset(alpha_dat, state = states[3]) %>%
+plot_butterfly(., fractional = FALSE)
+```
 
 ![](visualization_files/figure-html/unnamed-chunk-4-1.png)
 
@@ -132,6 +155,12 @@ difference is smaller with time - perhaps because of the back exchange.
 
 The measurements for 1440 min are hidden, as they are close to 0, as
 expected.
+
+``` r
+create_diff_uptake_dataset(alpha_dat, state_1 = states[3], state_2 = states[1]) %>%
+  filter(Exposure < 1440) %>%
+plot_differential_butterfly(fractional = TRUE, show_houde_interval = TRUE) 
+```
 
 ![](visualization_files/figure-html/unnamed-chunk-5-1.png)
 
@@ -172,6 +201,12 @@ during the time course of the experiment. The cross symbols indicate the
 uncertainty of the measurement (the bigger the cross sign, the bigger
 the uncertainty).
 
+``` r
+create_state_uptake_dataset(alpha_dat, state = states[3]) %>% 
+  filter(Exposure < 1440) %>%
+  plot_chiclet(show_uncertainty = TRUE, fractional = FALSE)
+```
+
 ![](visualization_files/figure-html/unnamed-chunk-6-1.png)
 
 *Pros:*
@@ -210,6 +245,12 @@ eEF1B$\alpha$ in presence of eEF1B$\gamma$ for protein eEF1B. We see
 that some peptides are protected (red), and some are deprotected (blue).
 The cross symbols indicate the uncertainty of the measurement (the
 bigger the cross sign, the bigger the uncertainty).
+
+``` r
+diff_uptake_dat %>%
+  filter(Exposure < 1440 & Exposure > 0.001) %>%
+  plot_differential_chiclet(show_uncertainty = TRUE, fractional = TRUE)
+```
 
 ![](visualization_files/figure-html/unnamed-chunk-7-1.png)*Pros:*
 
@@ -264,6 +305,12 @@ presence of eEF1B$\gamma$ for protein eEF1B in all time points. The
 points in the left and right upper corner are statistically significant
 using the hybrid testing.
 
+``` r
+p_dat <- create_p_diff_uptake_dataset(alpha_dat)
+
+plot_volcano(p_dat, show_confidence_limits = TRUE)
+```
+
 ![](visualization_files/figure-html/unnamed-chunk-8-1.png)
 
 *Pros:*
@@ -291,6 +338,12 @@ peptide for its state.
 
 **Example** On the uptake curve below, we see how the exchange goes for
 peptide GFGDLKSPAGL in all three states for protein eEF1Ba.
+
+``` r
+calculate_peptide_kinetics(dat = alpha_dat) %>%
+plot_uptake_curve() +
+  ylim(c(0, NA))
+```
 
 ![](visualization_files/figure-html/unnamed-chunk-9-1.png)
 
@@ -326,6 +379,12 @@ points for state eEF1B$\alpha$. We see that the uncertainty is
 relatively low for all the measurement, and none of the value is
 suspicious.
 
+``` r
+alpha_dat %>%
+  filter(Exposure > 0) %>%
+plot_uncertainty(.)
+```
+
 ![](visualization_files/figure-html/unnamed-chunk-10-1.png)*Pros:*
 
 - experimental quality control
@@ -351,6 +410,12 @@ between two biological states: eEF1B$\alpha$ and eEF1B$\alpha$ in
 presence of eEF1B$\gamma$. We can see the regions where the difference
 is statistically significant - above the significance level (detailed as
 option in create_p_diff_uptake_dataset, or by default 0.98).
+
+``` r
+p_diff_dat <- create_p_diff_uptake_dataset(dat = alpha_dat, diff_uptake_dat = diff_uptake_dat,
+                                           state_1 = states[3], state_2 = states[1])
+plot_manhattan(p_diff_dat, show_peptide_position  = TRUE)
+```
 
 ![](visualization_files/figure-html/unnamed-chunk-11-1.png)
 
@@ -379,6 +444,12 @@ described in
 Then, the results are presented on the heatmap.
 
 **Example**
+
+``` r
+kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN")
+aggregated_dat <- create_aggregated_uptake_dataset(kin_dat)
+plot_aggregated_uptake(aggregated_dat)
+```
 
 ![](visualization_files/figure-html/unnamed-chunk-12-1.png)
 
@@ -411,6 +482,12 @@ difference values using weighted approach.
 difference after 25 minutes between states eEF1B$\alpha$ and
 eEF1B$\alpha$ in presence of eEF1B$\gamma$ for protein eEF1B. We see
 that some peptides are protected (red), and some are deprotected (blue).
+
+``` r
+diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat, state_1 = states[3], state_2 = states[1])
+aggregated_diff_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
+plot_aggregated_differential_uptake(aggregated_diff_dat, panels = FALSE)
+```
 
 ![](visualization_files/figure-html/unnamed-chunk-13-1.png)
 
@@ -445,6 +522,15 @@ uptake.
 1 minute for eEF1B$\alpha$ state. Values are aggregated using weighted
 approach, color signifies no exchange (white) to high exchange (red).
 
+``` r
+pdb_file_path <- system.file(package = "HaDeX", "HaDeX/data/Model_eEF1Balpha.pdb")
+
+plot_aggregated_uptake_structure(aggregated_dat, 
+                                 differential = FALSE,
+                                 time_t = 1,
+                                 pdb_file_path = pdb_file_path)
+```
+
 *Pros:*
 
 - aggregated values
@@ -476,7 +562,10 @@ that for the majority of regions the AUC values is close to 1,
 signifying fast exchange with exception for one strong region and small
 sub-regions.
 
-AUC:
+``` r
+auc_dat <- calculate_auc(create_uptake_dataset(alpha_dat))
+plot_coverage_heatmap(auc_dat, value = "auc")
+```
 
     ## Ignoring unknown labels:
     ## • colour : "Exposure"
@@ -496,6 +585,11 @@ under different biological conditions.
 values for peptides form eEF1B$\alpha$. Back-exchange is believed to be
 on average close to 30%, as we see on the plot. Some peptides -
 especially shorter ones - have grater back-exchange.
+
+``` r
+bex_dat <- calculate_back_exchange(alpha_dat, state = "Alpha_KSCN")
+plot_coverage_heatmap(bex_dat, value = "back_exchange")
+```
 
     ## Ignoring unknown labels:
     ## • colour : "Exposure"

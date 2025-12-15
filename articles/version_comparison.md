@@ -56,7 +56,7 @@ Moreover, in HaDeX2 more visualization options are available.
 ## Package functions
 
 Finally, let’s take a look at package functions from HaDeX2 and see if
-there is a similar function in HaDeX (even under different name)
+there is a similar function in HaDeX (even under different name):
 
 | HaDeX2                                       | HaDeX                             |
 |:---------------------------------------------|:----------------------------------|
@@ -164,59 +164,65 @@ dat_HaDeX2 <- HaDeX2::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha
 version_benchmark <- microbenchmark(
   list = alist(`HaDeX_1. Read input` = HaDeX::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv")),
                `HaDeX2_1. Read input` = HaDeX2::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv")),
-               `HaDeX_2. Plot uptake curve` = {HaDeX::calculate_kinetics(dat = dat_HaDeX, 
-                                                                         sequence = "GFGDLKSPAGL",      
-                                                                         state = "Alpha_KSCN", 
-                                                                         start = 1, end = 11, 
-                                                                         time_in = 0, time_out = 1440) %>%      
-                                               HaDeX::plot_kinetics(kin_dat = .)},
-               `HaDeX2_2. Plot uptake curve` = {HaDeX2::calculate_peptide_kinetics(dat = dat_HaDeX2,
-                                                                                   sequence = "GFGDLKSPAGL",
-                                                                                   state = "Alpha_KSCN",
-                                                                                   start = 1, end = 11,
-                                                                                   time_0 = 0, time_100 = 1440) %>%
-                                               HaDeX2::plot_uptake_curve(uc_dat = .)},
-               `HaDeX_3. Plot comparison` = {HaDeX::prepare_dataset(dat = dat_HaDeX, 
-                                                                         in_state_first = "Alpha_KSCN_0",      
-                                                                         chosen_state_first = "Alpha_KSCN_1", 
-                                                                         out_state_first = "Alpha_KSCN_1440",      
-                                                                         in_state_second = "ALPHA_Gamma_0", 
-                                                                         chosen_state_second = "ALPHA_Gamma_1",      
-                                                                         out_state_second = "ALPHA_Gamma_1440") %>%
-                                                     HaDeX::comparison_plot(calc_dat = ., 
-                                                                            theoretical = FALSE,      
-                                                                            relative = TRUE, 
-                                                                            state_first = "Alpha_KSCN", 
-                                                                            state_second = "ALPHA_Gamma")},
-               `HaDeX2_3. Plot comparison` = {HaDeX2::create_state_comparison_dataset(dat = dat_HaDeX2,
-                                                                                           states = c("Alpha_KSCN", "ALPHA_Gamma"),
-                                                                                           time_0 = 0, time_100 = 1440) %>%
-                                                HaDeX2::plot_state_comparison(uptake_dat = .,
-                                                                                        theoretical = FALSE,
-                                                                                        fractional = TRUE,
-                                                                                        time_t = 1)},
-               `HaDeX_4. Plot Woods` = {HaDeX::prepare_dataset(dat = dat_HaDeX, 
-                                                                    in_state_first = "Alpha_KSCN_0",      
-                                                                    chosen_state_first = "Alpha_KSCN_1", 
-                                                                    out_state_first = "Alpha_KSCN_1440",      
-                                                                    in_state_second = "ALPHA_Gamma_0", 
-                                                                    chosen_state_second = "ALPHA_Gamma_1",      
-                                                                    out_state_second = "ALPHA_Gamma_1440") %>%
-                                                HaDeX::woods_plot(calc_dat = ., 
-                                                                  theoretical = FALSE,      
-                                                                  relative = TRUE, 
-                                                                  confidence_limit = 0.98, 
-                                                                  confidence_limit_2 = 0.98)},
-               `HaDeX2_4. Plot Woods` = {HaDeX2::create_diff_uptake_dataset(dat = dat_HaDeX2,
-                                                                                 state_1 = "Alpha_KSCN",
-                                                                                 state_2 = "ALPHA_Gamma",
-                                                                                 time_0 = 0, time_100 = 1440) %>%
-                                                HaDeX2::plot_differential(diff_uptake_dat = .,
-                                                                          time_t = 1,
-                                                                          theoretical = FALSE,
-                                                                          fractional = TRUE,
-                                                                          show_houde_interval = TRUE,
-                                                                          confidence_level = 0.98)}
+               `HaDeX_2. Plot uptake curve` = {
+                 HaDeX::calculate_kinetics(dat = dat_HaDeX, 
+                                           sequence = "GFGDLKSPAGL",      
+                                           state = "Alpha_KSCN", 
+                                           start = 1, end = 11, 
+                                           time_in = 0, time_out = 1440) %>%   
+                   HaDeX::plot_kinetics(kin_dat = .)},
+               `HaDeX2_2. Plot uptake curve` = {
+                 HaDeX2::calculate_peptide_kinetics(dat = dat_HaDeX2,
+                                                    sequence = "GFGDLKSPAGL",
+                                                    state = "Alpha_KSCN",
+                                                    start = 1, end = 11,
+                                                    time_0 = 0, time_100 = 1440) %>%
+                   HaDeX2::plot_uptake_curve(uc_dat = .)},
+               `HaDeX_3. Plot comparison` = {
+                 HaDeX::prepare_dataset(dat = dat_HaDeX, 
+                                        in_state_first = "Alpha_KSCN_0",      
+                                        chosen_state_first = "Alpha_KSCN_1", 
+                                        out_state_first = "Alpha_KSCN_1440",      
+                                        in_state_second = "ALPHA_Gamma_0", 
+                                        chosen_state_second = "ALPHA_Gamma_1",      
+                                        out_state_second = "ALPHA_Gamma_1440") %>%
+                   HaDeX::comparison_plot(calc_dat = ., 
+                                          theoretical = FALSE,      
+                                          relative = TRUE, 
+                                          state_first = "Alpha_KSCN", 
+                                          state_second = "ALPHA_Gamma")},
+               `HaDeX2_3. Plot comparison` = {
+                 HaDeX2::create_state_comparison_dataset(dat = dat_HaDeX2,
+                                                         states = c("Alpha_KSCN", "ALPHA_Gamma"),
+                                                         time_0 = 0, time_100 = 1440) %>%
+                   HaDeX2::plot_state_comparison(uptake_dat = .,
+                                                 theoretical = FALSE,
+                                                 fractional = TRUE,
+                                                 time_t = 1)},
+               `HaDeX_4. Plot Woods` = {
+                 HaDeX::prepare_dataset(dat = dat_HaDeX, 
+                                        in_state_first = "Alpha_KSCN_0",      
+                                        chosen_state_first = "Alpha_KSCN_1", 
+                                        out_state_first = "Alpha_KSCN_1440",      
+                                        in_state_second = "ALPHA_Gamma_0", 
+                                        chosen_state_second = "ALPHA_Gamma_1",      
+                                        out_state_second = "ALPHA_Gamma_1440") %>%
+                   HaDeX::woods_plot(calc_dat = ., 
+                                     theoretical = FALSE,      
+                                     relative = TRUE, 
+                                     confidence_limit = 0.98, 
+                                     confidence_limit_2 = 0.98)},
+               `HaDeX2_4. Plot Woods` = {
+                 HaDeX2::create_diff_uptake_dataset(dat = dat_HaDeX2,
+                                                    state_1 = "Alpha_KSCN",
+                                                    state_2 = "ALPHA_Gamma",
+                                                    time_0 = 0, time_100 = 1440) %>%
+                   HaDeX2::plot_differential(diff_uptake_dat = .,
+                                             time_t = 1,
+                                             theoretical = FALSE,
+                                             fractional = TRUE,
+                                             show_houde_interval = TRUE,
+                                             confidence_level = 0.98)}
                
                )
 )
@@ -228,14 +234,16 @@ The microbenchmark works as follows: it runs each command 100 times, and
 presents the summary of running times (in milliseconds). Let’s see how
 the results presents next to each other, in a graphic form.
 
-![](version_comparison_files/figure-html/unnamed-chunk-5-1.png) We can
-see that tasks 1-3 are completed significantly faster using HaDeX2. In
-case of task 4 - Woods plot - HaDeX2 is a little bit slower, due to the
-rewritting of functions, with functionality encapsulation. In HaDeX2,
-each function has its dedicated task, and it is called by other
-functions. This design works well with unit testing and improves the
-code transparency, but may add some calculation time. In this case, the
-advantages of implemented approach are way greater than small time loss.
+![](version_comparison_files/figure-html/unnamed-chunk-5-1.png)
+
+Tasks 1-3 are completed significantly faster when using HaDeX2. For task
+4 (the Woods plot), HaDeX2 is slightly slower due to the refactoring of
+the code into a more modular structure with encapsulated functionality.
+In HaDeX2, each function performs a single, well-defined task and is
+called by other functions. This approach improves code transparency and
+supports effective unit testing, but it may introduce a small
+computational overhead. In this case, the benefits of the implemented
+design clearly outweigh the minor increase in execution time.
 
 Below, we present the summary of numeric values used to create this plot
 (in milliseconds):
@@ -251,9 +259,20 @@ Below, we present the summary of numeric values used to create this plot
 | HaDeX  | 4\. Plot Woods        | 210.23130 | 207.40895 | 196.61960 | 217.26900 |
 | HaDeX2 | 4\. Plot Woods        | 291.21028 | 290.65670 | 279.03885 | 300.02085 |
 
-The HaDeX2 package is significantly more powerful than the previous
-version. Moreover, it was rewritten for the comfort of use - as can be
-shown even by the glance of parameters supplied to the function.
+## HaDeX2 design
+
+The first version of HaDeX was developed quickly to address immediate
+data analysis challenges. As knowledge in the field expanded, it became
+necessary to extend the package’s functionality. This required a
+carefully planned redesign. The package is now built from small, modular
+computing blocks—encapsulated functions that each perform a single task.
+Datasets are created by combining these functions. This design allows
+individual components to be tested independently and improves code
+readability through self-explanatory function names (calculate\_
+provides results for specific time point, but create_dataset\_ for all
+time points). The parameter naming conventions were also simplified. In
+addition, the graphical user interface was rewritten from scratch using
+Shiny modules to ensure clear separation and encapsulation of features.
 
 Puchała, Weronika, Michał Burdukiewicz, Michał Kistowski, Katarzyna A.
 Dąbrowska, Aleksandra E. Badaczewska-Dawid, Dominik Cysewski, and Michał

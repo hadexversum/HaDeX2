@@ -85,8 +85,10 @@
 <p>Data visualization is a crucial part of the experimental data
 analysis. The forms of visualization should be adjusted to highlight the
 essential result and tailored to satisfy personal needs.</p>
-<p>In this article, we present methods of data visualization available
-in the HaDeX2 package, and consecutively in the GUI.</p>
+<p>This article describes the visualization methods available in HaDeX2
+and explains how different plot types can be used to interpret HDX-MS
+data. It focuses on the biological questions each visualization
+addresses rather than implementation details.</p>
 <p>The analyzed protein is the eEF1Bα subunit of the human
 guanine-nucleotide exchange factor (GEF) complex (eEF1B), measured in <a href="https://mslab-ibb.pl/" class="external-link">Mass Spectrometry Lab</a> in <a href="https://ibb.edu.pl/en/" class="external-link">Institute of Biochemistry and Biophysics
 Polish Academy of Sciences</a> <span class="citation">(Bondarchuk et al.
@@ -118,6 +120,12 @@ from protein eEF1B. The values are calculated for the time point 1 min.
 The length of the segments represents the length of the peptide and the
 position in the protein sequence. The error bars indicate the
 uncertainty of the measurement.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/create_state_comparison_dataset.html">create_state_comparison_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span>, time_t <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span><span class="fu"><a href="../reference/plot_state_comparison.html">plot_state_comparison</a></span><span class="op">(</span><span class="va">.</span>, fractional <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Position in sequence"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Fractional deuterium uptake [%]"</span>,</span>
+<span>       title <span class="op">=</span> <span class="st">"Measurement after 1 min of exchange"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="visualization_files/figure-html/unnamed-chunk-2-1.png" class="r-plt" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
@@ -155,6 +163,12 @@ in presence of
 eEF1B<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>
 for protein eEF1B The confidence limits indicate which differences are
 statistically significant at levels 98%.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/calculate_diff_uptake.html">calculate_diff_uptake</a></span><span class="op">(</span><span class="va">alpha_dat</span>, states <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">states</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="va">states</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span><span class="fu"><a href="../reference/plot_differential.html">plot_differential</a></span><span class="op">(</span><span class="va">.</span>, fractional <span class="op">=</span> <span class="cn">TRUE</span>, show_houde_interval <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Position in seqence"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Fractional deuterium uptake difference [%]"</span>,</span>
+<span>       title <span class="op">=</span> <span class="st">"Measurement after 1 min of uptake"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="visualization_files/figure-html/unnamed-chunk-3-1.png" class="r-plt" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
@@ -190,6 +204,9 @@ eEF1B<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantic
 for protein eEF1B. We see the different exchange speed - for some
 peptides, the change is stable in time, and for some peptides, there is
 no visible change in time.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/create_state_uptake_dataset.html">create_state_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span>, state <span class="op">=</span> <span class="va">states</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span><span class="fu"><a href="../reference/plot_butterfly.html">plot_butterfly</a></span><span class="op">(</span><span class="va">.</span>, fractional <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="visualization_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
@@ -231,6 +248,10 @@ changes over time. We see that for some peptides, the difference is
 smaller with time - perhaps because of the back exchange.</p>
 <p>The measurements for 1440 min are hidden, as they are close to 0, as
 expected.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/create_diff_uptake_dataset.html">create_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span>, state_1 <span class="op">=</span> <span class="va">states</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, state_2 <span class="op">=</span> <span class="va">states</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Exposure</span> <span class="op">&lt;</span> <span class="fl">1440</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span><span class="fu"><a href="../reference/plot_differential_butterfly.html">plot_differential_butterfly</a></span><span class="op">(</span>fractional <span class="op">=</span> <span class="cn">TRUE</span>, show_houde_interval <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span></code></pre></div>
 <p><img src="visualization_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
@@ -270,6 +291,10 @@ eEF1B<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantic
 during the time course of the experiment. The cross symbols indicate the
 uncertainty of the measurement (the bigger the cross sign, the bigger
 the uncertainty).</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/create_state_uptake_dataset.html">create_state_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span>, state <span class="op">=</span> <span class="va">states</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Exposure</span> <span class="op">&lt;</span> <span class="fl">1440</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="../reference/plot_chiclet.html">plot_chiclet</a></span><span class="op">(</span>show_uncertainty <span class="op">=</span> <span class="cn">TRUE</span>, fractional <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="visualization_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
@@ -315,6 +340,10 @@ for protein eEF1B. We see that some peptides are protected (red), and
 some are deprotected (blue). The cross symbols indicate the uncertainty
 of the measurement (the bigger the cross sign, the bigger the
 uncertainty).</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">diff_uptake_dat</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Exposure</span> <span class="op">&lt;</span> <span class="fl">1440</span> <span class="op">&amp;</span> <span class="va">Exposure</span> <span class="op">&gt;</span> <span class="fl">0.001</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="../reference/plot_differential_chiclet.html">plot_differential_chiclet</a></span><span class="op">(</span>show_uncertainty <span class="op">=</span> <span class="cn">TRUE</span>, fractional <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="visualization_files/figure-html/unnamed-chunk-7-1.png" class="r-plt" width="672"><em>Pros:</em></p>
 <ul>
 <li>differential analysis between two states</li>
@@ -371,6 +400,10 @@ in presence of
 eEF1B<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>
 for protein eEF1B in all time points. The points in the left and right
 upper corner are statistically significant using the hybrid testing.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">p_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_p_diff_uptake_dataset.html">create_p_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/plot_volcano.html">plot_volcano</a></span><span class="op">(</span><span class="va">p_dat</span>, show_confidence_limits <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="visualization_files/figure-html/unnamed-chunk-8-1.png" class="r-plt" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
@@ -399,6 +432,10 @@ peptide for its state.</p>
 <p><strong>Example</strong> On the uptake curve below, we see how the
 exchange goes for peptide GFGDLKSPAGL in all three states for protein
 eEF1Ba.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/calculate_peptide_kinetics.html">calculate_peptide_kinetics</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">alpha_dat</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span><span class="fu"><a href="../reference/plot_uptake_curve.html">plot_uptake_curve</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ylim</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="visualization_files/figure-html/unnamed-chunk-9-1.png" class="r-plt" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
@@ -433,6 +470,10 @@ for multiple time points for state
 eEF1B<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>.
 We see that the uncertainty is relatively low for all the measurement,
 and none of the value is suspicious.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">alpha_dat</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Exposure</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span><span class="fu"><a href="../reference/plot_uncertainty.html">plot_uncertainty</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span></code></pre></div>
 <p><img src="visualization_files/figure-html/unnamed-chunk-10-1.png" class="r-plt" width="672"><em>Pros:</em></p>
 <ul>
 <li>experimental quality control</li>
@@ -464,6 +505,10 @@ eEF1B<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantic
 We can see the regions where the difference is statistically significant
 - above the significance level (detailed as option in
 create_p_diff_uptake_dataset, or by default 0.98).</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">p_diff_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_p_diff_uptake_dataset.html">create_p_diff_uptake_dataset</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">alpha_dat</span>, diff_uptake_dat <span class="op">=</span> <span class="va">diff_uptake_dat</span>,</span>
+<span>                                           state_1 <span class="op">=</span> <span class="va">states</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, state_2 <span class="op">=</span> <span class="va">states</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_manhattan.html">plot_manhattan</a></span><span class="op">(</span><span class="va">p_diff_dat</span>, show_peptide_position  <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="visualization_files/figure-html/unnamed-chunk-11-1.png" class="r-plt" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
@@ -490,6 +535,10 @@ high-resolution level, using the weighted method of aggregation (as
 described in <code><a href="../articles/statistics.html">vignette("statistics")</a></code>). Then, the results are
 presented on the heatmap.</p>
 <p><strong>Example</strong></p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">kin_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_uptake_dataset.html">create_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span>, states <span class="op">=</span> <span class="st">"Alpha_KSCN"</span><span class="op">)</span></span>
+<span><span class="va">aggregated_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_aggregated_uptake_dataset.html">create_aggregated_uptake_dataset</a></span><span class="op">(</span><span class="va">kin_dat</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_aggregated_uptake.html">plot_aggregated_uptake</a></span><span class="op">(</span><span class="va">aggregated_dat</span><span class="op">)</span></span></code></pre></div>
 <p><img src="visualization_files/figure-html/unnamed-chunk-12-1.png" class="r-plt" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
@@ -526,6 +575,10 @@ in presence of
 eEF1B<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>
 for protein eEF1B. We see that some peptides are protected (red), and
 some are deprotected (blue).</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">diff_uptake_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_diff_uptake_dataset.html">create_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span>, state_1 <span class="op">=</span> <span class="va">states</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, state_2 <span class="op">=</span> <span class="va">states</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="va">aggregated_diff_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_aggregated_diff_uptake_dataset.html">create_aggregated_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">diff_uptake_dat</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_aggregated_differential_uptake.html">plot_aggregated_differential_uptake</a></span><span class="op">(</span><span class="va">aggregated_diff_dat</span>, panels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="visualization_files/figure-html/unnamed-chunk-13-1.png" class="r-plt" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
@@ -561,6 +614,13 @@ uptake values after 1 minute for
 eEF1B<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
 state. Values are aggregated using weighted approach, color signifies no
 exchange (white) to high exchange (red).</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">pdb_file_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"HaDeX"</span>, <span class="st">"HaDeX/data/Model_eEF1Balpha.pdb"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/plot_aggregated_uptake_structure.html">plot_aggregated_uptake_structure</a></span><span class="op">(</span><span class="va">aggregated_dat</span>, </span>
+<span>                                 differential <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                                 time_t <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>                                 pdb_file_path <span class="op">=</span> <span class="va">pdb_file_path</span><span class="op">)</span></span></code></pre></div>
 <div class="r3dmol html-widget html-fill-item" id="blank_structure" style="width:100%;height:500px;"></div>
 <script type="application/json" data-for="blank_structure">{"x":{"id":"blank_structure","configs":{"backgroundColor":"#FFFFFF","nomouse":false,"backgroundColor.1":"white","cartoonQuality":10,"lowerZoomLimit":50,"upperZoomLimit":350,"antialias":true,"orthographic":false,"disableFog":false},"api":[{"method":"addModel","data":[""],"format":"pdb","keepH":false,"options":{"keepH":false}},{"method":"setStyle","style":{"cartoon":{"color":"white","style":"rectangle","ribbon":false,"arrows":true,"tubes":false,"thickness":0.4,"opacity":1}},"sel":{}},{"method":"zoomTo"},{"method":"setStyle","style":{"cartoon":{"style":"rectangle","ribbon":false,"arrows":true,"tubes":false,"thickness":0.4,"opacity":1,"colorfunc":"\n        function(atom) {\n          const color = [\"#FF9E81\",\"#FF6C4A\",\"#FF5838\",\"#FF5838\",\"#FF4628\",\"#FF4628\",\"#FF4628\",\"#FF4628\",\"#FF5031\",\"#FF5031\",\"#FF5938\",\"#FF8868\",\"#FF8868\",\"#FF8868\",\"#FF9475\",\"#FF9475\",\"#FF7D5D\",\"#FF7958\",\"#FF7553\",\"#FF7553\",\"#FF6241\",\"#FF4729\",\"#FF3E22\",\"#FF341A\",\"#FF341A\",\"#FF341A\",\"#FF3A1F\",\"#FF3A1F\",\"#FF3A1F\",\"#FF3C20\",\"#FF3C20\",\"#FF3C20\",\"#FF3E22\",\"#FFA387\",\"#FFA387\",\"#FFA387\",\"#FF7251\",\"#FF6A49\",\"#FF5635\",\"#FF5333\",\"#FF5333\",\"#FF5333\",\"#FF5333\",\"#FF5333\",\"#FF5333\",\"#FF5333\",\"#FF5333\",\"#FF5535\",\"#FF5636\",\"#FF5636\",\"#FF7B5A\",\"#FF9C7F\",\"#FF9C7F\",\"#FF9C7F\",\"#FF9C7F\",\"#FF9C7F\",\"#FF9C7F\",\"#FF230F\",\"#FF230F\",\"#FF230F\",\"#FF230F\",\"#FF230F\",\"#FF230F\",\"#FF1C0A\",\"#FF1C0A\",\"#FF1B0A\",\"#FF1B0A\",\"#FF1B0A\",\"#FF1B0A\",\"#FF1B0A\",\"#FF1B0A\",\"#FF1B0A\",\"#FF1B0A\",\"#FF1A09\",\"#FF1A09\",\"#FF1A09\",\"#FF1A09\",\"#FF1A09\",\"#FF1909\",\"#FF1909\",\"#FF1909\",\"#FF1909\",\"#FF1F0C\",\"#FF1F0C\",\"#FF2E16\",\"#FF2D16\",\"#FF2D16\",\"#FF2D16\",\"#FF2D16\",\"#FF2D16\",\"#FF2D16\",\"#FF2D16\",\"#FF2D16\",\"#FF2D16\",\"#FF2D16\",\"#FF2D16\",\"#FF2510\",\"#FF2510\",\"#FF2510\",\"#FF2510\",\"#FF2510\",\"#FF1F0C\",\"#FF2510\",\"#FF2510\",\"#FF2510\",\"#FF2510\",\"#FF2410\",\"#FF220E\",\"#FF220E\",\"#FF220E\",\"#FF220E\",\"#FF220E\",\"#FF220E\",\"#FF220E\",\"#FF220E\",\"#FF220E\",\"#FF220E\",\"#FF220E\",\"#FF220E\",\"#FF210E\",\"#FF210D\",\"#FF210D\",\"#FF210E\",\"#FF210E\",\"#FF1F0D\",\"#FF1F0D\",\"#FF1F0D\",\"#FF1F0D\",\"#FF1F0D\",\"#FF1F0D\",\"#FF1F0D\",\"#FF1F0D\",\"#FF1F0D\",\"#FF1F0D\",\"#FF1F0D\",\"#FFAA90\",\"#FFA58A\",\"#FFA58A\",\"#FFA58A\",\"#FFA58A\",\"#FFA58A\",\"#FFA58A\",\"#FFB7A0\",\"#FFAD94\",\"#FFAD94\",\"#FFAD94\",\"#FFAD94\",\"#FFAD94\",\"#FFAD94\",\"#FFAD94\",\"#FF9A7D\",\"#FF9A7D\",\"#FF9A7D\",\"#FFCAB8\",\"#FFF0EB\",\"#FFF0EB\",\"#FFF0EB\",\"#FFF0EB\",\"#FFF0EB\",\"#FF9F82\",\"#FF997C\",\"#FF997C\",\"#FF8E6F\",\"#FF8E6F\",\"#FF8E6F\",\"#FF8E6F\",\"#FF8767\",\"#FF8767\",\"#FF8666\",\"#FF8A6B\",\"#FF8A6B\",\"#FF8A6B\",\"#FF8A6B\",\"#FF8A6B\",\"#FF8A6B\",\"#FF8A6B\",\"#FF9F82\",\"#FF9F82\",\"#FF9F82\",\"#FF9F82\",\"#FF9F82\",\"#FFA589\",\"#FFA98E\",\"#FFA98E\",\"#FFC8B6\",\"#FFD0C0\",\"#FFD0C0\",\"#FFD0C0\",\"#FFD0C0\",\"#FFC2AD\",\"#FF9C7F\",\"#FF9C7F\",\"#FF9C7F\",\"#FF9172\",\"#FF8868\",\"#FF8868\",\"#FF8464\",\"#FF8464\",\"#FF8464\",\"#FF8464\",\"#FF8464\",\"#FFB59D\",\"#FFE9E1\",\"#FFF0EA\",\"#FFF0EB\",\"#FFF0EB\",\"#FFF0EB\",\"#FFF1EC\",\"#FFEBE4\",\"#FFCFBF\",\"#FFC9B7\",\"#FFC8B5\",\"#FFC8B5\",\"#FFC8B5\",\"#FFC8B5\",\"#FFC8B5\",\"#FFB098\",\"#FF9B7E\",\"#FF8A6A\",\"#FF8A6A\",\"#FF8A6A\"];\n          return color[atom.resi];\n        }"}},"sel":{}}]},"evals":[],"jsHooks":[]}</script><p><em>Pros:</em></p>
 <ul>
@@ -594,7 +654,9 @@ eEF1B<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantic
 We see that for the majority of regions the AUC values is close to 1,
 signifying fast exchange with exception for one strong region and small
 sub-regions.</p>
-<p>AUC:</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">auc_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calculate_auc.html">calculate_auc</a></span><span class="op">(</span><span class="fu"><a href="../reference/create_uptake_dataset.html">create_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_coverage_heatmap.html">plot_coverage_heatmap</a></span><span class="op">(</span><span class="va">auc_dat</span>, value <span class="op">=</span> <span class="st">"auc"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Ignoring unknown labels:</span></span>
 <span><span class="co">## <span style="color: #00BBBB;">•</span> <span style="color: #00BB00;">colour</span> : <span style="color: #0000BB;">"Exposure"</span></span></span></code></pre>
 <p><img src="visualization_files/figure-html/unnamed-chunk-15-1.png" class="r-plt" width="672"></p>
@@ -612,6 +674,9 @@ eEF1B<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantic
 Back-exchange is believed to be on average close to 30%, as we see on
 the plot. Some peptides - especially shorter ones - have grater
 back-exchange.</p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">bex_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/calculate_back_exchange.html">calculate_back_exchange</a></span><span class="op">(</span><span class="va">alpha_dat</span>, state <span class="op">=</span> <span class="st">"Alpha_KSCN"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/plot_coverage_heatmap.html">plot_coverage_heatmap</a></span><span class="op">(</span><span class="va">bex_dat</span>, value <span class="op">=</span> <span class="st">"back_exchange"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Ignoring unknown labels:</span></span>
 <span><span class="co">## <span style="color: #00BBBB;">•</span> <span style="color: #00BB00;">colour</span> : <span style="color: #0000BB;">"Exposure"</span></span></span></code></pre>
 <p><img src="visualization_files/figure-html/unnamed-chunk-16-1.png" class="r-plt" width="672"></p>

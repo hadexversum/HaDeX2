@@ -1,8 +1,9 @@
 # Calculations
 
-In this article we discuss the transformation of the data, with
-description of every calculated step. For the visualization methods of
-described values, see
+This article explains how HaDeX2 processes raw HDX-MS data files into
+aggregated datasets used for downstream analysis and visualization. It
+describes the processing of the data, the calculation workflow, and the
+results. For the visualization methods of described values, see
 [`vignette("visualization")`](https://hadexversum.github.io/HaDeX2/articles/visualization.md).
 
 ## Initial processing of the data
