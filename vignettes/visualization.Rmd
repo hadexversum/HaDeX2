@@ -13,7 +13,7 @@ vignette: >
 ---
   
 ```{r setup, include = FALSE, echo = FALSE, warning = FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(warning = FALSE)
 knitr::opts_chunk$set(dev = "png", dev.args = list(type = "cairo-png"))
 knitr::opts_chunk$set(fig.width = 7, fig.height = 5)
@@ -35,7 +35,7 @@ diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat, state_1 = states[3], st
 
 Data visualization is a crucial part of the experimental data analysis. The forms of visualization should be adjusted to highlight the essential result and tailored to satisfy personal needs. 
 
-In this article, we present methods of data visualization available in the HaDeX2 package, and consecutively in the GUI.
+This article describes the visualization methods available in HaDeX2 and explains how different plot types can be used to interpret HDX-MS data. It focuses on the biological questions each visualization addresses rather than implementation details.
 
 The analyzed protein is the eEF1Bα subunit of the human guanine-nucleotide exchange factor (GEF) complex (eEF1B), measured in [Mass Spectrometry Lab](https://mslab-ibb.pl/) in [Institute of Biochemistry and Biophysics Polish Academy of Sciences](https://ibb.edu.pl/en/) [@bondarchuk_quaternary_2022]. In the one-state classification, we will focus on pure alpha state - eEF1B$\alpha$. The comparative analysis is conducted between eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$.  
 
@@ -250,7 +250,7 @@ The dotted red lines indicate confidence limits for the values. The horizontal l
 
 p_dat <- create_p_diff_uptake_dataset(alpha_dat)
 
-plot_volcano(p_dat, show_confidence_limits = T)
+plot_volcano(p_dat, show_confidence_limits = TRUE)
 
 ```
 
@@ -309,7 +309,7 @@ The presented uncertainty is in Daltons, making the threshold 1 Da as proposed l
 
 **Example** The plot below presents uncertainty values for multiple time points for state eEF1B$\alpha$. We see that the uncertainty is relatively low for all the measurement, and none of the value is suspicious.
 
-```{r}
+```{r warning=FALSE}
 alpha_dat %>%
   filter(Exposure > 0) %>%
 plot_uncertainty(.)
@@ -502,7 +502,6 @@ Coverage heatmap plot is a variation of standard coverage plot - but with each p
 
 **Example** Plot below presents the AUC values for eEF1B$\alpha$. We see that for the majority of regions the AUC values is close to 1, signifying fast exchange with exception for one strong region and small sub-regions.
 
-AUC:
 ```{r}
 auc_dat <- calculate_auc(create_uptake_dataset(alpha_dat))
 plot_coverage_heatmap(auc_dat, value = "auc")
@@ -538,7 +537,7 @@ plot_coverage_heatmap(bex_dat, value = "back_exchange")
 
 Below we compare the aspects of the plots. 
 
-```{r}
+```{r echo=FALSE}
 
 summary_plots <- data.frame(types = c("comparison", "Woods (differential)", "butterfly", "butterfly differential", "volcano", "chiclet", "chiclet differential", "uptake curve"),
                             `time course` = c(F, F, T, T, T, T, T, T),

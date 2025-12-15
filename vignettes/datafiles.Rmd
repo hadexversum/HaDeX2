@@ -16,8 +16,7 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
-In this article we discuss the transformation of the data, with description of every calculated step. For the visualization methods of described values, see `vignette("visualization")`.
+This article explains how HaDeX2 processes raw HDX-MS data files into aggregated datasets used for downstream analysis and visualization. It describes the processing of the data, the calculation workflow, and the results. For the visualization methods of described values, see `vignette("visualization")`.
 
 # Initial processing of the data 
 
