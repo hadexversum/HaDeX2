@@ -182,7 +182,29 @@ version_benchmark <- microbenchmark(
                                              theoretical = FALSE,
                                              fractional = TRUE,
                                              show_houde_interval = TRUE,
-                                             confidence_level = 0.98)}
+                                             confidence_level = 0.98)},
+               `HaDeX_5. Calculate confidence limit` = {
+                 HaDeX::prepare_dataset(dat = dat_HaDeX, 
+                                        in_state_first = "Alpha_KSCN_0",      
+                                        chosen_state_first = "Alpha_KSCN_1", 
+                                        out_state_first = "Alpha_KSCN_1440",      
+                                        in_state_second = "ALPHA_Gamma_0", 
+                                        chosen_state_second = "ALPHA_Gamma_1",      
+                                        out_state_second = "ALPHA_Gamma_1440") %>%
+                   HaDeX::calculate_confidence_limit_values(calc_dat = .,
+                                                            confidence_limit = 0.98,
+                                                            theoretical = FALSE,
+                                                            relative = TRUE)},
+                `HaDeX2_5. Calculate confidence limit` = {
+                 HaDeX2::calculate_diff_uptake(dat = dat_HaDeX2,
+                                               states = c("Alpha_KSCN", "ALPHA_Gamma"),
+                                               time_0 = 0, time_100 = 1440, time_t = 1) %>%
+                   HaDeX2::calculate_confidence_limit_values(diff_uptake_dat = .,
+                                                             confidence_level  = 0.98,
+                                                             theoretical = FALSE,
+                                                             fractional = TRUE)},
+               `HaDeX_6. Reconstruct sequence` = HaDeX::reconstruct_sequence(dat = dat_HaDeX),
+               `HaDeX2_6. Reconstruct sequence` =  HaDeX2::reconstruct_sequence(dat = dat_HaDeX2)
                
                )
 )
