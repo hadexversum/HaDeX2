@@ -213,10 +213,9 @@ version_benchmark <- microbenchmark(
                                      confidence_limit = 0.98, 
                                      confidence_limit_2 = 0.98)},
                `HaDeX2_4. Plot Woods` = {
-                 HaDeX2::create_diff_uptake_dataset(dat = dat_HaDeX2,
-                                                    state_1 = "Alpha_KSCN",
-                                                    state_2 = "ALPHA_Gamma",
-                                                    time_0 = 0, time_100 = 1440) %>%
+                 HaDeX2::calculate_diff_uptake(dat = dat_HaDeX2,
+                                               states = c("Alpha_KSCN", "ALPHA_Gamma"),
+                                               time_t = 1, time_0 = 0, time_100 = 1440) %>%
                    HaDeX2::plot_differential(diff_uptake_dat = .,
                                              time_t = 1,
                                              theoretical = FALSE,
@@ -236,28 +235,21 @@ the results presents next to each other, in a graphic form.
 
 ![](version_comparison_files/figure-html/unnamed-chunk-5-1.png)
 
-Tasks 1-3 are completed significantly faster when using HaDeX2. For task
-4 (the Woods plot), HaDeX2 is slightly slower due to the refactoring of
-the code into a more modular structure with encapsulated functionality.
-In HaDeX2, each function performs a single, well-defined task and is
-called by other functions. This approach improves code transparency and
-supports effective unit testing, but it may introduce a small
-computational overhead. In this case, the benefits of the implemented
-design clearly outweigh the minor increase in execution time.
+All the tasks are completed significantly faster when using HaDeX2.
 
 Below, we present the summary of numeric values used to create this plot
 (in milliseconds):
 
 | tool   | task                  |      mean |    median |        lq |        uq |
 |:-------|:----------------------|----------:|----------:|----------:|----------:|
-| HaDeX  | 1\. Read input        |  37.18147 |  35.32685 |  34.35170 |  37.21250 |
-| HaDeX2 | 1\. Read input        |  29.28257 |  28.51640 |  27.82795 |  29.09095 |
-| HaDeX  | 2\. Plot uptake curve | 191.07246 | 190.38845 | 182.90800 | 197.83050 |
-| HaDeX2 | 2\. Plot uptake curve |  76.78255 |  74.82580 |  70.27920 |  80.56700 |
-| HaDeX  | 3\. Plot comparison   | 194.79112 | 195.33145 | 186.31485 | 203.22940 |
-| HaDeX2 | 3\. Plot comparison   |  55.62862 |  53.71610 |  51.78730 |  59.49965 |
-| HaDeX  | 4\. Plot Woods        | 210.23130 | 207.40895 | 196.61960 | 217.26900 |
-| HaDeX2 | 4\. Plot Woods        | 291.21028 | 290.65670 | 279.03885 | 300.02085 |
+| HaDeX  | 1\. Read input        |  38.41018 |  33.80710 |  32.65085 |  40.47310 |
+| HaDeX2 | 1\. Read input        |  29.30550 |  28.23590 |  26.84965 |  29.69735 |
+| HaDeX  | 2\. Plot uptake curve | 173.80928 | 168.36435 | 162.66705 | 175.94405 |
+| HaDeX2 | 2\. Plot uptake curve |  69.73160 |  68.52975 |  63.94375 |  74.30275 |
+| HaDeX  | 3\. Plot comparison   | 193.56969 | 189.81910 | 182.25370 | 200.32995 |
+| HaDeX2 | 3\. Plot comparison   |  60.27757 |  57.92240 |  55.95870 |  63.18185 |
+| HaDeX  | 4\. Plot Woods        | 204.99479 | 205.59275 | 194.01730 | 215.92120 |
+| HaDeX2 | 4\. Plot Woods        |  79.80739 |  78.04320 |  74.90415 |  83.12265 |
 
 ## HaDeX2 design
 

@@ -647,10 +647,9 @@ results are presented in a comprehensive form.</p>
 <span>                                     confidence_limit <span class="op">=</span> <span class="fl">0.98</span>, </span>
 <span>                                     confidence_limit_2 <span class="op">=</span> <span class="fl">0.98</span><span class="op">)</span><span class="op">}</span>,</span>
 <span>               `HaDeX2_4. Plot Woods` <span class="op">=</span> <span class="op">{</span></span>
-<span>                 <span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/create_diff_uptake_dataset.html">create_diff_uptake_dataset</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">dat_HaDeX2</span>,</span>
-<span>                                                    state_1 <span class="op">=</span> <span class="st">"Alpha_KSCN"</span>,</span>
-<span>                                                    state_2 <span class="op">=</span> <span class="st">"ALPHA_Gamma"</span>,</span>
-<span>                                                    time_0 <span class="op">=</span> <span class="fl">0</span>, time_100 <span class="op">=</span> <span class="fl">1440</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>                 <span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/calculate_diff_uptake.html">calculate_diff_uptake</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">dat_HaDeX2</span>,</span>
+<span>                                               states <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Alpha_KSCN"</span>, <span class="st">"ALPHA_Gamma"</span><span class="op">)</span>,</span>
+<span>                                               time_t <span class="op">=</span> <span class="fl">1</span>, time_0 <span class="op">=</span> <span class="fl">0</span>, time_100 <span class="op">=</span> <span class="fl">1440</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>                   <span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_differential.html">plot_differential</a></span><span class="op">(</span>diff_uptake_dat <span class="op">=</span> <span class="va">.</span>,</span>
 <span>                                             time_t <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>                                             theoretical <span class="op">=</span> <span class="cn">FALSE</span>,</span>
@@ -666,15 +665,8 @@ results are presented in a comprehensive form.</p>
 and presents the summary of running times (in milliseconds). Let’s see
 how the results presents next to each other, in a graphic form.</p>
 <p><img src="version_comparison_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" width="100%"></p>
-<p>Tasks 1-3 are completed significantly faster when using HaDeX2. For
-task 4 (the Woods plot), HaDeX2 is slightly slower due to the
-refactoring of the code into a more modular structure with encapsulated
-functionality. In HaDeX2, each function performs a single, well-defined
-task and is called by other functions. This approach improves code
-transparency and supports effective unit testing, but it may introduce a
-small computational overhead. In this case, the benefits of the
-implemented design clearly outweigh the minor increase in execution
-time.</p>
+<p>All the tasks are completed significantly faster when using
+HaDeX2.</p>
 <p>Below, we present the summary of numeric values used to create this
 plot (in milliseconds):</p>
 <table class="table">
@@ -698,66 +690,66 @@ plot (in milliseconds):</p>
 <tr class="odd">
 <td align="left">HaDeX</td>
 <td align="left">1. Read input</td>
-<td align="right">37.18147</td>
-<td align="right">35.32685</td>
-<td align="right">34.35170</td>
-<td align="right">37.21250</td>
+<td align="right">38.41018</td>
+<td align="right">33.80710</td>
+<td align="right">32.65085</td>
+<td align="right">40.47310</td>
 </tr>
 <tr class="even">
 <td align="left">HaDeX2</td>
 <td align="left">1. Read input</td>
-<td align="right">29.28257</td>
-<td align="right">28.51640</td>
-<td align="right">27.82795</td>
-<td align="right">29.09095</td>
+<td align="right">29.30550</td>
+<td align="right">28.23590</td>
+<td align="right">26.84965</td>
+<td align="right">29.69735</td>
 </tr>
 <tr class="odd">
 <td align="left">HaDeX</td>
 <td align="left">2. Plot uptake curve</td>
-<td align="right">191.07246</td>
-<td align="right">190.38845</td>
-<td align="right">182.90800</td>
-<td align="right">197.83050</td>
+<td align="right">173.80928</td>
+<td align="right">168.36435</td>
+<td align="right">162.66705</td>
+<td align="right">175.94405</td>
 </tr>
 <tr class="even">
 <td align="left">HaDeX2</td>
 <td align="left">2. Plot uptake curve</td>
-<td align="right">76.78255</td>
-<td align="right">74.82580</td>
-<td align="right">70.27920</td>
-<td align="right">80.56700</td>
+<td align="right">69.73160</td>
+<td align="right">68.52975</td>
+<td align="right">63.94375</td>
+<td align="right">74.30275</td>
 </tr>
 <tr class="odd">
 <td align="left">HaDeX</td>
 <td align="left">3. Plot comparison</td>
-<td align="right">194.79112</td>
-<td align="right">195.33145</td>
-<td align="right">186.31485</td>
-<td align="right">203.22940</td>
+<td align="right">193.56969</td>
+<td align="right">189.81910</td>
+<td align="right">182.25370</td>
+<td align="right">200.32995</td>
 </tr>
 <tr class="even">
 <td align="left">HaDeX2</td>
 <td align="left">3. Plot comparison</td>
-<td align="right">55.62862</td>
-<td align="right">53.71610</td>
-<td align="right">51.78730</td>
-<td align="right">59.49965</td>
+<td align="right">60.27757</td>
+<td align="right">57.92240</td>
+<td align="right">55.95870</td>
+<td align="right">63.18185</td>
 </tr>
 <tr class="odd">
 <td align="left">HaDeX</td>
 <td align="left">4. Plot Woods</td>
-<td align="right">210.23130</td>
-<td align="right">207.40895</td>
-<td align="right">196.61960</td>
-<td align="right">217.26900</td>
+<td align="right">204.99479</td>
+<td align="right">205.59275</td>
+<td align="right">194.01730</td>
+<td align="right">215.92120</td>
 </tr>
 <tr class="even">
 <td align="left">HaDeX2</td>
 <td align="left">4. Plot Woods</td>
-<td align="right">291.21028</td>
-<td align="right">290.65670</td>
-<td align="right">279.03885</td>
-<td align="right">300.02085</td>
+<td align="right">79.80739</td>
+<td align="right">78.04320</td>
+<td align="right">74.90415</td>
+<td align="right">83.12265</td>
 </tr>
 </tbody>
 </table>
