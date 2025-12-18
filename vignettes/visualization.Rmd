@@ -36,7 +36,7 @@ Data visualization is a crucial part of the experimental data analysis. The form
 
 This article describes the visualization methods available in HaDeX2 and explains how different plot types can be used to interpret HDX-MS data. It focuses on the biological questions each visualization addresses rather than implementation details.
 
-The analyzed protein is the eEF1Bα subunit of the human guanine-nucleotide exchange factor (GEF) complex (eEF1B), measured in [Mass Spectrometry Lab](https://mslab-ibb.pl/) in [Institute of Biochemistry and Biophysics Polish Academy of Sciences](https://ibb.edu.pl/en/) [@bondarchuk_quaternary_2022]. In the one-state classification, we will focus on pure alpha state - eEF1B$\alpha$. The comparative analysis is conducted between eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$.  
+The analyzed protein is the eEF1B$\alpha$ subunit of the human guanine-nucleotide exchange factor (GEF) complex (eEF1B), measured in [Mass Spectrometry Lab](https://mslab-ibb.pl/) in [Institute of Biochemistry and Biophysics Polish Academy of Sciences](https://ibb.edu.pl/en/) [@bondarchuk_quaternary_2022]. In the one-state classification, we will focus on pure alpha state - eEF1B$\alpha$. The comparative analysis is conducted between eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$.  
 
 # Comparison plot
 
