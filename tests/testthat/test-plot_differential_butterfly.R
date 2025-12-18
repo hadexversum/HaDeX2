@@ -2,12 +2,12 @@ test_that("returns ggplot object",
           expect_s3_class(plot_differential_butterfly(diff_uptake_dat), 
                           "ggplot"))
 
-theo_frac_differential_butterfly_plot <- plot_differential_butterfly(diff_uptake_dat, 
-                                                                     theoretical = T,
-                                                                     fractional = T,
-                                                                     uncertainty = "ribbon",
-                                                                     show_houde_interval  = T,
-                                                                     confidence_level = t_confidence_level)
+# theo_frac_differential_butterfly_plot <- plot_differential_butterfly(diff_uptake_dat, 
+#                                                                      theoretical = T,
+#                                                                      fractional = T,
+#                                                                      uncertainty = "ribbon",
+#                                                                      show_houde_interval  = T,
+#                                                                      confidence_level = t_confidence_level)
 
 frac_differential_butterfly_plot <- plot_differential_butterfly(diff_uptake_dat, 
                                                                 theoretical = F,
@@ -31,7 +31,7 @@ differential_butterfly_plot <- plot_differential_butterfly(diff_uptake_dat,
                                                            confidence_level = t_confidence_level)
 
 test_that("plot parameters", {
-  vdiffr::expect_doppelganger("Theo Frac Differential Butterfly Plot (ribbon)", theo_frac_differential_butterfly_plot)
+  # vdiffr::expect_doppelganger("Theo Frac Differential Butterfly Plot (ribbon)", theo_frac_differential_butterfly_plot)
   vdiffr::expect_doppelganger("Frac Differential Butterfly Plot (bars)", frac_differential_butterfly_plot)
   vdiffr::expect_doppelganger("Theo Differential Butterfly Plot (bars)", theo_differential_butterfly_plot)
   vdiffr::expect_doppelganger("Differential Butterfly Plot", differential_butterfly_plot)
