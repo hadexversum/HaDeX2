@@ -523,7 +523,7 @@ uptake.
 approach, color signifies no exchange (white) to high exchange (red).
 
 ``` r
-pdb_file_path <- system.file(package = "HaDeX", "HaDeX/data/Model_eEF1Balpha.pdb")
+pdb_file_path <- system.file(package = "HaDeX2", "HaDeX/data/Model_eEF1Balpha.pdb")
 
 plot_aggregated_uptake_structure(aggregated_dat, 
                                  differential = FALSE,
