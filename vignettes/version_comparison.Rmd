@@ -102,14 +102,14 @@ NA, NA, NA, NA, "plot_coverage", NA, "woods_plot", NA, NA, NA,
 NA, NA, "plot_position_frequency", NA, NA, NA, NA, NA, NA, "comparison_plot",
 
 NA, "plot_kinetics", NA, NA, "read_hdx", "reconstruct_sequence", NA, NA, NA, NA,
-NA, NA, NA, NA, NA, NA, NA, NA, NA, NA)))
+NA, NA, NA, NA, NA, NA, NA, NA, NA, NA)), longtable = TRUE)
 
 
 ```
-For pairs of functions, we can conduct the analysis of speed using our exemplary data.
-
 
 # Calculation speeds compared
+
+For each pair of functions in the previous section, we can assess relative execution speed using the exemplary dataset as a controlled reference for comparison.
 
 Now we established the common functionalities for both versions of the package - there are just a few. We concentrate on four major actions: reading data file, plotting (and preparing data) uptake curve for one peptide, comparison plot of two states, and differential Woods plot with difference between two states. The two additional actions are: calculation of confidence limits and reconstruction of the peptide sequence.
 
@@ -204,30 +204,27 @@ version_benchmark <- microbenchmark(
                                                              theoretical = FALSE,
                                                              fractional = TRUE)},
                `HaDeX_6. Reconstruct sequence` = HaDeX::reconstruct_sequence(dat = dat_HaDeX),
-               `HaDeX2_6. Reconstruct sequence` =  HaDeX2::reconstruct_sequence(dat = dat_HaDeX2)
-               
-               )
-)
+               `HaDeX2_6. Reconstruct sequence` =  HaDeX2::reconstruct_sequence(dat = dat_HaDeX2)))
+```
 
+```{r message=FALSE, eval=TRUE, echo=FALSE}
 saveRDS(version_benchmark, file = "version_benchmark.rds")
 ```
 
-The microbenchmark works as follows: it runs each command 100 times, and presents the summary of running times (in milliseconds). Let's see how the results presents next to each other, in a graphic form.
+The microbenchmark operates by executing each command 100 times and summarising the resulting execution times in milliseconds. The results are then presented side by side in graphical form to facilitate a direct and intuitive comparison across commands.
 
-```{r message = FALSE, echo=FALSE, results='asis', out.width="100%"}
+```{r message = FALSE, echo=FALSE, results='asis', out.width="100%", fig.height=8}
 
 version_benchmark <- readRDS(file = "version_benchmark.rds")
 
 data.frame(version_benchmark) %>% 
    mutate(tool = sapply(strsplit(as.character(expr), "_"), first),
-         task = sapply(strsplit(as.character(expr), "_"), last)) %>% 
+         task = sapply(strsplit(as.character(expr), "_"), last),
+         time = time * 1e-6) %>% 
   ggplot(aes(x = tool, y = time)) +
   geom_boxplot() +
-  facet_wrap(~task, scales = "free_y")
-
-
-
-  
+  facet_wrap(~task, scales = "free_y", ncol = 2) +
+  scale_y_continuous("Time [ms]")
 ```
 
 All the tasks are completed significantly faster when using HaDeX2. 
@@ -235,13 +232,18 @@ All the tasks are completed significantly faster when using HaDeX2.
 Below, we present the summary of numeric values used to create this plot (in milliseconds):
 
 ```{r echo=FALSE}
-summary(version_benchmark) %>% 
+summary(version_benchmark, unit = "ms") %>% 
   mutate(tool = sapply(strsplit(as.character(expr), "_"), first),
          task = sapply(strsplit(as.character(expr), "_"), last)) %>% 
-  select(tool, task, mean, median, lq, uq) %>% 
+  select(tool, task, median) %>% 
+  tidyr::pivot_wider(names_from = tool, values_from = median) %>% 
+  mutate(`Runtime ratio` = HaDeX2/HaDeX) %>% 
   knitr::kable()
 ```
 
+Across all tasks, the reported values represent a runtime ratio (HaDeX2/HaDeX) consistently below one, indicating that HaDeX2 is faster than HaDeX for every measured operation. The strongest speedups, corresponding to the lowest ratios, are observed for plotting functions, calculating confidence limits, and plotting uptake curves, whereas input reading and sequence reconstruction show comparatively smaller, though still meaningful, reductions in execution time. In the case of input reading, the modest speed-up results from the fact that this functionality has substantially expanded in-built quality control in HaDeX2, where additional validation steps intentionally constrain maximal speed in favor of improved data integrity.
+
 # HaDeX2 design
 
-The first version of HaDeX was developed quickly to address immediate data analysis challenges. As knowledge in the field expanded, it became necessary to extend the package’s functionality. This required a carefully planned redesign. The package is now built from small, modular computing blocks—encapsulated functions that each perform a single task. Datasets are created by combining these functions. This design allows individual components to be tested independently and improves code readability through self-explanatory function names (calculate_ provides results for specific time point, but create_dataset_ for all time points). The parameter naming conventions were also simplified. In addition, the graphical user interface was rewritten from scratch using Shiny modules to ensure clear separation and encapsulation of features.
+The first version of HaDeX was developed quickly to address immediate data analysis challenges. As knowledge in the field expanded, it became necessary to extend the package’s functionality. This required a carefully planned redesign. The package is now built from small, modular computing blocks—encapsulated functions that each perform a single task. Datasets are created by combining these functions. This design allows individual components to be tested independently and improves code readability through self-explanatory function names (calculate_ provides results for specific time point, but create_dataset_ for all time points). The parameter naming conventions were also simplified. In addition, the graphical user interface was rewritten from scratch using Shiny modules and moved to a separate package to ensure clear separation and encapsulation of features.
+
