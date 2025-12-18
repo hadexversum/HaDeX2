@@ -469,12 +469,13 @@ High-resolution values not only can be presented linearly on high-resolution plo
 
 
 ```{r}
-pdb_file_path <- system.file(package = "HaDeX", "HaDeX/data/Model_eEF1Balpha.pdb")
+pdb_file_path <- system.file(package = "HaDeX2", "HaDeX/data/Model_eEF1Balpha.pdb")
 
 plot_aggregated_uptake_structure(aggregated_dat, 
                                  differential = FALSE,
                                  time_t = 1,
                                  pdb_file_path = pdb_file_path)
+
 ```
 
 
