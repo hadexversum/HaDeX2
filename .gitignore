@@ -18,3 +18,5 @@ vignettes/*.R
 docs
 inst/doc
 inst/example.pdf
+inst/.DS_Store
+.DS_Store

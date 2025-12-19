@@ -37,7 +37,7 @@ Data visualization is a crucial part of the experimental data analysis. The form
 
 This article describes the visualization methods available in HaDeX2 and explains how different plot types can be used to interpret HDX-MS data. It focuses on the biological questions each visualization addresses rather than implementation details.
 
-The analyzed protein is the eEF1Bα subunit of the human guanine-nucleotide exchange factor (GEF) complex (eEF1B), measured in [Mass Spectrometry Lab](https://mslab-ibb.pl/) in [Institute of Biochemistry and Biophysics Polish Academy of Sciences](https://ibb.edu.pl/en/) [@bondarchuk_quaternary_2022]. In the one-state classification, we will focus on pure alpha state - eEF1B$\alpha$. The comparative analysis is conducted between eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$.  
+The analyzed protein is the eEF1B$\alpha$ subunit of the human guanine-nucleotide exchange factor (GEF) complex (eEF1B), measured in [Mass Spectrometry Lab](https://mslab-ibb.pl/) in [Institute of Biochemistry and Biophysics Polish Academy of Sciences](https://ibb.edu.pl/en/) [@bondarchuk_quaternary_2022]. In the one-state classification, we will focus on pure alpha state - eEF1B$\alpha$. The comparative analysis is conducted between eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$.  
 
 # Comparison plot
 
@@ -468,7 +468,7 @@ High-resolution values not only can be presented linearly on high-resolution plo
 **Example** Structure below is mapped with deuterium uptake values after 1 minute for eEF1B$\alpha$ state. Values are aggregated using weighted approach, color signifies no exchange (white) to high exchange (red).
 
 
-```{r}
+```{r, eval=FALSE}
 pdb_file_path <- system.file(package = "HaDeX2", "HaDeX/data/Model_eEF1Balpha.pdb")
 
 plot_aggregated_uptake_structure(aggregated_dat, 
@@ -541,12 +541,13 @@ Below we compare the aspects of the plots.
 ```{r echo=FALSE}
 
 summary_plots <- data.frame(types = c("comparison", "Woods (differential)", "butterfly", "butterfly differential", "volcano", "chiclet", "chiclet differential", "uptake curve"),
-                            `time course` = c(F, F, T, T, T, T, T, T),
-                            `length of the peptide` = c(T, T, F, F, F, F, F, F),
-                            uncertainty = c(T, T, T, T, T, T, T, T),
-                            `all peptides` = c(T, T, T, T, T, T, T, F),
-                            `different states` = c(T, T, F, T, T, F, T, T),
-                            position = c(T, T, F, F, F, F, F, F))
+ 
+                            `time course` = c(FALSE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE),
+                            `length of the peptide` = c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE),
+                            uncertainty = c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE),
+                           `all peptides` = c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, FALSE),
+                           `different states` = c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, TRUE), 
+                           position = c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE))
 
 knitr::kable(summary_plots)
 ```

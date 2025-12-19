@@ -24,7 +24,7 @@ plt_1 <- alpha_dat %>%
     File == "Tania_161108_2eEF1Bag_compl_KSCN_1min" ~ "rep_2",
     File == "Tania_161108_3eEF1Bag_compl_KSCN_1min" ~ "rep_3",
   )) %>%
-  HaDeX::plot_peptide_mass_measurement(
+  HaDeX2::plot_peptide_mass_measurement(
     show_charge_values = TRUE,
     sequence           = "FGDLKSPAGL",
     state = "ALPHA_Gamma",
@@ -41,10 +41,10 @@ plt_1 <- alpha_dat %>%
 
 ## image B
 
-plt_2 <- HaDeX::create_replicate_dataset(
+plt_2 <- HaDeX2::create_replicate_dataset(
   alpha_dat,
   state = "ALPHA_Gamma") %>%
-  HaDeX::plot_replicate_histogram() +
+  HaDeX2::plot_replicate_histogram() +
   labs(title =  TeX("Number of replicates (eEF1B$\\alpha\\gamma$)"))
 
 # ggsave(filename = paste0(folder_path, "plt_2.png"), plt_2,
