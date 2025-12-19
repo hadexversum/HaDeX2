@@ -87,7 +87,7 @@ In the differential heatmap, we can now see our regions of interest with residue
 
 The 3D viewer provides an interactive way to explore these differences in the context of the protein structure. By mapping the differential HDX data onto the 3D structure of SecA, we can directly see how ADP binding rigidifies specific regions of the protein (Figure \@ref(fig:differential-structure)). In the figure below, we can clearly see the strongest response in helicase motif I, rigidifying upon ADP binding, as well as the allosteric propagation of this effect through the scaffold regions ultimately resulting in a long-range allosteric response in the client-binding PPD domain. 
 
-For more control over the visualization colors and plot ranges, the residue-level data can be exported in a .csv format and subsequently visualized by [HDX-Viewer](http://hdxviewer.ipbs.fr:8080/) [@bouyssie_hdx-viewer_2019]. When exporting the data to HDX-Viewer, click the 'Export data for HDXViewer' and follow the steps described in the popup window. 
+For more control over the visualization colors and plot ranges, the residue-level data can be exported in a .csv format and subsequently visualized by HDX-Viewer [@bouyssie_hdx-viewer_2019]. When exporting the data to HDX-Viewer, click the 'Export data for HDXViewer' and follow the steps described in the popup window. 
 
 ```{r differential-structure, fig.cap="3D view of differential HDX data on the structure of SecA."}
 knitr::include_graphics("seca_3d_vis.png")

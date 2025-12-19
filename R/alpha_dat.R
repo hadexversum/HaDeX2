@@ -10,6 +10,6 @@
 #' @docType data
 #' @author Bondarchuk, T. V., Shalak, V. F., Lozhko, D. M., Fatalska, A., Szczepanowski, R. H., 
 #' Liudkovska, V., Tsuvariev, O. Y., Dadlez, M., El’skaya, A. V., & Negrutskii, B. S.
-#' @references \url{https://doi.org/10.1093/nar/gkac685}
+#' @references \doi{/10.1093/nar/gkac685}
 #' @keywords data
 NULL
