@@ -57,8 +57,8 @@
 #' \code{\link{show_diff_uptake_data}}
 #'
 #' @examples
-#' diff_uptake_dat <- calculate_diff_uptake(alpha_dat, state_1 = "Alpha_KSCN", 
-#'                                          state_2 = "ALPHA_Gamma", time_t = 0.167)
+#' diff_uptake_dat <- calculate_diff_uptake(alpha_dat,  
+#'                                          states = c("ALPHA_Gamma", "Alpha_KSCN"), time_t = 0.167)
 #' plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167) 
 #' plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167, show_houde_interval = TRUE) 
 #' plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167, skip_amino = 0) 

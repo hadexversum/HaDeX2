@@ -23,6 +23,7 @@ knitr::opts_chunk$set(fig.width = 7, fig.height = 5)
 library(HaDeX2)
 library(ggplot2)
 library(dplyr)
+library(r3dmol)
 
 states <- unique(alpha_dat[["State"]])
 
@@ -468,12 +469,13 @@ High-resolution values not only can be presented linearly on high-resolution plo
 
 
 ```{r, eval=FALSE}
-pdb_file_path <- system.file(package = "HaDeX", "HaDeX/data/Model_eEF1Balpha.pdb")
+pdb_file_path <- system.file(package = "HaDeX2", "HaDeX/data/Model_eEF1Balpha.pdb")
 
 plot_aggregated_uptake_structure(aggregated_dat, 
                                  differential = FALSE,
                                  time_t = 1,
                                  pdb_file_path = pdb_file_path)
+
 ```
 
 
@@ -539,12 +541,13 @@ Below we compare the aspects of the plots.
 ```{r echo=FALSE}
 
 summary_plots <- data.frame(types = c("comparison", "Woods (differential)", "butterfly", "butterfly differential", "volcano", "chiclet", "chiclet differential", "uptake curve"),
+ 
                             `time course` = c(FALSE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE),
                             `length of the peptide` = c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE),
                             uncertainty = c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE),
-                            `all peptides` = c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, FALSE),
-                            `different states` = c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, TRUE),
-                            position = c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE))
+                           `all peptides` = c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, FALSE),
+                           `different states` = c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, TRUE), 
+                           position = c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE))
 
 knitr::kable(summary_plots)
 ```
