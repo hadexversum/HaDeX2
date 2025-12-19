@@ -582,13 +582,13 @@ our exemplary data.</p>
 <div class="section level2">
 <h2 id="calculation-speeds-compared">Calculation speeds compared<a class="anchor" aria-label="anchor" href="#calculation-speeds-compared"></a>
 </h2>
-<p>Now we established the common functionalities for both versions of
-the package - there are just a few. We concentrate on four major
-actions: reading data file, plotting (and preparing data) uptake curve
-for one peptide, comparison plot of two states, and differential Woods
-plot with difference between two states. The two additional actions are:
-calculation of confidence limits and reconstruction of the peptide
-sequence.</p>
+<p>For each pair of functions in the previous section, we can assess
+relative execution speed using the exemplary dataset as a controlled
+reference for comparison. We concentrate on six major tasks: reading
+data file, plotting (and preparing data) uptake curve for one peptide,
+comparison plot of two biological states, differential Woods plot with
+difference between two states, reconstruction of the protein sequence
+and computation of confidence limits.</p>
 <p>Code used to create this comparison is shown below, and then the
 results are presented in a comprehensive form.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -682,13 +682,12 @@ results are presented in a comprehensive form.</p>
 <span>               `HaDeX2_6. Reconstruct sequence` <span class="op">=</span>  <span class="fu">HaDeX2</span><span class="fu">::</span><span class="fu"><a href="../reference/reconstruct_sequence.html">reconstruct_sequence</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">dat_HaDeX2</span><span class="op">)</span></span>
 <span>               </span>
 <span>               <span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">saveRDS</a></span><span class="op">(</span><span class="va">version_benchmark</span>, file <span class="op">=</span> <span class="st">"version_benchmark.rds"</span><span class="op">)</span></span></code></pre></div>
-<p>The microbenchmark works as follows: it runs each command 100 times,
-and presents the summary of running times (in milliseconds). Let’s see
-how the results presents next to each other, in a graphic form.</p>
-<p><img src="version_comparison_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" width="100%"></p>
+<span><span class="op">)</span></span></code></pre></div>
+<p>The microbenchmark operates by executing each command 100 times and
+summarising the resulting execution times in milliseconds. The results
+are then presented side by side in graphical form to facilitate a direct
+and intuitive comparison across commands.</p>
+<p><img src="version_comparison_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" width="6"></p>
 <p>All the tasks are completed significantly faster when using
 HaDeX2.</p>
 <p>Below, we present the summary of numeric values used to create this

@@ -146,13 +146,13 @@ exemplary data.
 
 ## Calculation speeds compared
 
-Now we established the common functionalities for both versions of the
-package - there are just a few. We concentrate on four major actions:
-reading data file, plotting (and preparing data) uptake curve for one
-peptide, comparison plot of two states, and differential Woods plot with
-difference between two states. The two additional actions are:
-calculation of confidence limits and reconstruction of the peptide
-sequence.
+For each pair of functions in the previous section, we can assess
+relative execution speed using the exemplary dataset as a controlled
+reference for comparison. We concentrate on six major tasks: reading
+data file, plotting (and preparing data) uptake curve for one peptide,
+comparison plot of two biological states, differential Woods plot with
+difference between two states, reconstruction of the protein sequence
+and computation of confidence limits.
 
 Code used to create this comparison is shown below, and then the results
 are presented in a comprehensive form.
@@ -249,13 +249,12 @@ version_benchmark <- microbenchmark(
                
                )
 )
-
-saveRDS(version_benchmark, file = "version_benchmark.rds")
 ```
 
-The microbenchmark works as follows: it runs each command 100 times, and
-presents the summary of running times (in milliseconds). Let’s see how
-the results presents next to each other, in a graphic form.
+The microbenchmark operates by executing each command 100 times and
+summarising the resulting execution times in milliseconds. The results
+are then presented side by side in graphical form to facilitate a direct
+and intuitive comparison across commands.
 
 ![](version_comparison_files/figure-html/unnamed-chunk-5-1.png)
 

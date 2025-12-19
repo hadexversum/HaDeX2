@@ -9,7 +9,7 @@ explains how different plot types can be used to interpret HDX-MS data.
 It focuses on the biological questions each visualization addresses
 rather than implementation details.
 
-The analyzed protein is the eEF1Bα subunit of the human
+The analyzed protein is the eEF1B$\alpha$ subunit of the human
 guanine-nucleotide exchange factor (GEF) complex (eEF1B), measured in
 [Mass Spectrometry Lab](https://mslab-ibb.pl/) in [Institute of
 Biochemistry and Biophysics Polish Academy of
