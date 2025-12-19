@@ -175,8 +175,8 @@ response in the client-binding PPD domain.
 
 For more control over the visualization colors and plot ranges, the
 residue-level data can be exported in a .csv format and subsequently
-visualized by [HDX-Viewer](http://hdxviewer.ipbs.fr:8080/) ([Bouyssié et
-al. 2019](#ref-bouyssie_hdx-viewer_2019)). When exporting the data to
+visualized by HDX-Viewer ([Bouyssié et al.
+2019](#ref-bouyssie_hdx-viewer_2019)). When exporting the data to
 HDX-Viewer, click the ‘Export data for HDXViewer’ and follow the steps
 described in the popup window.
 
