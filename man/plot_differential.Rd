@@ -22,7 +22,8 @@ plot_differential(
 )
 }
 \arguments{
-\item{diff_uptake_dat}{produced by \code{\link{create_diff_uptake_dataset}} 
+\item{diff_uptake_dat}{produced by \code{\link{calculate_diff_uptake}} 
+or \code{\link{create_diff_uptake_dataset}} 
 function.}
 
 \item{diff_p_uptake_dat}{produced by \code{\link{create_p_diff_uptake_dataset}} 
@@ -84,8 +85,8 @@ difference is positive, blue if negative), and the insignificant values are
 grey.
 }
 \examples{
-diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat, state_1 = "Alpha_KSCN", 
-                                              state_2 = "ALPHA_Gamma")
+diff_uptake_dat <- calculate_diff_uptake(alpha_dat,  
+                                         states = c("ALPHA_Gamma", "Alpha_KSCN"), time_t = 0.167)
 plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167) 
 plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167, show_houde_interval = TRUE) 
 plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167, skip_amino = 0) 
@@ -117,5 +118,6 @@ Using a Hybrid Significance Testing Approach. Anal Chem 91, 8008–8016 (2019).
 }
 \seealso{
 \code{\link{create_diff_uptake_dataset}}
+\code{\link{calculate_diff_uptake}}
 \code{\link{show_diff_uptake_data}}
 }

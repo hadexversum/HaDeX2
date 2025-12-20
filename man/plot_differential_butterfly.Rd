@@ -17,7 +17,7 @@ plot_differential_butterfly(
 )
 }
 \arguments{
-\item{diff_uptake_dat}{data produced by
+\item{diff_uptake_dat}{data produced by \code{\link{calculate_diff_uptake}} or
 \code{\link{create_diff_uptake_dataset}} function}
 
 \item{diff_p_uptake_dat}{differential uptake data 
@@ -75,4 +75,5 @@ Biopharmaceutical Comparability Studies. J Pharm Sci 100, 2071–2086.
 \seealso{
 \code{\link{read_hdx}}
 \code{\link{create_diff_uptake_dataset}}
+\code{\link{calculate_diff_uptake}}
 }

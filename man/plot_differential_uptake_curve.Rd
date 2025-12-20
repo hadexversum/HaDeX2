@@ -18,7 +18,8 @@ plot_differential_uptake_curve(
 )
 }
 \arguments{
-\item{diff_uptake_dat}{produced by \code{\link{create_diff_uptake_dataset}} function}
+\item{diff_uptake_dat}{produced by \code{\link{calculate_diff_uptake}} or
+\code{\link{create_diff_uptake_dataset}} function}
 
 \item{diff_p_uptake_dat}{differential uptake data 
 alongside the P-value as calculated by 
@@ -74,4 +75,5 @@ plot_differential_uptake_curve(diff_p_uptake_dat = diff_p_uptake_dat,
 \seealso{
 \code{\link{read_hdx}}
 \code{\link{create_diff_uptake_dataset}}
+\code{\link{calculate_diff_uptake}}
 }

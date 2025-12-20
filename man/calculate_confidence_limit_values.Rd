@@ -13,7 +13,8 @@ calculate_confidence_limit_values(
 )
 }
 \arguments{
-\item{diff_uptake_dat}{processed data from DynamX file - using prepare_dataset}
+\item{diff_uptake_dat}{differential data calculated using 
+calculate_diff_uptake function}
 
 \item{confidence_level}{confidence level for the test, from range [0, 1]}
 

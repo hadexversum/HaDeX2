@@ -4,19 +4,11 @@
 \alias{HaDeX_GUI}
 \title{HaDeX Graphical User Interface}
 \usage{
-HaDeX_GUI(port = getOption("shiny.port"), prod = TRUE, ...)
-}
-\arguments{
-\item{port}{number of port for the app to run on.}
-
-\item{prod}{should the app run in production mode (TRUE) or development (FALSE)?}
-
-\item{...}{arguments to pass to \code{HaDeXGUI::run_app()}. 
-See \code{\link[HaDeXGUI]{run_app}}.}
+HaDeX_GUI()
 }
 \description{
-Launches graphical user interface from HaDeXGUI package. If the
-  GUI package is not installed, it asks user whether to install it
+Shows how to launch graphical user interface from HaDeXGUI package. 
+If the GUI package is not installed, it asks user whether to install it.
 }
 \section{Warning }{
  Any ad-blocking software may cause malfunctions.

@@ -37,27 +37,27 @@ handle_missing_GUI <- function() {
 
 #' HaDeX Graphical User Interface
 #'
-#' @description Launches graphical user interface from HaDeXGUI package. If the
-#'   GUI package is not installed, it asks user whether to install it
-#' 
-#' @importFrom shiny runApp
-#' 
-#' @param ... arguments to pass to \code{HaDeXGUI::run_app()}. 
-#'    See \code{\link[HaDeXGUI]{run_app}}.
-#' @param port number of port for the app to run on.
-#' @param prod should the app run in production mode (TRUE) or development (FALSE)?
+#' @description Shows how to launch graphical user interface from HaDeXGUI package. 
+#' If the GUI package is not installed, it asks user whether to install it.
 #' 
 #' @section Warning : Any ad-blocking software may cause malfunctions.
 #' 
 #' @export
-HaDeX_GUI <- function(port = getOption("shiny.port"), prod = TRUE, ...) {
+HaDeX_GUI <- function() {
+  # if (is_GUI_installed()) {
+  #   opts <- options()
+  #   on.exit(options(opts))
+  #   options(
+  #     shiny.port = port,
+  #     golem.app.prod = prod
+  #   )
+  #   #HaDeXGUI::run_app(options = options, ...)
+  #   message("Please run HaDeXGUI::run_app to start the HaDeX2 web server'.")
+  #   
+  # } else handle_missing_GUI()
+  
   if (is_GUI_installed()) {
-    opts <- options()
-    on.exit(options(opts))
-    options(
-      shiny.port = port,
-      golem.app.prod = prod
-    )
-    HaDeXGUI::run_app(options = options, ...)
+    message("Please run HaDeXGUI::run_app() to start the HaDeX2 web server'.")
+    
   } else handle_missing_GUI()
 }

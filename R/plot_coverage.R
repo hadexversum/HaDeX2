@@ -4,7 +4,6 @@
 #' 
 #' @importFrom ggplot2 ggplot geom_line labs theme element_blank geom_rect
 #' @importFrom data.table as.data.table setorderv
-#' @importFrom plyr . 
 #' 
 #' @param dat data imported by the \code{\link{read_hdx}} function
 #' @param protein selected protein

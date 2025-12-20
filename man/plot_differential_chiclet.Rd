@@ -17,7 +17,7 @@ plot_differential_chiclet(
 )
 }
 \arguments{
-\item{diff_uptake_dat}{data produced by
+\item{diff_uptake_dat}{data produced by \code{\link{calculate_diff_uptake}} or
 \code{\link{create_diff_uptake_dataset}} function}
 
 \item{diff_p_uptake_dat}{differential uptake data 
@@ -74,4 +74,5 @@ plot_differential_chiclet(diff_p_uptake_dat = diff_p_uptake_dat,
 }
 \seealso{
 \code{\link{create_diff_uptake_dataset}}
+\code{\link{calculate_diff_uptake}}
 }
