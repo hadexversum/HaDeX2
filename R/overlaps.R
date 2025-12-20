@@ -101,7 +101,6 @@ plot_overlap <- function(dat,
 #' 
 #' @importFrom dplyr right_join
 #' @importFrom tidyr replace_na
-#' @importFrom stringr str_length
 #' 
 #' @param dat data imported by the \code{\link{read_hdx}} function.
 #' @param protein chosen protein.

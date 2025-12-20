@@ -5,7 +5,7 @@ test_that("class is right",
 dat_sequence <- "INITSSASQEGTRLNLICTVWHKKEEAEGFVVFLCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQLMFTISQVTPLHSGTYQCCARSQKSGIRLQGHFFSILFxxxxxxxxxxxxxxxxxxFSHNEGTL"
 
 test_that("example sequence1 is right length",
-          expect_equal(str_length(reconstruct_sequence(t_dat)), 
+          expect_equal(nchar(reconstruct_sequence(t_dat)), 
                        132))
 
 test_that("sequence1 is correct",

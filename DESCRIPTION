@@ -37,7 +37,6 @@ Imports:
   	readxl,
   	r3dmol (>= 0.2),
   	remotes,
-  	stringr,
   	stringi,
   	tidyr,
   	ggiraph
