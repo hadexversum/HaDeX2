@@ -9,7 +9,7 @@ https://doi.org/10.1093/nar/gkac685
 
 ## References
 
-<https://doi.org/10.1093/nar/gkac685>
+[doi:/10.1093/nar/gkac685](https://doi.org//10.1093/nar/gkac685)
 
 ## Author
 

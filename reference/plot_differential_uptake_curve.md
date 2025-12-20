@@ -24,6 +24,8 @@ plot_differential_uptake_curve(
 - diff_uptake_dat:
 
   produced by
+  [`calculate_diff_uptake`](https://hadexversum.github.io/HaDeX2/reference/calculate_diff_uptake.md)
+  or
   [`create_diff_uptake_dataset`](https://hadexversum.github.io/HaDeX2/reference/create_diff_uptake_dataset.md)
   function
 
@@ -82,6 +84,7 @@ will be added soon.
 
 [`read_hdx`](https://hadexversum.github.io/HaDeX2/reference/read_hdx.md)
 [`create_diff_uptake_dataset`](https://hadexversum.github.io/HaDeX2/reference/create_diff_uptake_dataset.md)
+[`calculate_diff_uptake`](https://hadexversum.github.io/HaDeX2/reference/calculate_diff_uptake.md)
 
 ## Examples
 

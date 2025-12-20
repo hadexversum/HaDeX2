@@ -24,6 +24,8 @@ plot_differential_butterfly(
 - diff_uptake_dat:
 
   data produced by
+  [`calculate_diff_uptake`](https://hadexversum.github.io/HaDeX2/reference/calculate_diff_uptake.md)
+  or
   [`create_diff_uptake_dataset`](https://hadexversum.github.io/HaDeX2/reference/create_diff_uptake_dataset.md)
   function
 
@@ -87,6 +89,7 @@ Comparability Studies. J Pharm Sci 100, 2071–2086.
 
 [`read_hdx`](https://hadexversum.github.io/HaDeX2/reference/read_hdx.md)
 [`create_diff_uptake_dataset`](https://hadexversum.github.io/HaDeX2/reference/create_diff_uptake_dataset.md)
+[`calculate_diff_uptake`](https://hadexversum.github.io/HaDeX2/reference/calculate_diff_uptake.md)
 
 ## Examples
 

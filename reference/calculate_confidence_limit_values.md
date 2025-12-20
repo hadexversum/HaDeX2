@@ -19,7 +19,7 @@ calculate_confidence_limit_values(
 
 - diff_uptake_dat:
 
-  processed data from DynamX file - using prepare_dataset
+  differential data calculated using calculate_diff_uptake function
 
 - confidence_level:
 

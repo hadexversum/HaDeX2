@@ -24,6 +24,8 @@ plot_differential_chiclet(
 - diff_uptake_dat:
 
   data produced by
+  [`calculate_diff_uptake`](https://hadexversum.github.io/HaDeX2/reference/calculate_diff_uptake.md)
+  or
   [`create_diff_uptake_dataset`](https://hadexversum.github.io/HaDeX2/reference/create_diff_uptake_dataset.md)
   function
 
@@ -80,6 +82,7 @@ uncertainty of measurement for chosen value.
 ## See also
 
 [`create_diff_uptake_dataset`](https://hadexversum.github.io/HaDeX2/reference/create_diff_uptake_dataset.md)
+[`calculate_diff_uptake`](https://hadexversum.github.io/HaDeX2/reference/calculate_diff_uptake.md)
 
 ## Examples
 

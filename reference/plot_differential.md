@@ -29,6 +29,8 @@ plot_differential(
 - diff_uptake_dat:
 
   produced by
+  [`calculate_diff_uptake`](https://hadexversum.github.io/HaDeX2/reference/calculate_diff_uptake.md)
+  or
   [`create_diff_uptake_dataset`](https://hadexversum.github.io/HaDeX2/reference/create_diff_uptake_dataset.md)
   function.
 
@@ -122,13 +124,14 @@ Measurements Using a Hybrid Significance Testing Approach. Anal Chem 91,
 ## See also
 
 [`create_diff_uptake_dataset`](https://hadexversum.github.io/HaDeX2/reference/create_diff_uptake_dataset.md)
+[`calculate_diff_uptake`](https://hadexversum.github.io/HaDeX2/reference/calculate_diff_uptake.md)
 [`show_diff_uptake_data`](https://hadexversum.github.io/HaDeX2/reference/show_diff_uptake_data.md)
 
 ## Examples
 
 ``` r
-diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat, state_1 = "Alpha_KSCN", 
-                                              state_2 = "ALPHA_Gamma")
+diff_uptake_dat <- calculate_diff_uptake(alpha_dat,  
+                                         states = c("ALPHA_Gamma", "Alpha_KSCN"), time_t = 0.167)
 plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167) 
 
 plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167, show_houde_interval = TRUE) 
