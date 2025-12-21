@@ -21,4 +21,4 @@ The size is mostly caused by our extensive documentation.
 
 ## Why it is HaDeX2, not HaDeX 2.0?
 
-HaDeX2 is a complete rewrite and redesign of the original HaDeX package. The scope of changes is so substantial that HaDeX2 constitutes a fundamentally new package rather than a continuation of HaDeX. At the same time, HaDeX remains a published package that requires ongoing maintenance. For these reasons, we proposed releasing HaDeX2 as a separate package. This approach was discussed with Kurt Hornik, who agreed with and approved the proposal.
+HaDeX2 is a complete rewrite and redesign of the original HaDeX package, a companion tool to our article 10.1093/bioinformatics/btaa587. The scope of changes is so substantial that HaDeX2 constitutes a fundamentally new package rather than a continuation of HaDeX. At the same time, HaDeX remains a published package that requires ongoing maintenance. For these reasons, we requested that the CRAN team release HaDeX2 as a separate package, a request that was accepted on 26 November 2025.
