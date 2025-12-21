@@ -1,6 +1,5 @@
 library(testthat)
 library(HaDeX2)
-library(stringr)
 
 options(digits=10)
 
