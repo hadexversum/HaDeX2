@@ -35,7 +35,7 @@ Imports:
   	purrr,
   	readr,
   	readxl,
-  	r3dmol (>= 0.2),
+  	r3dmol (>= 0.1.2),
   	remotes,
   	stringi,
   	tidyr,

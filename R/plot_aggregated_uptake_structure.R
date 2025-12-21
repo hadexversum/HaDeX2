@@ -42,6 +42,12 @@ plot_aggregated_uptake_structure <- function(aggregated_dat,
                                              time_t,
                                              pdb_file_path){
   
+  if(packageVersion("r3dmol") < "0.2" & .HaDeX_msg[["r3dmol"]]) {
+    message("Please considering installing at least the 0.2 version of the r3dmol package.
+            \nAvailable at: https://github.com/swsoyee/r3dmol.")
+    .HaDeX_msg[["r3dmol"]] <- FALSE
+  }
+  
   if(is.null(aggregated_dat)) stop("No data supplied!")
   if(is.null(time_t)) stop("No time point supplied!")
   if(is.null(pdb_file_path)) stop("No pdb file supplied!")
