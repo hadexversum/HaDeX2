@@ -128,7 +128,7 @@ uncertainty of the measurement.</p>
 <span>  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Position in sequence"</span>,</span>
 <span>       y <span class="op">=</span> <span class="st">"Fractional deuterium uptake [%]"</span>,</span>
 <span>       title <span class="op">=</span> <span class="st">"Measurement after 1 min of exchange"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="visualization_files/figure-html/unnamed-chunk-2-1.png" class="r-plt" width="672"></p>
+<p><img src="visualization_files/figure-html/unnamed-chunk-2-1.png" class="r-plt" alt="" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
 <li>peptide length and position</li>
@@ -171,7 +171,7 @@ statistically significant at levels 98%.</p>
 <span>  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Position in seqence"</span>,</span>
 <span>       y <span class="op">=</span> <span class="st">"Fractional deuterium uptake difference [%]"</span>,</span>
 <span>       title <span class="op">=</span> <span class="st">"Measurement after 1 min of uptake"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="visualization_files/figure-html/unnamed-chunk-3-1.png" class="r-plt" width="672"></p>
+<p><img src="visualization_files/figure-html/unnamed-chunk-3-1.png" class="r-plt" alt="" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
 <li>differential analysis between two states</li>
@@ -209,7 +209,7 @@ no visible change in time.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/create_state_uptake_dataset.html">create_state_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span>, state <span class="op">=</span> <span class="va">states</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span><span class="fu"><a href="../reference/plot_butterfly.html">plot_butterfly</a></span><span class="op">(</span><span class="va">.</span>, fractional <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="visualization_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" width="672"></p>
+<p><img src="visualization_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" alt="" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
 <li>values for time course</li>
@@ -254,7 +254,7 @@ expected.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/create_diff_uptake_dataset.html">create_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span>, state_1 <span class="op">=</span> <span class="va">states</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, state_2 <span class="op">=</span> <span class="va">states</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Exposure</span> <span class="op">&lt;</span> <span class="fl">1440</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span><span class="fu"><a href="../reference/plot_differential_butterfly.html">plot_differential_butterfly</a></span><span class="op">(</span>fractional <span class="op">=</span> <span class="cn">TRUE</span>, show_houde_interval <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span></code></pre></div>
-<p><img src="visualization_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" width="672"></p>
+<p><img src="visualization_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" alt="" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
 <li>differential analysis between two states</li>
@@ -297,7 +297,7 @@ the uncertainty).</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/create_state_uptake_dataset.html">create_state_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span>, state <span class="op">=</span> <span class="va">states</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Exposure</span> <span class="op">&lt;</span> <span class="fl">1440</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="../reference/plot_chiclet.html">plot_chiclet</a></span><span class="op">(</span>show_uncertainty <span class="op">=</span> <span class="cn">TRUE</span>, fractional <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="visualization_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" width="672"></p>
+<p><img src="visualization_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" alt="" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
 <li>values for time course</li>
@@ -346,7 +346,7 @@ uncertainty).</p>
 <code class="sourceCode R"><span><span class="va">diff_uptake_dat</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Exposure</span> <span class="op">&lt;</span> <span class="fl">1440</span> <span class="op">&amp;</span> <span class="va">Exposure</span> <span class="op">&gt;</span> <span class="fl">0.001</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="../reference/plot_differential_chiclet.html">plot_differential_chiclet</a></span><span class="op">(</span>show_uncertainty <span class="op">=</span> <span class="cn">TRUE</span>, fractional <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="visualization_files/figure-html/unnamed-chunk-7-1.png" class="r-plt" width="672"><em>Pros:</em></p>
+<p><img src="visualization_files/figure-html/unnamed-chunk-7-1.png" class="r-plt" alt="" width="672"><em>Pros:</em></p>
 <ul>
 <li>differential analysis between two states</li>
 <li>values for time course</li>
@@ -406,7 +406,7 @@ upper corner are statistically significant using the hybrid testing.</p>
 <code class="sourceCode R"><span><span class="va">p_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_p_diff_uptake_dataset.html">create_p_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/plot_volcano.html">plot_volcano</a></span><span class="op">(</span><span class="va">p_dat</span>, show_confidence_limits <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="visualization_files/figure-html/unnamed-chunk-8-1.png" class="r-plt" width="672"></p>
+<p><img src="visualization_files/figure-html/unnamed-chunk-8-1.png" class="r-plt" alt="" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
 <li>hybrid statistic test</li>
@@ -438,7 +438,7 @@ eEF1Ba.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/calculate_peptide_kinetics.html">calculate_peptide_kinetics</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">alpha_dat</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span><span class="fu"><a href="../reference/plot_uptake_curve.html">plot_uptake_curve</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">ylim</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="visualization_files/figure-html/unnamed-chunk-9-1.png" class="r-plt" width="672"></p>
+<p><img src="visualization_files/figure-html/unnamed-chunk-9-1.png" class="r-plt" alt="" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
 <li>time course</li>
@@ -476,7 +476,7 @@ and none of the value is suspicious.</p>
 <code class="sourceCode R"><span><span class="va">alpha_dat</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Exposure</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span><span class="fu"><a href="../reference/plot_uncertainty.html">plot_uncertainty</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span></code></pre></div>
-<p><img src="visualization_files/figure-html/unnamed-chunk-10-1.png" class="r-plt" width="672"><em>Pros:</em></p>
+<p><img src="visualization_files/figure-html/unnamed-chunk-10-1.png" class="r-plt" alt="" width="672"><em>Pros:</em></p>
 <ul>
 <li>experimental quality control</li>
 <li>regions with high measurement uncertainty are easy to spot</li>
@@ -511,7 +511,7 @@ create_p_diff_uptake_dataset, or by default 0.98).</p>
 <code class="sourceCode R"><span><span class="va">p_diff_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_p_diff_uptake_dataset.html">create_p_diff_uptake_dataset</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">alpha_dat</span>, diff_uptake_dat <span class="op">=</span> <span class="va">diff_uptake_dat</span>,</span>
 <span>                                           state_1 <span class="op">=</span> <span class="va">states</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, state_2 <span class="op">=</span> <span class="va">states</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/plot_manhattan.html">plot_manhattan</a></span><span class="op">(</span><span class="va">p_diff_dat</span>, show_peptide_position  <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="visualization_files/figure-html/unnamed-chunk-11-1.png" class="r-plt" width="672"></p>
+<p><img src="visualization_files/figure-html/unnamed-chunk-11-1.png" class="r-plt" alt="" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
 <li>peptide length and position</li>
@@ -541,7 +541,7 @@ presented on the heatmap.</p>
 <code class="sourceCode R"><span><span class="va">kin_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_uptake_dataset.html">create_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span>, states <span class="op">=</span> <span class="st">"Alpha_KSCN"</span><span class="op">)</span></span>
 <span><span class="va">aggregated_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_aggregated_uptake_dataset.html">create_aggregated_uptake_dataset</a></span><span class="op">(</span><span class="va">kin_dat</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/plot_aggregated_uptake.html">plot_aggregated_uptake</a></span><span class="op">(</span><span class="va">aggregated_dat</span><span class="op">)</span></span></code></pre></div>
-<p><img src="visualization_files/figure-html/unnamed-chunk-12-1.png" class="r-plt" width="672"></p>
+<p><img src="visualization_files/figure-html/unnamed-chunk-12-1.png" class="r-plt" alt="" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
 <li>high-resolution</li>
@@ -581,7 +581,7 @@ some are deprotected (blue).</p>
 <code class="sourceCode R"><span><span class="va">diff_uptake_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_diff_uptake_dataset.html">create_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span>, state_1 <span class="op">=</span> <span class="va">states</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, state_2 <span class="op">=</span> <span class="va">states</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="va">aggregated_diff_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_aggregated_diff_uptake_dataset.html">create_aggregated_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">diff_uptake_dat</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/plot_aggregated_differential_uptake.html">plot_aggregated_differential_uptake</a></span><span class="op">(</span><span class="va">aggregated_diff_dat</span>, panels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="visualization_files/figure-html/unnamed-chunk-13-1.png" class="r-plt" width="672"></p>
+<p><img src="visualization_files/figure-html/unnamed-chunk-13-1.png" class="r-plt" alt="" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
 <li>high-resolution</li>
@@ -660,7 +660,7 @@ sub-regions.</p>
 <span><span class="fu"><a href="../reference/plot_coverage_heatmap.html">plot_coverage_heatmap</a></span><span class="op">(</span><span class="va">auc_dat</span>, value <span class="op">=</span> <span class="st">"auc"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Ignoring unknown labels:</span></span>
 <span><span class="co">## <span style="color: #00BBBB;">•</span> <span style="color: #00BB00;">colour</span> : <span style="color: #0000BB;">"Exposure"</span></span></span></code></pre>
-<p><img src="visualization_files/figure-html/unnamed-chunk-15-1.png" class="r-plt" width="672"></p>
+<p><img src="visualization_files/figure-html/unnamed-chunk-15-1.png" class="r-plt" alt="" width="672"></p>
 <p>Each of the AUC value for different biological state is calculated
 separately. In order to meaningfully compare AUC values, we must select
 the same fully deuterated control for all of them - to have the same
@@ -680,7 +680,7 @@ back-exchange.</p>
 <span><span class="fu"><a href="../reference/plot_coverage_heatmap.html">plot_coverage_heatmap</a></span><span class="op">(</span><span class="va">bex_dat</span>, value <span class="op">=</span> <span class="st">"back_exchange"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Ignoring unknown labels:</span></span>
 <span><span class="co">## <span style="color: #00BBBB;">•</span> <span style="color: #00BB00;">colour</span> : <span style="color: #0000BB;">"Exposure"</span></span></span></code></pre>
-<p><img src="visualization_files/figure-html/unnamed-chunk-16-1.png" class="r-plt" width="672"></p>
+<p><img src="visualization_files/figure-html/unnamed-chunk-16-1.png" class="r-plt" alt="" width="672"></p>
 <p><em>Pros:</em></p>
 <ul>
 <li>auc / back-exchange values</li>
