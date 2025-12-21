@@ -251,10 +251,10 @@ version_benchmark <- microbenchmark(
 )
 ```
 
-The microbenchmark operates by executing each command 100 times and
-summarising the resulting execution times in milliseconds. The results
-are then presented side by side in graphical form to facilitate a direct
-and intuitive comparison across commands.
+The microbenchmark package operates by executing each command 100 times
+and summarizing the resulting execution times in milliseconds. The
+results are then presented side by side in graphical form to facilitate
+a direct and intuitive comparison across commands.
 
 ![](version_comparison_files/figure-html/unnamed-chunk-5-1.png)
 
