@@ -13,7 +13,7 @@ sub-directories of 1Mb or more:
       doc     5.6Mb
 ```
 
-The size is mostly caused by our extensive documentation. 
+The size is mostly caused by our extensive documentation and necessary external data files used in Examples. 
 
 ## Tested environments
 

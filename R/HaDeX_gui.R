@@ -31,7 +31,7 @@ handle_missing_GUI <- function() {
       no = message("You cannot run the GUI without having installed 'HaDeXGUI'. You can do it by calling 'HaDeX::install_GUI()'."),
     )
   } else {
-    message("To be able to run HaDeX Graphical User Interface, you have to have the 'HaDeXGUI' package installed. You can do it by calling 'HaDeX::install_GUI()'.")
+    message("To be able to run HaDeX Graphical User Interface, you have to have the 'HaDeXGUI' package installed. You can do it by calling 'HaDeX2::install_GUI()' or 'remotes::install_github()'.")
   }
 }
 
