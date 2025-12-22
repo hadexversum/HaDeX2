@@ -214,7 +214,7 @@ version_benchmark <- microbenchmark(
 The microbenchmark package operates by executing each command 100 times and summarizing the resulting execution times in milliseconds. The results are then presented side by side in graphical form to facilitate a direct and intuitive comparison across commands.
 
 
-```{r message = FALSE, echo=FALSE, results='asis', out.width=6}
+```{r message = FALSE, echo=FALSE, results='asis', out.width='100%'}
 
 version_benchmark <- readRDS(file = "version_benchmark.rds")
 
@@ -240,9 +240,14 @@ Below, we present the summary of numeric values used to create this plot (in mil
 summary(version_benchmark, unit = "ms") %>% 
   mutate(tool = sapply(strsplit(as.character(expr), "_"), first),
          task = sapply(strsplit(as.character(expr), "_"), last)) %>% 
-  select(tool, task, mean, median, lq, uq) %>% 
+  select(tool, task, median) %>% 
+  tidyr::pivot_wider(names_from = tool, values_from = median) %>% 
+  mutate(`Runtime ratio` = HaDeX2/HaDeX) %>% 
   knitr::kable()
 ```
+
+Across all tasks, the reported values represent a runtime ratio (HaDeX2/HaDeX) consistently below one, indicating that HaDeX2 is faster than HaDeX for every measured operation. The strongest speedups, corresponding to the lowest ratios, are observed for plotting functions, calculating confidence limits, and plotting uptake curves, whereas input reading and sequence reconstruction show comparatively smaller, though still meaningful, reductions in execution time. In the case of input reading, the modest speed-up results from the fact that this functionality has substantially expanded in-built quality control in HaDeX2, where additional validation steps intentionally constrain maximal speed in favor of improved data integrity.
+
 
 # HaDeX2 design
 
