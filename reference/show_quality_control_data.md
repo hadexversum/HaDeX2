@@ -34,21 +34,18 @@ the GUI.
 ## Examples
 
 ``` r
-dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-qc_dat <- create_quality_control_dataset(dat)  
+qc_dat <- create_quality_control_dataset(alpha_dat)  
 show_quality_control_data(qc_dat)
 #>   Out time Mean error - state 1 [%] Mean error - state 2 [%]
-#> 1    0.167                     0.01                     0.02
-#> 2    1.000                     0.01                     0.02
-#> 3    5.000                     0.01                     0.01
-#> 4   25.000                     0.00                     0.01
-#> 5  120.000                     0.00                     0.00
-#> 6 1440.000                     0.00                     0.00
+#> 1        1                     3.40                    34.52
+#> 2        5                     3.93                     7.17
+#> 3       25                     1.66                     4.93
+#> 4      150                     1.24                     1.57
+#> 5     1440                     0.72                     1.07
 #>   Mean error of difference [%]
-#> 1                         0.02
-#> 2                         0.02
-#> 3                         0.01
-#> 4                         0.01
-#> 5                         0.00
-#> 6                         0.00
+#> 1                        35.94
+#> 2                         9.80
+#> 3                         5.45
+#> 4                         2.12
+#> 5                         1.35
 ```

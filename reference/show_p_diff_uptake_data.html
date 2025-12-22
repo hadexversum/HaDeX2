@@ -112,25 +112,24 @@ are changed to user-friendly ones.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="read_hdx.html">read_hdx</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"HaDeX2"</span>, <span class="st">"HaDeX/data/KD_180110_CD160_HVEM.csv"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">p_diff_uptake_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_p_diff_uptake_dataset.html">create_p_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">dat</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">p_diff_uptake_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_p_diff_uptake_dataset.html">create_p_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu">show_p_diff_uptake_data</span><span class="op">(</span><span class="va">p_diff_uptake_dat</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     Protein    ID        Sequence Modification Start   End Exposure</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      &lt;char&gt; &lt;int&gt;          &lt;char&gt;       &lt;lgcl&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1: db_CD160     1 INITSSASQEGTRLN           NA     1    15    0.001</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2: db_CD160     1 INITSSASQEGTRLN           NA     1    15    0.167</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3: db_CD160     1 INITSSASQEGTRLN           NA     1    15    1.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4: db_CD160     1 INITSSASQEGTRLN           NA     1    15    5.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5: db_CD160     1 INITSSASQEGTRLN           NA     1    15   25.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6: db_CD160     1 INITSSASQEGTRLN           NA     1    15  120.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Diff DU [Da] U(Diff DU) [Da] P value log(P value)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;num&gt;           &lt;num&gt;   &lt;num&gt;        &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:       0.0000          0.0000      NA           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2:       0.3189          0.0460  0.0006       7.4571</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3:       0.3413          0.0969  0.0150       4.2002</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4:       0.5490          0.0825  0.0006       7.3645</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5:       0.6439          0.0549  0.0002       8.4948</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6:       0.1082          0.0856  0.2757       1.2885</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      Protein    ID    Sequence Modification Start   End Exposure Diff DU [Da]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;char&gt; &lt;int&gt;      &lt;char&gt;       &lt;lgcl&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt;        &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1: db_eEF1Ba     1 GFGDLKSPAGL           NA     1    11    0.167       0.0745</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2: db_eEF1Ba     1 GFGDLKSPAGL           NA     1    11    1.000       0.4316</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3: db_eEF1Ba     1 GFGDLKSPAGL           NA     1    11    5.000       0.3947</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4: db_eEF1Ba     1 GFGDLKSPAGL           NA     1    11   25.000       0.5304</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5: db_eEF1Ba     1 GFGDLKSPAGL           NA     1    11  150.000       0.0670</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6: db_eEF1Ba     1 GFGDLKSPAGL           NA     1    11 1440.000       0.0251</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    U(Diff DU) [Da] P value log(P value)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              &lt;num&gt;   &lt;num&gt;        &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:          0.0208  0.0653       2.7281</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2:          0.0391  0.0018       6.3260</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3:          0.0573      NA           NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4:          0.1068  0.0235       3.7506</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5:          0.0946  0.5308       0.6335</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6:          0.0551  0.6726       0.3965</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

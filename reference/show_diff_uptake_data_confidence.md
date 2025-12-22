@@ -62,33 +62,32 @@ The names of columns are changed to user-friendly ones.
 ## Examples
 
 ``` r
-dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-diff_uptake_dat <- create_diff_uptake_dataset(dat)
+diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 show_diff_uptake_data_confidence(diff_uptake_dat)
-#>       Protein        Sequence    ID Modification Start   End Exposure
-#>        <char>          <char> <int>       <lgcl> <int> <int>    <num>
-#>   1: db_CD160 INITSSASQEGTRLN     1           NA     1    15    0.001
-#>   2: db_CD160 INITSSASQEGTRLN     1           NA     1    15    0.167
-#>   3: db_CD160 INITSSASQEGTRLN     1           NA     1    15    1.000
-#>   4: db_CD160 INITSSASQEGTRLN     1           NA     1    15    5.000
-#>   5: db_CD160 INITSSASQEGTRLN     1           NA     1    15   25.000
-#>  ---                                                                 
-#> 283: db_CD160        FSHNEGTL    41           NA   125   132    1.000
-#> 284: db_CD160        FSHNEGTL    41           NA   125   132    5.000
-#> 285: db_CD160        FSHNEGTL    41           NA   125   132   25.000
-#> 286: db_CD160        FSHNEGTL    41           NA   125   132  120.000
-#> 287: db_CD160        FSHNEGTL    41           NA   125   132 1440.000
-#>      Diff DU [Da] U(Diff DU) [Da] Valid At 0.98
-#>             <num>           <num>        <lgcl>
-#>   1:       0.0000          0.0000         FALSE
-#>   2:       0.3189          0.0460          TRUE
-#>   3:       0.3413          0.0969          TRUE
-#>   4:       0.5490          0.0825          TRUE
-#>   5:       0.6439          0.0549          TRUE
-#>  ---                                           
-#> 283:      -0.0731          0.0377          TRUE
-#> 284:      -0.0177          0.0221          TRUE
-#> 285:       0.0456          0.0247          TRUE
-#> 286:       0.0818          0.0418          TRUE
-#> 287:       0.0057          0.0477         FALSE
+#>        Protein    Sequence    ID Modification Start   End Exposure Diff DU [Da]
+#>         <char>      <char> <int>       <lgcl> <int> <int>    <num>        <num>
+#>   1: db_eEF1Ba GFGDLKSPAGL     1           NA     1    11    0.167       0.0745
+#>   2: db_eEF1Ba GFGDLKSPAGL     1           NA     1    11    1.000       0.4316
+#>   3: db_eEF1Ba GFGDLKSPAGL     1           NA     1    11    5.000       0.3947
+#>   4: db_eEF1Ba GFGDLKSPAGL     1           NA     1    11   25.000       0.5304
+#>   5: db_eEF1Ba GFGDLKSPAGL     1           NA     1    11  150.000       0.0670
+#>  ---                                                                           
+#> 632: db_eEF1Ba       DVAAF   106           NA   217   221    1.000       0.1729
+#> 633: db_eEF1Ba       DVAAF   106           NA   217   221    5.000       0.1173
+#> 634: db_eEF1Ba       DVAAF   106           NA   217   221   25.000       0.1597
+#> 635: db_eEF1Ba       DVAAF   106           NA   217   221  150.000      -0.0166
+#> 636: db_eEF1Ba       DVAAF   106           NA   217   221 1440.000       0.0000
+#>      U(Diff DU) [Da] Valid At 0.98
+#>                <num>        <lgcl>
+#>   1:          0.0208          TRUE
+#>   2:          0.0391          TRUE
+#>   3:          0.0573          TRUE
+#>   4:          0.1068          TRUE
+#>   5:          0.0946          TRUE
+#>  ---                              
+#> 632:          0.0266          TRUE
+#> 633:          0.0057          TRUE
+#> 634:          0.0318          TRUE
+#> 635:          0.0132          TRUE
+#> 636:          0.0075         FALSE
 ```

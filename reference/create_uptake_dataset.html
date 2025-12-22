@@ -127,37 +127,36 @@ comparison plot.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="read_hdx.html">read_hdx</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"HaDeX2"</span>, <span class="st">"HaDeX/data/KD_180110_CD160_HVEM.csv"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">uptake_dat</span> <span class="op">&lt;-</span> <span class="fu">create_uptake_dataset</span><span class="op">(</span><span class="va">dat</span>, states <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"CD160"</span>, <span class="st">"CD160_HVEM"</span><span class="op">)</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">uptake_dat</span> <span class="op">&lt;-</span> <span class="fu">create_uptake_dataset</span><span class="op">(</span><span class="va">alpha_dat</span>, states <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Alpha_KSCN"</span>, <span class="st">"ALPHA_Gamma"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">uptake_dat</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Protein        Sequence Exposure Start End State MaxUptake Modification</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 db_CD160 INITSSASQEGTRLN    0.001     1  15 CD160        14           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 db_CD160          LICTVW    0.001    16  21 CD160         5           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 db_CD160  LICTVWHKKEEAEG    0.001    16  29 CD160        13           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 db_CD160   ICTVWHKKEEAEG    0.001    17  29 CD160        12           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 db_CD160           FVVFL    0.001    30  34 CD160         4           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 db_CD160 LCKDRSGDCSPETSL    0.001    34  48 CD160        13           NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   frac_deut_uptake err_frac_deut_uptake  deut_uptake err_deut_uptake</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1       0.36935223         0.0012947000  0.038605737               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2       0.03033506         0.0001481620  0.000888387               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3       0.34405201         0.0033762717  0.026403750               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4      -0.85967318         0.0058949102 -0.063096279               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5       1.31196247         0.0076786534  0.030796000               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6       0.23854825         0.0003776673  0.017958220               0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     Protein    Sequence Exposure Start End      State MaxUptake Modification</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 db_eEF1Ba GFGDLKSPAGL    0.167     1  11 Alpha_KSCN         9           NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 db_eEF1Ba  FGDLKSPAGL    0.167     2  11 Alpha_KSCN         8           NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 db_eEF1Ba   GDLKSPAGL    0.167     3  11 Alpha_KSCN         7           NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 db_eEF1Ba      LKSPAG    0.167     5  10 Alpha_KSCN         4           NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 db_eEF1Ba     LKSPAGL    0.167     5  11 Alpha_KSCN         5           NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 db_eEF1Ba      AGLQVL    0.167     9  14 Alpha_KSCN         5           NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   frac_deut_uptake err_frac_deut_uptake deut_uptake err_deut_uptake</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1         32.40425            1.1841232    1.760438      0.06314206</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2         74.06056            0.7801511    3.206041      0.02733533</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3         75.44149            1.1145377    3.383123      0.04574589</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4         69.12906            1.2950988    1.912019      0.03567309</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5         69.60422            1.2252841    2.172923      0.03819919</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6         31.23305            0.6744664    1.094601      0.01974822</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   theo_frac_deut_uptake err_theo_frac_deut_uptake theo_deut_uptake</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1            -0.4493436                         0      -0.05702927</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2           -10.9156277                         0      -0.49477747</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3             0.5814308                         0       0.06852240</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4            -0.7130478                         0      -0.07756952</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5           -16.5250744                         0      -0.59923147</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6             0.3030472                         0       0.03571452</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1             18.504430                 0.7739003        1.5097652</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2             43.524594                 0.3769147        3.1565736</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3             47.817653                 0.7208798        3.0344326</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4             35.241663                 0.9837608        1.2779315</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5             38.173687                 0.8427387        1.7303155</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6              9.768406                 0.4356792        0.4427769</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   err_theo_deut_uptake Med_Sequence</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                    0          8.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                    0         18.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                    0         22.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                    0         23.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                    0         32.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                    0         41.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1           0.06314206          6.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2           0.02733533          6.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3           0.04574589          7.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4           0.03567309          7.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5           0.03819919          8.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6           0.01974822         11.5</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

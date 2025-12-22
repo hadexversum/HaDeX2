@@ -54,22 +54,30 @@ or
 
 ``` r
 dat <- read_hdx(system.file(package = "HaDeX2", 
-                     "HaDeX/data/KD_180110_CD160_HVEM.csv"))
+                     "HaDeX/data/alpha.csv"))
 head(dat)
-#>     Protein Start   End        Sequence Modification MaxUptake      MHP  State
-#>      <char> <int> <int>          <char>       <lgcl>     <num>    <num> <char>
-#> 1: db_CD160     1    15 INITSSASQEGTRLN           NA        14 1590.808  CD160
-#> 2: db_CD160     1    15 INITSSASQEGTRLN           NA        14 1590.808  CD160
-#> 3: db_CD160     1    15 INITSSASQEGTRLN           NA        14 1590.808  CD160
-#> 4: db_CD160     1    15 INITSSASQEGTRLN           NA        14 1590.808  CD160
-#> 5: db_CD160     1    15 INITSSASQEGTRLN           NA        14 1590.808  CD160
-#> 6: db_CD160     1    15 INITSSASQEGTRLN           NA        14 1590.808  CD160
-#>    Exposure                    File     z  Inten    Center
-#>       <num>                  <char> <int>  <num>     <num>
-#> 1:    0.000 KD_160527_CD160_sekw_05     1   6592 1591.2584
-#> 2:    0.000 KD_160527_CD160_sekw_05     2 394066  796.3552
-#> 3:    0.000 KD_160527_CD160_sekw_05     3 173526  531.2633
-#> 4:    0.001   KD_160527_CD160_IN_01     2 232221  796.3634
-#> 5:    0.001   KD_160527_CD160_IN_01     3 110675  531.2849
-#> 6:    0.167  KD_160530_CD160_10s_01     2  99894  800.3610
+#>      Protein Start   End    Sequence Modification MaxUptake      MHP
+#>       <char> <int> <int>      <char>       <lgcl>     <int>    <num>
+#> 1: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9 1061.563
+#> 2: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9 1061.563
+#> 3: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9 1061.563
+#> 4: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9 1061.563
+#> 5: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9 1061.563
+#> 6: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9 1061.563
+#>          State Exposure                              File     z  Inten
+#>         <char>    <num>                            <char> <int>  <int>
+#> 1: ALPHA_Gamma    0.000 Tania_161112_eEF1Ba_KSCN_IMS_seq1     1 138844
+#> 2: ALPHA_Gamma    0.000 Tania_161112_eEF1Ba_KSCN_IMS_seq1     2 728218
+#> 3: ALPHA_Gamma    0.167  Tania_161109_1eEF1Bag_KSCN_10sec     1  41100
+#> 4: ALPHA_Gamma    0.167  Tania_161109_1eEF1Bag_KSCN_10sec     2 393115
+#> 5: ALPHA_Gamma    0.167  Tania_161109_2eEF1Bag_KSCN_10sec     1  46642
+#> 6: ALPHA_Gamma    0.167  Tania_161109_2eEF1Bag_KSCN_10sec     2 466233
+#>       Center
+#>        <num>
+#> 1: 1062.1913
+#> 2:  531.6754
+#> 3: 1064.0150
+#> 4:  532.4975
+#> 5: 1063.9682
+#> 6:  532.4951
 ```

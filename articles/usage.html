@@ -118,69 +118,21 @@ deuterium uptake [%]</li>
 <h3 id="read-data-file">Read data file<a class="anchor" aria-label="anchor" href="#read-data-file"></a>
 </h3>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_hdx.html">read_hdx</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"HaDeX2"</span>, <span class="st">"HaDeX/data/KD_180110_CD160_HVEM.csv"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># dat %&gt;%</span></span>
-<span><span class="co">#   calculate_state_uptake() %&gt;%</span></span>
-<span><span class="co">#   plot_state_comparison()</span></span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">dat</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu"><a href="../reference/calculate_peptide_kinetics.html">calculate_peptide_kinetics</a></span><span class="op">(</span>protein <span class="op">=</span> <span class="st">"db_CD160"</span>,</span>
-<span>                             sequence <span class="op">=</span> <span class="st">"INITSSASQEGTRLN"</span>,</span>
-<span>                             start <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>                             end <span class="op">=</span> <span class="fl">15</span>,</span>
-<span>                             states <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"CD160"</span>, <span class="st">"CD160_HVEM"</span><span class="op">)</span>,</span>
-<span>                             time_0 <span class="op">=</span> <span class="fl">0.001</span>, time_100 <span class="op">=</span> <span class="fl">1440</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu"><a href="../reference/plot_uptake_curve.html">plot_uptake_curve</a></span><span class="op">(</span>fractional <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Warning in log(x, base): NaNs produced</span></span></code></pre>
-<p><img src="usage_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" alt="" width="700"></p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">dat</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu"><a href="../reference/calculate_peptide_kinetics.html">calculate_peptide_kinetics</a></span><span class="op">(</span>protein <span class="op">=</span> <span class="st">"db_CD160"</span>,</span>
-<span>                             sequence <span class="op">=</span> <span class="st">"INITSSASQEGTRLN"</span>,</span>
-<span>                             start <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>                             end <span class="op">=</span> <span class="fl">15</span>,</span>
-<span>                             states <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"CD160"</span>, <span class="st">"CD160_HVEM"</span><span class="op">)</span>,</span>
-<span>                             time_0 <span class="op">=</span> <span class="fl">0.001</span>, time_100 <span class="op">=</span> <span class="fl">1440</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu"><a href="../reference/show_uptake_data.html">show_uptake_data</a></span><span class="op">(</span>fractional <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##      Protein        Sequence    ID Modification      State Start   End Exposure</span></span>
-<span><span class="co">##       &lt;char&gt;          &lt;char&gt; &lt;int&gt;       &lt;lgcl&gt;     &lt;char&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt;</span></span>
-<span><span class="co">##  1: db_CD160 INITSSASQEGTRLN     1           NA      CD160     1    15    0.167</span></span>
-<span><span class="co">##  2: db_CD160 INITSSASQEGTRLN     1           NA      CD160     1    15    1.000</span></span>
-<span><span class="co">##  3: db_CD160 INITSSASQEGTRLN     1           NA      CD160     1    15    5.000</span></span>
-<span><span class="co">##  4: db_CD160 INITSSASQEGTRLN     1           NA      CD160     1    15   25.000</span></span>
-<span><span class="co">##  5: db_CD160 INITSSASQEGTRLN     1           NA      CD160     1    15  120.000</span></span>
-<span><span class="co">##  6: db_CD160 INITSSASQEGTRLN     1           NA CD160_HVEM     1    15    0.167</span></span>
-<span><span class="co">##  7: db_CD160 INITSSASQEGTRLN     1           NA CD160_HVEM     1    15    1.000</span></span>
-<span><span class="co">##  8: db_CD160 INITSSASQEGTRLN     1           NA CD160_HVEM     1    15    5.000</span></span>
-<span><span class="co">##  9: db_CD160 INITSSASQEGTRLN     1           NA CD160_HVEM     1    15   25.000</span></span>
-<span><span class="co">## 10: db_CD160 INITSSASQEGTRLN     1           NA CD160_HVEM     1    15  120.000</span></span>
-<span><span class="co">##     Frac DU [%] U(Frac DU) [%]</span></span>
-<span><span class="co">##           &lt;num&gt;          &lt;num&gt;</span></span>
-<span><span class="co">##  1:     76.8561         0.3832</span></span>
-<span><span class="co">##  2:     84.1962         0.6111</span></span>
-<span><span class="co">##  3:     87.5333         0.5943</span></span>
-<span><span class="co">##  4:     93.1959         0.5786</span></span>
-<span><span class="co">##  5:     95.5038         0.8333</span></span>
-<span><span class="co">##  6:     74.3584         0.6689</span></span>
-<span><span class="co">##  7:     81.5377         0.9895</span></span>
-<span><span class="co">##  8:     82.8900         0.8820</span></span>
-<span><span class="co">##  9:     87.6782         0.7086</span></span>
-<span><span class="co">## 10:     95.1868         0.7919</span></span></code></pre>
+<code class="sourceCode R"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_hdx.html">read_hdx</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"HaDeX2"</span>, <span class="st">"HaDeX/data/alpha.csv"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="different-forms-of-visualization">Different forms of visualization<a class="anchor" aria-label="anchor" href="#different-forms-of-visualization"></a>
 </h3>
 <p>Create data frame with uptake values for state in all time
 points:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">uptake_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_state_uptake_dataset.html">create_state_uptake_dataset</a></span><span class="op">(</span><span class="va">dat</span><span class="op">)</span></span></code></pre></div>
 <p>Butterfly:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_butterfly.html">plot_butterfly</a></span><span class="op">(</span><span class="va">uptake_dat</span><span class="op">)</span></span></code></pre></div>
-<p><img src="usage_files/figure-html/unnamed-chunk-7-1.png" class="r-plt" alt="" width="700"></p>
+<p><img src="usage_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" alt="" width="700"></p>
 <p>Chiclet:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_chiclet.html">plot_chiclet</a></span><span class="op">(</span><span class="va">uptake_dat</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Warning: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.</span></span>
 <span><span class="co">## <span style="color: #00BBBB;">ℹ</span> Please use the `linewidth` argument instead.</span></span>
@@ -189,7 +141,7 @@ points:</p>
 <span><span class="co">## <span style="color: #555555;">This warning is displayed once every 8 hours.</span></span></span>
 <span><span class="co">## <span style="color: #555555;">Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span></span>
 <span><span class="co">## <span style="color: #555555;">generated.</span></span></span></code></pre>
-<p><img src="usage_files/figure-html/unnamed-chunk-8-1.png" class="r-plt" alt="" width="700"></p>
+<p><img src="usage_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" alt="" width="700"></p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

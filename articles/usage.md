@@ -31,65 +31,8 @@ Variables:
 ### Read data file
 
 ``` r
-dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
+dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
 ```
-
-``` r
-# dat %>%
-#   calculate_state_uptake() %>%
-#   plot_state_comparison()
-```
-
-``` r
-dat %>%
-  calculate_peptide_kinetics(protein = "db_CD160",
-                             sequence = "INITSSASQEGTRLN",
-                             start = 1,
-                             end = 15,
-                             states = c("CD160", "CD160_HVEM"),
-                             time_0 = 0.001, time_100 = 1440) %>%
-  plot_uptake_curve(fractional = TRUE)
-```
-
-    ## Warning in log(x, base): NaNs produced
-
-![](usage_files/figure-html/unnamed-chunk-4-1.png)
-
-``` r
-dat %>%
-  calculate_peptide_kinetics(protein = "db_CD160",
-                             sequence = "INITSSASQEGTRLN",
-                             start = 1,
-                             end = 15,
-                             states = c("CD160", "CD160_HVEM"),
-                             time_0 = 0.001, time_100 = 1440) %>%
-  show_uptake_data(fractional = TRUE)
-```
-
-    ##      Protein        Sequence    ID Modification      State Start   End Exposure
-    ##       <char>          <char> <int>       <lgcl>     <char> <int> <int>    <num>
-    ##  1: db_CD160 INITSSASQEGTRLN     1           NA      CD160     1    15    0.167
-    ##  2: db_CD160 INITSSASQEGTRLN     1           NA      CD160     1    15    1.000
-    ##  3: db_CD160 INITSSASQEGTRLN     1           NA      CD160     1    15    5.000
-    ##  4: db_CD160 INITSSASQEGTRLN     1           NA      CD160     1    15   25.000
-    ##  5: db_CD160 INITSSASQEGTRLN     1           NA      CD160     1    15  120.000
-    ##  6: db_CD160 INITSSASQEGTRLN     1           NA CD160_HVEM     1    15    0.167
-    ##  7: db_CD160 INITSSASQEGTRLN     1           NA CD160_HVEM     1    15    1.000
-    ##  8: db_CD160 INITSSASQEGTRLN     1           NA CD160_HVEM     1    15    5.000
-    ##  9: db_CD160 INITSSASQEGTRLN     1           NA CD160_HVEM     1    15   25.000
-    ## 10: db_CD160 INITSSASQEGTRLN     1           NA CD160_HVEM     1    15  120.000
-    ##     Frac DU [%] U(Frac DU) [%]
-    ##           <num>          <num>
-    ##  1:     76.8561         0.3832
-    ##  2:     84.1962         0.6111
-    ##  3:     87.5333         0.5943
-    ##  4:     93.1959         0.5786
-    ##  5:     95.5038         0.8333
-    ##  6:     74.3584         0.6689
-    ##  7:     81.5377         0.9895
-    ##  8:     82.8900         0.8820
-    ##  9:     87.6782         0.7086
-    ## 10:     95.1868         0.7919
 
 ### Different forms of visualization
 
@@ -105,7 +48,7 @@ Butterfly:
 plot_butterfly(uptake_dat)
 ```
 
-![](usage_files/figure-html/unnamed-chunk-7-1.png)
+![](usage_files/figure-html/unnamed-chunk-4-1.png)
 
 Chiclet:
 
@@ -121,4 +64,4 @@ plot_chiclet(uptake_dat)
     ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
     ## generated.
 
-![](usage_files/figure-html/unnamed-chunk-8-1.png)
+![](usage_files/figure-html/unnamed-chunk-5-1.png)

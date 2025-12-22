@@ -118,35 +118,34 @@ are changed to user-friendly ones.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="read_hdx.html">read_hdx</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"HaDeX2"</span>, <span class="st">"HaDeX/data/KD_180110_CD160_HVEM.csv"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">diff_uptake_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_diff_uptake_dataset.html">create_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">dat</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">diff_uptake_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_diff_uptake_dataset.html">create_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">show_diff_uptake_data_confidence</span><span class="op">(</span><span class="va">diff_uptake_dat</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Protein        Sequence    ID Modification Start   End Exposure</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        &lt;char&gt;          &lt;char&gt; &lt;int&gt;       &lt;lgcl&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1: db_CD160 INITSSASQEGTRLN     1           NA     1    15    0.001</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2: db_CD160 INITSSASQEGTRLN     1           NA     1    15    0.167</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3: db_CD160 INITSSASQEGTRLN     1           NA     1    15    1.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4: db_CD160 INITSSASQEGTRLN     1           NA     1    15    5.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5: db_CD160 INITSSASQEGTRLN     1           NA     1    15   25.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 283: db_CD160        FSHNEGTL    41           NA   125   132    1.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 284: db_CD160        FSHNEGTL    41           NA   125   132    5.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 285: db_CD160        FSHNEGTL    41           NA   125   132   25.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 286: db_CD160        FSHNEGTL    41           NA   125   132  120.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 287: db_CD160        FSHNEGTL    41           NA   125   132 1440.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      Diff DU [Da] U(Diff DU) [Da] Valid At 0.98</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;num&gt;           &lt;num&gt;        &lt;lgcl&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1:       0.0000          0.0000         FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2:       0.3189          0.0460          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3:       0.3413          0.0969          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4:       0.5490          0.0825          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5:       0.6439          0.0549          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 283:      -0.0731          0.0377          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 284:      -0.0177          0.0221          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 285:       0.0456          0.0247          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 286:       0.0818          0.0418          TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 287:       0.0057          0.0477         FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        Protein    Sequence    ID Modification Start   End Exposure Diff DU [Da]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;char&gt;      &lt;char&gt; &lt;int&gt;       &lt;lgcl&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt;        &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1: db_eEF1Ba GFGDLKSPAGL     1           NA     1    11    0.167       0.0745</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2: db_eEF1Ba GFGDLKSPAGL     1           NA     1    11    1.000       0.4316</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3: db_eEF1Ba GFGDLKSPAGL     1           NA     1    11    5.000       0.3947</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4: db_eEF1Ba GFGDLKSPAGL     1           NA     1    11   25.000       0.5304</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5: db_eEF1Ba GFGDLKSPAGL     1           NA     1    11  150.000       0.0670</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 632: db_eEF1Ba       DVAAF   106           NA   217   221    1.000       0.1729</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 633: db_eEF1Ba       DVAAF   106           NA   217   221    5.000       0.1173</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 634: db_eEF1Ba       DVAAF   106           NA   217   221   25.000       0.1597</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 635: db_eEF1Ba       DVAAF   106           NA   217   221  150.000      -0.0166</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 636: db_eEF1Ba       DVAAF   106           NA   217   221 1440.000       0.0000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      U(Diff DU) [Da] Valid At 0.98</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                &lt;num&gt;        &lt;lgcl&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1:          0.0208          TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2:          0.0391          TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3:          0.0573          TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4:          0.1068          TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5:          0.0946          TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 632:          0.0266          TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 633:          0.0057          TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 634:          0.0318          TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 635:          0.0132          TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 636:          0.0075         FALSE</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

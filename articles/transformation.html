@@ -88,81 +88,28 @@ understanding of the data transformation.</p>
 <div class="section level2">
 <h2 id="aggregation-of-the-data---visualization">Aggregation of the data - visualization<a class="anchor" aria-label="anchor" href="#aggregation-of-the-data---visualization"></a>
 </h2>
-<p>Let’s see how the data is transformed. We will use the example file
-“KD_180110_CD160_HVEM.csv” from the HaDeX package and focus on just one
-peptide - “LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL” in the state “CD160”.
-The measurement was made for time point 1 min.</p>
+<p>Let’s see how the data is transformed. We will use the example
+alpha_dat file from the HaDeX package and focus on just one peptide -
+“GFGDLKSPAGL” in the state “Alpha”. The measurement was made for time
+point 1 min.</p>
 <p>Below is shown the original and not aggregated data for chosen
 peptide.</p>
-<pre><code><span><span class="co">##      Protein Start   End                             Sequence Modification</span></span>
-<span><span class="co">##       &lt;char&gt; &lt;int&gt; &lt;int&gt;                               &lt;char&gt;       &lt;lgcl&gt;</span></span>
-<span><span class="co">##  1: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">##  2: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">##  3: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">##  4: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">##  5: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">##  6: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">##  7: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">##  8: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">##  9: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">## 10: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">## 11: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">## 12: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">## 13: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">## 14: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">## 15: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">## 16: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">## 17: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">## 18: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">## 19: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">## 20: db_CD160    34    69 LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL           NA</span></span>
-<span><span class="co">##      Protein Start   End                             Sequence Modification</span></span>
-<span><span class="co">##     MaxUptake      MHP  State Exposure                    File     z   Inten</span></span>
-<span><span class="co">##         &lt;num&gt;    &lt;num&gt; &lt;char&gt;    &lt;num&gt;                  &lt;char&gt; &lt;int&gt;   &lt;num&gt;</span></span>
-<span><span class="co">##  1:        33 3900.991  CD160        1 KD_160530_CD160_1min_01     3  325032</span></span>
-<span><span class="co">##  2:        33 3900.991  CD160        1 KD_160530_CD160_1min_01     4  753259</span></span>
-<span><span class="co">##  3:        33 3900.991  CD160        1 KD_160530_CD160_1min_01     5 1340447</span></span>
-<span><span class="co">##  4:        33 3900.991  CD160        1 KD_160530_CD160_1min_01     6 2076956</span></span>
-<span><span class="co">##  5:        33 3900.991  CD160        1 KD_160530_CD160_1min_01     7  759271</span></span>
-<span><span class="co">##  6:        33 3900.991  CD160        1 KD_160530_CD160_1min_02     3  239810</span></span>
-<span><span class="co">##  7:        33 3900.991  CD160        1 KD_160530_CD160_1min_02     4  583325</span></span>
-<span><span class="co">##  8:        33 3900.991  CD160        1 KD_160530_CD160_1min_02     5 1011160</span></span>
-<span><span class="co">##  9:        33 3900.991  CD160        1 KD_160530_CD160_1min_02     6 1584254</span></span>
-<span><span class="co">## 10:        33 3900.991  CD160        1 KD_160530_CD160_1min_02     7  600218</span></span>
-<span><span class="co">## 11:        33 3900.991  CD160        1 KD_160530_CD160_1min_03     3  176788</span></span>
-<span><span class="co">## 12:        33 3900.991  CD160        1 KD_160530_CD160_1min_03     4  402630</span></span>
-<span><span class="co">## 13:        33 3900.991  CD160        1 KD_160530_CD160_1min_03     5  746309</span></span>
-<span><span class="co">## 14:        33 3900.991  CD160        1 KD_160530_CD160_1min_03     6 1117344</span></span>
-<span><span class="co">## 15:        33 3900.991  CD160        1 KD_160530_CD160_1min_03     7  397718</span></span>
-<span><span class="co">## 16:        33 3900.991  CD160        1 KD_160530_CD160_1min_04     3  189258</span></span>
-<span><span class="co">## 17:        33 3900.991  CD160        1 KD_160530_CD160_1min_04     4  441817</span></span>
-<span><span class="co">## 18:        33 3900.991  CD160        1 KD_160530_CD160_1min_04     5  796722</span></span>
-<span><span class="co">## 19:        33 3900.991  CD160        1 KD_160530_CD160_1min_04     6 1186263</span></span>
-<span><span class="co">## 20:        33 3900.991  CD160        1 KD_160530_CD160_1min_04     7  451071</span></span>
-<span><span class="co">##     MaxUptake      MHP  State Exposure                    File     z   Inten</span></span>
-<span><span class="co">##        Center</span></span>
-<span><span class="co">##         &lt;num&gt;</span></span>
-<span><span class="co">##  1: 1307.8329</span></span>
-<span><span class="co">##  2:  981.0960</span></span>
-<span><span class="co">##  3:  785.0905</span></span>
-<span><span class="co">##  4:  654.3858</span></span>
-<span><span class="co">##  5:  561.0548</span></span>
-<span><span class="co">##  6: 1307.7777</span></span>
-<span><span class="co">##  7:  981.0817</span></span>
-<span><span class="co">##  8:  785.0811</span></span>
-<span><span class="co">##  9:  654.4194</span></span>
-<span><span class="co">## 10:  561.0268</span></span>
-<span><span class="co">## 11: 1307.8942</span></span>
-<span><span class="co">## 12:  981.1597</span></span>
-<span><span class="co">## 13:  785.0906</span></span>
-<span><span class="co">## 14:  654.4344</span></span>
-<span><span class="co">## 15:  561.0833</span></span>
-<span><span class="co">## 16: 1307.8739</span></span>
-<span><span class="co">## 17:  981.1656</span></span>
-<span><span class="co">## 18:  785.1220</span></span>
-<span><span class="co">## 19:  654.4411</span></span>
-<span><span class="co">## 20:  561.0588</span></span>
-<span><span class="co">##        Center</span></span></code></pre>
+<pre><code><span><span class="co">##      Protein Start   End    Sequence Modification MaxUptake      MHP      State</span></span>
+<span><span class="co">##       &lt;char&gt; &lt;int&gt; &lt;int&gt;      &lt;char&gt;       &lt;lgcl&gt;     &lt;int&gt;    &lt;num&gt;     &lt;char&gt;</span></span>
+<span><span class="co">## 1: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9 1061.563 Alpha_KSCN</span></span>
+<span><span class="co">## 2: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9 1061.563 Alpha_KSCN</span></span>
+<span><span class="co">## 3: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9 1061.563 Alpha_KSCN</span></span>
+<span><span class="co">## 4: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9 1061.563 Alpha_KSCN</span></span>
+<span><span class="co">## 5: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9 1061.563 Alpha_KSCN</span></span>
+<span><span class="co">## 6: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9 1061.563 Alpha_KSCN</span></span>
+<span><span class="co">##    Exposure                           File     z  Inten    Center</span></span>
+<span><span class="co">##       &lt;num&gt;                         &lt;char&gt; &lt;int&gt;  &lt;int&gt;     &lt;num&gt;</span></span>
+<span><span class="co">## 1:        1 Tania_161108_1eEF1Ba_KSCN_1min     1  48304 1064.9813</span></span>
+<span><span class="co">## 2:        1 Tania_161108_1eEF1Ba_KSCN_1min     2 430554  533.0463</span></span>
+<span><span class="co">## 3:        1 Tania_161108_2eEF1Ba_KSCN_1min     1  48450 1065.1294</span></span>
+<span><span class="co">## 4:        1 Tania_161108_2eEF1Ba_KSCN_1min     2 456787  532.9971</span></span>
+<span><span class="co">## 5:        1 Tania_161108_3eEF1Ba_KSCN_1min     1  53200 1065.0681</span></span>
+<span><span class="co">## 6:        1 Tania_161108_3eEF1Ba_KSCN_1min     2 469153  533.1101</span></span></code></pre>
 <p>As we can see from the
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">File</annotation></semantics></math>
 column, there are four replicates of the experiment. Each measurement of

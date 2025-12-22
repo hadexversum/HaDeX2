@@ -55,23 +55,22 @@ changed to user-friendly ones.
 ## Examples
 
 ``` r
-dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-p_diff_uptake_dat <- create_p_diff_uptake_dataset(dat)
+p_diff_uptake_dat <- create_p_diff_uptake_dataset(alpha_dat)
 head(show_p_diff_uptake_data(p_diff_uptake_dat))
-#>     Protein    ID        Sequence Modification Start   End Exposure
-#>      <char> <int>          <char>       <lgcl> <int> <int>    <num>
-#> 1: db_CD160     1 INITSSASQEGTRLN           NA     1    15    0.001
-#> 2: db_CD160     1 INITSSASQEGTRLN           NA     1    15    0.167
-#> 3: db_CD160     1 INITSSASQEGTRLN           NA     1    15    1.000
-#> 4: db_CD160     1 INITSSASQEGTRLN           NA     1    15    5.000
-#> 5: db_CD160     1 INITSSASQEGTRLN           NA     1    15   25.000
-#> 6: db_CD160     1 INITSSASQEGTRLN           NA     1    15  120.000
-#>    Diff DU [Da] U(Diff DU) [Da] P value log(P value)
-#>           <num>           <num>   <num>        <num>
-#> 1:       0.0000          0.0000      NA           NA
-#> 2:       0.3189          0.0460  0.0006       7.4571
-#> 3:       0.3413          0.0969  0.0150       4.2002
-#> 4:       0.5490          0.0825  0.0006       7.3645
-#> 5:       0.6439          0.0549  0.0002       8.4948
-#> 6:       0.1082          0.0856  0.2757       1.2885
+#>      Protein    ID    Sequence Modification Start   End Exposure Diff DU [Da]
+#>       <char> <int>      <char>       <lgcl> <int> <int>    <num>        <num>
+#> 1: db_eEF1Ba     1 GFGDLKSPAGL           NA     1    11    0.167       0.0745
+#> 2: db_eEF1Ba     1 GFGDLKSPAGL           NA     1    11    1.000       0.4316
+#> 3: db_eEF1Ba     1 GFGDLKSPAGL           NA     1    11    5.000       0.3947
+#> 4: db_eEF1Ba     1 GFGDLKSPAGL           NA     1    11   25.000       0.5304
+#> 5: db_eEF1Ba     1 GFGDLKSPAGL           NA     1    11  150.000       0.0670
+#> 6: db_eEF1Ba     1 GFGDLKSPAGL           NA     1    11 1440.000       0.0251
+#>    U(Diff DU) [Da] P value log(P value)
+#>              <num>   <num>        <num>
+#> 1:          0.0208  0.0653       2.7281
+#> 2:          0.0391  0.0018       6.3260
+#> 3:          0.0573      NA           NA
+#> 4:          0.1068  0.0235       3.7506
+#> 5:          0.0946  0.5308       0.6335
+#> 6:          0.0551  0.6726       0.3965
 ```

@@ -71,35 +71,34 @@ a form of comparison plot.
 ## Examples
 
 ``` r
-dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-uptake_dat <- create_uptake_dataset(dat, states = c("CD160", "CD160_HVEM"))
+uptake_dat <- create_uptake_dataset(alpha_dat, states = c("Alpha_KSCN", "ALPHA_Gamma"))
 head(uptake_dat)
-#>    Protein        Sequence Exposure Start End State MaxUptake Modification
-#> 1 db_CD160 INITSSASQEGTRLN    0.001     1  15 CD160        14           NA
-#> 2 db_CD160          LICTVW    0.001    16  21 CD160         5           NA
-#> 3 db_CD160  LICTVWHKKEEAEG    0.001    16  29 CD160        13           NA
-#> 4 db_CD160   ICTVWHKKEEAEG    0.001    17  29 CD160        12           NA
-#> 5 db_CD160           FVVFL    0.001    30  34 CD160         4           NA
-#> 6 db_CD160 LCKDRSGDCSPETSL    0.001    34  48 CD160        13           NA
-#>   frac_deut_uptake err_frac_deut_uptake  deut_uptake err_deut_uptake
-#> 1       0.36935223         0.0012947000  0.038605737               0
-#> 2       0.03033506         0.0001481620  0.000888387               0
-#> 3       0.34405201         0.0033762717  0.026403750               0
-#> 4      -0.85967318         0.0058949102 -0.063096279               0
-#> 5       1.31196247         0.0076786534  0.030796000               0
-#> 6       0.23854825         0.0003776673  0.017958220               0
+#>     Protein    Sequence Exposure Start End      State MaxUptake Modification
+#> 1 db_eEF1Ba GFGDLKSPAGL    0.167     1  11 Alpha_KSCN         9           NA
+#> 2 db_eEF1Ba  FGDLKSPAGL    0.167     2  11 Alpha_KSCN         8           NA
+#> 3 db_eEF1Ba   GDLKSPAGL    0.167     3  11 Alpha_KSCN         7           NA
+#> 4 db_eEF1Ba      LKSPAG    0.167     5  10 Alpha_KSCN         4           NA
+#> 5 db_eEF1Ba     LKSPAGL    0.167     5  11 Alpha_KSCN         5           NA
+#> 6 db_eEF1Ba      AGLQVL    0.167     9  14 Alpha_KSCN         5           NA
+#>   frac_deut_uptake err_frac_deut_uptake deut_uptake err_deut_uptake
+#> 1         32.40425            1.1841232    1.760438      0.06314206
+#> 2         74.06056            0.7801511    3.206041      0.02733533
+#> 3         75.44149            1.1145377    3.383123      0.04574589
+#> 4         69.12906            1.2950988    1.912019      0.03567309
+#> 5         69.60422            1.2252841    2.172923      0.03819919
+#> 6         31.23305            0.6744664    1.094601      0.01974822
 #>   theo_frac_deut_uptake err_theo_frac_deut_uptake theo_deut_uptake
-#> 1            -0.4493436                         0      -0.05702927
-#> 2           -10.9156277                         0      -0.49477747
-#> 3             0.5814308                         0       0.06852240
-#> 4            -0.7130478                         0      -0.07756952
-#> 5           -16.5250744                         0      -0.59923147
-#> 6             0.3030472                         0       0.03571452
+#> 1             18.504430                 0.7739003        1.5097652
+#> 2             43.524594                 0.3769147        3.1565736
+#> 3             47.817653                 0.7208798        3.0344326
+#> 4             35.241663                 0.9837608        1.2779315
+#> 5             38.173687                 0.8427387        1.7303155
+#> 6              9.768406                 0.4356792        0.4427769
 #>   err_theo_deut_uptake Med_Sequence
-#> 1                    0          8.0
-#> 2                    0         18.5
-#> 3                    0         22.5
-#> 4                    0         23.0
-#> 5                    0         32.0
-#> 6                    0         41.0
+#> 1           0.06314206          6.0
+#> 2           0.02733533          6.5
+#> 3           0.04574589          7.0
+#> 4           0.03567309          7.5
+#> 5           0.03819919          8.0
+#> 6           0.01974822         11.5
 ```
