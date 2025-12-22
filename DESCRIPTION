@@ -31,6 +31,7 @@ Imports:
   	dplyr,
   	ggplot2,
   	glue,
+  	gridExtra,
   	magick,
   	purrr,
   	readr,
@@ -43,7 +44,6 @@ Imports:
 Suggests:
     bookdown,
     digest,
-    gridExtra,
     knitr,
     magrittr,
     pander,
