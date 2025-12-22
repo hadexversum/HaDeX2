@@ -263,20 +263,26 @@ All the tasks are completed significantly faster when using HaDeX2.
 Below, we present the summary of numeric values used to create this plot
 (in milliseconds):
 
-| tool   | task                           |      mean |    median |        lq |        uq |
-|:-------|:-------------------------------|----------:|----------:|----------:|----------:|
-| HaDeX  | 1\. Read input                 |  36.04942 |  34.83070 |  33.79765 |  36.55775 |
-| HaDeX2 | 1\. Read input                 |  30.02836 |  28.86460 |  28.03715 |  30.11475 |
-| HaDeX  | 2\. Plot uptake curve          | 173.86957 | 171.86675 | 164.18100 | 178.13555 |
-| HaDeX2 | 2\. Plot uptake curve          |  67.69649 |  65.38155 |  63.27950 |  69.13810 |
-| HaDeX  | 3\. Plot comparison            | 186.09215 | 186.86305 | 177.49490 | 193.76580 |
-| HaDeX2 | 3\. Plot comparison            |  61.46116 |  59.34140 |  56.71120 |  65.06570 |
-| HaDeX  | 4\. Plot Woods                 | 206.17356 | 201.53030 | 194.60180 | 208.87510 |
-| HaDeX2 | 4\. Plot Woods                 |  82.33466 |  77.75905 |  75.46005 |  83.66395 |
-| HaDeX  | 5\. Calculate confidence limit | 172.99687 | 172.91570 | 165.35330 | 180.32520 |
-| HaDeX2 | 5\. Calculate confidence limit |  54.74279 |  53.16090 |  51.01235 |  55.89160 |
-| HaDeX  | 6\. Reconstruct sequence       |  25.01094 |  24.18105 |  22.30130 |  25.63585 |
-| HaDeX2 | 6\. Reconstruct sequence       |  16.50361 |  15.78765 |  14.62220 |  16.68570 |
+| task                           |     HaDeX |   HaDeX2 | Runtime ratio |
+|:-------------------------------|----------:|---------:|--------------:|
+| 1\. Read input                 |  34.83070 | 28.86460 |     0.8287115 |
+| 2\. Plot uptake curve          | 171.86675 | 65.38155 |     0.3804200 |
+| 3\. Plot comparison            | 186.86305 | 59.34140 |     0.3175663 |
+| 4\. Plot Woods                 | 201.53030 | 77.75905 |     0.3858430 |
+| 5\. Calculate confidence limit | 172.91570 | 53.16090 |     0.3074383 |
+| 6\. Reconstruct sequence       |  24.18105 | 15.78765 |     0.6528935 |
+
+Across all tasks, the reported values represent a runtime ratio
+(HaDeX2/HaDeX) consistently below one, indicating that HaDeX2 is faster
+than HaDeX for every measured operation. The strongest speedups,
+corresponding to the lowest ratios, are observed for plotting functions,
+calculating confidence limits, and plotting uptake curves, whereas input
+reading and sequence reconstruction show comparatively smaller, though
+still meaningful, reductions in execution time. In the case of input
+reading, the modest speed-up results from the fact that this
+functionality has substantially expanded in-built quality control in
+HaDeX2, where additional validation steps intentionally constrain
+maximal speed in favor of improved data integrity.
 
 ## HaDeX2 design
 

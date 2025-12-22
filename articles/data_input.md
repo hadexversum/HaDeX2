@@ -23,9 +23,7 @@ The best way to check if the file is suitable for the application is
 load in (using e.q. web-server) and see the file status. If the file is
 in wrong format, there should be appropriate message.
 
-The main function for data import is
-[`HaDeX::read_hdx()`](https://rdrr.io/pkg/HaDeX/man/read_hdx.html)
-function.
+The main function for data import is `HaDeX::read_hdx()` function.
 
 ## DynamX cluster file
 
@@ -37,8 +35,7 @@ The required columns are:
     #> [11] "File"         "z"            "RT"           "Inten"        "Center"
 
 If the file have all required columns, it should be accepted by the
-[`HaDeX::read_hdx()`](https://rdrr.io/pkg/HaDeX/man/read_hdx.html)
-function.
+`HaDeX::read_hdx()` function.
 
 ## DynamX state file
 
@@ -131,10 +128,9 @@ If the file has following columns:
     #> [13] "Max Inty"      "Exp Cent"      "Theor Cent"    "Score"        
     #> [17] "Cent Diff"     "# Deut"        "Deut %"        "Confidence"
 
-it can be processed with
-[`HaDeX::read_hdx()`](https://rdrr.io/pkg/HaDeX/man/read_hdx.html) from
-the code level, as it requires additional action from the user. Then,
-this data can be used as described in other articles.
+it can be processed with `HaDeX::read_hdx()` from the code level, as it
+requires additional action from the user. Then, this data can be used as
+described in other articles.
 
 If the file has following columns:
 
