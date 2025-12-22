@@ -21,16 +21,16 @@ library(HaDeX2)
 library(dplyr) 
 library(ggplot2)
 
-tmp_seq <- "LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL"
-tmp_state <- "CD160"
+tmp_seq <- "GFGDLKSPAGL"
+tmp_state <- "Alpha_KSCN"
 tmp_time <- "1 min"
+time_t <- 1
 proton_mass <- 1.00727647
 
-dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv")) %>%
-  filter(Exposure == 1, State == "CD160", Sequence ==  "LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL") 
+dat <- filter(alpha_dat, Exposure == time_t, State == tmp_state, Sequence == tmp_seq) 
 ```
 
-Let's see how the data is transformed. We will use the example file "KD_180110_CD160_HVEM.csv" from the HaDeX package and focus on just one peptide - "LCKDRSGDCSPETSLKQLRLKRDPGIDGVGEISSQL" in the state "CD160". The measurement was made for time point 1 min. 
+Let's see how the data is transformed. We will use the example alpha_dat file from the HaDeX package and focus on just one peptide - "GFGDLKSPAGL" in the state "Alpha". The measurement was made for time point 1 min. 
 
 Below is shown the original and not aggregated data for chosen peptide.
 
@@ -44,12 +44,13 @@ Let's take a look for values for each replicate.
 
 ```{r echo=FALSE}
 dat %>%
-  filter(File == "KD_160530_CD160_1min_01") %>%
+  filter(File == "Tania_161108_1eEF1Ba_KSCN_1min") %>%
 ggplot() +
-  geom_segment(aes(x = Start, xend = End, y = Center, yend = Center, colour = z)) +
-  coord_cartesian( xlim = c(30, 75)) +
+  geom_segment(aes(x = Start, xend = End, y = Center, yend = Center, colour = as.factor(z))) +
+  # coord_cartesian( xlim = c(30, 75)) +
   labs(title = paste0("Measurements for sequence in ", tmp_state, " state"),
-       x = "Position in the sequence")
+       x = "Position in the sequence",
+       color = "z")
 ```
 
 The centroid values for different charge values are not useful. We have to transform it to the mass values, according to an equation:
@@ -59,14 +60,15 @@ The results are shown below.
 
 ```{r echo=FALSE}
 dat %>%
-  filter(File == "KD_160530_CD160_1min_01") %>%
+  filter(File == "Tania_161108_1eEF1Ba_KSCN_1min") %>%
 mutate(exp_mass = z*(Center - proton_mass)) %>%
   ggplot() +
-  geom_segment(aes(x = Start, xend = End, y = exp_mass, yend = exp_mass, colour = z)) +
-  coord_cartesian( xlim = c(30, 75)) +
+  geom_segment(aes(x = Start, xend = End, y = exp_mass, yend = exp_mass, colour = as.factor(z))) +
+  # coord_cartesian( xlim = c(30, 75)) +
   labs(title = "", # paste0("Measurements for sequence in ", tmp_state, " state"),
        x = "Position in the sequence",
-       y = "Measured mass [Da]")
+       y = "Measured mass [Da]",
+       color = "z")
 ```
 
 This results are just for one repetition. We have four of them:
@@ -75,11 +77,12 @@ This results are just for one repetition. We have four of them:
 dat %>%
 mutate(exp_mass = z*(Center - proton_mass)) %>%
   ggplot() +
-  geom_segment(aes(x = Start, xend = End, y = exp_mass, yend = exp_mass, colour = z, linetype = File)) +
-  coord_cartesian( xlim = c(30, 75)) +
+  geom_segment(aes(x = Start, xend = End, y = exp_mass, yend = exp_mass, colour = as.factor(z), linetype = File)) +
+  # coord_cartesian( xlim = c(30, 75)) +
   labs(title = "", # paste0("Measurements for sequence in ", tmp_state, " state"),
        x = "Position in the sequence",
-       y = "Measured mass [Da]")
+       y = "Measured mass [Da]",
+       colour = "z")
 ```
 
 Values from each replicate are aggregated into one value, using weighted mean (with intensity value as weight):
@@ -92,7 +95,7 @@ dat %>%
   ungroup(.) %>%
   ggplot() +
   geom_segment(aes(x = Start, xend = End, y = avg_exp_mass, yend = avg_exp_mass, linetype = File)) +
-  coord_cartesian( xlim = c(30, 75), ylim = c(3920.3, 3920.6)) +
+  # coord_cartesian( xlim = c(30, 75), ylim = c(3920.3, 3920.6)) +
   labs(title = "", # paste0("Measurements for sequence in ", tmp_state, " state"),
        x = "Position in the sequence",
        y = "Measured mass [Da]")
@@ -111,8 +114,8 @@ dat %>%
             err_aggMass = sd(avg_exp_mass)) %>%
   ggplot() +
   geom_segment(aes(x = Start, xend = End, y = aggMass, yend = aggMass)) +
-  geom_errorbar(aes(x = 51.5, ymin = aggMass - err_aggMass, ymax = aggMass + err_aggMass)) + 
-  coord_cartesian( xlim = c(30, 75), ylim = c(3920.3, 3920.6)) +
+  geom_errorbar(aes(x = 6, ymin = aggMass - err_aggMass, ymax = aggMass + err_aggMass)) + 
+  # coord_cartesian( xlim = c(30, 75), ylim = c(3920.3, 3920.6)) +
   labs(title = paste0("Measurements for sequence in ", tmp_state, " state"),
        x = "Position in the sequence",
        y = "Measured mass [Da]")

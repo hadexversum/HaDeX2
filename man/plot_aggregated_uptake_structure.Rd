@@ -37,7 +37,7 @@ differential deuterium uptake) on the 3d structure.
 \examples{
 diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 diff_aggregated_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
-pdb_file_path <- system.file(package = "HaDeX", "HaDeX/data/Model_eEF1Balpha.pdb")
+pdb_file_path <- system.file(package = "HaDeX2", "HaDeX/data/Model_eEF1Balpha.pdb")
 
 plot_aggregated_uptake_structure(diff_aggregated_dat, 
                                  differential = TRUE,

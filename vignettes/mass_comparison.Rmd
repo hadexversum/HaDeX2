@@ -28,7 +28,7 @@ calculate_mass <- function(dat){
 
   dat %>%
     mutate(exp_mass = Center*z - z*proton_mass) %>%
-    select(-Center, -z, -Modification, -Fragment) %>%
+    select(-Center, -z, -Modification) %>%
     group_by(Sequence, Start, End, MHP, MaxUptake, State, Exposure, Protein, File) %>%
     summarize(avg_exp_mass = weighted.mean(exp_mass, Inten, na.rm = TRUE)) %>%
     ungroup(.) %>%
@@ -48,7 +48,7 @@ calculate_mass_no_inten <- function(dat){
 
   dat %>%
     mutate(exp_mass = Center*z - z*proton_mass) %>%
-    select(-Center, -z, -Modification, -Fragment) %>%
+    select(-Center, -z, -Modification) %>%
     group_by(Sequence, Start, End, MHP, MaxUptake, State, Exposure, Protein, File) %>%
     summarize(avg_exp_mass = mean(exp_mass, na.rm = TRUE)) %>%
     ungroup(.) %>%
@@ -67,7 +67,7 @@ For the analysis, we use the example file from HaDeX in its raw form, directly e
 
 ```{r}
 library(HaDeX2)
-dat <- read.csv(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
+head(alpha_dat)
 ```
 
 As described, the first step is to transform the $Center$ value (geometric centroid of the isotopic envelope for given peptide in a given state in given time point) and then to aggregate the values measured for different charge values. This is all done within each replicate.
@@ -83,12 +83,12 @@ Later, the results from replicates are aggregated using the mean, and their unce
 How the weighted mean change the result in comparison with the simple mean? Let's see.
 
 ```{r include=FALSE}
-dat_no_weight <- calculate_mass_no_inten(dat) %>%
+dat_no_weight <- calculate_mass_no_inten(alpha_dat) %>%
   arrange(Start, End, State, Exposure) %>%
   mutate(source = "no_weight") %>%
   select(Sequence, Start, End, State, Exposure, mass, err_mass, source)
 
-dat_weight <- calculate_mass(dat) %>%
+dat_weight <- calculate_mass(alpha_dat) %>%
   arrange(Start, End, State, Exposure) %>%
   mutate(source = "weight") %>%
   select(Sequence, Start, End, State, Exposure, mass, err_mass, source)
@@ -105,7 +105,7 @@ Below are calculated values of mass in two approaches and the difference between
 tmp %>%
   filter(type == "mass") %>%
   select(-type) %>%
-  filter(Sequence == "ARSQKSGIRLQGHF")
+  filter(Sequence == "GFGDLKSPAGL")
 ```
 
 Below are calculated values of the uncertainty of mass in two approaches and the difference between them for the example peptide. 
@@ -114,7 +114,7 @@ Below are calculated values of the uncertainty of mass in two approaches and the
 tmp %>%
   filter(type == "err_mass") %>%
   select(-type) %>%
-  filter(Sequence == "ARSQKSGIRLQGHF")
+  filter(Sequence == "GFGDLKSPAGL")
 ```
 
 And for the whole set of peptides, the average mass difference is:

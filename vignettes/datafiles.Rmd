@@ -24,8 +24,7 @@ Let's start with a glimpse of the datafile - in this case, in `cluster` format f
 
 ```{r warning=FALSE}
 library(HaDeX2)
-dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-head(dat, 6)
+head(alpha_dat, 6)
 ```
 
 As we see, the data file has a very specific structure and is not informative yet. In the file, we have $m/z$ values for each $z$ value (charge) for each time point ($Exposure$) for each state of each peptide, repeated as many times as measurement was repeated (each measurement should be repeated at least three times). 

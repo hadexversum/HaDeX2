@@ -49,25 +49,12 @@ is deuterium uptake in selected form. The combined and propagated
 uncertainty can be presented as ribbons or error bars.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-
-uc_dat <- calculate_kinetics(dat, protein = "db_CD160",
-                             sequence = "INITSSASQEGTRLN", 
-                             state = "CD160",
-                             start = 1, end = 15,
-                             time_0 = 0.001, time_100 = 1440)
+uc_dat <- calculate_kinetics(alpha_dat, protein = "db_eEF1Ba",
+                             sequence = "GFGDLKSPAGL", 
+                             state = "Alpha_KSCN",
+                             start = 1, end = 11,
+                             time_0 = 0, time_100 = 1440)
 plot_uptake_curve(uc_dat = uc_dat, 
-                  theoretical = FALSE, 
-                  fractional = TRUE)
-
-uc_dat2 <- calculate_peptide_kinetics(dat, protein = "db_CD160",
-                                      sequence = "INITSSASQEGTRLN", 
-                                      states = c("CD160", "CD160_HVEM"),
-                                      start = 1, end = 15,
-                                      time_0 = 0.001, time_100 = 1440)
-                                      
-                                      
-plot_uptake_curve(uc_dat = uc_dat2, 
                   theoretical = FALSE, 
                   fractional = TRUE)
                 

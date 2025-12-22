@@ -39,16 +39,10 @@ This is a wrapper for \code{\link{calculate_kinetics}}, but for
 the peptide list instead of one peptide.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-peptide_list <- data.frame(Sequence = c("INITSSASQEGTRLN", "INITSSASQEGTRLN"), 
-                           state = c("CD160", "CD160_HVEM"), 
-                           start = c(1, 1), end = c(15, 15))
-create_kinetic_dataset(dat, peptide_list)
-
-peptide_list2 <- data.frame(Sequence = c("INITSSASQEGTRLN", "LICTVW"), 
-                            state = c("CD160", "CD160"), 
-                            start = c(1, 16), end = c(15, 21))
-create_kinetic_dataset(dat, peptide_list2)
+peptide_list <- data.frame(Sequence = c("GFGDLKSPAGL", "FGDLKSPAGL"), 
+                           state = c("ALPHA_Gamma", "ALPHA_Gamma"), 
+                           start = c(1, 2), end = c(11, 11))
+create_kinetic_dataset(alpha_dat, peptide_list)
 
 }
 \seealso{

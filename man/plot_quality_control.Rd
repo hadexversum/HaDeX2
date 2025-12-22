@@ -22,8 +22,7 @@ maximal exchange control time of measurement.
 This plot is visible in GUI.
 }
 \examples{
-dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
-qc_dat <- create_quality_control_dataset(dat)  
+qc_dat <- create_quality_control_dataset(alpha_dat)  
 plot_quality_control(qc_dat)
 
 }

@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(dev = "png", dev.args = list(type = "cairo-png"))
 ```
 
-## Convention
+# Convention
 
 Purpose of groups of functions in the package:
 
@@ -38,48 +38,21 @@ Variables:
 * theo_frac_diff_deut_uptake - theoretical differential fractional deuterium uptake [%]
 
 
-## Example of use
+# Example of use
 
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
 library(HaDeX2)
 library(magrittr)
 ```
 
-### Read data file 
+## Read data file 
 ```{r, include=TRUE}
-dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/KD_180110_CD160_HVEM.csv"))
+dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
 ```
 
 
-```{r}
-# dat %>%
-#   calculate_state_uptake() %>%
-#   plot_state_comparison()
-```
 
-```{r}
-dat %>%
-  calculate_peptide_kinetics(protein = "db_CD160",
-                             sequence = "INITSSASQEGTRLN",
-                             start = 1,
-                             end = 15,
-                             states = c("CD160", "CD160_HVEM"),
-                             time_0 = 0.001, time_100 = 1440) %>%
-  plot_uptake_curve(fractional = TRUE)
-```
-
-```{r}
-dat %>%
-  calculate_peptide_kinetics(protein = "db_CD160",
-                             sequence = "INITSSASQEGTRLN",
-                             start = 1,
-                             end = 15,
-                             states = c("CD160", "CD160_HVEM"),
-                             time_0 = 0.001, time_100 = 1440) %>%
-  show_uptake_data(fractional = TRUE)
-```
-
-### Different forms of visualization
+## Different forms of visualization
 
 Create data frame with uptake values for state in all time points:
 
