@@ -15,6 +15,8 @@
 #' \code{\link{create_diff_uptake_dataset}}
 #' \code{\link{create_aggregated_diff_uptake_dataset}}
 #' 
+#' @importFrom gridExtra grid.arrange
+#' 
 #' @examples
 #' diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 #' aggregated_diff_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
