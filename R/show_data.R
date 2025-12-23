@@ -252,7 +252,7 @@ show_diff_uptake_data_confidence <- function(diff_uptake_dat,
 #' @param protein_length the length of the protein sequence
 #' 
 #' @details The format in the table is suggested by the community and 
-#' should be provided for experimetal data.
+#' should be provided for experimental data.
 #' 
 #' @return a \code{\link{data.table}} object
 #' 

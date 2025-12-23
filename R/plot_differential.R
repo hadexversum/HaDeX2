@@ -11,7 +11,7 @@
 #' function.
 #' @param diff_p_uptake_dat produced by \code{\link{create_p_diff_uptake_dataset}} 
 #' function.
-#' @param skip_amino \code{integer}, indicator how many aminos from the N-terminus 
+#' @param skip_amino \code{integer}, indicator how many amino acids from the N-terminus 
 #' should be omitted
 #' @param theoretical \code{logical}, determines if values are theoretical.
 #' @param fractional \code{logical}, determines if values are fractional.

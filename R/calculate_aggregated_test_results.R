@@ -9,7 +9,7 @@
 #' weiss method
 #' @param time_t chosen time point
 #' @param skip_amino \code{integer}, indicator
-#' how many aminos from the N-terminus should be 
+#' how many amino acids from the N-terminus should be 
 #' omitted in visualization
 #' 
 #' @description Function aggregates peptide-level

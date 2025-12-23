@@ -7,7 +7,7 @@
 #' 
 #' @param uptake_dat data produced by \code{\link{calculate_state_uptake}} 
 #' function
-#' @param skip_amino \code{integer}, indicator how many aminos from the N-terminus 
+#' @param skip_amino \code{integer}, indicator how many amino acids from the N-terminus 
 #' should be omitted
 #' @param theoretical \code{logical}, indicator if values are 
 #' calculated using theoretical controls

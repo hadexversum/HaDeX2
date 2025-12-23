@@ -7,7 +7,7 @@
 #' 
 #' @param p_dat data produced by the \code{\link{create_p_diff_uptake_dataset}}
 #' function.
-#' @param skip_amino \code{integer}, indicator how many aminos from the N-terminus 
+#' @param skip_amino \code{integer}, indicator how many amino acids from the N-terminus 
 #' should be omitted
 #' @param plot_title title for the plot. If not provided, it is constructed in a form:
 #' "Differences between state_1 and state_2"

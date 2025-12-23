@@ -22,7 +22,7 @@ weiss method}
 \item{time_t}{chosen time point}
 
 \item{skip_amino}{\code{integer}, indicator
-how many aminos from the N-terminus should be 
+how many amino acids from the N-terminus should be 
 omitted in visualization}
 }
 \value{

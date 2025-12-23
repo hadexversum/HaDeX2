@@ -20,7 +20,7 @@ plot_manhattan(
 \item{p_dat}{data produced by the \code{\link{create_p_diff_uptake_dataset}}
 function.}
 
-\item{skip_amino}{\code{integer}, indicator how many aminos from the N-terminus 
+\item{skip_amino}{\code{integer}, indicator how many amino acids from the N-terminus 
 should be omitted}
 
 \item{plot_title}{title for the plot. If not provided, it is constructed in a form:

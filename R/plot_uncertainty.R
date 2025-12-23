@@ -7,7 +7,7 @@
 #' @param dat data imported by the \code{\link{read_hdx}} function
 #' @param protein selected protein
 #' @param state selected biological state for given protein
-#' @param skip_amino \code{integer}, indicator how many aminos from the N-terminus 
+#' @param skip_amino \code{integer}, indicator how many amino acids from the N-terminus 
 #' should be omitted
 #' @param aggregated \code{logical}, indicator if presented
 #' data is aggregated on replicate level

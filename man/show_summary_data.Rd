@@ -25,7 +25,7 @@ Show summary table
 }
 \details{
 The format in the table is suggested by the community and 
-should be provided for experimetal data.
+should be provided for experimental data.
 }
 \examples{
 show_summary_data(alpha_dat)

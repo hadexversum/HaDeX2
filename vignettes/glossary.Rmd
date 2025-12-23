@@ -86,6 +86,6 @@ deut_part - deuterium percentage in solution used in experiment, from range [0, 
 
 <!-- ## Attributes -->
 
-<!-- source - character, indicator of the data source (e.g. Dynamx3.0). -->
+<!-- source - character, indicator of the data source (e.g. DynamX3.0). -->
 
 <!-- has_modification - logical, indicator of the modification presence. The modification information is preserved in the state value. -->
