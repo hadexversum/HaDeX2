@@ -2,6 +2,7 @@
 #' 
 #' @importFrom ggplot2 ggplot_build
 #' @importFrom utils packageVersion
+#' @importFrom r3dmol r3dmol m_add_model m_set_style m_zoom_to m_style_cartoon
 #'
 #' @param aggregated_dat aggregated data, either for single uptake or differential
 #' @param differential indicator if the aggregated_dat contains differential 
