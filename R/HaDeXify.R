@@ -3,6 +3,7 @@
 #' @description This function HaDeXifies plot. It adds HaDeX logo 
 #' and ggplot theme.
 #' 
+#' @importFrom grid rasterGrob
 #' @importFrom magick image_read
 #' @importFrom ggplot2 element_text annotation_custom
 #' 

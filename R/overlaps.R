@@ -162,6 +162,7 @@ create_overlap_distribution_dataset <- function(dat,
 #' and parameters.
 #' 
 #' @importFrom ggplot2 geom_hline geom_text
+#' @importFrom ggiraph geom_col_interactive
 #' 
 #' @param overlap_dist_dat produced by \code{\link{create_overlap_distribution_dataset}}
 #' function
