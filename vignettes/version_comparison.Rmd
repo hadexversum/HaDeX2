@@ -124,8 +124,10 @@ dat_HaDeX <- HaDeX::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.c
 dat_HaDeX2 <- HaDeX2::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
 
 version_benchmark <- microbenchmark(
-  list = alist(`HaDeX_1. Read input` = HaDeX::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv")),
-               `HaDeX2_1. Read input` = HaDeX2::read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv")),
+  list = alist(`HaDeX_1. Read input` = HaDeX::read_hdx(system.file(package = "HaDeX2", 
+                                                                   "HaDeX/data/alpha.csv")),
+               `HaDeX2_1. Read input` = HaDeX2::read_hdx(system.file(package = "HaDeX2", 
+                                                                     "HaDeX/data/alpha.csv")),
                `HaDeX_2. Plot uptake curve` = {
                  HaDeX::calculate_kinetics(dat = dat_HaDeX, 
                                            sequence = "GFGDLKSPAGL",      
@@ -155,7 +157,8 @@ version_benchmark <- microbenchmark(
                                           state_second = "ALPHA_Gamma")},
                `HaDeX2_3. Plot comparison` = {
                  HaDeX2::create_state_comparison_dataset(dat = dat_HaDeX2,
-                                                         states = c("Alpha_KSCN", "ALPHA_Gamma"),
+                                                         states = c("Alpha_KSCN", 
+                                                                    "ALPHA_Gamma"),
                                                          time_0 = 0, time_100 = 1440) %>%
                    HaDeX2::plot_state_comparison(uptake_dat = .,
                                                  theoretical = FALSE,
