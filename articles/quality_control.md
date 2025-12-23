@@ -14,7 +14,7 @@ data that needs to be re-checked.
 
 Firstly, we check the number of replicates. Although the experiment is
 conducted in known number of times, sometimes during the manual curation
-of isotopic envelopes, some of the spectras are disqualified. Here, we
+of isotopic envelopes, some of the spectra are disqualified. Here, we
 check the remaining number of replicates of the already curated dataset.
 
 It is advised to have at least three replicates of the experiment.

@@ -33,7 +33,7 @@ The first step in our HDX-MS data analysis is to upload the data. In the
 HaDeX2 webserver, in the ‘Input data’ tab, we can upload the data as
 DynamX 3.0 ‘cluster’ files. Click ‘Browse’ to select the example data
 file `inst/HaDeX/data/SecA_cluster_wt_ADP.csv`, after which the ‘File
-status’ should report the file is valid and is of the Dynamx3.0 format.
+status’ should report the file is valid and is of the DynamX3.0 format.
 For this dataset, we also have a structure file available,
 `inst/HaDeX/data/SecA_monomer.pdb` (modified from RCSB PDB entry 2VDA),
 and it can be uploaded below in a similar fashion.

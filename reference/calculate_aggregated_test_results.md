@@ -34,8 +34,8 @@ calculate_aggregated_test_results(
 
 - skip_amino:
 
-  `integer`, indicator how many aminos from the N-terminus should be
-  omitted in visualization
+  `integer`, indicator how many amino acids from the N-terminus should
+  be omitted in visualization
 
 ## Value
 

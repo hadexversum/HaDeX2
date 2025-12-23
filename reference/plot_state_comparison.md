@@ -28,8 +28,8 @@ plot_state_comparison(
 
 - skip_amino:
 
-  `integer`, indicator how many aminos from the N-terminus should be
-  omitted
+  `integer`, indicator how many amino acids from the N-terminus should
+  be omitted
 
 - theoretical:
 

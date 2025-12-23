@@ -69,8 +69,8 @@ $tvalue$ is calculates as follows, using R-function `qt`:
 $$tvalue = qt\left( c(alpha/2,1 - alpha/2),df = k - 1 \right)$$
 
 where the degree of freedom is the number of replicates minus one, and
-alpha is $1 - confidencelimit$ for the desired confidence level (usually
-0.98).
+alpha is $1 - \text{confidence limit}$ for the desired confidence level
+(usually 0.98).
 
 Basically, we take the mean uncertainty of deuterium uptake and widen
 this range by the appropriate value to get an interval. Values under the
@@ -105,14 +105,14 @@ where $st_{1}$ is a set of values from the first state, and $st_{2}$
 from the second.
 
 If this option is chosen, we adjust the P-value using appropriate
-adjustment method (with three options: none, BH and bonferonni):
+adjustment method (with three options: ‘none’, ‘BH’ and ‘bonferroni’):
 
 ``` r
 p.adjust(p_dat[["P_value"]], method = p_adjustment_method)
 ```
 
-P-value is usually presented in the form of $- log(Pvalue)$, e.q. on the
-volcano plot.
+p-value is usually presented in the form of
+$- log\left( \text{p-value} \right)$, e.q. on the volcano plot.
 
 Hageman, Tyler S., and David D. Weis. 2019. “Reliable Identification of
 Significant Differences in Differential Hydrogen Exchange-Mass

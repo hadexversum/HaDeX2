@@ -167,7 +167,7 @@ is calculates as follows, using R-function <code>qt</code>:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mi>v</mi><mi>a</mi><mi>l</mi><mi>u</mi><mi>e</mi><mo>=</mo><mi>q</mi><mi>t</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>c</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mi>l</mi><mi>p</mi><mi>h</mi><mi>a</mi><mi>/</mi><mn>2</mn><mo>,</mo><mn>1</mn><mo>−</mo><mi>a</mi><mi>l</mi><mi>p</mi><mi>h</mi><mi>a</mi><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mi>d</mi><mi>f</mi><mo>=</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">tvalue = qt(c(alpha/2, 1-alpha/2), df = k-1)</annotation></semantics></math></p>
 <p>where the degree of freedom is the number of replicates minus one,
 and alpha is
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mi>c</mi><mi>o</mi><mi>n</mi><mi>f</mi><mi>i</mi><mi>d</mi><mi>e</mi><mi>n</mi><mi>c</mi><mi>e</mi><mi>l</mi><mi>i</mi><mi>m</mi><mi>i</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">1-confidencelimit</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mtext mathvariant="normal">confidence limit</mtext></mrow><annotation encoding="application/x-tex">1-\textrm{confidence limit}</annotation></semantics></math>
 for the desired confidence level (usually 0.98).</p>
 <p>Basically, we take the mean uncertainty of deuterium uptake and widen
 this range by the appropriate value to get an interval. Values under the
@@ -199,11 +199,12 @@ is a set of values from the first state, and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><msub><mi>t</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">st_2</annotation></semantics></math>
 from the second.</p>
 <p>If this option is chosen, we adjust the P-value using appropriate
-adjustment method (with three options: none, BH and bonferonni):</p>
+adjustment method (with three options: ‘none’, ‘BH’ and
+‘bonferroni’):</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/p.adjust.html" class="external-link">p.adjust</a></span><span class="op">(</span><span class="va">p_dat</span><span class="op">[[</span><span class="st">"P_value"</span><span class="op">]</span><span class="op">]</span>, method <span class="op">=</span> <span class="va">p_adjustment_method</span><span class="op">)</span></span></code></pre></div>
-<p>P-value is usually presented in the form of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi>l</mi><mi>o</mi><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>P</mi><mi>v</mi><mi>a</mi><mi>l</mi><mi>u</mi><mi>e</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">-log(Pvalue)</annotation></semantics></math>,
+<p>p-value is usually presented in the form of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi>l</mi><mi>o</mi><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">p-value</mtext><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">-log(\textrm{p-value})</annotation></semantics></math>,
 e.q. on the volcano plot.</p>
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-hageman_reliable_2019" class="csl-entry">

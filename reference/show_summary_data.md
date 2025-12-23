@@ -35,7 +35,7 @@ a `data.table` object
 ## Details
 
 The format in the table is suggested by the community and should be
-provided for experimetal data.
+provided for experimental data.
 
 ## References
 
