@@ -554,8 +554,9 @@ plot_aggregated_uptake_structure(aggregated_dat,
 
 Coverage heatmap plot is a variation of standard coverage plot - but
 with each peptide is colored to signal specific value. This plot is
-particularly useful when presenting AUC or back-exchange values, as they
-are specified for peptide uptake curve.
+particularly useful when presenting AUC (consult @ref(AUC) for the
+details of AUC computation) or back-exchange values, as they are
+specified for peptide uptake curve.
 
 **Example** Plot below presents the AUC values for eEF1B$\alpha$. We see
 that for the majority of regions the AUC values is close to 1,

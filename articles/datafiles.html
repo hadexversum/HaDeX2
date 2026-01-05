@@ -353,16 +353,18 @@ bex = 100 - D_{theo, frac}(t_{100})
 </annotation></semantics></math></p>
 </div>
 <div class="section level2">
-<h2 id="auc">AUC<a class="anchor" aria-label="anchor" href="#auc"></a>
+<h2 id="AUC">AUC<a class="anchor" aria-label="anchor" href="#AUC"></a>
 </h2>
-<p>Area under the curve describes the whole plot. It is calculated with
-respect to the last time point, used as normalizing value to obtain the
-result from range [0, 1]. The normalization is done also for the time
-axis.</p>
-<p>If the AUC value exceeds the value 1, it is an indicator of
-back-exchange.</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>u</mi><mi>c</mi><mo>=</mo><munderover><mo>∑</mo><mi>i</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></munderover><mrow><mo stretchy="true" form="prefix">(</mo><mi>d</mi><msub><mi>u</mi><mrow><mi>f</mi><mi>r</mi><mi>a</mi><mi>c</mi><mo>,</mo><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>+</mo><mi>d</mi><msub><mi>u</mi><mrow><mi>f</mi><mi>r</mi><mi>a</mi><mi>c</mi><mo>,</mo><mi>i</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>t</mi><mrow><mi>n</mi><mi>o</mi><mi>r</mi><mi>m</mi><mo>,</mo><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>t</mi><mrow><mi>n</mi><mi>o</mi><mi>r</mi><mi>m</mi><mo>,</mo><mi>i</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">
-auc = \sum_i^{n-1} (du_{frac, i+1} + du_{frac, i}) \cdot (t_{norm, i+1} - t_{norm, i}) \cdot \frac{1}{2}
+<p>The Area Under the Curve (AUC) represents the integral of the
+deuterium uptake curve. In this context, higher AUC values characterize
+rapidly exchanging peptides, while lower values signify minimal
+exchange. To constrain the results to a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[0, 1]</annotation></semantics></math>
+range, the AUC is normalized against the maximum theoretical uptake at
+the last measured time point. Consequently, an AUC exceeding 1 serves as
+a diagnostic indicator of back-exchange.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">AUC</mtext><mo>=</mo><munderover><mo>∑</mo><mi>i</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></munderover><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>D</mi><mrow><mi>f</mi><mi>r</mi><mi>a</mi><mi>c</mi><mo>,</mo><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>D</mi><mrow><mi>f</mi><mi>r</mi><mi>a</mi><mi>c</mi><mo>,</mo><mi>i</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>t</mi><mrow><mtext mathvariant="normal">norm</mtext><mo>,</mo><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>t</mi><mrow><mtext mathvariant="normal">norm</mtext><mo>,</mo><mi>i</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">
+\textrm{AUC} = \sum_i^{n-1} (D_{frac, i+1} + D_{frac, i}) \cdot (t_{\textrm{norm}, i+1} - t_{\textrm{norm}, i}) \cdot \frac{1}{2}
 </annotation></semantics></math></p>
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-keppel_mapping_2015" class="csl-entry">
