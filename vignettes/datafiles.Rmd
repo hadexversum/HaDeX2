@@ -156,15 +156,10 @@ bex = 100 - D_{theo, frac}(t_{100})
 $$
 
 
-# AUC
+# AUC {#AUC}
 
-Area under the curve describes the whole plot. It is calculated with respect to the last time point, used as normalizing value to obtain the result from range [0, 1]. The normalization is done also for the time axis.
-
-
-
-If the AUC value exceeds the value 1, it is an indicator of back-exchange.
-
+The Area Under the Curve (AUC) represents the integral of the deuterium uptake curve. In this context, higher AUC values characterize rapidly exchanging peptides, while lower values signify minimal exchange. To constrain the results to a $[0, 1]$ range, the AUC is normalized against the maximum theoretical uptake at the last measured time point. Consequently, an AUC exceeding 1 serves as a diagnostic indicator of back-exchange.
 
 $$
-auc = \sum_i^{n-1} (du_{frac, i+1} + du_{frac, i}) \cdot (t_{norm, i+1} - t_{norm, i}) \cdot \frac{1}{2}
+\textrm{AUC} = \sum_i^{n-1} (D_{frac, i+1} + D_{frac, i}) \cdot (t_{\textrm{norm}, i+1} - t_{\textrm{norm}, i}) \cdot \frac{1}{2}
 $$
