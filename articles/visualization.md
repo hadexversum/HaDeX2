@@ -278,8 +278,8 @@ diff_uptake_dat %>%
 
 The volcano plot shows the deuterium uptake difference for two
 biological states for peptide and its p-value for double testing on
-statistical significance (Weis et al.). On the x-axis, there is a
-deuterium uptake difference with its uncertainty (combined and
+statistical significance (Hageman and Weis 2019). On the x-axis, there
+is a deuterium uptake difference with its uncertainty (combined and
 propagated). On the y-axis, there is a P-value calculated for each
 peptide in a specific time point of a measurement as a un-paired t-test
 on given significance level (on mass measurement from the replicates to
@@ -650,3 +650,9 @@ Tsuvariev, Michal Dadlez, Anna V El’skaya, and Boris S Negrutskii. 2022.
 “Quaternary Organization of the Human eEF1B Complex Reveals Unique
 Multi-GEF Domain Assembly.” *Nucleic Acids Research* 50 (16): 9490–9504.
 <https://doi.org/10.1093/nar/gkac685>.
+
+Hageman, Tyler S., and David D. Weis. 2019. “Reliable Identification of
+Significant Differences in Differential Hydrogen Exchange-Mass
+Spectrometry Measurements Using a Hybrid Significance Testing Approach.”
+*Analytical Chemistry* 91 (13): 8008–16.
+<https://doi.org/10.1021/acs.analchem.9b01325>.
