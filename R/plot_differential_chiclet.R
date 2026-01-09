@@ -28,7 +28,7 @@
 #' a plus sign, which size represent the uncertainty of measurement for
 #' chosen value.
 #'
-#' @return a \code{\link[ggplot2]{ggplot}} object.
+#' @return a [ggplot2::ggplot()] object.
 #'
 #' @seealso
 #' \code{\link{create_diff_uptake_dataset}}

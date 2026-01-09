@@ -28,7 +28,7 @@
 #' If chosen, there are confidence limits based on Houde test on provided
 #' confidence level.
 #' 
-#' @return a \code{\link[ggplot2]{ggplot}} object.
+#' @return a [ggplot2::ggplot()] object.
 #'
 #' @references Houde, D., Berkowitz, S.A., and Engen, J.R. (2011).
 #' The Utility of Hydrogen/Deuterium Exchange Mass Spectrometry in

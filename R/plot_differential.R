@@ -45,7 +45,7 @@
 #' difference is positive, blue if negative), and the insignificant values are 
 #' grey. 
 #'
-#' @return a \code{\link{ggplot}} object.
+#' @return a [ggplot2::ggplot()] object.
 #'
 #' @references Hageman, T. S. & Weis, D. D. Reliable Identification of Significant 
 #' Differences in Differential Hydrogen Exchange-Mass Spectrometry Measurements 
