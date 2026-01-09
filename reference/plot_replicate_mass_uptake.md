@@ -54,7 +54,8 @@ plot_replicate_mass_uptake(
 
 ## Value
 
-a `ggplot` object
+a [`ggplot`](https://ggplot2.tidyverse.org/reference/ggplot.html)
+object.
 
 ## Details
 

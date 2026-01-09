@@ -62,7 +62,8 @@ plot_uncertainty(
 
 ## Value
 
-a `ggplot` object
+a [`ggplot`](https://ggplot2.tidyverse.org/reference/ggplot.html)
+object.
 
 ## Details
 

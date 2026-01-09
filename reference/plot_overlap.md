@@ -27,7 +27,8 @@ plot_overlap(dat, protein = dat[["Protein"]][1], state = dat[["State"]][1])
 
 ## Value
 
-a `ggplot2` object.
+a [`ggplot`](https://ggplot2.tidyverse.org/reference/ggplot.html)
+object.
 
 ## Details
 

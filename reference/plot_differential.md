@@ -97,7 +97,7 @@ plot_differential(
 
 ## Value
 
-a `ggplot` object.
+a \[ggplot2::ggplot()\] object.
 
 ## Details
 

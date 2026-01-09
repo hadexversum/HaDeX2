@@ -68,7 +68,7 @@ plot_differential_butterfly(
 
 ## Value
 
-a `ggplot` object.
+a \[ggplot2::ggplot()\] object.
 
 ## Details
 

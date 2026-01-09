@@ -67,7 +67,7 @@ plot_differential_chiclet(
 
 ## Value
 
-a `ggplot` object.
+a \[ggplot2::ggplot()\] object.
 
 ## Details
 

@@ -71,7 +71,8 @@ plot_differential_uptake_curve(
 
 ## Value
 
-a `ggplot` object.
+a [`ggplot`](https://ggplot2.tidyverse.org/reference/ggplot.html)
+object.
 
 ## Details
 

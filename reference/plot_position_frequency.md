@@ -30,7 +30,8 @@ plot_position_frequency(
 
 ## Value
 
-a `ggplot` object
+a [`ggplot`](https://ggplot2.tidyverse.org/reference/ggplot.html)
+object.
 
 ## Details
 

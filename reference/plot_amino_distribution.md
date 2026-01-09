@@ -41,7 +41,8 @@ plot_amino_distribution(
 
 ## Value
 
-a `ggplot2` object.
+a [`ggplot`](https://ggplot2.tidyverse.org/reference/ggplot.html)
+object.
 
 ## Details
 
