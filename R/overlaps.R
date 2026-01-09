@@ -57,7 +57,7 @@ show_overlap_data <- function(dat,
 #' on the protein sequence. 
 #' This plot is visible in GUI. 
 #' 
-#' @return a \code{\link{ggplot2}} object.
+#' @return a \code{\link[ggplot2]{ggplot}} object.
 #' 
 #' @seealso 
 #' \code{\link{read_hdx}}
@@ -174,7 +174,7 @@ create_overlap_distribution_dataset <- function(dat,
 #' a amino position in protein sequence is covered. 
 #' This plot is visible in GUI. 
 #' 
-#' @return a \code{\link{ggplot2}} object.
+#' @return a \code{\link[ggplot2]{ggplot}} object.
 #' 
 #' @seealso 
 #' \code{\link{read_hdx}}

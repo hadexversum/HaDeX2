@@ -12,7 +12,7 @@
 #' @details Function adds the logo of HaDeX package in the left down
 #' corner of the plot and the HaDeX theme. 
 #' 
-#' @return a \code{\link{ggplot2}} object.
+#' @return a \code{\link[ggplot2]{ggplot}} object.
 #' 
 #' @seealso 
 #' \code{\link{read_hdx}}

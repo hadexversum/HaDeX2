@@ -18,7 +18,7 @@
 #' @details Plots standard protein coverage but colored with 
 #' desired value.
 #' 
-#' @return a \code{\link{ggplot}} object
+#' @return a \code{\link[ggplot2]{ggplot}} object
 #' 
 #' @seealso 
 #' \code{\link{read_hdx}}

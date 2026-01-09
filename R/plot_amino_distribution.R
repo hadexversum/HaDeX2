@@ -12,7 +12,7 @@
 #' 
 #' @details The data for this function is not packaged yet.
 #' 
-#' @return a \code{\link{ggplot2}} object.
+#' @return a \code{\link[ggplot2]{ggplot}} object.
 #' 
 #' @importFrom dplyr n
 #' @importFrom ggplot2 scale_fill_manual

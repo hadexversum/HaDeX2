@@ -18,7 +18,7 @@
 #' there is deuterium uptake in chosen form. Data from multiple time points of 
 #' measurement is presented.
 #' 
-#' @return a \code{\link{ggplot}} object.
+#' @return a \code{\link[ggplot2]{ggplot}} object.
 #' 
 #' @seealso 
 #' \code{\link{create_state_uptake_dataset}} 

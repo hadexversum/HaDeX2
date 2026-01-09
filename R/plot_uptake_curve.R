@@ -25,7 +25,7 @@
 #' is deuterium uptake in selected form. The combined and propagated
 #' uncertainty can be presented as ribbons or error bars.
 #' 
-#' @return a \code{\link{ggplot}} object
+#' @return a \code{\link[ggplot2]{ggplot}} object.
 #'  
 #' @seealso 
 #' \code{\link{read_hdx}}

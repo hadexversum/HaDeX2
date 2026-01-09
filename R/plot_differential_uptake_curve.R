@@ -24,7 +24,7 @@
 #' The possibility to plot multiple differences (between state and mutant) for the peptide
 #' will be added soon.
 #' 
-#' @return a \code{\link{ggplot}} object.
+#' @return a \code{\link[ggplot2]{ggplot}} object.
 #' 
 #' @seealso 
 #' \code{\link{read_hdx}}

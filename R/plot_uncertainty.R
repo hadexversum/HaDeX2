@@ -29,7 +29,7 @@
 #' is uncertainty of the measurement in Daltons.
 #' The threshold is set to 1 Da, as this value is associated with exchange.
 #' 
-#' @return a \code{\link{ggplot}} object
+#' @return a \code{\link[ggplot2]{ggplot}} object.
 #' 
 #' @seealso
 #' \code{\link{read_hdx}}

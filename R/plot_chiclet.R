@@ -21,7 +21,7 @@
 #' provided criteria (e.q. fractional). Each tile has a plus sign, which size 
 #' represent the uncertainty of measurement for chosen value.
 #' 
-#' @return a \code{\link{ggplot}} object.
+#' @return a \code{\link[ggplot2]{ggplot}} object.
 #' 
 #' @seealso 
 #' \code{\link{create_state_uptake_dataset}}

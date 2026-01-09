@@ -27,7 +27,7 @@
 #' On X-axis there is a position in a sequence, with length of a segment of each
 #' peptide representing its length. On Y-axis there is P-value from t-Student test.
 #'  
-#' @return a \code{\link{ggplot}} object.
+#' @return a \code{\link[ggplot2]{ggplot}} object.
 #' 
 #' @references Hageman, T. S. & Weis, D. D. Reliable Identification of Significant
 #' Differences in Differential Hydrogen Exchange-Mass Spectrometry Measurements

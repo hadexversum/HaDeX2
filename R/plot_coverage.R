@@ -23,7 +23,7 @@
 #' position of the peptide on the protein sequence. Their position
 #' on y-axis does not contain any information. 
 #' 
-#' @return a \code{\link{ggplot}} object
+#' @return a \code{\link[ggplot2]{ggplot}} object
 #' 
 #' @seealso 
 #' \code{\link{read_hdx}} 

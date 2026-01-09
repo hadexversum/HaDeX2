@@ -36,7 +36,7 @@
 #' shown as red dotted lines. The values that are in upper left and right
 #' corners pass the hybrid test.
 #'
-#' @return a \code{\link{ggplot}} object
+#' @return a \code{\link[ggplot2]{ggplot}} object.
 #' 
 #' @references Hageman, T. S. & Weis, D. D. Reliable Identification of Significant
 #' Differences in Differential Hydrogen Exchange-Mass Spectrometry Measurements

@@ -15,7 +15,7 @@
 #' The position frequency plot presents how many times each position of 
 #' the sequence is covered by different peptides.
 #' 
-#' @return a \code{\link{ggplot}} object
+#' @return a \code{\link[ggplot2]{ggplot}} object.
 #' 
 #' @seealso 
 #' \code{\link{read_hdx}} 

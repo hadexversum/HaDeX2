@@ -254,7 +254,7 @@ show_diff_uptake_data_confidence <- function(diff_uptake_dat,
 #' @details The format in the table is suggested by the community and 
 #' should be provided for experimental data.
 #' 
-#' @return a \code{\link{data.table}} object
+#' @return a \code{\link[data.table]{data.table}} object
 #' 
 #' @references Masson, G.R., Burke, J.E., Ahn, N.G., Anand, G.S., Borchers, C., 
 #' Brier, S., Bou-Assaf, G.M., Engen, J.R., Englander, S.W., Faber, J., 
