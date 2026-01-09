@@ -18,7 +18,7 @@ plot_quality_control(qc_dat)
 
 ## Value
 
-a `ggplot2` object.
+a \[ggplot2::ggplot()\] object.
 
 ## Details
 

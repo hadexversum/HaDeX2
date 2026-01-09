@@ -41,7 +41,7 @@ plot_peptide_charge_measurement(
 
 ## Value
 
-a `ggplot` object.
+a \[ggplot2::ggplot()\] object.
 
 ## Details
 

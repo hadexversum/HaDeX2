@@ -34,7 +34,7 @@ plot_replicate_histogram(
 
 ## Value
 
-a `ggplot` object.
+a \[ggplot2::ggplot()\] object.
 
 ## Details
 
