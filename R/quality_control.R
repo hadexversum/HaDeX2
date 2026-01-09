@@ -116,7 +116,7 @@ create_quality_control_dataset <- function(dat,
 #' maximal exchange control time of measurement. 
 #' This plot is visible in GUI. 
 #' 
-#' @return a \code{\link{ggplot2}} object.
+#' @return a [ggplot2::ggplot()] object.
 #' 
 #' @seealso 
 #' \code{\link{create_quality_control_dataset}}

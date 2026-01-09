@@ -24,7 +24,7 @@ plot_peptide_charge_measurement(
 \item{time_t}{time point of the measurement.}
 }
 \value{
-a \code{\link{ggplot}} object.
+a [ggplot2::ggplot()] object.
 }
 \description{
 Plot the charge measurements

@@ -11,7 +11,7 @@ plot_quality_control(qc_dat)
 function, scaled if necessary.}
 }
 \value{
-a \code{\link{ggplot2}} object.
+a [ggplot2::ggplot()] object.
 }
 \description{
 Generates quality control plot based on supplied data.

@@ -25,7 +25,7 @@
 #' replicates, used later in calculations. The ribbon next to the
 #' dotted average mass indicates the uncertainty.
 #' 
-#' @return a \code{\link{ggplot}} object.
+#' @return a [ggplot2::ggplot()] object.
 #' 
 #' @seealso 
 #' \code{\link{read_hdx}}
@@ -219,7 +219,7 @@ show_peptide_mass_measurement <- function(rep_mass_dat,
 #' different replicates for specific peptide in specific state
 #' in specific time point of measurement on the plot.
 #' 
-#' @return a \code{\link{ggplot}} object.
+#' @return a [ggplot2::ggplot()] object.
 #' 
 #' @seealso 
 #' \code{\link{read_hdx}}
@@ -394,7 +394,7 @@ create_replicate_dataset <- function(dat,
 #' measurement, the colors help to distinguish between 
 #' them.   
 #' 
-#' @return a \code{\link{ggplot}} object.
+#' @return a [ggplot2::ggplot()] object.
 #' 
 #' @seealso
 #' \code{\link{create_replicate_dataset}} 
