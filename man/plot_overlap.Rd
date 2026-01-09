@@ -14,7 +14,7 @@ plot_overlap(dat, protein = dat[["Protein"]][1], state = dat[["State"]][1])
 \item{state}{state included in calculations}
 }
 \value{
-a \code{\link{ggplot2}} object.
+a \code{\link[ggplot2]{ggplot}} object.
 }
 \description{
 Generates overlapping peptide plot based 

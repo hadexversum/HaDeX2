@@ -18,7 +18,7 @@ show_summary_data(
 \item{protein_length}{the length of the protein sequence}
 }
 \value{
-a \code{\link{data.table}} object
+a \code{\link[data.table]{data.table}} object
 }
 \description{
 Show summary table

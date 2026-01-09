@@ -26,7 +26,7 @@ layer created with with ggiraph, which would add tooltips to the plot in an
 interactive display (HTML/Markdown documents or shiny app).}
 }
 \value{
-a \code{\link{ggplot2}} object.
+a \code{\link[ggplot2]{ggplot}} object.
 }
 \description{
 Generates amino distribution based on the 

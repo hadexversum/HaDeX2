@@ -10,7 +10,7 @@ HaDeXify(plt)
 \item{plt}{ggplot object. Plot to HaDeXify.}
 }
 \value{
-a \code{\link{ggplot2}} object.
+a \code{\link[ggplot2]{ggplot}} object.
 }
 \description{
 This function HaDeXifies plot. It adds HaDeX logo 

@@ -18,7 +18,7 @@ plot_position_frequency(
 \item{state}{selected biological state for given protein}
 }
 \value{
-a \code{\link{ggplot}} object
+a \code{\link[ggplot2]{ggplot}} object.
 }
 \description{
 Plot the frequency of coverage for protein sequence
