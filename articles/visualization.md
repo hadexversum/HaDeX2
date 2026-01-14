@@ -437,8 +437,8 @@ plot_manhattan(p_diff_dat, show_peptide_position  = TRUE)
 
 The biggest limitation of previous methods of deuterium uptake
 visualization is that the results are on the peptide level. However, we
-offer a method of aggregation of data on peptide level into
-high-resolution level, using the weighted method of aggregation (as
+offer a method of deuterium uptake averaging from peptide level into
+high-resolution level, using the weighted method of averaging (as
 described in
 [`vignette("statistics")`](https://hadexversum.github.io/HaDeX2/articles/statistics.md)).
 Then, the results are presented on the heatmap.
@@ -457,7 +457,7 @@ plot_aggregated_uptake(aggregated_dat)
 
 - high-resolution
 - time course
-- uncertainty of aggregated values
+- uncertainty of averaged values
 
 *Cons:*
 
@@ -475,7 +475,7 @@ plot_aggregated_uptake(aggregated_dat)
 ## Differential High-resolution plot
 
 As most of our methods of visualization, also the high-resolution plot
-has its differential version. The plot presents aggregated uptake
+has its differential version. The plot presents averaged uptake
 difference values using weighted approach.
 
 **Example** On the structure, we see the fractional deuterium uptake
@@ -485,8 +485,8 @@ that some peptides are protected (red), and some are deprotected (blue).
 
 ``` r
 diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat, state_1 = states[3], state_2 = states[1])
-aggregated_diff_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
-plot_aggregated_differential_uptake(aggregated_diff_dat, panels = FALSE)
+averaged_diff_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
+plot_aggregated_differential_uptake(averaged_diff_dat, panels = FALSE)
 ```
 
 ![](visualization_files/figure-html/unnamed-chunk-13-1.png)
@@ -496,7 +496,7 @@ plot_aggregated_differential_uptake(aggregated_diff_dat, panels = FALSE)
 - high-resolution
 - comparative analysis
 - time course
-- uncertainty of aggregated values
+- uncertainty of averaged values
 
 *Cons:*
 
@@ -519,7 +519,7 @@ option is available both for single state uptake and differential
 uptake.
 
 **Example** Structure below is mapped with deuterium uptake values after
-1 minute for eEF1B$\alpha$ state. Values are aggregated using weighted
+1 minute for eEF1B$\alpha$ state. Values are averaged using weighted
 approach, color signifies no exchange (white) to high exchange (red).
 
 ``` r
@@ -533,7 +533,7 @@ plot_aggregated_uptake_structure(aggregated_dat,
 
 *Pros:*
 
-- aggregated values
+- averaged values
 - spatial information
 - spinning, rotating and zooming options
 

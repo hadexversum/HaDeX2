@@ -180,12 +180,12 @@ $$u_{c}(diff) = \sqrt{u\left( D_{1} \right)^{2} + u\left( D_{2} \right)^{2}}$$
 The convenient way to present results calculated as described is the
 comparison plot and differential plot (Woods’ plot).
 
-## Deuterium uptake aggregation
+## Deuterium uptake averaging
 
-Aggregation of values is inspired by an already published solution
-(Keppel and Weis 2015). This process can be conducted of any deuterium
-uptake variation - fractional or absolute, with theoretical or
-experimental control, single-state or differential.
+Averaging of the deuterium uptake values is inspired by an already
+published solution (Keppel and Weis 2015). This process can be conducted
+of any deuterium uptake variation - fractional or absolute, with
+theoretical or experimental control, single-state or differential.
 
 For each residue $i$ there is a subset of peptides ($n$) covering said
 residue. Then, the final $D_{i,agg}$ is calculated from the subset of
