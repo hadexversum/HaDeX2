@@ -1,10 +1,10 @@
 # Comparison between versions
 
-This article discuss differences between the first version of HaDeX
-(Puchała et al. 2020), and the current version of the package and
-web-server. As the second version is significantly more complex than the
-previous one, we ultimately decided against expanding the first version.
-Instead we created a new entity. But how are they different?
+Let’s discuss differences between the first version of HaDeX (Puchała et
+al. 2020), and the current version of the package and web-server. As the
+second version is significantly more complex than the previous one, we
+ultimately decided against expanding the first version. Instead we
+created a new entity. But how are they different?
 
 ## Methods of visualization
 
@@ -141,9 +141,6 @@ there is a similar function in HaDeX (even under different name):
 | show_uptake_data                             | NA                                |
 | update_hdexaminer_file                       | NA                                |
 
-For pairs of functions, we can conduct the analysis of speed using our
-exemplary data.
-
 ## Calculation speeds compared
 
 For each pair of functions in the previous section, we can assess
@@ -255,7 +252,7 @@ version_benchmark <- microbenchmark(
 ```
 
 The microbenchmark package operates by executing each command 100 times
-and summarizing the resulting execution times in milliseconds. The
+and summarizing the resulting execution times in nanoseconds. The
 results are then presented side by side in graphical form to facilitate
 a direct and intuitive comparison across commands.
 

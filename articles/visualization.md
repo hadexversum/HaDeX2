@@ -615,7 +615,7 @@ plot_coverage_heatmap(bex_dat, value = "back_exchange")
 
 Below we compare the aspects of the plots.
 
-| types                  | time.course | length.of.the.peptide | uncertainty | all.peptides | different.states | position |
+| types                  | time course | length of the peptide | uncertainty | all peptides | different states | position |
 |:-----------------------|:------------|:----------------------|:------------|:-------------|:-----------------|:---------|
 | comparison             | FALSE       | TRUE                  | TRUE        | TRUE         | TRUE             | TRUE     |
 | Woods (differential)   | FALSE       | TRUE                  | TRUE        | TRUE         | TRUE             | TRUE     |
@@ -637,12 +637,6 @@ The columns indicate:
   peptides?
 - different states - does this plot show the results for different
   states?
-
-## New features
-
-We believe that new ways of visualization of the HDX-MS data can be
-developed. If so, we will be happy to include them in HaDeX package and
-update this article.
 
 Bondarchuk, Tetiana V, Vyacheslav F Shalak, Dmytro M Lozhko, Agnieszka
 Fatalska, Roman H Szczepanowski, Vladyslava Liudkovska, Oleksandr Yu

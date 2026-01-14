@@ -94,7 +94,8 @@ measured values. In HDX-MS, we repeat the measurements in triplicate in
 order to calculate the uncertainty of mass measurement. However, when
 transforming mass measurements into deuterium uptake, we need to
 propagate mass measurement uncertainty, using the Law of Propagation of
-Uncertainty []:</p>
+Uncertainty <span class="citation">(Joint Committee for Guides in
+Metrology 2008)</span>:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mi>c</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msqrt><mrow><munder><mo>∑</mo><mi>k</mi></munder><msup><mrow><mo stretchy="true" form="prefix">[</mo><mfrac><mrow><mi>∂</mi><mi>y</mi></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mi>k</mi></msub></mrow></mfrac><mi>u</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mi>k</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">u_{c}(y) = \sqrt{\sum_{k} \left[ \frac{\partial y}{\partial x_{k}} u(x_{k}) \right]^2}</annotation></semantics></math></p>
 <p>Where:</p>
 <ul>
@@ -114,9 +115,6 @@ is a function of
 created for deuterium uptake in the appropriate forms (as the equations
 differ based on the parameters of calculations) and described in detail
 in the article <code><a href="../articles/datafiles.html">vignette("datafiles")</a></code>.</p>
-<p><em>Joint Committee for Guides in Metrology. (2008) JCGM 100:
-evaluation of measurement data – guide to the expression of uncertainty
-in measurement. Technical report, JCGM</em></p>
 </div>
 <div class="section level2">
 <h2 id="hybrid-testing">Hybrid testing<a class="anchor" aria-label="anchor" href="#hybrid-testing"></a>
@@ -124,7 +122,7 @@ in measurement. Technical report, JCGM</em></p>
 <p>Hybrid testing <span class="citation">(Hageman and Weis 2019)</span>
 is a combination of two statistical approaches to ensure that the
 difference between two biological states is statistically significant.
-The difference is significant if two tests simultaneously claims the
+The difference is significant if two tests simultaneously claim the
 significance.</p>
 <p>However, it can be only achieved when we have the experiment done at
 least in triplicate, as it is the condition to perform Student
@@ -163,7 +161,7 @@ replicates from the table,</li>
 - number of the replicates of the experiment.</li>
 </ul>
 <p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mi>v</mi><mi>a</mi><mi>l</mi><mi>u</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">tvalue</annotation></semantics></math>
-is calculates as follows, using R-function <code>qt</code>:</p>
+is calculated as follows, using R-function <code>qt</code>:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mi>v</mi><mi>a</mi><mi>l</mi><mi>u</mi><mi>e</mi><mo>=</mo><mi>q</mi><mi>t</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>c</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mi>l</mi><mi>p</mi><mi>h</mi><mi>a</mi><mi>/</mi><mn>2</mn><mo>,</mo><mn>1</mn><mo>−</mo><mi>a</mi><mi>l</mi><mi>p</mi><mi>h</mi><mi>a</mi><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mi>d</mi><mi>f</mi><mo>=</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">tvalue = qt(c(alpha/2, 1-alpha/2), df = k-1)</annotation></semantics></math></p>
 <p>where the degree of freedom is the number of replicates minus one,
 and alpha is
@@ -222,6 +220,12 @@ Houde, Damian, Steven A. Berkowitz, and John R. Engen. 2011. <span>“The
 Utility of Hydrogen/Deuterium Exchange Mass Spectrometry in
 Biopharmaceutical Comparability Studies.”</span> <em>Journal of
 Pharmaceutical Sciences</em> 100 (6): 2071–86. <a href="https://doi.org/10.1002/jps.22432" class="external-link">https://doi.org/10.1002/jps.22432</a>.
+</div>
+<div id="ref-JCGM2008GUM" class="csl-entry">
+Joint Committee for Guides in Metrology. 2008. <span>“<span>JCGM
+100:2008</span> <span class="nocase">Evaluation of Measurement Data —
+Guide to the Expression of Uncertainty in Measurement</span>.”</span>
+Technical Report JCGM 100:2008. Joint Committee for Guides in Metrology.
 </div>
 <div id="ref-puchala_hadex_2020" class="csl-entry">
 Puchała, Weronika, Michał Burdukiewicz, Michał Kistowski, Katarzyna A.

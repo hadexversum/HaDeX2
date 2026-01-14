@@ -12,7 +12,7 @@ repeat the measurements in triplicate in order to calculate the
 uncertainty of mass measurement. However, when transforming mass
 measurements into deuterium uptake, we need to propagate mass
 measurement uncertainty, using the Law of Propagation of Uncertainty
-\[\]:
+(Joint Committee for Guides in Metrology 2008):
 
 $$u_{c}(y) = \sqrt{\sum\limits_{k}\left\lbrack \frac{\partial y}{\partial x_{k}}u\left( x_{k} \right) \right\rbrack^{2}}$$
 
@@ -28,16 +28,12 @@ differ based on the parameters of calculations) and described in detail
 in the article
 [`vignette("datafiles")`](https://hadexversum.github.io/HaDeX2/articles/datafiles.md).
 
-*Joint Committee for Guides in Metrology. (2008) JCGM 100: evaluation of
-measurement data – guide to the expression of uncertainty in
-measurement. Technical report, JCGM*
-
 ## Hybrid testing
 
 Hybrid testing (Hageman and Weis 2019) is a combination of two
 statistical approaches to ensure that the difference between two
 biological states is statistically significant. The difference is
-significant if two tests simultaneously claims the significance.
+significant if two tests simultaneously claim the significance.
 
 However, it can be only achieved when we have the experiment done at
 least in triplicate, as it is the condition to perform Student t-test.
@@ -64,7 +60,7 @@ where:
 - $tvalue$ - value for test for $k$ replicates from the table,
 - $k$ - number of the replicates of the experiment.
 
-$tvalue$ is calculates as follows, using R-function `qt`:
+$tvalue$ is calculated as follows, using R-function `qt`:
 
 $$tvalue = qt\left( c(alpha/2,1 - alpha/2),df = k - 1 \right)$$
 
@@ -124,6 +120,11 @@ Houde, Damian, Steven A. Berkowitz, and John R. Engen. 2011. “The
 Utility of Hydrogen/Deuterium Exchange Mass Spectrometry in
 Biopharmaceutical Comparability Studies.” *Journal of Pharmaceutical
 Sciences* 100 (6): 2071–86. <https://doi.org/10.1002/jps.22432>.
+
+Joint Committee for Guides in Metrology. 2008. “JCGM 100:2008 Evaluation
+of Measurement Data — Guide to the Expression of Uncertainty in
+Measurement.” Technical Report JCGM 100:2008. Joint Committee for Guides
+in Metrology.
 
 Puchała, Weronika, Michał Burdukiewicz, Michał Kistowski, Katarzyna A.
 Dąbrowska, Aleksandra E. Badaczewska-Dawid, Dominik Cysewski, and Michał

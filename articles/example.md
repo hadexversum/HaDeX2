@@ -167,8 +167,8 @@ The 3D viewer provides an interactive way to explore these differences
 in the context of the protein structure. By mapping the differential HDX
 data onto the 3D structure of SecA, we can directly see how ADP binding
 rigidifies specific regions of the protein (Figure
-[2.6](#fig:differential-structure)). In the figure below, we can clearly
-see the strongest response in helicase motif I, rigidifying upon ADP
+[2.6](#fig:differential-structure)). In this figure, we can clearly see
+the strongest response in helicase motif I, rigidifying upon ADP
 binding, as well as the allosteric propagation of this effect through
 the scaffold regions ultimately resulting in a long-range allosteric
 response in the client-binding PPD domain.
@@ -187,7 +187,7 @@ Figure 2.6: 3D view of differential HDX data on the structure of SecA.
 
 ### 2.5 Measurements
 
-The ‘Measurements’ tab allows us to delve deeper into the individual
+The ‘Measurements’ tab allows us to further inspect the individual
 replicate measurement results. This tab provides a per-peptide view
 where we can use the peptide table in the sidebar to select peptides of
 interest. Then, for the selected exposure time, we can now inspect each
