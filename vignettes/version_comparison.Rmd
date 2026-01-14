@@ -23,7 +23,7 @@ library(dplyr)
 library(ggplot2)
 ```
 
-This article discuss differences between the first version of HaDeX [@puchala_hadex_2020], and the current version of the package and web-server. As the second version is significantly more complex than the previous one, we ultimately decided against expanding the first version. Instead we created a new entity. But how are they different?
+Let's discuss differences between the first version of HaDeX [@puchala_hadex_2020], and the current version of the package and web-server. As the second version is significantly more complex than the previous one, we ultimately decided against expanding the first version. Instead we created a new entity. But how are they different?
 
 # Methods of visualization 
 
@@ -106,7 +106,6 @@ NA, NA, NA, NA, NA, NA, NA, NA, NA, NA)), longtable = TRUE)
 
 
 ```
-For pairs of functions, we can conduct the analysis of speed using our exemplary data.
 
 
 # Calculation speeds compared
@@ -214,7 +213,7 @@ version_benchmark <- microbenchmark(
 )
 
 ```
-The microbenchmark package operates by executing each command 100 times and summarizing the resulting execution times in milliseconds. The results are then presented side by side in graphical form to facilitate a direct and intuitive comparison across commands.
+The microbenchmark package operates by executing each command 100 times and summarizing the resulting execution times in nanoseconds. The results are then presented side by side in graphical form to facilitate a direct and intuitive comparison across commands.
 
 
 ```{r message = FALSE, echo=FALSE, results='asis', out.width='100%'}

@@ -542,12 +542,13 @@ Below we compare the aspects of the plots.
 
 summary_plots <- data.frame(types = c("comparison", "Woods (differential)", "butterfly", "butterfly differential", "volcano", "chiclet", "chiclet differential", "uptake curve"),
  
-                            `time course` = c(FALSE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE),
-                            `length of the peptide` = c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE),
-                            uncertainty = c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE),
-                           `all peptides` = c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, FALSE),
-                           `different states` = c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, TRUE), 
-                           position = c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE))
+                            "time course" = c(FALSE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE),
+                            "length of the peptide" = c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE),
+                            "uncertainty" = c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE),
+                            "all peptides" = c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, FALSE),
+                           "different states" = c(TRUE, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, TRUE), 
+                           "position" = c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE),
+                           check.names = FALSE)
 
 knitr::kable(summary_plots)
 ```
@@ -561,7 +562,7 @@ The columns indicate:
 * all peptides - does this plot show the results for all of the peptides?
 * different states - does this plot show the results for different states?
 
-# New features
+<!-- # New features -->
 
-We believe that new ways of visualization of the HDX-MS data can be developed. If so, we will be happy to include them in HaDeX package and update this article. 
+<!-- We believe that new ways of visualization of the HDX-MS data can be developed. If so, we will be happy to include them in HaDeX package and update this article.  -->
 

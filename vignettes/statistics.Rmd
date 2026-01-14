@@ -26,7 +26,7 @@ Here, we sum up the statistics in HaDeX2. Some of the elements are discussed in 
 
 # Uncertainty propagation
 
-The propagation of uncertainty [@puchala_hadex_2020; @weis_recommendations_2021] is necessary when we are transforming the measured values. In HDX-MS, we repeat the measurements in triplicate in order to calculate the uncertainty of mass measurement. However, when transforming mass measurements into deuterium uptake, we need to propagate mass measurement uncertainty, using the Law of Propagation of Uncertainty []:
+The propagation of uncertainty [@puchala_hadex_2020; @weis_recommendations_2021] is necessary when we are transforming the measured values. In HDX-MS, we repeat the measurements in triplicate in order to calculate the uncertainty of mass measurement. However, when transforming mass measurements into deuterium uptake, we need to propagate mass measurement uncertainty, using the Law of Propagation of Uncertainty [@JCGM2008GUM]:
 
 $$u_{c}(y) = \sqrt{\sum_{k} \left[ \frac{\partial y}{\partial x_{k}} u(x_{k}) \right]^2}$$
 
@@ -37,11 +37,9 @@ Where:
 
 This is a generic equation used the derivatives of functions. It is created for deuterium uptake in the appropriate forms (as the equations differ based on the parameters of calculations) and described in detail in the article `vignette("datafiles")`.
 
-*Joint Committee for Guides in Metrology. (2008) JCGM 100: evaluation of measurement data – guide to the expression of uncertainty in measurement. Technical report, JCGM*
-
 # Hybrid testing 
 
-Hybrid testing [@hageman_reliable_2019] is a combination of two statistical approaches to ensure that the difference between two biological states is statistically significant. The difference is significant if two tests simultaneously claims the significance.
+Hybrid testing [@hageman_reliable_2019] is a combination of two statistical approaches to ensure that the difference between two biological states is statistically significant. The difference is significant if two tests simultaneously claim the significance.
 
 However, it can be only achieved when we have the experiment done at least in triplicate, as it is the condition to perform Student t-test.
 
@@ -59,7 +57,7 @@ where:
 * $tvalue$ - value for test for $k$ replicates from the table,
 * $k$ - number of the replicates of the experiment.
 
-$tvalue$ is calculates as follows, using R-function `qt`:
+$tvalue$ is calculated as follows, using R-function `qt`:
 
 $$tvalue = qt(c(alpha/2, 1-alpha/2), df = k-1)$$
 
