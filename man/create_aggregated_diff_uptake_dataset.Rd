@@ -20,7 +20,10 @@ one time point. This function returns values for all
 time points from `diff_uptake_dat`.
 }
 \examples{
+\donttest{
+# disabled due to long execution time 
+
 diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 head(create_aggregated_diff_uptake_dataset(diff_uptake_dat))
-
+}
 }

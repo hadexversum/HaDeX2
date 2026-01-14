@@ -12,8 +12,11 @@
 #' @return a \code{data.frame} object.
 #' 
 #' @examples
+#' \donttest{
+#' # disabled due to long execution time 
 #' get_residue_positions(alpha_dat)
-#'
+#' }
+#' 
 #' @export
 
 get_residue_positions <- function(dat){

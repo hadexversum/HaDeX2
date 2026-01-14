@@ -32,10 +32,14 @@ This function provides a set of color codes associated with aggregated values
 to be presented on 3D structure.
 }
 \examples{
+\donttest{
+# disabled due to long execution time 
+
 diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 diff_aggregated_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
 get_structure_color(diff_aggregated_dat, 
                     differential = TRUE,
                     time_t = 1)
+}
 
 }

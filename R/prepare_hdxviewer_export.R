@@ -9,6 +9,9 @@
 #' @importFrom utils write.csv
 #'
 #' @examples
+#' \donttest{
+#' # disabled due to long execution time and attempt to save a file
+#' 
 #' kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN" )
 #' aggregated_dat <- create_aggregated_uptake_dataset(kin_dat)
 #' diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
@@ -17,7 +20,8 @@
 #' # prepare_hdxviewer_export(aggregated_dat, differential = TRUE) # shouldnt work
 #' prepare_hdxviewer_export(diff_aggregated_dat, differential = TRUE)
 # # prepare_hdxviewer_export(aggregated_dat, differential = FALSE, download = TRUE)
-#'
+#' }
+#' 
 #' @export
 
 

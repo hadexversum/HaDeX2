@@ -28,7 +28,11 @@ approach` (defined in `vignette("datafiles"))`. For
 visualization use \code{\link{plot_aggregated_uptake}}
 }
 \examples{
+\donttest{
+# disabled due to long execution time 
+
 kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN")
 head(create_aggregated_uptake_dataset(kin_dat))
+}
 
 }

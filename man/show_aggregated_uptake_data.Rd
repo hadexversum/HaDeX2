@@ -30,6 +30,9 @@ with regard to submitted parameters in a friendly form.
 Designed for GUI.
 }
 \examples{
+\donttest{
+# disabled due to long execution time 
+
 kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN")
 aggregated_dat <- create_aggregated_uptake_dataset(kin_dat)
 show_aggregated_uptake_data(aggregated_dat)
@@ -37,5 +40,6 @@ show_aggregated_uptake_data(aggregated_dat)
 diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 aggregated_diff_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
 show_aggregated_uptake_data(aggregated_diff_dat, differential = TRUE)
+}
 
 }

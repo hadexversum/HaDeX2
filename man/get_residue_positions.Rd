@@ -21,6 +21,9 @@ with each position in the sequence accompanied by the amino acid placed in this
 position.
 }
 \examples{
+\donttest{
+# disabled due to long execution time 
 get_residue_positions(alpha_dat)
+}
 
 }

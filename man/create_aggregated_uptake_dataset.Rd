@@ -20,7 +20,11 @@ one time point. This function returns values for all
 time points from `kin_dat`.
 }
 \examples{
+\donttest{
+# disabled due to long execution time 
+
 kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN")
 create_aggregated_uptake_dataset(kin_dat)
+}
 
 }

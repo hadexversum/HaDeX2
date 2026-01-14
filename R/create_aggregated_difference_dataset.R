@@ -12,9 +12,12 @@
 #' @return a \code{\link{data.frame}} object
 #'
 #' @examples
+#' \donttest{
+#' # disabled due to long execution time 
+#' 
 #' diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 #' head(create_aggregated_diff_uptake_dataset(diff_uptake_dat))
-#'
+#' }
 #' @export
 
 create_aggregated_diff_uptake_dataset <- function(diff_uptake_dat){

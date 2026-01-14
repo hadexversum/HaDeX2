@@ -14,9 +14,13 @@
 #' @return a \code{\link{data.frame}} object
 #' 
 #' @examples
+#' \donttest{
+#' # disabled due to long execution time 
+#' 
 #' kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN")
 #' head(create_aggregated_uptake_dataset(kin_dat))
-#'
+#' }
+#' 
 #' @export
 
 calculate_aggregated_uptake <- function(kin_dat,

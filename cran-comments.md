@@ -7,17 +7,19 @@
 Using local win-builder there was no error, no warning and one note:
 
 ```
-installed size is 11.4Mb 
+installed size is 10.5Mb 
 sub-directories of 1Mb or more:
       HaDeX   3.8Mb
-      doc     5.6Mb
+      doc     4.7Mb
 ```
 
 The size is mostly caused by our extensive documentation and necessary external data files used in Examples. 
+To avoid another note, the function examples exceeding 5s are put in donttest clause. 
 
 ## Tested environments
 
 * local Windows install (x86_64-w64-mingw32, R 4.3.3)
+* rhub Github Actions: linux, windows
 
 ## Why it is HaDeX2, not HaDeX 2.0?
 

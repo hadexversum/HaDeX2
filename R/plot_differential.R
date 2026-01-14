@@ -57,6 +57,9 @@
 #' \code{\link{show_diff_uptake_data}}
 #'
 #' @examples
+#' \donttest{
+#' # disabled due to long execution time 
+#' 
 #' diff_uptake_dat <- calculate_diff_uptake(alpha_dat,  
 #'                                          states = c("ALPHA_Gamma", "Alpha_KSCN"), time_t = 0.167)
 #' plot_differential(diff_uptake_dat = diff_uptake_dat, time_t = 0.167) 
@@ -81,7 +84,7 @@
 #' plot_differential(diff_p_uptake_dat = diff_p_uptake_dat, show_tstud_confidence = TRUE, 
 #'                   show_houde_interval = TRUE, all_times = FALSE, hide_houde_insignificant = TRUE, 
 #'                   hide_tstud_insignificant = TRUE)
-#' 
+#' }
 #' @export plot_differential
 
 plot_differential <- function(diff_uptake_dat = NULL,

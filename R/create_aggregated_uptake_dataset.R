@@ -12,9 +12,13 @@
 #' @return a \code{\link{data.frame}} object
 #' 
 #' @examples
+#' \donttest{
+#' # disabled due to long execution time 
+#' 
 #' kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN")
 #' create_aggregated_uptake_dataset(kin_dat)
-#'
+#' }
+#' 
 #' @export
 
 create_aggregated_uptake_dataset <- function(kin_dat){
@@ -49,6 +53,9 @@ create_aggregated_uptake_dataset <- function(kin_dat){
 #' @return a \code{\link{data.frame}} object
 #' 
 #' @examples 
+#' \donttest{
+#' # disabled due to long execution time 
+#' 
 #' kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN")
 #' aggregated_dat <- create_aggregated_uptake_dataset(kin_dat)
 #' show_aggregated_uptake_data(aggregated_dat)
@@ -56,6 +63,7 @@ create_aggregated_uptake_dataset <- function(kin_dat){
 #' diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 #' aggregated_diff_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
 #' show_aggregated_uptake_data(aggregated_diff_dat, differential = TRUE)
+#' }
 #' 
 #' @export
 

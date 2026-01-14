@@ -18,7 +18,9 @@
 #' @return a r3dmol object.
 #' 
 #' @examples
-#' \dontrun{
+#' \donttest{
+#' # disabled due to its long time and producing 3rdmol object
+#' 
 #' diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 #' diff_aggregated_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
 #' pdb_file_path <- system.file(package = "HaDeX2", "HaDeX/data/Model_eEF1Balpha.pdb")
@@ -118,11 +120,15 @@ plot_aggregated_uptake_structure <- function(aggregated_dat,
 #' @return a list
 #' 
 #' @examples
+#' \donttest{
+#' # disabled due to long execution time 
+#' 
 #' diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 #' diff_aggregated_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
 #' get_structure_color(diff_aggregated_dat, 
 #'                     differential = TRUE,
 #'                     time_t = 1)
+#' }
 #' 
 #' @export
 get_structure_color <- function(aggregated_dat,
