@@ -26,6 +26,9 @@ a [`data.frame`](https://rdrr.io/r/base/data.frame.html) object
 ## Examples
 
 ``` r
+# \donttest{
+# disabled due to long execution time 
+
 diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 head(create_aggregated_diff_uptake_dataset(diff_uptake_dat))
 #>   position aa diff_frac_deut_uptake err_diff_frac_deut_uptake diff_deut_uptake
@@ -56,4 +59,5 @@ head(create_aggregated_diff_uptake_dataset(diff_uptake_dat))
 #> 4                0.01620374    0.167
 #> 5                0.01766158    0.167
 #> 6                0.01766158    0.167
+# }
 ```

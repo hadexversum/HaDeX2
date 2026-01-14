@@ -25,6 +25,9 @@ a [`data.frame`](https://rdrr.io/r/base/data.frame.html) object
 ## Examples
 
 ``` r
+# \donttest{
+# disabled due to long execution time 
+
 kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN")
 create_aggregated_uptake_dataset(kin_dat)
 #>      position aa frac_deut_uptake err_frac_deut_uptake deut_uptake
@@ -4008,4 +4011,5 @@ create_aggregated_uptake_dataset(kin_dat)
 #> 1324       1.50568286          0.005284952 1440.000
 #> 1325       1.50568286          0.005284952 1440.000
 #> 1326       1.50568286          0.005284952 1440.000
+# }
 ```

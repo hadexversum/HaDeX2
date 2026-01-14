@@ -102,7 +102,10 @@ results</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">diff_uptake_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_diff_uptake_dataset.html">create_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co"># disabled due to long execution time </span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">diff_uptake_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_diff_uptake_dataset.html">create_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">diff_aggregated_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_aggregated_diff_uptake_dataset.html">create_aggregated_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">diff_uptake_dat</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">get_structure_color</span><span class="op">(</span><span class="va">diff_aggregated_dat</span>, </span></span>
 <span class="r-in"><span>                    differential <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
@@ -139,6 +142,7 @@ results</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [204] "#FFE5DC" "#FFE1D6" "#FFE1D6" "#FFE1D6" "#FFE4DA" "#FFE1D6" "#FFCCBB"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [211] "#FFCFBF" "#FFC7B4" "#FFC7B4" "#FFC7B4" "#FFC7B4" "#FFC7B4" "#FFB8A1"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [218] "#FFB8A2" "#FFB7A0" "#FFB7A0" "#FFB7A0"</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

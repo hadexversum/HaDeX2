@@ -49,7 +49,9 @@ a r3dmol object.
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
+# \donttest{
+# disabled due to its long time and producing 3rdmol object
+
 diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 diff_aggregated_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
 pdb_file_path <- system.file(package = "HaDeX2", "HaDeX/data/Model_eEF1Balpha.pdb")
@@ -58,12 +60,17 @@ plot_aggregated_uptake_structure(diff_aggregated_dat,
                                 differential = TRUE,
                                  time_t = 1,
                                  pdb_file_path = pdb_file_path)
+#> Please considering installing at least the 0.2 version of the r3dmol package.
+#>             
+#> Available at: https://github.com/swsoyee/r3dmol.
+#> Error in loadNamespace(x): there is no package called ‘shiny’
 
 kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN" )
 aggregated_dat <- create_aggregated_uptake_dataset(kin_dat)
 plot_aggregated_uptake_structure(aggregated_dat,
                                  differential = FALSE,
                                  time_t = 1,
-                                 pdb_file_path = pdb_file_path) } # }
+                                 pdb_file_path = pdb_file_path) # }
+#> Error in loadNamespace(x): there is no package called ‘shiny’
                                  
 ```

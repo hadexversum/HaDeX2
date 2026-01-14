@@ -86,7 +86,10 @@ product of e.q. <code><a href="create_diff_uptake_dataset.html">create_diff_upta
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">diff_uptake_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_diff_uptake_dataset.html">create_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co"># disabled due to long execution time </span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">diff_uptake_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="create_diff_uptake_dataset.html">create_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu">create_aggregated_diff_uptake_dataset</span><span class="op">(</span><span class="va">diff_uptake_dat</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   position aa diff_frac_deut_uptake err_diff_frac_deut_uptake diff_deut_uptake</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1        1  G             1.2349065                 0.4904979       0.07447260</span>
@@ -116,7 +119,7 @@ product of e.q. <code><a href="create_diff_uptake_dataset.html">create_diff_upta
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4                0.01620374    0.167</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5                0.01766158    0.167</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6                0.01766158    0.167</span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

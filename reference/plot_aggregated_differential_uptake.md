@@ -52,6 +52,9 @@ plot_aggregated_differential_uptake(
 ## Examples
 
 ``` r
+# \donttest{
+# disabled due to long execution time 
+
 diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 aggregated_diff_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
 plot_aggregated_differential_uptake(aggregated_diff_dat, panels = FALSE)
@@ -69,4 +72,5 @@ plot_aggregated_differential_uptake(aggregated_diff_dat, theoretical = TRUE,
 #> 3 3 (3-3,1-1) arrange gtable[layout]
 #> 4 4 (4-4,1-1) arrange gtable[layout]
 #> 5 5 (5-5,1-1) arrange gtable[layout]
+# }
 ```

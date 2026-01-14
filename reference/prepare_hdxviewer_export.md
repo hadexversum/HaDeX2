@@ -39,6 +39,9 @@ prepare_hdxviewer_export(
 ## Examples
 
 ``` r
+# \donttest{
+# disabled due to long execution time and attempt to save a file
+
 kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN" )
 aggregated_dat <- create_aggregated_uptake_dataset(kin_dat)
 diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
@@ -74,4 +77,5 @@ prepare_hdxviewer_export(diff_aggregated_dat, differential = TRUE)
 #> 219:      219  0.017 0.081 0.059 0.087      0 -0.008
 #> 220:      220  0.017 0.081 0.059 0.087      0 -0.008
 #> 221:      221  0.017 0.081 0.059 0.087      0 -0.008
+# }
 ```

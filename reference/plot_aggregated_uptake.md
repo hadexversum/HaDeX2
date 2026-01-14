@@ -47,6 +47,9 @@ plot_aggregated_uptake(
 ## Examples
 
 ``` r
+# \donttest{
+# disabled due to long execution time 
+
 kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN")
 aggregated_dat <- create_aggregated_uptake_dataset(kin_dat)
 plot_aggregated_uptake(aggregated_dat, panels = FALSE)
@@ -56,4 +59,5 @@ plot_aggregated_uptake(aggregated_dat, fractional = FALSE, panels = FALSE)
 plot_aggregated_uptake(aggregated_dat, fractional = FALSE, theoretical = TRUE, panels = TRUE)
 
 #> NULL
+# }
 ```

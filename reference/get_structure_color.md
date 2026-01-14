@@ -44,6 +44,9 @@ a list
 ## Examples
 
 ``` r
+# \donttest{
+# disabled due to long execution time 
+
 diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
 diff_aggregated_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
 get_structure_color(diff_aggregated_dat, 
@@ -81,4 +84,5 @@ get_structure_color(diff_aggregated_dat,
 #> [204] "#FFE5DC" "#FFE1D6" "#FFE1D6" "#FFE1D6" "#FFE4DA" "#FFE1D6" "#FFCCBB"
 #> [211] "#FFCFBF" "#FFC7B4" "#FFC7B4" "#FFC7B4" "#FFC7B4" "#FFC7B4" "#FFB8A1"
 #> [218] "#FFB8A2" "#FFB7A0" "#FFB7A0" "#FFB7A0"
+# }
 ```

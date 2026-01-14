@@ -29,6 +29,8 @@ placed in this position.
 ## Examples
 
 ``` r
+# \donttest{
+# disabled due to long execution time 
 get_residue_positions(alpha_dat)
 #>     position aa
 #> 1          1  G
@@ -252,4 +254,5 @@ get_residue_positions(alpha_dat)
 #> 219      219  A
 #> 220      220  A
 #> 221      221  F
+# }
 ```
