@@ -18,7 +18,7 @@
 #' @return a r3dmol object.
 #' 
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # disabled due to its long time and producing 3rdmol object
 #' 
 #' diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
@@ -35,8 +35,8 @@
 #' plot_aggregated_uptake_structure(aggregated_dat,
 #'                                  differential = FALSE,
 #'                                  time_t = 1,
-#'                                  pdb_file_path = pdb_file_path) }
-#'                                  
+#'                                  pdb_file_path = pdb_file_path) 
+#' }
 #'
 #' @export
 

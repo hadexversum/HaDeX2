@@ -360,7 +360,7 @@ plot_manhattan(p_diff_dat, show_peptide_position  = TRUE)
 
 # High-resolution plot
 
-The biggest limitation of previous methods of deuterium uptake visualization is that the results are on the peptide level. However, we offer a method of aggregation of data on peptide level into high-resolution level, using the weighted method of aggregation (as described in `vignette("statistics")`). Then, the results are presented on the heatmap.
+The biggest limitation of previous methods of deuterium uptake visualization is that the results are on the peptide level. However, we offer a method of deuterium uptake averaging from peptide level into high-resolution level, using the weighted method of averaging (as described in `vignette("statistics")`). Then, the results are presented on the heatmap.
 
 **Example**
 
@@ -377,7 +377,7 @@ plot_aggregated_uptake(aggregated_dat)
 
  * high-resolution
  * time course
- * uncertainty of aggregated values
+ * uncertainty of averaged values
  
 *Cons:*
 
@@ -394,7 +394,7 @@ plot_aggregated_uptake(aggregated_dat)
 
 # Differential High-resolution plot
 
-As most of our methods of visualization, also the high-resolution plot has its differential version. The plot presents aggregated uptake difference values using weighted approach. 
+As most of our methods of visualization, also the high-resolution plot has its differential version. The plot presents averaged uptake difference values using weighted approach. 
 
 **Example** On the structure, we see the fractional deuterium uptake difference after 25 minutes between states eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$ for protein eEF1B. We see that some peptides are protected (red), and some are deprotected (blue).
 
@@ -402,8 +402,8 @@ As most of our methods of visualization, also the high-resolution plot has its d
 ```{r}
 
 diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat, state_1 = states[3], state_2 = states[1])
-aggregated_diff_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
-plot_aggregated_differential_uptake(aggregated_diff_dat, panels = FALSE)
+averaged_diff_dat <- create_aggregated_diff_uptake_dataset(diff_uptake_dat)
+plot_aggregated_differential_uptake(averaged_diff_dat, panels = FALSE)
 
 ```
 
@@ -413,7 +413,7 @@ plot_aggregated_differential_uptake(aggregated_diff_dat, panels = FALSE)
  * high-resolution
  * comparative analysis
  * time course
- * uncertainty of aggregated values
+ * uncertainty of averaged values
  
 *Cons:*
 
@@ -465,7 +465,7 @@ plot_aggregated_differential_uptake(aggregated_diff_dat, panels = FALSE)
 
 High-resolution values not only can be presented linearly on high-resolution plot (as above), but also on 3D structure, if available. This way, the calculated values are connected with spatial aspect. This option is available both for single state uptake and differential uptake.
 
-**Example** Structure below is mapped with deuterium uptake values after 1 minute for eEF1B$\alpha$ state. Values are aggregated using weighted approach, color signifies no exchange (white) to high exchange (red).
+**Example** Structure below is mapped with deuterium uptake values after 1 minute for eEF1B$\alpha$ state. Values are averaged using weighted approach, color signifies no exchange (white) to high exchange (red).
 
 
 ```{r, eval=FALSE}
@@ -481,7 +481,7 @@ plot_aggregated_uptake_structure(aggregated_dat,
 
 *Pros:* 
 
- * aggregated values
+ * averaged values
  * spatial information
  * spinning, rotating and zooming options
  

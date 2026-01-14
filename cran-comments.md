@@ -14,11 +14,13 @@ sub-directories of 1Mb or more:
 ```
 
 The size is mostly caused by our extensive documentation and necessary external data files used in Examples. 
-To avoid another note, the function examples exceeding 5s are put in donttest clause. 
+The function examples exceeding 5s are put in donttest clause. 
+Words suggested as misspelled - "HDX", "Spectrometry", "eXchange" - are parts of software/technique proper names.
 
 ## Tested environments
 
 * local Windows install (x86_64-w64-mingw32, R 4.3.3)
+* win devel with win-builder.r-project.org
 * rhub Github Actions: linux, windows
 
 ## Why it is HaDeX2, not HaDeX 2.0?
