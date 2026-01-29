@@ -9,6 +9,10 @@ the GUI package is not installed, it asks user whether to install it.
 HaDeX_GUI()
 ```
 
+## Value
+
+No return value, called for side effects
+
 ## Warning
 
 Any ad-blocking software may cause malfunctions.

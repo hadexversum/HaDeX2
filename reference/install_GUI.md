@@ -7,3 +7,7 @@ Installs GUI package from GitHub
 ``` r
 install_GUI()
 ```
+
+## Value
+
+No return value, called for side effects
