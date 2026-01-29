@@ -6,6 +6,9 @@
 \usage{
 HaDeX_GUI()
 }
+\value{
+No return value, called for side effects
+}
 \description{
 Shows how to launch graphical user interface from HaDeXGUI package. 
 If the GUI package is not installed, it asks user whether to install it.

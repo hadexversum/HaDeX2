@@ -7,6 +7,8 @@
 #' @description This function prepares the data used in 
 #' coverage heatmap to be shown in user-friendly way.
 #' 
+#' @return a \code{\link[data.table]{data.table}} object 
+#' 
 #' @examples
 #' # auc data
 #' auc_dat <- calculate_auc(create_uptake_dataset(alpha_dat))

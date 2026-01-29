@@ -9,6 +9,9 @@ is_GUI_installed <- function()
 #' Installs GUI package from GitHub
 #' 
 #' @importFrom remotes install_github
+#' 
+#' @return No return value, called for side effects
+#' 
 #' @export
 install_GUI <- function()
   remotes::install_github("hadexversum/HaDeXGUI")
@@ -39,6 +42,8 @@ handle_missing_GUI <- function() {
 #'
 #' @description Shows how to launch graphical user interface from HaDeXGUI package. 
 #' If the GUI package is not installed, it asks user whether to install it.
+#' 
+#' @return No return value, called for side effects
 #' 
 #' @section Warning : Any ad-blocking software may cause malfunctions.
 #' 

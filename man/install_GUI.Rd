@@ -6,6 +6,9 @@
 \usage{
 install_GUI()
 }
+\value{
+No return value, called for side effects
+}
 \description{
 Installs GUI package from GitHub
 }

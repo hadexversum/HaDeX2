@@ -68,7 +68,7 @@ validate_hdx_data <- function(hdx_data, msg = ""){
   #   msg <- paste0(msg, "There is no sufficient number of replicates.")
   # } 
   
-  print(msg)
+  message(msg)
   hdx_data
 }
 

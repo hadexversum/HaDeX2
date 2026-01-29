@@ -17,6 +17,8 @@
 #' 
 #' @importFrom gridExtra grid.arrange
 #' 
+#' @return a \code{\link[ggplot2]{ggplot}} object 
+#' 
 #' @examples
 #' \donttest{
 #' # disabled due to long execution time 
