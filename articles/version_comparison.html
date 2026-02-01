@@ -82,16 +82,15 @@
 
     
     
-<p>Let’s discuss differences between the first version of HaDeX <span class="citation">(Puchała et al. 2020)</span>, and the current version
-of the package and web-server. As the second version is significantly
-more complex than the previous one, we ultimately decided against
-expanding the first version. Instead we created a new entity. But how
-are they different?</p>
+<p>Due to the wider scope of the second version of HaDeX, we developed
+it as an independent package from the original iteration <span class="citation">(Puchała et al. 2020)</span>. This section outlines the
+differences between HaDeX 2.0 and HaDeX 1.0, highlighting the extended
+capabilities and improved computational performance.</p>
 <div class="section level2">
-<h2 id="methods-of-visualization">Methods of visualization<a class="anchor" aria-label="anchor" href="#methods-of-visualization"></a>
+<h2 id="comparison-of-visualization-types">Comparison of visualization types<a class="anchor" aria-label="anchor" href="#comparison-of-visualization-types"></a>
 </h2>
-<p>Let’s start by discussing methods of visualization available in the
-packages and web-servers:</p>
+<p>We first compare the visualization methods implemented in the package
+and web-server versions.</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">plot_type</th>
@@ -193,9 +192,10 @@ packages and web-servers:</p>
 </table>
 </div>
 <div class="section level2">
-<h2 id="web-server-features">Web-server features<a class="anchor" aria-label="anchor" href="#web-server-features"></a>
+<h2 id="new-web-server-features">New web-server features<a class="anchor" aria-label="anchor" href="#new-web-server-features"></a>
 </h2>
-<p>Let’s see how the features in web-servers differ.</p>
+<p>One of the most fundamental changes was the extensions of
+interactivity and reproducibility of web servers.</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">option</th>
@@ -230,19 +230,20 @@ packages and web-servers:</p>
 </tr>
 </tbody>
 </table>
-<p>In the table there are shortened names. <em>Tabular data</em> means
-that the tabular data is available for the plot. <em>Times next to each
-other</em> means the option of showing all time point data in two forms:
-one plot or smaller plots next to each other for time point separately.
-<em>Export to external tools</em> means an option to download data for
-tools such as HDXViewer or ChimeraX.</p>
-<p>Moreover, in HaDeX2 more visualization options are available.</p>
+<p>In the table above, <em>Tabular data</em> indicates whether the
+values underlying a given visualization are available to download in a
+tabular form. <em>Times next to each other</em> refers to the option of
+displaying measurements from multiple time points either within a single
+plot or as a series of adjacent plots, each representing an individual
+time point. <em>Export to external tools</em> means an option to export
+processed data to external applications such as HDXViewer or
+ChimeraX.</p>
 </div>
 <div class="section level2">
-<h2 id="package-functions">Package functions<a class="anchor" aria-label="anchor" href="#package-functions"></a>
+<h2 id="functionality-mapping-between-hadex-and-hadex2">Functionality mapping between HaDeX and HaDeX2<a class="anchor" aria-label="anchor" href="#functionality-mapping-between-hadex-and-hadex2"></a>
 </h2>
-<p>Finally, let’s take a look at package functions from HaDeX2 and see
-if there is a similar function in HaDeX (even under different name):</p>
+<p>The table below compare the functions implemented in HaDeX2 with
+their counterparts in HaDeX.</p>
 <table class="table">
 <colgroup>
 <col width="43%">
@@ -577,17 +578,16 @@ if there is a similar function in HaDeX (even under different name):</p>
 </table>
 </div>
 <div class="section level2">
-<h2 id="calculation-speeds-compared">Calculation speeds compared<a class="anchor" aria-label="anchor" href="#calculation-speeds-compared"></a>
+<h2 id="performance-benchmarking-of-hadex-and-hadex2">Performance benchmarking of HaDeX and HaDeX2<a class="anchor" aria-label="anchor" href="#performance-benchmarking-of-hadex-and-hadex2"></a>
 </h2>
 <p>For each pair of functions in the previous section, we can assess
 relative execution speed using the exemplary dataset as a controlled
 reference for comparison. We concentrate on six major tasks: reading
-data file, plotting (and preparing data) uptake curve for one peptide,
-comparison plot of two biological states, differential Woods plot with
-difference between two states, reconstruction of the protein sequence
-and computation of confidence limits.</p>
-<p>Code used to create this comparison is shown below, and then the
-results are presented in a comprehensive form.</p>
+data file, plotting (and preparing data) uptake curve for a single
+peptide, comparison plot of two biological states, differential Woods
+plot with difference between two states, reconstruction of the protein
+sequence and computation of confidence limits.</p>
+<p>We performed the benchmark utilizing the code shown below.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">HaDeX</span><span class="op">)</span></span>
 <span></span>
@@ -683,16 +683,16 @@ results are presented in a comprehensive form.</p>
 <span>               </span>
 <span>               <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p>The microbenchmark package operates by executing each command 100
-times and summarizing the resulting execution times in nanoseconds. The
-results are then presented side by side in graphical form to facilitate
-a direct and intuitive comparison across commands.</p>
-<p><img src="version_comparison_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" alt="" width="100%"></p>
-<p>All the tasks are completed significantly faster when using
-HaDeX2.</p>
-<p>Below, we present the summary of numeric values used to create this
-plot (in milliseconds):</p>
+<p>The <em>microbenchmark</em> package operates by repeatedly executing
+each command 100 times o obtain a stable and representative estimate of
+execution time.</p>
+<div class="figure">
+<img src="version_comparison_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" alt="Benchmark results." width="100%"><p class="caption">
+Benchmark results.
+</p>
+</div>
 <table class="table">
+<caption>Median speed of function execution (in miliseconds).</caption>
 <thead><tr class="header">
 <th align="left">task</th>
 <th align="right">HaDeX</th>

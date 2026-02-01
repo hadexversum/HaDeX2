@@ -1,15 +1,15 @@
 # Comparison between versions
 
-Let’s discuss differences between the first version of HaDeX (Puchała et
-al. 2020), and the current version of the package and web-server. As the
-second version is significantly more complex than the previous one, we
-ultimately decided against expanding the first version. Instead we
-created a new entity. But how are they different?
+Due to the wider scope of the second version of HaDeX, we developed it
+as an independent package from the original iteration (Puchała et al.
+2020). This section outlines the differences between HaDeX 2.0 and HaDeX
+1.0, highlighting the extended capabilities and improved computational
+performance.
 
-## Methods of visualization
+## Comparison of visualization types
 
-Let’s start by discussing methods of visualization available in the
-packages and web-servers:
+We first compare the visualization methods implemented in the package
+and web-server versions.
 
 | plot_type              | HaDeX | HaDeX2 |
 |:-----------------------|:------|:-------|
@@ -32,9 +32,10 @@ packages and web-servers:
 | measurement variablity | FALSE | TRUE   |
 | mass uptake curve      | FALSE | TRUE   |
 
-## Web-server features
+## New web-server features
 
-Let’s see how the features in web-servers differ.
+One of the most fundamental changes was the extensions of interactivity
+and reproducibility of web servers.
 
 | option                   | HaDeX | HaDeX2 |
 |:-------------------------|:------|:-------|
@@ -44,19 +45,18 @@ Let’s see how the features in web-servers differ.
 | times next to each other | FALSE | TRUE   |
 | export to external tools | FALSE | TRUE   |
 
-In the table there are shortened names. *Tabular data* means that the
-tabular data is available for the plot. *Times next to each other* means
-the option of showing all time point data in two forms: one plot or
-smaller plots next to each other for time point separately. *Export to
-external tools* means an option to download data for tools such as
-HDXViewer or ChimeraX.
+In the table above, *Tabular data* indicates whether the values
+underlying a given visualization are available to download in a tabular
+form. *Times next to each other* refers to the option of displaying
+measurements from multiple time points either within a single plot or as
+a series of adjacent plots, each representing an individual time point.
+*Export to external tools* means an option to export processed data to
+external applications such as HDXViewer or ChimeraX.
 
-Moreover, in HaDeX2 more visualization options are available.
+## Functionality mapping between HaDeX and HaDeX2
 
-## Package functions
-
-Finally, let’s take a look at package functions from HaDeX2 and see if
-there is a similar function in HaDeX (even under different name):
+The table below compare the functions implemented in HaDeX2 with their
+counterparts in HaDeX.
 
 | HaDeX                             | HaDeX2                                       |
 |:----------------------------------|:---------------------------------------------|
@@ -141,18 +141,17 @@ there is a similar function in HaDeX (even under different name):
 | NA                                | show_uptake_data                             |
 | NA                                | update_hdexaminer_file                       |
 
-## Calculation speeds compared
+## Performance benchmarking of HaDeX and HaDeX2
 
 For each pair of functions in the previous section, we can assess
 relative execution speed using the exemplary dataset as a controlled
 reference for comparison. We concentrate on six major tasks: reading
-data file, plotting (and preparing data) uptake curve for one peptide,
-comparison plot of two biological states, differential Woods plot with
-difference between two states, reconstruction of the protein sequence
-and computation of confidence limits.
+data file, plotting (and preparing data) uptake curve for a single
+peptide, comparison plot of two biological states, differential Woods
+plot with difference between two states, reconstruction of the protein
+sequence and computation of confidence limits.
 
-Code used to create this comparison is shown below, and then the results
-are presented in a comprehensive form.
+We performed the benchmark utilizing the code shown below.
 
 ``` r
 library(HaDeX)
@@ -251,17 +250,14 @@ version_benchmark <- microbenchmark(
 )
 ```
 
-The microbenchmark package operates by executing each command 100 times
-and summarizing the resulting execution times in nanoseconds. The
-results are then presented side by side in graphical form to facilitate
-a direct and intuitive comparison across commands.
+The *microbenchmark* package operates by repeatedly executing each
+command 100 times o obtain a stable and representative estimate of
+execution time.
 
-![](version_comparison_files/figure-html/unnamed-chunk-5-1.png)
+![Benchmark
+results.](version_comparison_files/figure-html/unnamed-chunk-5-1.png)
 
-All the tasks are completed significantly faster when using HaDeX2.
-
-Below, we present the summary of numeric values used to create this plot
-(in milliseconds):
+Benchmark results.
 
 | task                           |     HaDeX |   HaDeX2 | Runtime ratio |
 |:-------------------------------|----------:|---------:|--------------:|
@@ -271,6 +267,8 @@ Below, we present the summary of numeric values used to create this plot
 | 4\. Plot Woods                 | 201.53030 | 77.75905 |     0.3858430 |
 | 5\. Calculate confidence limit | 172.91570 | 53.16090 |     0.3074383 |
 | 6\. Reconstruct sequence       |  24.18105 | 15.78765 |     0.6528935 |
+
+Median speed of function execution (in miliseconds).
 
 Across all tasks, the reported values represent a runtime ratio
 (HaDeX2/HaDeX) consistently below one, indicating that HaDeX2 is faster
