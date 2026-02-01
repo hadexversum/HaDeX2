@@ -50,7 +50,7 @@ The comparison plot presents deuterium uptake of the peptides in a given time po
 
 ```{r}
 create_state_comparison_dataset(alpha_dat, time_t = 1) %>%
-plot_state_comparison(., fractional = TRUE) + 
+  plot_state_comparison(., fractional = TRUE) + 
   labs(x = "Position in sequence",
        y = "Fractional deuterium uptake [%]",
        title = "Measurement after 1 min of exchange")
@@ -80,7 +80,7 @@ Woods plot presents the deuterium uptake difference between two biological state
 
 ```{r}
 calculate_diff_uptake(alpha_dat, states = c(states[3], states[1])) %>%
-plot_differential(., fractional = TRUE, show_houde_interval = TRUE) +
+  plot_differential(., fractional = TRUE, show_houde_interval = TRUE) +
   labs(x = "Position in seqence",
        y = "Fractional deuterium uptake difference [%]",
        title = "Measurement after 1 min of uptake")
@@ -112,7 +112,7 @@ Butterfly plot presents the deuterium uptake for all peptides in a given state a
 
 ```{r}
 create_state_uptake_dataset(alpha_dat, state = states[3]) %>%
-plot_butterfly(., fractional = FALSE)
+  plot_butterfly(., fractional = FALSE)
 ```
 
 *Pros:* 
@@ -146,7 +146,7 @@ The measurements for 1440 min are hidden, as they are close to 0, as expected.
 ```{r message=FALSE}
 create_diff_uptake_dataset(alpha_dat, state_1 = states[3], state_2 = states[1]) %>%
   filter(Exposure < 1440) %>%
-plot_differential_butterfly(fractional = TRUE, show_houde_interval = TRUE) 
+  plot_differential_butterfly(fractional = TRUE, show_houde_interval = TRUE) 
 ```
 
 *Pros:* 
@@ -315,7 +315,7 @@ The presented uncertainty is in Daltons, making the threshold 1 Da as proposed l
 ```{r warning=FALSE}
 alpha_dat %>%
   filter(Exposure > 0) %>%
-plot_uncertainty(.)
+  plot_uncertainty()
 ```
 *Pros:* 
 
