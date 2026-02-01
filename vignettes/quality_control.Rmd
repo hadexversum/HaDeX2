@@ -1,6 +1,13 @@
 ---
 title: "Quality control"
-output: rmarkdown::html_vignette
+output: 
+  bookdown::html_document2:
+    base_format: rmarkdown::html_vignette
+    toc: true
+    number_sections: true
+    always_allow_html: yes
+pkgdown: 
+    as_is: true
 vignette: >
   %\VignetteIndexEntry{Quality control}
   %\VignetteEngine{knitr::rmarkdown}

@@ -1,10 +1,13 @@
 ---
 title: "Data visualization"
 output: 
-  rmarkdown::html_vignette:
+  bookdown::html_document2:
+    base_format: rmarkdown::html_vignette
     toc: true
     number_sections: true
     always_allow_html: yes
+pkgdown: 
+    as_is: true
 bibliography: hadex2_docs.bib
 vignette: >
   %\VignetteIndexEntry{Data visualization}

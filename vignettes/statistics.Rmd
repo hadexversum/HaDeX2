@@ -1,10 +1,13 @@
 ---
 title: "Statistics"
 output: 
-  rmarkdown::html_vignette:
+  bookdown::html_document2:
+    base_format: rmarkdown::html_vignette
     toc: true
     number_sections: true
     always_allow_html: yes
+pkgdown: 
+    as_is: true
 bibliography: hadex2_docs.bib
 vignette: >
   %\VignetteIndexEntry{Statistics}
@@ -39,9 +42,9 @@ This is a generic equation used the derivatives of functions. It is created for 
 
 # Hybrid testing 
 
-Hybrid testing [@hageman_reliable_2019] is a combination of two statistical approaches to ensure that the difference between two biological states is statistically significant. The difference is significant if two tests simultaneously claim the significance.
+HaDeX offers the hybrid testing procedure [@hageman_reliable_2019] because it addressed the trade-off between false positives and loss of power in the analysis of HDX-MS data. The hybrid test applies a two-stage decision rule to identify significantly different deuterium uptakes. First, the observed difference in deuterium uptake must exceed a globally estimated uncertainty threshold derived from pooled experimental standard deviations, ensuring that the effect is larger than expected measurement error. Only differences passing this magnitude-based filter are then evaluated using a replicate-aware hypothesis test, implemented as a Welch’s t-test, to assess whether the observed difference is statistically supported given the individual variances. A difference is considered significant only when both criteria are satisfied simultaneously. 
 
-However, it can be only achieved when we have the experiment done at least in triplicate, as it is the condition to perform Student t-test.
+Although the hybrid test offers superior statistical power compared to more classical statistical approaches, it is more data-intensive and therefore can be performed only when the user provides the experiment with at least three experimental replicates.
 
 ## Houde interval
 
@@ -71,9 +74,9 @@ In order to use student t-test, we need at least three values from each group - 
 
 This test shows us if the values are from two different distributions (desired option) or from one - and are the same. We are not interested in the latter case.
 
-We use the unpaired Student's t-test to calculate P-value. The null hypothesis is that this two distributions are the same. If calculated P-value exceeded limit set for chosen confidence limit, we reject the null hypothesis and assume that the distributions are different.
+We use the unpaired Student's t-test to calculate p-value. The null hypothesis is that this two distributions are the same. If calculated p-value exceeded limit set for chosen confidence limit, we reject the null hypothesis and assume that the distributions are different.
 
-To calculate P-value we use base R-function `t.test`
+To calculate p-value we use base R-function `t.test`
 
 ```{r eval=FALSE}
 t.test(x = st_1, y = st_2, 
@@ -84,12 +87,12 @@ t.test(x = st_1, y = st_2,
 
 where $st_1$ is a set of values from the first state, and $st_2$ from the second.
 
-If this option is chosen, we adjust the P-value using appropriate adjustment method (with three options: 'none', 'BH' and 'bonferroni'):
+If this option is chosen, we adjust the p-value using appropriate adjustment method (with three options: 'none', 'BH' and 'bonferroni'):
 
 ```{r eval=FALSE}
 p.adjust(p_dat[["P_value"]], method = p_adjustment_method)
 ```
 
-p-value is usually presented in the form of $-log(\textrm{p-value})$, e.q. on the volcano plot.
+p-value is usually presented in the form of $-log(\textrm{p-value})$, e.g. on the volcano plot.
 
 
