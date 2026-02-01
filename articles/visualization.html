@@ -91,7 +91,7 @@
 <p><strong>Example</strong> In the comparison plot below, we see the fractional deuterium uptake for all three possible states: eEF1B<span class="math inline">\(\alpha\)</span>, eEF1B<span class="math inline">\(\alpha\)</span> in presence of eEF1B<span class="math inline">\(\gamma\)</span> and in presence of eEF1B<span class="math inline">\(\beta\)</span>, from protein eEF1B. The values are calculated for the time point 1 min. The length of the segments represents the length of the peptide and the position in the protein sequence. The error bars indicate the uncertainty of the measurement.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/create_state_comparison_dataset.html">create_state_comparison_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span>, time_t <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span><span class="fu"><a href="../reference/plot_state_comparison.html">plot_state_comparison</a></span><span class="op">(</span><span class="va">.</span>, fractional <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="../reference/plot_state_comparison.html">plot_state_comparison</a></span><span class="op">(</span><span class="va">.</span>, fractional <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Position in sequence"</span>,</span>
 <span>       y <span class="op">=</span> <span class="st">"Fractional deuterium uptake [%]"</span>,</span>
 <span>       title <span class="op">=</span> <span class="st">"Measurement after 1 min of exchange"</span><span class="op">)</span></span></code></pre></div>
@@ -119,7 +119,7 @@
 <p><strong>Example</strong> On the Woods plot below, we see fractional deuterium uptake difference between two biological states eEF1B<span class="math inline">\(\alpha\)</span> and eEF1B<span class="math inline">\(\alpha\)</span> in presence of eEF1B<span class="math inline">\(\gamma\)</span> for protein eEF1B The confidence limits indicate which differences are statistically significant at levels 98%.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/calculate_diff_uptake.html">calculate_diff_uptake</a></span><span class="op">(</span><span class="va">alpha_dat</span>, states <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">states</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="va">states</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span><span class="fu"><a href="../reference/plot_differential.html">plot_differential</a></span><span class="op">(</span><span class="va">.</span>, fractional <span class="op">=</span> <span class="cn">TRUE</span>, show_houde_interval <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/plot_differential.html">plot_differential</a></span><span class="op">(</span><span class="va">.</span>, fractional <span class="op">=</span> <span class="cn">TRUE</span>, show_houde_interval <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Position in seqence"</span>,</span>
 <span>       y <span class="op">=</span> <span class="st">"Fractional deuterium uptake difference [%]"</span>,</span>
 <span>       title <span class="op">=</span> <span class="st">"Measurement after 1 min of uptake"</span><span class="op">)</span></span></code></pre></div>
@@ -150,7 +150,7 @@
 <p><strong>Example</strong> Below, on the butterfly plot, we see how the deuterium uptake changes in time for state eEF1B<span class="math inline">\(\alpha\)</span> for protein eEF1B. We see the different exchange speed - for some peptides, the change is stable in time, and for some peptides, there is no visible change in time.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/create_state_uptake_dataset.html">create_state_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span>, state <span class="op">=</span> <span class="va">states</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span><span class="fu"><a href="../reference/plot_butterfly.html">plot_butterfly</a></span><span class="op">(</span><span class="va">.</span>, fractional <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/plot_butterfly.html">plot_butterfly</a></span><span class="op">(</span><span class="va">.</span>, fractional <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="visualization_files/figure-html/unnamed-chunk-4-1.png"><!-- --></p>
 <p><em>Pros:</em></p>
 <ul>
@@ -182,7 +182,7 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/create_diff_uptake_dataset.html">create_diff_uptake_dataset</a></span><span class="op">(</span><span class="va">alpha_dat</span>, state_1 <span class="op">=</span> <span class="va">states</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, state_2 <span class="op">=</span> <span class="va">states</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Exposure</span> <span class="op">&lt;</span> <span class="fl">1440</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span><span class="fu"><a href="../reference/plot_differential_butterfly.html">plot_differential_butterfly</a></span><span class="op">(</span>fractional <span class="op">=</span> <span class="cn">TRUE</span>, show_houde_interval <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/plot_differential_butterfly.html">plot_differential_butterfly</a></span><span class="op">(</span>fractional <span class="op">=</span> <span class="cn">TRUE</span>, show_houde_interval <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span></code></pre></div>
 <p><img src="visualization_files/figure-html/unnamed-chunk-5-1.png"><!-- --></p>
 <p><em>Pros:</em></p>
 <ul>
@@ -342,7 +342,7 @@ The presented uncertainty is in Daltons, making the threshold 1 Da as proposed l
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">alpha_dat</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Exposure</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span><span class="fu"><a href="../reference/plot_uncertainty.html">plot_uncertainty</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/plot_uncertainty.html">plot_uncertainty</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="visualization_files/figure-html/unnamed-chunk-10-1.png"><!-- --><em>Pros:</em></p>
 <ul>
 <li>experimental quality control</li>

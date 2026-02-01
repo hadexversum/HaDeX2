@@ -35,7 +35,7 @@ indicate the uncertainty of the measurement.
 
 ``` r
 create_state_comparison_dataset(alpha_dat, time_t = 1) %>%
-plot_state_comparison(., fractional = TRUE) + 
+  plot_state_comparison(., fractional = TRUE) + 
   labs(x = "Position in sequence",
        y = "Fractional deuterium uptake [%]",
        title = "Measurement after 1 min of exchange")
@@ -76,7 +76,7 @@ significant at levels 98%.
 
 ``` r
 calculate_diff_uptake(alpha_dat, states = c(states[3], states[1])) %>%
-plot_differential(., fractional = TRUE, show_houde_interval = TRUE) +
+  plot_differential(., fractional = TRUE, show_houde_interval = TRUE) +
   labs(x = "Position in seqence",
        y = "Fractional deuterium uptake difference [%]",
        title = "Measurement after 1 min of uptake")
@@ -117,7 +117,7 @@ time.
 
 ``` r
 create_state_uptake_dataset(alpha_dat, state = states[3]) %>%
-plot_butterfly(., fractional = FALSE)
+  plot_butterfly(., fractional = FALSE)
 ```
 
 ![](visualization_files/figure-html/unnamed-chunk-4-1.png)
@@ -161,7 +161,7 @@ expected.
 ``` r
 create_diff_uptake_dataset(alpha_dat, state_1 = states[3], state_2 = states[1]) %>%
   filter(Exposure < 1440) %>%
-plot_differential_butterfly(fractional = TRUE, show_houde_interval = TRUE) 
+  plot_differential_butterfly(fractional = TRUE, show_houde_interval = TRUE) 
 ```
 
 ![](visualization_files/figure-html/unnamed-chunk-5-1.png)
@@ -385,7 +385,7 @@ suspicious.
 ``` r
 alpha_dat %>%
   filter(Exposure > 0) %>%
-plot_uncertainty(.)
+  plot_uncertainty()
 ```
 
 ![](visualization_files/figure-html/unnamed-chunk-10-1.png)*Pros:*
