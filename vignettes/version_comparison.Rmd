@@ -23,11 +23,11 @@ library(dplyr)
 library(ggplot2)
 ```
 
-Let's discuss differences between the first version of HaDeX [@puchala_hadex_2020], and the current version of the package and web-server. As the second version is significantly more complex than the previous one, we ultimately decided against expanding the first version. Instead we created a new entity. But how are they different?
+Due to the wider scope of the second version of HaDeX, we developed it as an independent package from the original iteration [@puchala_hadex_2020]. This section outlines the differences between HaDeX 2.0 and HaDeX 1.0, highlighting the extended capabilities and improved computational performance.
 
-# Methods of visualization 
+# Comparison of visualization types
 
-Let's start by discussing methods of visualization available in the packages and web-servers:
+We first compare the visualization methods implemented in the package and web-server versions.
 
 ```{r echo = FALSE}
 knitr::kable(data.frame(plot_type = c("comparison", "woods", 
@@ -66,9 +66,9 @@ knitr::kable(data.frame(plot_type = c("comparison", "woods",
            ))
 ```
 
-# Web-server features
+# New web-server features
 
-Let's see how the features in web-servers differ.
+One of the most fundamental changes was the extensions of interactivity and reproducibility of web servers.
 
 ```{r echo=FALSE}
 knitr::kable(data.frame(option = c("tooltips", "helpers", "tabular data", "times next to each other", "export to external tools"),
@@ -76,13 +76,11 @@ knitr::kable(data.frame(option = c("tooltips", "helpers", "tabular data", "times
            HaDeX2 = c(TRUE, TRUE, TRUE, TRUE, TRUE)))
 ```
 
-In the table there are shortened names. *Tabular data* means that the tabular data is available for the plot. *Times next to each other* means the option of showing all time point data in two forms: one plot or smaller plots next to each other for time point separately. *Export to external tools* means an option to download data for tools such as HDXViewer or ChimeraX.
+In the table above, *Tabular data* indicates whether the values underlying a given visualization are available to download in a tabular form. *Times next to each other* refers to the option of displaying measurements from multiple time points either within a single plot or as a series of adjacent plots, each representing an individual time point. *Export to external tools* means an option to export processed data to external applications such as HDXViewer or ChimeraX.
 
-Moreover, in HaDeX2 more visualization options are available. 
+# Functionality mapping between HaDeX and HaDeX2
 
-# Package functions
-
-Finally, let's take a look at package functions from HaDeX2 and see if there is a similar function in HaDeX (even under different name):
+The table below compare the functions implemented in HaDeX2 with their counterparts in HaDeX.
 
 ```{r echo=FALSE}
 x <- data.frame(HaDeX2 = c("add_stat_dependency", "calculate_aggregated_diff_uptake", "calculate_aggregated_test_results", "calculate_aggregated_uptake", "calculate_auc", "calculate_back_exchange", "calculate_confidence_limit_values", "calculate_diff_uptake", "calculate_exp_masses", "calculate_exp_masses_per_replicate", "calculate_kinetics", "calculate_MHP", "calculate_p_value", "calculate_peptide_kinetics", "calculate_state_uptake", "create_aggregated_diff_uptake_dataset", "create_aggregated_uptake_dataset", "create_control_dataset", "create_diff_uptake_dataset", "create_kinetic_dataset", "create_overlap_distribution_dataset", "create_p_diff_uptake_dataset", 
@@ -112,12 +110,11 @@ knitr::kable(tab_res, longtable = TRUE)
 ```
 
 
-# Calculation speeds compared
+# Performance benchmarking of HaDeX and HaDeX2
 
+For each pair of functions in the previous section, we can assess relative execution speed using the exemplary dataset as a controlled reference for comparison. We concentrate on six major tasks: reading data file, plotting (and preparing data) uptake curve for a single peptide, comparison plot of two biological states, differential Woods plot with difference between two states, reconstruction of the protein sequence and computation of confidence limits. 
 
-For each pair of functions in the previous section, we can assess relative execution speed using the exemplary dataset as a controlled reference for comparison. We concentrate on six major tasks: reading data file, plotting (and preparing data) uptake curve for one peptide, comparison plot of two biological states, differential Woods plot with difference between two states, reconstruction of the protein sequence and computation of confidence limits. 
-
-Code used to create this comparison is shown below, and then the results are presented in a comprehensive form.
+We performed the benchmark utilizing the code shown below.
 
 
 ```{r message=FALSE, eval=FALSE, echo=TRUE}
@@ -217,30 +214,25 @@ version_benchmark <- microbenchmark(
 )
 
 ```
-The microbenchmark package operates by executing each command 100 times and summarizing the resulting execution times in nanoseconds. The results are then presented side by side in graphical form to facilitate a direct and intuitive comparison across commands.
 
+The *microbenchmark* package operates by repeatedly executing each command 100 times o obtain a stable and representative estimate of execution time. 
 
-```{r message = FALSE, echo=FALSE, results='asis', out.width='100%'}
+```{r message = FALSE, echo=FALSE, results='asis', out.width='100%', fig.cap="Benchmark results.", fig.height=6}
 
 version_benchmark <- readRDS(file = "version_benchmark.rds")
 
 data.frame(version_benchmark) %>% 
-   mutate(tool = sapply(strsplit(as.character(expr), "_"), first),
-         task = sapply(strsplit(as.character(expr), "_"), last)) %>% 
+  mutate(tool = sapply(strsplit(as.character(expr), "_"), first),
+         task = sapply(strsplit(as.character(expr), "_"), last),
+         time = time/10e5) %>% 
   ggplot(aes(x = tool, y = time)) +
   geom_boxplot() +
   scale_x_discrete("") +
-  scale_y_continuous("Time [ms]") +
-  facet_wrap(~task, scales = "free_y", ncol = 2)
-
-
+  scale_y_continuous("Time [ms]", breaks = scales::pretty_breaks(n = 4)) +
+  facet_wrap(~ task, scales = "free_y", ncol = 2)
 
   
 ```
-
-All the tasks are completed significantly faster when using HaDeX2. 
-
-Below, we present the summary of numeric values used to create this plot (in milliseconds):
 
 ```{r echo=FALSE}
 summary(version_benchmark, unit = "ms") %>% 
@@ -249,7 +241,7 @@ summary(version_benchmark, unit = "ms") %>%
   select(tool, task, median) %>% 
   tidyr::pivot_wider(names_from = tool, values_from = median) %>% 
   mutate(`Runtime ratio` = HaDeX2/HaDeX) %>% 
-  knitr::kable()
+  knitr::kable(caption = "Median speed of function execution (in miliseconds).")
 ```
 
 Across all tasks, the reported values represent a runtime ratio (HaDeX2/HaDeX) consistently below one, indicating that HaDeX2 is faster than HaDeX for every measured operation. The strongest speedups, corresponding to the lowest ratios, are observed for plotting functions, calculating confidence limits, and plotting uptake curves, whereas input reading and sequence reconstruction show comparatively smaller, though still meaningful, reductions in execution time. In the case of input reading, the modest speed-up results from the fact that this functionality has substantially expanded in-built quality control in HaDeX2, where additional validation steps intentionally constrain maximal speed in favor of improved data integrity.
