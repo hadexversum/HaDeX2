@@ -1,11 +1,11 @@
 # Glossary
 
-## Variables
+## 1 Variables
 
 Variable names are used in the package consequently. Below are
 definitions of the terms.
 
-### Time points of measurement
+### 1.1 Time points of measurement
 
 time_t - chosen time point of measurement.
 
@@ -13,7 +13,7 @@ time_0 - minimal exchange control time point of measurement.
 
 time_100 - maximal exchange control time point of measurement.
 
-### Deuterium uptake values
+### 1.2 Deuterium uptake values
 
 deut_uptake - deuterium uptake \[Da\].
 
@@ -34,7 +34,7 @@ theo_frac_deut_uptake - theoretical fractional deuterium uptake \[%\].
 err_theo_frac_deut_uptake - error associated with theoretical fractional
 deuterium uptake \[%\].
 
-### Experimental conditions
+### 1.3 Experimental conditions
 
 deut_part - deuterium percentage in solution used in experiment, from
 range \[0, 1\].

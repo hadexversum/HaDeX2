@@ -25,7 +25,7 @@ in wrong format, there should be appropriate message.
 
 The main function for data import is `HaDeX::read_hdx()` function.
 
-## DynamX cluster file
+## 0.1 DynamX cluster file
 
 This is the preferable file format, that does not need any processing.
 The required columns are:
@@ -37,7 +37,7 @@ The required columns are:
 If the file have all required columns, it should be accepted by the
 `HaDeX::read_hdx()` function.
 
-## DynamX state file
+## 0.2 DynamX state file
 
 If the user already have an exported file from DynamX in `state` format,
 we assume they have an access to DynamX and we recommend them to export
@@ -84,8 +84,8 @@ kin_dat <- dat %>%
 ```
 
 This way we have uptake calculated in Daltons. If there is FD (labeled
-with $Exposure$ value), here is how to normalize uptake with respect to
-selected measurement:
+with \\Exposure\\ value), here is how to normalize uptake with respect
+to selected measurement:
 
 ``` r
 
@@ -114,7 +114,7 @@ If FD is labeled differently, adjust the code.
 Calculated kin_dat can be used in e.q. `HaDeX::plot_chiclet()` function.
 For more information check `vignette("code_usage")` article.
 
-## HDeXaminer
+## 0.3 HDeXaminer
 
 We do not have much experience with HDeXaminer, but we encountered data
 source labeled as HDeXaminer source in PRIDE. We want to discuss them

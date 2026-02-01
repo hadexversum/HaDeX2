@@ -1,6 +1,6 @@
 # Code usage
 
-## Convention
+## 1 Convention
 
 Purpose of groups of functions in the package:
 
@@ -26,15 +26,15 @@ Variables:
 - theo_frac_diff_deut_uptake - theoretical differential fractional
   deuterium uptake \[%\]
 
-## Example of use
+## 2 Example of use
 
-### Read data file
+### 2.1 Read data file
 
 ``` r
 dat <- read_hdx(system.file(package = "HaDeX2", "HaDeX/data/alpha.csv"))
 ```
 
-### Different forms of visualization
+### 2.2 Different forms of visualization
 
 Create data frame with uptake values for state in all time points:
 

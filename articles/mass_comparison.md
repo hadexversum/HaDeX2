@@ -1,6 +1,6 @@
 # Mass calculation
 
-## Comparison of results with weighted mean and without
+## 0.1 Comparison of results with weighted mean and without
 
 As it is described in
 [`vignette("datafiles")`](https://hadexversum.github.io/HaDeX2/articles/datafiles.md)
@@ -35,13 +35,13 @@ head(alpha_dat)
     ## 5:    0.167  Tania_161109_2eEF1Bag_KSCN_10sec     1  46642   1064
     ## 6:    0.167  Tania_161109_2eEF1Bag_KSCN_10sec     2 466233    532
 
-As described, the first step is to transform the $Center$ value
+As described, the first step is to transform the \\Center\\ value
 (geometric centroid of the isotopic envelope for given peptide in a
 given state in given time point) and then to aggregate the values
 measured for different charge values. This is all done within each
 replicate.
 
-The aggregation in our workflow is a weighted mean, with $Inten$
+The aggregation in our workflow is a weighted mean, with \\Inten\\
 (intensity) values as weights, as shown below.
 
 ``` r

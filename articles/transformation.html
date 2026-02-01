@@ -68,8 +68,6 @@
 </nav><div class="container template-article">
 
 
-
-
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
@@ -82,18 +80,13 @@
 
     
     
-<p>The aggregation of the hydrogen-deuterium exchange experimental data
-is complex. This article describes the process step by step for a better
-understanding of the data transformation.</p>
-<div class="section level2">
-<h2 id="aggregation-of-the-data---visualization">Aggregation of the data - visualization<a class="anchor" aria-label="anchor" href="#aggregation-of-the-data---visualization"></a>
+<p>The aggregation of the hydrogen-deuterium exchange experimental data is complex. This article describes the process step by step for a better understanding of the data transformation.</p>
+<div class="section level2" number="0.1">
+<h2 id="aggregation-of-the-data---visualization">
+<span class="header-section-number">0.1</span> Aggregation of the data - visualization<a class="anchor" aria-label="anchor" href="#aggregation-of-the-data---visualization"></a>
 </h2>
-<p>Let’s see how the data is transformed. We will use the example
-alpha_dat file from the HaDeX package and focus on just one peptide -
-“GFGDLKSPAGL” in the state “Alpha”. The measurement was made for time
-point 1 min.</p>
-<p>Below is shown the original and not aggregated data for chosen
-peptide.</p>
+<p>Let’s see how the data is transformed. We will use the example alpha_dat file from the HaDeX package and focus on just one peptide - “GFGDLKSPAGL” in the state “Alpha”. The measurement was made for time point 1 min.</p>
+<p>Below is shown the original and not aggregated data for chosen peptide.</p>
 <pre><code><span><span class="co">##      Protein Start   End    Sequence Modification MaxUptake      MHP      State</span></span>
 <span><span class="co">##       &lt;char&gt; &lt;int&gt; &lt;int&gt;      &lt;char&gt;       &lt;lgcl&gt;     &lt;int&gt;    &lt;num&gt;     &lt;char&gt;</span></span>
 <span><span class="co">## 1: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9 1061.563 Alpha_KSCN</span></span>
@@ -110,35 +103,20 @@ peptide.</p>
 <span><span class="co">## 4:        1 Tania_161108_2eEF1Ba_KSCN_1min     2 456787  532.9971</span></span>
 <span><span class="co">## 5:        1 Tania_161108_3eEF1Ba_KSCN_1min     1  53200 1065.0681</span></span>
 <span><span class="co">## 6:        1 Tania_161108_3eEF1Ba_KSCN_1min     2 469153  533.1101</span></span></code></pre>
-<p>As we can see from the
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mi>i</mi><mi>l</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">File</annotation></semantics></math>
-column, there are four replicates of the experiment. Each measurement of
-a replicate provide values for different possible charge values for each
-peptide. The result of a measurement is in column
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">Center</annotation></semantics></math>
-- this is a geometrical centroid of an isotopic envelope - the product
-of the measurement from a mass spectrometer.</p>
+<p>As we can see from the <span class="math inline">\(File\)</span> column, there are four replicates of the experiment. Each measurement of a replicate provide values for different possible charge values for each peptide. The result of a measurement is in column <span class="math inline">\(Center\)</span> - this is a geometrical centroid of an isotopic envelope - the product of the measurement from a mass spectrometer.</p>
 <p>Let’s take a look for values for each replicate.</p>
-<p><img src="transformation_files/figure-html/unnamed-chunk-3-1.png" class="r-plt" alt="" width="700"></p>
-<p>The centroid values for different charge values are not useful. We
-have to transform it to the mass values, according to an equation:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>g</mi><mi>g</mi><mi>M</mi><mi>a</mi><mi>s</mi><mi>s</mi><mo>=</mo><mi>z</mi><mo>*</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>C</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo>−</mo><mi>p</mi><mi>r</mi><mi>o</mi><mi>t</mi><mi>o</mi><mi>n</mi><mi>M</mi><mi>a</mi><mi>s</mi><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex"> aggMass = z*(Center - protonMass)</annotation></semantics></math>
+<p><img src="transformation_files/figure-html/unnamed-chunk-3-1.png"><!-- --></p>
+<p>The centroid values for different charge values are not useful. We have to transform it to the mass values, according to an equation:</p>
+<p><span class="math display">\[ aggMass = z*(Center - protonMass)\]</span>
 The results are shown below.</p>
-<p><img src="transformation_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" alt="" width="700"></p>
+<p><img src="transformation_files/figure-html/unnamed-chunk-4-1.png"><!-- --></p>
 <p>This results are just for one repetition. We have four of them:</p>
-<p><img src="transformation_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" alt="" width="700"></p>
-<p>Values from each replicate are aggregated into one value, using
-weighted mean (with intensity value as weight):</p>
-<p><img src="transformation_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" alt="" width="700"></p>
-<p>The results from replicates are aggregated into the final result
-(mean), and the uncertainty (standard deviation of the mean) is
-calculated.</p>
-<p><img src="transformation_files/figure-html/unnamed-chunk-7-1.png" class="r-plt" alt="" width="700"></p>
-<p>Now we have the mass value for chosen peptide in the chosen state,
-measured in the chosen time point. This calculation is done for every
-other peptide, and these values of mass and uncertainty are used in the
-calculation of deuterium uptake, as described in the
-<code><a href="../articles/datafiles.html">vignette("datafiles")</a></code> article.</p>
+<p><img src="transformation_files/figure-html/unnamed-chunk-5-1.png"><!-- --></p>
+<p>Values from each replicate are aggregated into one value, using weighted mean (with intensity value as weight):</p>
+<p><img src="transformation_files/figure-html/unnamed-chunk-6-1.png"><!-- --></p>
+<p>The results from replicates are aggregated into the final result (mean), and the uncertainty (standard deviation of the mean) is calculated.</p>
+<p><img src="transformation_files/figure-html/unnamed-chunk-7-1.png"><!-- --></p>
+<p>Now we have the mass value for chosen peptide in the chosen state, measured in the chosen time point. This calculation is done for every other peptide, and these values of mass and uncertainty are used in the calculation of deuterium uptake, as described in the <code><a href="../articles/datafiles.html">vignette("datafiles")</a></code> article.</p>
 </div>
   </main>
 </div>

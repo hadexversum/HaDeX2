@@ -6,7 +6,7 @@ as an independent package from the original iteration (Puchała et al.
 1.0, highlighting the extended capabilities and improved computational
 performance.
 
-## Comparison of visualization types
+## 1 Comparison of visualization types
 
 We first compare the visualization methods implemented in the package
 and web-server versions.
@@ -32,7 +32,7 @@ and web-server versions.
 | measurement variablity | FALSE | TRUE   |
 | mass uptake curve      | FALSE | TRUE   |
 
-## New web-server features
+## 2 New web-server features
 
 One of the most fundamental changes was the extensions of interactivity
 and reproducibility of web servers.
@@ -53,7 +53,7 @@ a series of adjacent plots, each representing an individual time point.
 *Export to external tools* means an option to export processed data to
 external applications such as HDXViewer or ChimeraX.
 
-## Functionality mapping between HaDeX and HaDeX2
+## 3 Functionality mapping between HaDeX and HaDeX2
 
 The table below compare the functions implemented in HaDeX2 with their
 counterparts in HaDeX.
@@ -141,7 +141,7 @@ counterparts in HaDeX.
 | NA                                | show_uptake_data                             |
 | NA                                | update_hdexaminer_file                       |
 
-## Performance benchmarking of HaDeX and HaDeX2
+## 4 Performance benchmarking of HaDeX and HaDeX2
 
 For each pair of functions in the previous section, we can assess
 relative execution speed using the exemplary dataset as a controlled
@@ -257,7 +257,7 @@ execution time.
 ![Benchmark
 results.](version_comparison_files/figure-html/unnamed-chunk-5-1.png)
 
-Benchmark results.
+Figure 4.1: Benchmark results.
 
 | task                           |     HaDeX |   HaDeX2 | Runtime ratio |
 |:-------------------------------|----------:|---------:|--------------:|
@@ -268,7 +268,7 @@ Benchmark results.
 | 5\. Calculate confidence limit | 172.91570 | 53.16090 |     0.3074383 |
 | 6\. Reconstruct sequence       |  24.18105 | 15.78765 |     0.6528935 |
 
-Median speed of function execution (in miliseconds).
+Table 4.1: Median speed of function execution (in miliseconds).
 
 Across all tasks, the reported values represent a runtime ratio
 (HaDeX2/HaDeX) consistently below one, indicating that HaDeX2 is faster
@@ -282,7 +282,7 @@ functionality has substantially expanded in-built quality control in
 HaDeX2, where additional validation steps intentionally constrain
 maximal speed in favor of improved data integrity.
 
-## HaDeX2 design
+## 5 HaDeX2 design
 
 The first version of HaDeX was developed quickly to address immediate
 data analysis challenges. As knowledge in the field expanded, it became

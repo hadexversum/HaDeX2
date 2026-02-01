@@ -4,7 +4,7 @@ The aggregation of the hydrogen-deuterium exchange experimental data is
 complex. This article describes the process step by step for a better
 understanding of the data transformation.
 
-## Aggregation of the data - visualization
+## 0.1 Aggregation of the data - visualization
 
 Let’s see how the data is transformed. We will use the example alpha_dat
 file from the HaDeX package and focus on just one peptide -
@@ -30,10 +30,10 @@ Below is shown the original and not aggregated data for chosen peptide.
     ## 5:        1 Tania_161108_3eEF1Ba_KSCN_1min     1  53200 1065.0681
     ## 6:        1 Tania_161108_3eEF1Ba_KSCN_1min     2 469153  533.1101
 
-As we can see from the $File$ column, there are four replicates of the
+As we can see from the \\File\\ column, there are four replicates of the
 experiment. Each measurement of a replicate provide values for different
 possible charge values for each peptide. The result of a measurement is
-in column $Center$ - this is a geometrical centroid of an isotopic
+in column \\Center\\ - this is a geometrical centroid of an isotopic
 envelope - the product of the measurement from a mass spectrometer.
 
 Let’s take a look for values for each replicate.
@@ -43,7 +43,7 @@ Let’s take a look for values for each replicate.
 The centroid values for different charge values are not useful. We have
 to transform it to the mass values, according to an equation:
 
-$$aggMass = z*(Center - protonMass)$$ The results are shown below.
+\\ aggMass = z\*(Center - protonMass)\\ The results are shown below.
 
 ![](transformation_files/figure-html/unnamed-chunk-4-1.png)
 

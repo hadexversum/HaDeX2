@@ -68,8 +68,6 @@
 </nav><div class="container template-article">
 
 
-
-
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
@@ -82,15 +80,12 @@
 
     
     
-<p>Due to the wider scope of the second version of HaDeX, we developed
-it as an independent package from the original iteration <span class="citation">(Puchała et al. 2020)</span>. This section outlines the
-differences between HaDeX 2.0 and HaDeX 1.0, highlighting the extended
-capabilities and improved computational performance.</p>
-<div class="section level2">
-<h2 id="comparison-of-visualization-types">Comparison of visualization types<a class="anchor" aria-label="anchor" href="#comparison-of-visualization-types"></a>
+<p>Due to the wider scope of the second version of HaDeX, we developed it as an independent package from the original iteration <span class="citation">(Puchała et al. 2020)</span>. This section outlines the differences between HaDeX 2.0 and HaDeX 1.0, highlighting the extended capabilities and improved computational performance.</p>
+<div class="section level2" number="1">
+<h2 id="comparison-of-visualization-types">
+<span class="header-section-number">1</span> Comparison of visualization types<a class="anchor" aria-label="anchor" href="#comparison-of-visualization-types"></a>
 </h2>
-<p>We first compare the visualization methods implemented in the package
-and web-server versions.</p>
+<p>We first compare the visualization methods implemented in the package and web-server versions.</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">plot_type</th>
@@ -191,11 +186,11 @@ and web-server versions.</p>
 </tbody>
 </table>
 </div>
-<div class="section level2">
-<h2 id="new-web-server-features">New web-server features<a class="anchor" aria-label="anchor" href="#new-web-server-features"></a>
+<div class="section level2" number="2">
+<h2 id="new-web-server-features">
+<span class="header-section-number">2</span> New web-server features<a class="anchor" aria-label="anchor" href="#new-web-server-features"></a>
 </h2>
-<p>One of the most fundamental changes was the extensions of
-interactivity and reproducibility of web servers.</p>
+<p>One of the most fundamental changes was the extensions of interactivity and reproducibility of web servers.</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">option</th>
@@ -230,20 +225,13 @@ interactivity and reproducibility of web servers.</p>
 </tr>
 </tbody>
 </table>
-<p>In the table above, <em>Tabular data</em> indicates whether the
-values underlying a given visualization are available to download in a
-tabular form. <em>Times next to each other</em> refers to the option of
-displaying measurements from multiple time points either within a single
-plot or as a series of adjacent plots, each representing an individual
-time point. <em>Export to external tools</em> means an option to export
-processed data to external applications such as HDXViewer or
-ChimeraX.</p>
+<p>In the table above, <em>Tabular data</em> indicates whether the values underlying a given visualization are available to download in a tabular form. <em>Times next to each other</em> refers to the option of displaying measurements from multiple time points either within a single plot or as a series of adjacent plots, each representing an individual time point. <em>Export to external tools</em> means an option to export processed data to external applications such as HDXViewer or ChimeraX.</p>
 </div>
-<div class="section level2">
-<h2 id="functionality-mapping-between-hadex-and-hadex2">Functionality mapping between HaDeX and HaDeX2<a class="anchor" aria-label="anchor" href="#functionality-mapping-between-hadex-and-hadex2"></a>
+<div class="section level2" number="3">
+<h2 id="functionality-mapping-between-hadex-and-hadex2">
+<span class="header-section-number">3</span> Functionality mapping between HaDeX and HaDeX2<a class="anchor" aria-label="anchor" href="#functionality-mapping-between-hadex-and-hadex2"></a>
 </h2>
-<p>The table below compare the functions implemented in HaDeX2 with
-their counterparts in HaDeX.</p>
+<p>The table below compare the functions implemented in HaDeX2 with their counterparts in HaDeX.</p>
 <table class="table">
 <colgroup>
 <col width="43%">
@@ -577,16 +565,11 @@ their counterparts in HaDeX.</p>
 </tbody>
 </table>
 </div>
-<div class="section level2">
-<h2 id="performance-benchmarking-of-hadex-and-hadex2">Performance benchmarking of HaDeX and HaDeX2<a class="anchor" aria-label="anchor" href="#performance-benchmarking-of-hadex-and-hadex2"></a>
+<div class="section level2" number="4">
+<h2 id="performance-benchmarking-of-hadex-and-hadex2">
+<span class="header-section-number">4</span> Performance benchmarking of HaDeX and HaDeX2<a class="anchor" aria-label="anchor" href="#performance-benchmarking-of-hadex-and-hadex2"></a>
 </h2>
-<p>For each pair of functions in the previous section, we can assess
-relative execution speed using the exemplary dataset as a controlled
-reference for comparison. We concentrate on six major tasks: reading
-data file, plotting (and preparing data) uptake curve for a single
-peptide, comparison plot of two biological states, differential Woods
-plot with difference between two states, reconstruction of the protein
-sequence and computation of confidence limits.</p>
+<p>For each pair of functions in the previous section, we can assess relative execution speed using the exemplary dataset as a controlled reference for comparison. We concentrate on six major tasks: reading data file, plotting (and preparing data) uptake curve for a single peptide, comparison plot of two biological states, differential Woods plot with difference between two states, reconstruction of the protein sequence and computation of confidence limits.</p>
 <p>We performed the benchmark utilizing the code shown below.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">HaDeX</span><span class="op">)</span></span>
@@ -683,16 +666,16 @@ sequence and computation of confidence limits.</p>
 <span>               </span>
 <span>               <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p>The <em>microbenchmark</em> package operates by repeatedly executing
-each command 100 times o obtain a stable and representative estimate of
-execution time.</p>
+<p>The <em>microbenchmark</em> package operates by repeatedly executing each command 100 times o obtain a stable and representative estimate of execution time.</p>
 <div class="figure">
-<img src="version_comparison_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" alt="Benchmark results." width="100%"><p class="caption">
-Benchmark results.
+<span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="version_comparison_files/figure-html/unnamed-chunk-5-1.png" alt="Benchmark results." width="100%"><p class="caption">
+Figure 4.1: Benchmark results.
 </p>
 </div>
 <table class="table">
-<caption>Median speed of function execution (in miliseconds).</caption>
+<caption>
+<span id="tab:unnamed-chunk-6">Table 4.1: </span>Median speed of function execution (in miliseconds).</caption>
 <thead><tr class="header">
 <th align="left">task</th>
 <th align="right">HaDeX</th>
@@ -738,42 +721,16 @@ Benchmark results.
 </tr>
 </tbody>
 </table>
-<p>Across all tasks, the reported values represent a runtime ratio
-(HaDeX2/HaDeX) consistently below one, indicating that HaDeX2 is faster
-than HaDeX for every measured operation. The strongest speedups,
-corresponding to the lowest ratios, are observed for plotting functions,
-calculating confidence limits, and plotting uptake curves, whereas input
-reading and sequence reconstruction show comparatively smaller, though
-still meaningful, reductions in execution time. In the case of input
-reading, the modest speed-up results from the fact that this
-functionality has substantially expanded in-built quality control in
-HaDeX2, where additional validation steps intentionally constrain
-maximal speed in favor of improved data integrity.</p>
+<p>Across all tasks, the reported values represent a runtime ratio (HaDeX2/HaDeX) consistently below one, indicating that HaDeX2 is faster than HaDeX for every measured operation. The strongest speedups, corresponding to the lowest ratios, are observed for plotting functions, calculating confidence limits, and plotting uptake curves, whereas input reading and sequence reconstruction show comparatively smaller, though still meaningful, reductions in execution time. In the case of input reading, the modest speed-up results from the fact that this functionality has substantially expanded in-built quality control in HaDeX2, where additional validation steps intentionally constrain maximal speed in favor of improved data integrity.</p>
 </div>
-<div class="section level2">
-<h2 id="hadex2-design">HaDeX2 design<a class="anchor" aria-label="anchor" href="#hadex2-design"></a>
+<div class="section level2" number="5">
+<h2 id="hadex2-design">
+<span class="header-section-number">5</span> HaDeX2 design<a class="anchor" aria-label="anchor" href="#hadex2-design"></a>
 </h2>
-<p>The first version of HaDeX was developed quickly to address immediate
-data analysis challenges. As knowledge in the field expanded, it became
-necessary to extend the package’s functionality. This required a
-carefully planned redesign. The package is now built from small, modular
-computing blocks—encapsulated functions that each perform a single task.
-Datasets are created by combining these functions. This design allows
-individual components to be tested independently and improves code
-readability through self-explanatory function names (calculate_ provides
-results for specific time point, but create_dataset_ for all time
-points). The parameter naming conventions were also simplified. In
-addition, the graphical user interface was rewritten from scratch using
-Shiny modules to ensure clear separation and encapsulation of
-features.</p>
+<p>The first version of HaDeX was developed quickly to address immediate data analysis challenges. As knowledge in the field expanded, it became necessary to extend the package’s functionality. This required a carefully planned redesign. The package is now built from small, modular computing blocks—encapsulated functions that each perform a single task. Datasets are created by combining these functions. This design allows individual components to be tested independently and improves code readability through self-explanatory function names (calculate_ provides results for specific time point, but create_dataset_ for all time points). The parameter naming conventions were also simplified. In addition, the graphical user interface was rewritten from scratch using Shiny modules to ensure clear separation and encapsulation of features.</p>
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-puchala_hadex_2020" class="csl-entry">
-Puchała, Weronika, Michał Burdukiewicz, Michał Kistowski, Katarzyna A.
-Dąbrowska, Aleksandra E. Badaczewska-Dawid, Dominik Cysewski, and Michał
-Dadlez. 2020. <span>“<span>HaDeX</span>: An <span>R</span> Package and
-Web-Server for Analysis of Data from Hydrogen-Deuterium Exchange Mass
-Spectrometry Experiments.”</span> <em>Bioinformatics (Oxford,
-England)</em> 36 (16): 4516–18. <a href="https://doi.org/10.1093/bioinformatics/btaa587" class="external-link">https://doi.org/10.1093/bioinformatics/btaa587</a>.
+Puchała, Weronika, Michał Burdukiewicz, Michał Kistowski, Katarzyna A. Dąbrowska, Aleksandra E. Badaczewska-Dawid, Dominik Cysewski, and Michał Dadlez. 2020. <span>“<span>HaDeX</span>: An <span>R</span> Package and Web-Server for Analysis of Data from Hydrogen-Deuterium Exchange Mass Spectrometry Experiments.”</span> <em>Bioinformatics (Oxford, England)</em> 36 (16): 4516–18. <a href="https://doi.org/10.1093/bioinformatics/btaa587" class="external-link">https://doi.org/10.1093/bioinformatics/btaa587</a>.
 </div>
 </div>
 </div>

@@ -9,16 +9,16 @@ explains how different plot types can be used to interpret HDX-MS data.
 It focuses on the biological questions each visualization addresses
 rather than implementation details.
 
-The analyzed protein is the eEF1B$\alpha$ subunit of the human
+The analyzed protein is the eEF1B\\\alpha\\ subunit of the human
 guanine-nucleotide exchange factor (GEF) complex (eEF1B), measured in
 [Mass Spectrometry Lab](https://mslab-ibb.pl/) in [Institute of
 Biochemistry and Biophysics Polish Academy of
 Sciences](https://ibb.edu.pl/en/) (Bondarchuk et al. 2022). In the
 one-state classification, we will focus on pure alpha state -
-eEF1B$\alpha$. The comparative analysis is conducted between
-eEF1B$\alpha$ and eEF1B$\alpha$ in presence of eEF1B$\gamma$.
+eEF1B\\\alpha\\. The comparative analysis is conducted between
+eEF1B\\\alpha\\ and eEF1B\\\alpha\\ in presence of eEF1B\\\gamma\\.
 
-## Comparison plot
+## 1 Comparison plot
 
 The comparison plot presents deuterium uptake of the peptides in a given
 time point, with information on the length of the peptide and their
@@ -26,11 +26,11 @@ position in the protein sequence. It allows comparison of the results of
 different biological states.
 
 **Example** In the comparison plot below, we see the fractional
-deuterium uptake for all three possible states: eEF1B$\alpha$,
-eEF1B$\alpha$ in presence of eEF1B$\gamma$ and in presence of
-eEF1B$\beta$, from protein eEF1B. The values are calculated for the time
-point 1 min. The length of the segments represents the length of the
-peptide and the position in the protein sequence. The error bars
+deuterium uptake for all three possible states: eEF1B\\\alpha\\,
+eEF1B\\\alpha\\ in presence of eEF1B\\\gamma\\ and in presence of
+eEF1B\\\beta\\, from protein eEF1B. The values are calculated for the
+time point 1 min. The length of the segments represents the length of
+the peptide and the position in the protein sequence. The error bars
 indicate the uncertainty of the measurement.
 
 ``` r
@@ -58,7 +58,7 @@ plot_state_comparison(., fractional = TRUE) +
 - plots with different time points can be plotted next to each other
 - tooltips available in GUI
 
-## Woods plot
+## 2 Woods plot
 
 Woods plot presents the deuterium uptake difference between two
 biological states for the peptides. The results are presented with
@@ -69,9 +69,10 @@ level. For more description see the
 [`vignette("statistics")`](https://hadexversum.github.io/HaDeX2/articles/statistics.md).
 
 **Example** On the Woods plot below, we see fractional deuterium uptake
-difference between two biological states eEF1B$\alpha$ and eEF1B$\alpha$
-in presence of eEF1B$\gamma$ for protein eEF1B The confidence limits
-indicate which differences are statistically significant at levels 98%.
+difference between two biological states eEF1B\\\alpha\\ and
+eEF1B\\\alpha\\ in presence of eEF1B\\\gamma\\ for protein eEF1B The
+confidence limits indicate which differences are statistically
+significant at levels 98%.
 
 ``` r
 calculate_diff_uptake(alpha_dat, states = c(states[3], states[1])) %>%
@@ -101,7 +102,7 @@ plot_differential(., fractional = TRUE, show_houde_interval = TRUE) +
 - peptides classified as statistically insignificant can be hidden
 - tooltips available in GUI
 
-## Butterfly plot
+## 3 Butterfly plot
 
 Butterfly plot presents the deuterium uptake for all peptides in a given
 state at different time points at once. Each time point of measurement
@@ -109,9 +110,10 @@ is indicated by a different color. Peptides are identified by their ID
 (peptides are numbered arranged by the start position).
 
 **Example** Below, on the butterfly plot, we see how the deuterium
-uptake changes in time for state eEF1B$\alpha$ for protein eEF1B. We see
-the different exchange speed - for some peptides, the change is stable
-in time, and for some peptides, there is no visible change in time.
+uptake changes in time for state eEF1B\\\alpha\\ for protein eEF1B. We
+see the different exchange speed - for some peptides, the change is
+stable in time, and for some peptides, there is no visible change in
+time.
 
 ``` r
 create_state_uptake_dataset(alpha_dat, state = states[3]) %>%
@@ -140,7 +142,7 @@ plot_butterfly(., fractional = FALSE)
 - selected time points shown
 - tooltips available in GUI
 
-## Butterfly differential plot
+## 4 Butterfly differential plot
 
 Butterfly differential plot shows the deuterium uptake difference
 between two biological states in the form of a butterfly plot. It shows
@@ -149,8 +151,8 @@ start position). The results are shown for different time points at once
 (time points of measurement are indicated by the color).
 
 **Example** Below, we see how the fractional deuterium uptake difference
-between states eEF1B$\alpha$ and eEF1B$\alpha$ in presence of
-eEF1B$\gamma$ changes over time. We see that for some peptides, the
+between states eEF1B\\\alpha\\ and eEF1B\\\alpha\\ in presence of
+eEF1B\\\gamma\\ changes over time. We see that for some peptides, the
 difference is smaller with time - perhaps because of the back exchange.
 
 The measurements for 1440 min are hidden, as they are close to 0, as
@@ -186,7 +188,7 @@ plot_differential_butterfly(fractional = TRUE, show_houde_interval = TRUE)
 - selected time points shown
 - tooltips available in GUI
 
-## Chiclet plot
+## 5 Chiclet plot
 
 Chiclet plot shows the fractional deuterium uptake in the form of a
 heatmap for the peptides in a given biological state. One tile indicates
@@ -196,7 +198,7 @@ indicates the fractional deuterium uptake (according to the legend below
 the plot).
 
 **Example** In the chiclet plot below, we can see the deuterium uptake
-values for peptides (indicated by their ID) in state eEF1B$\alpha$
+values for peptides (indicated by their ID) in state eEF1B\\\alpha\\
 during the time course of the experiment. The cross symbols indicate the
 uncertainty of the measurement (the bigger the cross sign, the bigger
 the uncertainty).
@@ -231,7 +233,7 @@ create_state_uptake_dataset(alpha_dat, state = states[3]) %>%
 - selected time points shown
 - tooltips available in GUI
 
-## Chiclet differential plot
+## 6 Chiclet differential plot
 
 Chiclet differential plot shows the deuterium uptake difference between
 two biological states in the form of a heatmap. One tile indicates the
@@ -240,11 +242,11 @@ in a time point of measurement. The color of the tile indicates the
 deuterium uptake difference (according to the legend below the plot).
 
 **Example** On the chiclet differential plot below, we see the
-fractional deuterium uptake difference between states eEF1B$\alpha$ and
-eEF1B$\alpha$ in presence of eEF1B$\gamma$ for protein eEF1B. We see
-that some peptides are protected (red), and some are deprotected (blue).
-The cross symbols indicate the uncertainty of the measurement (the
-bigger the cross sign, the bigger the uncertainty).
+fractional deuterium uptake difference between states eEF1B\\\alpha\\
+and eEF1B\\\alpha\\ in presence of eEF1B\\\gamma\\ for protein eEF1B. We
+see that some peptides are protected (red), and some are deprotected
+(blue). The cross symbols indicate the uncertainty of the measurement
+(the bigger the cross sign, the bigger the uncertainty).
 
 ``` r
 diff_uptake_dat %>%
@@ -274,7 +276,7 @@ diff_uptake_dat %>%
 - selected time points shown
 - tooltips available in GUI
 
-## Volcano plot
+## 7 Volcano plot
 
 The volcano plot shows the deuterium uptake difference for two
 biological states for peptide and its p-value for double testing on
@@ -287,7 +289,8 @@ indicate if the measured mean is significantly different between two
 states, as the deuterium uptake difference between states can be
 rewritten as
 
-$$\Delta D = D_{A} - D_{B} = m_{t,A} - m_{0} - \left( m_{t,B} - m_{0} \right) = m_{t,A} - m_{t,B}$$
+\\\Delta D = D\_{A} - D\_{B} = m\_{t, A} - m\_{0} - (m\_{t, B} - m\_{0})
+= m\_{t, A} - m\_{t, B} \\
 
 for states A and B. The values of deuterium uptake difference from all
 time points are shown on the plot.
@@ -300,8 +303,8 @@ indicate a threshold on deuterium uptake difference. The statistically
 significant points are in the top left and right corners of the plot.
 
 **Example** On the volcano plot below, we see the results for deuterium
-uptake difference between states eEF1B$\alpha$ and eEF1B$\alpha$ in
-presence of eEF1B$\gamma$ for protein eEF1B in all time points. The
+uptake difference between states eEF1B\\\alpha\\ and eEF1B\\\alpha\\ in
+presence of eEF1B\\\gamma\\ for protein eEF1B in all time points. The
 points in the left and right upper corner are statistically significant
 using the hybrid testing.
 
@@ -331,7 +334,7 @@ plot_volcano(p_dat, show_confidence_limits = TRUE)
 - hidden insignificant values
 - tooltips available in GUI
 
-## Uptake curve
+## 8 Uptake curve
 
 Uptake curves show the changes in exchange in time for a specific
 peptide for its state.
@@ -364,7 +367,7 @@ plot_uptake_curve() +
 - different methods of showing uncertainty: bars or ribbons
 - tooltips available in GUI
 
-## Uncertainty plot
+## 9 Uncertainty plot
 
 Uncertainty plot is new visualization method, showing the uncertainty of
 measurement of deuterium uptake for peptides to spot the regions where
@@ -375,7 +378,7 @@ The presented uncertainty is in Daltons, making the threshold 1 Da as
 proposed limit of acceptance.
 
 **Example** The plot below presents uncertainty values for multiple time
-points for state eEF1B$\alpha$. We see that the uncertainty is
+points for state eEF1B\\\alpha\\. We see that the uncertainty is
 relatively low for all the measurement, and none of the value is
 suspicious.
 
@@ -400,14 +403,14 @@ plot_uncertainty(.)
 - first amino omitted
 - tooltips available in GUI
 
-## Manhattan plot
+## 10 Manhattan plot
 
 Manhattan plot is a novel plot, presenting the P-value of statistical
 significance between two states.
 
 **Example** In this example, we present the P values of difference
-between two biological states: eEF1B$\alpha$ and eEF1B$\alpha$ in
-presence of eEF1B$\gamma$. We can see the regions where the difference
+between two biological states: eEF1B\\\alpha\\ and eEF1B\\\alpha\\ in
+presence of eEF1B\\\gamma\\. We can see the regions where the difference
 is statistically significant - above the significance level (detailed as
 option in create_p_diff_uptake_dataset, or by default 0.98).
 
@@ -433,7 +436,7 @@ plot_manhattan(p_diff_dat, show_peptide_position  = TRUE)
 - first amino omitted
 - tooltips available in GUI
 
-## High-resolution plot
+## 11 High-resolution plot
 
 The biggest limitation of previous methods of deuterium uptake
 visualization is that the results are on the peptide level. However, we
@@ -472,15 +475,15 @@ plot_aggregated_uptake(aggregated_dat)
 - plot divided into panels
 - tooltips available in GUI
 
-## Differential High-resolution plot
+## 12 Differential High-resolution plot
 
 As most of our methods of visualization, also the high-resolution plot
 has its differential version. The plot presents averaged uptake
 difference values using weighted approach.
 
 **Example** On the structure, we see the fractional deuterium uptake
-difference after 25 minutes between states eEF1B$\alpha$ and
-eEF1B$\alpha$ in presence of eEF1B$\gamma$ for protein eEF1B. We see
+difference after 25 minutes between states eEF1B\\\alpha\\ and
+eEF1B\\\alpha\\ in presence of eEF1B\\\gamma\\ for protein eEF1B. We see
 that some peptides are protected (red), and some are deprotected (blue).
 
 ``` r
@@ -510,7 +513,7 @@ plot_aggregated_differential_uptake(averaged_diff_dat, panels = FALSE)
 - plot divided into panels
 - tooltips available in GUI
 
-## High-resolution on 3D structure
+## 13 High-resolution on 3D structure
 
 High-resolution values not only can be presented linearly on
 high-resolution plot (as above), but also on 3D structure, if available.
@@ -519,7 +522,7 @@ option is available both for single state uptake and differential
 uptake.
 
 **Example** Structure below is mapped with deuterium uptake values after
-1 minute for eEF1B$\alpha$ state. Values are averaged using weighted
+1 minute for eEF1B\\\alpha\\ state. Values are averaged using weighted
 approach, color signifies no exchange (white) to high exchange (red).
 
 ``` r
@@ -550,16 +553,16 @@ plot_aggregated_uptake_structure(aggregated_dat,
 - fractional values calculated with respect of theoretical/experimental
   maximal uptake
 
-## Coverage heatmap
+## 14 Coverage heatmap
 
 Coverage heatmap plot is a variation of standard coverage plot - but
 with each peptide is colored to signal specific value. This plot is
-particularly useful when presenting AUC (consult @ref(AUC) for the
+particularly useful when presenting AUC (consult [**??**](#AUC) for the
 details of AUC computation) or back-exchange values, as they are
 specified for peptide uptake curve.
 
-**Example** Plot below presents the AUC values for eEF1B$\alpha$. We see
-that for the majority of regions the AUC values is close to 1,
+**Example** Plot below presents the AUC values for eEF1B\\\alpha\\. We
+see that for the majority of regions the AUC values is close to 1,
 signifying fast exchange with exception for one strong region and small
 sub-regions.
 
@@ -583,8 +586,8 @@ is more useful when used to compare uptake curves for a specific peptide
 under different biological conditions.
 
 **Example** The coverage heatmap plot below presents the back-exchange
-values for peptides form eEF1B$\alpha$. Back-exchange is believed to be
-on average close to 30%, as we see on the plot. Some peptides -
+values for peptides form eEF1B\\\alpha\\. Back-exchange is believed to
+be on average close to 30%, as we see on the plot. Some peptides -
 especially shorter ones - have grater back-exchange.
 
 ``` r
@@ -611,7 +614,7 @@ plot_coverage_heatmap(bex_dat, value = "back_exchange")
 
 - tooltips available in GUI
 
-## Summary of the uptake plots
+## 15 Summary of the uptake plots
 
 Below we compare the aspects of the plots.
 

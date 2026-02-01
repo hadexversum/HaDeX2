@@ -68,8 +68,6 @@
 </nav><div class="container template-article">
 
 
-
-
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
@@ -84,43 +82,26 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://hadexversum.github.io/HaDeX2/">HaDeX2</a></span><span class="op">)</span></span></code></pre></div>
-<p>Although the HaDeX application accepts only csv file exported from
-DynamX in <code>cluster</code> format, it is not impossible to use HaDeX
-package with other formats. Here, we present a little guide to mocking
-data.</p>
-<p>In this article, we focus on processing on the file so it could be
-accepted into HaDeX workflow. We do not discuss the content of the file,
-without minor comment addressing already calculated uptake data.</p>
-<p><em>Keep in mind that this guide is based on the limited amount of
-file types from popular vendors. As there are many formats and local
-custom in labeling the data, this article should be treated as a hint
-how to start, and not finite tutorial. The user needs to be careful and
-react accordingly. In case of any doubt, feel free to contact us, we
-will be glad to help!</em></p>
-<p>The best way to check if the file is suitable for the application is
-load in (using e.q. web-server) and see the file status. If the file is
-in wrong format, there should be appropriate message.</p>
-<p>The main function for data import is <code>HaDeX::read_hdx()</code>
-function.</p>
-<div class="section level2">
-<h2 id="dynamx-cluster-file">DynamX cluster file<a class="anchor" aria-label="anchor" href="#dynamx-cluster-file"></a>
+<p>Although the HaDeX application accepts only csv file exported from DynamX in <code>cluster</code> format, it is not impossible to use HaDeX package with other formats. Here, we present a little guide to mocking data.</p>
+<p>In this article, we focus on processing on the file so it could be accepted into HaDeX workflow. We do not discuss the content of the file, without minor comment addressing already calculated uptake data.</p>
+<p><em>Keep in mind that this guide is based on the limited amount of file types from popular vendors. As there are many formats and local custom in labeling the data, this article should be treated as a hint how to start, and not finite tutorial. The user needs to be careful and react accordingly. In case of any doubt, feel free to contact us, we will be glad to help!</em></p>
+<p>The best way to check if the file is suitable for the application is load in (using e.q. web-server) and see the file status. If the file is in wrong format, there should be appropriate message.</p>
+<p>The main function for data import is <code>HaDeX::read_hdx()</code> function.</p>
+<div class="section level2" number="0.1">
+<h2 id="dynamx-cluster-file">
+<span class="header-section-number">0.1</span> DynamX cluster file<a class="anchor" aria-label="anchor" href="#dynamx-cluster-file"></a>
 </h2>
-<p>This is the preferable file format, that does not need any
-processing. The required columns are:</p>
+<p>This is the preferable file format, that does not need any processing. The required columns are:</p>
 <pre><code><span><span class="co">#&gt;  [1] "Protein"      "Start"        "End"          "Sequence"     "Modification"</span></span>
 <span><span class="co">#&gt;  [6] "Fragment"     "MaxUptake"    "MHP"          "State"        "Exposure"    </span></span>
 <span><span class="co">#&gt; [11] "File"         "z"            "RT"           "Inten"        "Center"</span></span></code></pre>
-<p>If the file have all required columns, it should be accepted by the
-<code>HaDeX::read_hdx()</code> function.</p>
+<p>If the file have all required columns, it should be accepted by the <code>HaDeX::read_hdx()</code> function.</p>
 </div>
-<div class="section level2">
-<h2 id="dynamx-state-file">DynamX state file<a class="anchor" aria-label="anchor" href="#dynamx-state-file"></a>
+<div class="section level2" number="0.2">
+<h2 id="dynamx-state-file">
+<span class="header-section-number">0.2</span> DynamX state file<a class="anchor" aria-label="anchor" href="#dynamx-state-file"></a>
 </h2>
-<p>If the user already have an exported file from DynamX in
-<code>state</code> format, we assume they have an access to DynamX and
-we recommend them to export file in <code>cluster</code> format to avoid
-any data processing. However, if this is impossible, we present how to
-mock missing information.</p>
+<p>If the user already have an exported file from DynamX in <code>state</code> format, we assume they have an access to DynamX and we recommend them to export file in <code>cluster</code> format to avoid any data processing. However, if this is impossible, we present how to mock missing information.</p>
 <pre><code><span><span class="co">#&gt;  [1] "Protein"      "Start"        "End"          "Sequence"     "Modification"</span></span>
 <span><span class="co">#&gt;  [6] "Fragment"     "MaxUptake"    "MHP"          "State"        "Exposure"    </span></span>
 <span><span class="co">#&gt; [11] "Center"       "Center SD"    "Uptake"       "Uptake SD"    "RT"          </span></span>
@@ -138,8 +119,7 @@ mock missing information.</p>
 <span>    <span class="co"># exclude unused columns</span></span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">Uptake</span>, <span class="op">-</span><span class="va">`Uptake SD`</span>, <span class="op">-</span><span class="va">`Center SD`</span>, <span class="op">-</span><span class="va">`RT SD`</span><span class="op">)</span></span></code></pre></div>
 <p>Then, save the file and use it in the application.</p>
-<p>Other way is to use already made uptake calculations and use the
-uptake data directly in the workflow:</p>
+<p>Other way is to use already made uptake calculations and use the uptake data directly in the workflow:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">kin_dat</span> <span class="op">&lt;-</span> <span class="va">dat</span> <span class="op">%&gt;%</span></span>
@@ -152,11 +132,7 @@ uptake data directly in the workflow:</p>
 <span>           err_deut_uptake <span class="op">=</span> <span class="va">`Uptake SD`</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="co"># exclude unused columns</span></span>
 <span>    <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">Center</span>, <span class="op">-</span><span class="va">`Center SD`</span>, <span class="op">-</span><span class="va">RT</span>, <span class="op">-</span><span class="va">`RT SD`</span>, <span class="op">-</span><span class="va">Fragment</span><span class="op">)</span></span></code></pre></div>
-<p>This way we have uptake calculated in Daltons. If there is FD
-(labeled with
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mi>x</mi><mi>p</mi><mi>o</mi><mi>s</mi><mi>u</mi><mi>r</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">Exposure</annotation></semantics></math>
-value), here is how to normalize uptake with respect to selected
-measurement:</p>
+<p>This way we have uptake calculated in Daltons. If there is FD (labeled with <span class="math inline">\(Exposure\)</span> value), here is how to normalize uptake with respect to selected measurement:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># select FD based on Exposure in time_100</span></span>
@@ -178,25 +154,20 @@ measurement:</p>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">kin_dat</span>, <span class="st">"time_100"</span><span class="op">)</span><span class="op">=</span> <span class="va">time_100</span></span>
 <span>  </span></code></pre></div>
 <p>If FD is labeled differently, adjust the code.</p>
-<p>Calculated kin_dat can be used in e.q.
-<code>HaDeX::plot_chiclet()</code> function. For more information check
-<code>vignette("code_usage")</code> article.</p>
+<p>Calculated kin_dat can be used in e.q. <code>HaDeX::plot_chiclet()</code> function. For more information check <code>vignette("code_usage")</code> article.</p>
 </div>
-<div class="section level2">
-<h2 id="hdexaminer">HDeXaminer<a class="anchor" aria-label="anchor" href="#hdexaminer"></a>
+<div class="section level2" number="0.3">
+<h2 id="hdexaminer">
+<span class="header-section-number">0.3</span> HDeXaminer<a class="anchor" aria-label="anchor" href="#hdexaminer"></a>
 </h2>
-<p>We do not have much experience with HDeXaminer, but we encountered
-data source labeled as HDeXaminer source in PRIDE. We want to discuss
-them briefly.</p>
+<p>We do not have much experience with HDeXaminer, but we encountered data source labeled as HDeXaminer source in PRIDE. We want to discuss them briefly.</p>
 <p>If the file has following columns:</p>
 <pre><code><span><span class="co">#&gt;  [1] "Protein State" "Deut Time"     "Experiment"    "Start"        </span></span>
 <span><span class="co">#&gt;  [5] "End"           "Sequence"      "Charge"        "Search RT"    </span></span>
 <span><span class="co">#&gt;  [9] "Actual RT"     "# Spectra"     "Peak Width"    "m/z Shift"    </span></span>
 <span><span class="co">#&gt; [13] "Max Inty"      "Exp Cent"      "Theor Cent"    "Score"        </span></span>
 <span><span class="co">#&gt; [17] "Cent Diff"     "# Deut"        "Deut %"        "Confidence"</span></span></code></pre>
-<p>it can be processed with <code>HaDeX::read_hdx()</code> from the code
-level, as it requires additional action from the user. Then, this data
-can be used as described in other articles.</p>
+<p>it can be processed with <code>HaDeX::read_hdx()</code> from the code level, as it requires additional action from the user. Then, this data can be used as described in other articles.</p>
 <p>If the file has following columns:</p>
 <pre><code><span><span class="co">#&gt;  [1] "Protein State"      "Protein"            "Start"             </span></span>
 <span><span class="co">#&gt;  [4] " End"               "Sequence"           "Peptide Mass"      </span></span>
@@ -204,9 +175,7 @@ can be used as described in other articles.</p>
 <span><span class="co">#&gt; [10] "Theor #D"           "#D"                 "%D"                </span></span>
 <span><span class="co">#&gt; [13] "Conf Interval (#D)" "#Rep"               "Confidence"        </span></span>
 <span><span class="co">#&gt; [16] "Stddev"             "p"</span></span></code></pre>
-<p>we can transform in directly into uptake dat in just a few steps.
-Keep in mind that from this file format some information is missing
-(e.q. uncertainty):</p>
+<p>we can transform in directly into uptake dat in just a few steps. Keep in mind that from this file format some information is missing (e.q. uncertainty):</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># select only necessary columns</span></span>
 <span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="va">dat</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="fl">8</span><span class="op">:</span><span class="fl">12</span><span class="op">)</span><span class="op">]</span></span>
@@ -228,8 +197,7 @@ Keep in mind that from this file format some information is missing
 <span><span class="co"># mock uncertainty for plots</span></span>
 <span><span class="va">kin_dat</span><span class="op">[</span><span class="st">"err_frac_deut_uptake"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0</span></span>
 <span><span class="va">kin_dat</span><span class="op">[</span><span class="st">"err_deut_uptake"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0</span></span></code></pre></div>
-<p>then, when we have the uptake data, if can be used directly in HaDeX
-workflow:</p>
+<p>then, when we have the uptake data, if can be used directly in HaDeX workflow:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># select one state for classification </span></span>
 <span><span class="va">kin_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">kin_dat</span>, <span class="va">State</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">kin_dat</span><span class="op">[[</span><span class="st">"State"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">)</span></span>
