@@ -44,6 +44,10 @@ plot_aggregated_differential_uptake(
   with ggiraph, which would add tooltips to the plot in an interactive
   display (HTML/Markdown documents or shiny app)
 
+## Value
+
+a [`ggplot`](https://ggplot2.tidyverse.org/reference/ggplot.html) object
+
 ## See also
 
 [`create_diff_uptake_dataset`](https://hadexversum.github.io/HaDeX2/reference/create_diff_uptake_dataset.md)

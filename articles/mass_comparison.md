@@ -10,30 +10,8 @@ using weighted mean. Below we present the effect it has on the results.
 The whole workflow is described in the mentioned article. Here the focus
 is on the first aspect of the processing.
 
-For the analysis, we use the example file from HaDeX in its raw form,
-directly exported from DynamX:
-
-``` r
-library(HaDeX2)
-head(alpha_dat)
-```
-
-    ##      Protein Start   End    Sequence Modification MaxUptake   MHP       State
-    ##       <char> <int> <int>      <char>       <lgcl>     <int> <num>      <char>
-    ## 1: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9  1062 ALPHA_Gamma
-    ## 2: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9  1062 ALPHA_Gamma
-    ## 3: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9  1062 ALPHA_Gamma
-    ## 4: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9  1062 ALPHA_Gamma
-    ## 5: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9  1062 ALPHA_Gamma
-    ## 6: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9  1062 ALPHA_Gamma
-    ##    Exposure                              File     z  Inten Center
-    ##       <num>                            <char> <int>  <int>  <num>
-    ## 1:    0.000 Tania_161112_eEF1Ba_KSCN_IMS_seq1     1 138844   1062
-    ## 2:    0.000 Tania_161112_eEF1Ba_KSCN_IMS_seq1     2 728218    532
-    ## 3:    0.167  Tania_161109_1eEF1Bag_KSCN_10sec     1  41100   1064
-    ## 4:    0.167  Tania_161109_1eEF1Bag_KSCN_10sec     2 393115    532
-    ## 5:    0.167  Tania_161109_2eEF1Bag_KSCN_10sec     1  46642   1064
-    ## 6:    0.167  Tania_161109_2eEF1Bag_KSCN_10sec     2 466233    532
+For the analysis, we use the example file from HaDeX, measurements of
+alpha subunit from elongation factor eEF1.
 
 As described, the first step is to transform the \\Center\\ value
 (geometric centroid of the isotopic envelope for given peptide in a

@@ -19,6 +19,11 @@ show_coverage_heatmap_data(x_dat, value = NULL)
 
   value to be presented
 
+## Value
+
+a [`data.table`](https://rdrr.io/pkg/data.table/man/data.table.html)
+object
+
 ## Examples
 
 ``` r

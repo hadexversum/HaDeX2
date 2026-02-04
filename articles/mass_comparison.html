@@ -86,29 +86,10 @@
 </h2>
 <p>As it is described in <code><a href="../articles/datafiles.html">vignette("datafiles")</a></code> article, the data within each replicate of the experiment is aggregated using weighted mean. Below we present the effect it has on the results.</p>
 <p>The whole workflow is described in the mentioned article. Here the focus is on the first aspect of the processing.</p>
-<p>For the analysis, we use the example file from HaDeX in its raw form, directly exported from DynamX:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://hadexversum.github.io/HaDeX2/">HaDeX2</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">alpha_dat</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##      Protein Start   End    Sequence Modification MaxUptake   MHP       State</span></span>
-<span><span class="co">##       &lt;char&gt; &lt;int&gt; &lt;int&gt;      &lt;char&gt;       &lt;lgcl&gt;     &lt;int&gt; &lt;num&gt;      &lt;char&gt;</span></span>
-<span><span class="co">## 1: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9  1062 ALPHA_Gamma</span></span>
-<span><span class="co">## 2: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9  1062 ALPHA_Gamma</span></span>
-<span><span class="co">## 3: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9  1062 ALPHA_Gamma</span></span>
-<span><span class="co">## 4: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9  1062 ALPHA_Gamma</span></span>
-<span><span class="co">## 5: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9  1062 ALPHA_Gamma</span></span>
-<span><span class="co">## 6: db_eEF1Ba     1    11 GFGDLKSPAGL           NA         9  1062 ALPHA_Gamma</span></span>
-<span><span class="co">##    Exposure                              File     z  Inten Center</span></span>
-<span><span class="co">##       &lt;num&gt;                            &lt;char&gt; &lt;int&gt;  &lt;int&gt;  &lt;num&gt;</span></span>
-<span><span class="co">## 1:    0.000 Tania_161112_eEF1Ba_KSCN_IMS_seq1     1 138844   1062</span></span>
-<span><span class="co">## 2:    0.000 Tania_161112_eEF1Ba_KSCN_IMS_seq1     2 728218    532</span></span>
-<span><span class="co">## 3:    0.167  Tania_161109_1eEF1Bag_KSCN_10sec     1  41100   1064</span></span>
-<span><span class="co">## 4:    0.167  Tania_161109_1eEF1Bag_KSCN_10sec     2 393115    532</span></span>
-<span><span class="co">## 5:    0.167  Tania_161109_2eEF1Bag_KSCN_10sec     1  46642   1064</span></span>
-<span><span class="co">## 6:    0.167  Tania_161109_2eEF1Bag_KSCN_10sec     2 466233    532</span></span></code></pre>
+<p>For the analysis, we use the example file from HaDeX, measurements of alpha subunit from elongation factor eEF1.</p>
 <p>As described, the first step is to transform the <span class="math inline">\(Center\)</span> value (geometric centroid of the isotopic envelope for given peptide in a given state in given time point) and then to aggregate the values measured for different charge values. This is all done within each replicate.</p>
 <p>The aggregation in our workflow is a weighted mean, with <span class="math inline">\(Inten\)</span> (intensity) values as weights, as shown below.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">avg_exp_mass</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/weighted.mean.html" class="external-link">weighted.mean</a></span><span class="op">(</span><span class="va">exp_mass</span>, <span class="va">Inten</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>Later, the results from replicates are aggregated using the mean, and their uncertainty is calculated as the standard deviation of the mean.</p>
 <p>How the weighted mean change the result in comparison with the simple mean? Let’s see.</p>
