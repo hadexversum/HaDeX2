@@ -52,6 +52,7 @@ Suggests:
     microbenchmark,
     testthat,
     vdiffr,
+    shiny,
     spelling
 VignetteBuilder: knitr
 Language: en-US

@@ -12,6 +12,9 @@ function}
 
 \item{value}{value to be presented}
 }
+\value{
+a \code{\link[data.table]{data.table}} object
+}
 \description{
 This function prepares the data used in 
 coverage heatmap to be shown in user-friendly way.

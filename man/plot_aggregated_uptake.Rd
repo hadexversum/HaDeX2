@@ -30,6 +30,9 @@ into panels or not}
 layer created with with ggiraph, which would add tooltips to the plot in an
 interactive display (HTML/Markdown documents or shiny app).}
 }
+\value{
+a \code{\link[ggplot2]{ggplot}} object
+}
 \description{
 Plots aggregated uptake
 }

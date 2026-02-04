@@ -18,7 +18,8 @@
 #' @return a r3dmol object.
 #' 
 #' @examples
-#' \dontrun{
+#' \donttest{
+#' library(shiny)
 #' # disabled due to its long time and producing 3rdmol object
 #' 
 #' diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)
@@ -37,7 +38,7 @@
 #'                                  time_t = 1,
 #'                                  pdb_file_path = pdb_file_path) 
 #' }
-#'
+#' 
 #' @export
 
 plot_aggregated_uptake_structure <- function(aggregated_dat,

@@ -35,7 +35,8 @@ Function plots the aggregated data (either one state deuterium uptake or
 differential deuterium uptake) on the 3d structure.
 }
 \examples{
-\dontrun{
+\donttest{
+library(shiny)
 # disabled due to its long time and producing 3rdmol object
 
 diff_uptake_dat <- create_diff_uptake_dataset(alpha_dat)

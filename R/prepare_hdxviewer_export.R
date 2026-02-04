@@ -19,7 +19,8 @@
 #' prepare_hdxviewer_export(aggregated_dat, differential = FALSE)
 #' # prepare_hdxviewer_export(aggregated_dat, differential = TRUE) # shouldnt work
 #' prepare_hdxviewer_export(diff_aggregated_dat, differential = TRUE)
-#' # prepare_hdxviewer_export(aggregated_dat, differential = FALSE, download = TRUE)
+#' # prepare_hdxviewer_export(aggregated_dat, differential = FALSE, download = TRUE) # writes a file
+#' 
 #' }
 #' 
 #' @export

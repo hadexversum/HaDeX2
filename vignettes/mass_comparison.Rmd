@@ -28,6 +28,13 @@ options(digits=3)
 
 library(tidyr)
 library(dplyr)
+library(HaDeX2)
+library(gridExtra)
+library(ggplot2)
+
+```
+
+```{r echo = FALSE}
 
 calculate_mass <- function(dat){
 
@@ -70,12 +77,7 @@ calculate_mass_no_inten <- function(dat){
 
 ```
 
-For the analysis, we use the example file from HaDeX in its raw form, directly exported from DynamX:
-
-```{r}
-library(HaDeX2)
-head(alpha_dat)
-```
+For the analysis, we use the example file from HaDeX, measurements of alpha subunit from elongation factor eEF1.
 
 As described, the first step is to transform the $Center$ value (geometric centroid of the isotopic envelope for given peptide in a given state in given time point) and then to aggregate the values measured for different charge values. This is all done within each replicate.
 
@@ -137,9 +139,6 @@ mean(tmp[ tmp[["type"]] == "err_mass" , "diff"])
 Below are the histograms of these differences.
 
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
-library(gridExtra)
-library(ggplot2)
-
 p1 <- ggplot(filter(tmp, type == "mass"), aes(diff)) +
   geom_histogram() +
   labs(title = "Differences between mass",
