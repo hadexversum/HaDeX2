@@ -1,6 +1,6 @@
 # Mass calculation
 
-## 0.1 Comparison of results with weighted mean and without
+## 1 Comparison of results with weighted mean and without
 
 As it is described in
 [`vignette("datafiles")`](https://hadexversum.github.io/HaDeX2/articles/datafiles.md)
@@ -35,63 +35,113 @@ mean? Let’s see.
 Below are calculated values of mass in two approaches and the difference
 between them for the example peptide.
 
-    ##       Sequence Start End            State Exposure no_weight weight     diff
-    ## 1  GFGDLKSPAGL     1  11 ALPHA_beta_gamma    0.000      1061   1061  0.05177
-    ## 2  GFGDLKSPAGL     1  11 ALPHA_beta_gamma    0.167      1063   1063 -0.01077
-    ## 3  GFGDLKSPAGL     1  11 ALPHA_beta_gamma    1.000      1064   1064  0.05887
-    ## 4  GFGDLKSPAGL     1  11 ALPHA_beta_gamma    5.000      1065   1065 -0.02870
-    ## 5  GFGDLKSPAGL     1  11 ALPHA_beta_gamma   25.000      1066   1065 -0.06059
-    ## 6  GFGDLKSPAGL     1  11 ALPHA_beta_gamma  150.000      1067   1067 -0.00799
-    ## 7  GFGDLKSPAGL     1  11 ALPHA_beta_gamma 1440.000      1067   1067 -0.00972
-    ## 8  GFGDLKSPAGL     1  11      ALPHA_Gamma    0.000      1061   1061  0.05177
-    ## 9  GFGDLKSPAGL     1  11      ALPHA_Gamma    0.167      1063   1063  0.00815
-    ## 10 GFGDLKSPAGL     1  11      ALPHA_Gamma    1.000      1064   1064 -0.02300
-    ## 11 GFGDLKSPAGL     1  11      ALPHA_Gamma    5.000      1065   1065 -0.01824
-    ## 12 GFGDLKSPAGL     1  11      ALPHA_Gamma   25.000      1066   1066  0.05352
-    ## 13 GFGDLKSPAGL     1  11      ALPHA_Gamma  150.000      1067   1067  0.00465
-    ## 14 GFGDLKSPAGL     1  11      ALPHA_Gamma 1440.000      1067   1067  0.00125
-    ## 15 GFGDLKSPAGL     1  11       Alpha_KSCN    0.000      1061   1061  0.05177
-    ## 16 GFGDLKSPAGL     1  11       Alpha_KSCN    0.167      1063   1063  0.02166
-    ## 17 GFGDLKSPAGL     1  11       Alpha_KSCN    1.000      1064   1064  0.01387
-    ## 18 GFGDLKSPAGL     1  11       Alpha_KSCN    5.000      1065   1065  0.00814
-    ## 19 GFGDLKSPAGL     1  11       Alpha_KSCN   25.000      1066   1066 -0.04272
-    ## 20 GFGDLKSPAGL     1  11       Alpha_KSCN  150.000      1067   1067 -0.05001
-    ## 21 GFGDLKSPAGL     1  11       Alpha_KSCN 1440.000      1067   1067  0.00125
+    ##       Sequence Start End            State Exposure no_weight   weight
+    ## 1  GFGDLKSPAGL     1  11 ALPHA_beta_gamma    0.000  1061.260 1061.312
+    ## 2  GFGDLKSPAGL     1  11 ALPHA_beta_gamma    0.167  1062.913 1062.903
+    ## 3  GFGDLKSPAGL     1  11 ALPHA_beta_gamma    1.000  1063.664 1063.723
+    ## 4  GFGDLKSPAGL     1  11 ALPHA_beta_gamma    5.000  1064.541 1064.513
+    ## 5  GFGDLKSPAGL     1  11 ALPHA_beta_gamma   25.000  1065.531 1065.470
+    ## 6  GFGDLKSPAGL     1  11 ALPHA_beta_gamma  150.000  1066.610 1066.602
+    ## 7  GFGDLKSPAGL     1  11 ALPHA_beta_gamma 1440.000  1066.729 1066.720
+    ## 8  GFGDLKSPAGL     1  11      ALPHA_Gamma    0.000  1061.260 1061.312
+    ## 9  GFGDLKSPAGL     1  11      ALPHA_Gamma    0.167  1062.969 1062.977
+    ## 10 GFGDLKSPAGL     1  11      ALPHA_Gamma    1.000  1064.178 1064.155
+    ## 11 GFGDLKSPAGL     1  11      ALPHA_Gamma    5.000  1064.926 1064.907
+    ## 12 GFGDLKSPAGL     1  11      ALPHA_Gamma   25.000  1065.947 1066.000
+    ## 13 GFGDLKSPAGL     1  11      ALPHA_Gamma  150.000  1066.665 1066.669
+    ## 14 GFGDLKSPAGL     1  11      ALPHA_Gamma 1440.000  1066.743 1066.745
+    ## 15 GFGDLKSPAGL     1  11       Alpha_KSCN    0.000  1061.260 1061.312
+    ## 16 GFGDLKSPAGL     1  11       Alpha_KSCN    0.167  1063.051 1063.072
+    ## 17 GFGDLKSPAGL     1  11       Alpha_KSCN    1.000  1064.070 1064.084
+    ## 18 GFGDLKSPAGL     1  11       Alpha_KSCN    5.000  1064.720 1064.729
+    ## 19 GFGDLKSPAGL     1  11       Alpha_KSCN   25.000  1065.951 1065.908
+    ## 20 GFGDLKSPAGL     1  11       Alpha_KSCN  150.000  1066.631 1066.581
+    ## 21 GFGDLKSPAGL     1  11       Alpha_KSCN 1440.000  1066.743 1066.745
+    ##            diff
+    ## 1   0.051765541
+    ## 2  -0.010767969
+    ## 3   0.058873659
+    ## 4  -0.028696674
+    ## 5  -0.060590887
+    ## 6  -0.007985609
+    ## 7  -0.009715577
+    ## 8   0.051765541
+    ## 9   0.008153128
+    ## 10 -0.022999974
+    ## 11 -0.018235244
+    ## 12  0.053519044
+    ## 13  0.004654692
+    ## 14  0.001250657
+    ## 15  0.051765541
+    ## 16  0.021661606
+    ## 17  0.013868192
+    ## 18  0.008137733
+    ## 19 -0.042716596
+    ## 20 -0.050008083
+    ## 21  0.001250657
 
 Below are calculated values of the uncertainty of mass in two approaches
 and the difference between them for the example peptide.
 
-    ##       Sequence Start End            State Exposure no_weight  weight      diff
-    ## 1  GFGDLKSPAGL     1  11 ALPHA_beta_gamma    0.000    0.0000 0.00000  0.000000
-    ## 2  GFGDLKSPAGL     1  11 ALPHA_beta_gamma    0.167    0.0423 0.02054 -0.021812
-    ## 3  GFGDLKSPAGL     1  11 ALPHA_beta_gamma    1.000    0.0650 0.01736 -0.047644
-    ## 4  GFGDLKSPAGL     1  11 ALPHA_beta_gamma    5.000    0.0000 0.00000  0.000000
-    ## 5  GFGDLKSPAGL     1  11 ALPHA_beta_gamma   25.000    0.0556 0.07851  0.022930
-    ## 6  GFGDLKSPAGL     1  11 ALPHA_beta_gamma  150.000    0.0173 0.04958  0.032235
-    ## 7  GFGDLKSPAGL     1  11 ALPHA_beta_gamma 1440.000    0.0150 0.03998  0.024979
-    ## 8  GFGDLKSPAGL     1  11      ALPHA_Gamma    0.000    0.0000 0.00000  0.000000
-    ## 9  GFGDLKSPAGL     1  11      ALPHA_Gamma    0.167    0.0144 0.00306 -0.011390
-    ## 10 GFGDLKSPAGL     1  11      ALPHA_Gamma    1.000    0.0622 0.03507 -0.027156
-    ## 11 GFGDLKSPAGL     1  11      ALPHA_Gamma    5.000    0.0529 0.05732  0.004453
-    ## 12 GFGDLKSPAGL     1  11      ALPHA_Gamma   25.000    0.0763 0.07242 -0.003861
-    ## 13 GFGDLKSPAGL     1  11      ALPHA_Gamma  150.000    0.0680 0.08054  0.012560
-    ## 14 GFGDLKSPAGL     1  11      ALPHA_Gamma 1440.000    0.0124 0.03798  0.025605
-    ## 15 GFGDLKSPAGL     1  11       Alpha_KSCN    0.000    0.0000 0.00000  0.000000
-    ## 16 GFGDLKSPAGL     1  11       Alpha_KSCN    0.167    0.0634 0.06314 -0.000299
-    ## 17 GFGDLKSPAGL     1  11       Alpha_KSCN    1.000    0.0324 0.05766  0.025239
-    ## 18 GFGDLKSPAGL     1  11       Alpha_KSCN    5.000    0.0430 0.04451  0.001488
-    ## 19 GFGDLKSPAGL     1  11       Alpha_KSCN   25.000    0.0691 0.02714 -0.041996
-    ## 20 GFGDLKSPAGL     1  11       Alpha_KSCN  150.000    0.0231 0.01416 -0.008909
-    ## 21 GFGDLKSPAGL     1  11       Alpha_KSCN 1440.000    0.0124 0.03798  0.025605
+    ##       Sequence Start End            State Exposure  no_weight      weight
+    ## 1  GFGDLKSPAGL     1  11 ALPHA_beta_gamma    0.000 0.00000000 0.000000000
+    ## 2  GFGDLKSPAGL     1  11 ALPHA_beta_gamma    0.167 0.04234807 0.020535773
+    ## 3  GFGDLKSPAGL     1  11 ALPHA_beta_gamma    1.000 0.06500377 0.017359706
+    ## 4  GFGDLKSPAGL     1  11 ALPHA_beta_gamma    5.000 0.00000000 0.000000000
+    ## 5  GFGDLKSPAGL     1  11 ALPHA_beta_gamma   25.000 0.05557975 0.078509790
+    ## 6  GFGDLKSPAGL     1  11 ALPHA_beta_gamma  150.000 0.01734150 0.049576933
+    ## 7  GFGDLKSPAGL     1  11 ALPHA_beta_gamma 1440.000 0.01500273 0.039981766
+    ## 8  GFGDLKSPAGL     1  11      ALPHA_Gamma    0.000 0.00000000 0.000000000
+    ## 9  GFGDLKSPAGL     1  11      ALPHA_Gamma    0.167 0.01444925 0.003059254
+    ## 10 GFGDLKSPAGL     1  11      ALPHA_Gamma    1.000 0.06222496 0.035068821
+    ## 11 GFGDLKSPAGL     1  11      ALPHA_Gamma    5.000 0.05286541 0.057318502
+    ## 12 GFGDLKSPAGL     1  11      ALPHA_Gamma   25.000 0.07628215 0.072421134
+    ## 13 GFGDLKSPAGL     1  11      ALPHA_Gamma  150.000 0.06797928 0.080539467
+    ## 14 GFGDLKSPAGL     1  11      ALPHA_Gamma 1440.000 0.01237539 0.037980370
+    ## 15 GFGDLKSPAGL     1  11       Alpha_KSCN    0.000 0.00000000 0.000000000
+    ## 16 GFGDLKSPAGL     1  11       Alpha_KSCN    0.167 0.06344120 0.063142057
+    ## 17 GFGDLKSPAGL     1  11       Alpha_KSCN    1.000 0.03242306 0.057662478
+    ## 18 GFGDLKSPAGL     1  11       Alpha_KSCN    5.000 0.04302651 0.044514766
+    ## 19 GFGDLKSPAGL     1  11       Alpha_KSCN   25.000 0.06913469 0.027139060
+    ## 20 GFGDLKSPAGL     1  11       Alpha_KSCN  150.000 0.02307237 0.014163676
+    ## 21 GFGDLKSPAGL     1  11       Alpha_KSCN 1440.000 0.01237539 0.037980370
+    ##             diff
+    ## 1   0.0000000000
+    ## 2  -0.0218122946
+    ## 3  -0.0476440653
+    ## 4   0.0000000000
+    ## 5   0.0229300404
+    ## 6   0.0322354331
+    ## 7   0.0249790358
+    ## 8   0.0000000000
+    ## 9  -0.0113899906
+    ## 10 -0.0271561376
+    ## 11  0.0044530941
+    ## 12 -0.0038610178
+    ## 13  0.0125601858
+    ## 14  0.0256049757
+    ## 15  0.0000000000
+    ## 16 -0.0002991392
+    ## 17  0.0252394169
+    ## 18  0.0014882590
+    ## 19 -0.0419956278
+    ## 20 -0.0089086940
+    ## 21  0.0256049757
 
 And for the whole set of peptides, the average mass difference is:
 
-    ## [1] 0.0135
+    ## [1] 0.01346195
 
 and uncertainty difference is:
 
-    ## [1] -0.00875
+    ## [1] -0.008750802
 
 Below are the histograms of these differences.
 
+First, differences between mass:
+
 ![](mass_comparison_files/figure-html/unnamed-chunk-8-1.png)
+
+Secondly, the differences between uncertainties:
+
+![](mass_comparison_files/figure-html/unnamed-chunk-9-1.png)

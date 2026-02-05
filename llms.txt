@@ -9,7 +9,7 @@ server](https://hadex2.mslab-ibb.pl/) or **R** package, accompanied by
 dedicated application
 [HaDeXGUI](https://github.com/hadexversum/HaDeXGUI). This is a second
 version on previously published
-[HaDeX](https://academic.oup.com/bioinformatics/article/36/16/4516/5862011).
+[HaDeX](https://doi.org/10.1093/bioinformatics/btaa587).
 
 ### Local instance of HaDeX package
 
@@ -27,8 +27,8 @@ HaDeX_GUI()
 ```
 
 To run the GUI, the dedicated package HaDeXGUI is needed. If is not
-installed, the called function will check and install it after the
-confirmation from the user.
+installed, the called function will check and inform if installation is
+needed.
 
 ### Online manual
 

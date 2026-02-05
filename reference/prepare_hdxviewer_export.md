@@ -1,6 +1,8 @@
 # Prepares data export for HDX-Viewer
 
-Prepares data export for HDX-Viewer
+This function produces the data in format suitable for HDX-Viewer. If
+necessary, this result can be downloaded as the csv file with download
+indicator set to true.
 
 ## Usage
 
@@ -10,7 +12,8 @@ prepare_hdxviewer_export(
   differential = FALSE,
   fractional = TRUE,
   theoretical = FALSE,
-  download = FALSE
+  download = FALSE,
+  file_path = tempdir()
 )
 ```
 
@@ -34,13 +37,21 @@ prepare_hdxviewer_export(
 
 - download:
 
-  indicator if the result should be downloaded
+  indicator if the result should be downloaded as csv file
+
+- file_path:
+
+  path for saving downloaded file
+
+## Value
+
+a [`data.frame`](https://rdrr.io/r/base/data.frame.html) object
 
 ## Examples
 
 ``` r
 # \donttest{
-# disabled due to long execution time and attempt to save a file
+# disabled due to long execution time 
 
 kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN" )
 aggregated_dat <- create_aggregated_uptake_dataset(kin_dat)
