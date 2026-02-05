@@ -4,13 +4,20 @@
 #' @param differential indicator of x_dat type
 #' @param fractional indicator if fractional values are used
 #' @param theoretical indicator if theoretical values are used
-#' @param download indicator if the result should be downloaded 
+#' @param download indicator if the result should be downloaded as csv file
+#' @param file_path path for saving downloaded file
 #' 
 #' @importFrom utils write.csv
+#' 
+#' @description This function produces the data in format suitable for HDX-Viewer.
+#' If necessary, this result can be downloaded as the csv file with download indicator 
+#' set to true.
+#' 
+#' @return a \code{\link{data.frame}} object
 #'
 #' @examples
 #' \donttest{
-#' # disabled due to long execution time and attempt to save a file
+#' # disabled due to long execution time 
 #' 
 #' kin_dat <- create_uptake_dataset(alpha_dat, states = "Alpha_KSCN" )
 #' aggregated_dat <- create_aggregated_uptake_dataset(kin_dat)
@@ -30,7 +37,8 @@ prepare_hdxviewer_export <- function(x_dat,
                                      differential = FALSE,
                                      fractional = TRUE,
                                      theoretical = FALSE,
-                                     download = FALSE){
+                                     download = FALSE,
+                                     file_path = tempdir()){
 
   x_dat <- as.data.table(x_dat)
 
@@ -107,7 +115,7 @@ prepare_hdxviewer_export <- function(x_dat,
 
   }
 
-  ## changed to second
+  ## changed to seconds
   x_dat[, Exposure:=Exposure*60]
   x_dat[, Exposure:=paste0(Exposure, "s")]
   x_dat[, .(Residues=position)]
@@ -117,7 +125,7 @@ prepare_hdxviewer_export <- function(x_dat,
 
 
   if(download) {
-    write.csv(res, paste0(value, ".csv"), row.names = FALSE, quote=FALSE)
+    write.csv(res, paste0(file_path, "\\", value, ".csv"), row.names = FALSE, quote = FALSE)
 
   }
 

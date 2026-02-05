@@ -14,7 +14,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-## Comparison of results with weighted mean and without
+# Comparison of results with weighted mean and without
 
 As it is described in `vignette("datafiles")` article, the data within each replicate of the experiment is aggregated using weighted mean. Below we present the effect it has on the results.
 
@@ -24,7 +24,6 @@ The whole workflow is described in the mentioned article. Here the focus is on t
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(dev = "png", dev.args = list(type = "cairo-png"))
 
-options(digits=3)
 
 library(tidyr)
 library(dplyr)
@@ -36,7 +35,7 @@ library(ggplot2)
 
 ```{r echo = FALSE}
 
-calculate_mass <- function(dat){
+f_calculate_mass <- function(dat){
 
   proton_mass <- 1.00727647
 
@@ -56,7 +55,7 @@ calculate_mass <- function(dat){
 
 }
 
-calculate_mass_no_inten <- function(dat){
+f_calculate_mass_no_inten <- function(dat){
 
   proton_mass <- 1.00727647
 
@@ -92,12 +91,12 @@ Later, the results from replicates are aggregated using the mean, and their unce
 How the weighted mean change the result in comparison with the simple mean? Let's see.
 
 ```{r include=FALSE}
-dat_no_weight <- calculate_mass_no_inten(alpha_dat) %>%
+dat_no_weight <- f_calculate_mass_no_inten(alpha_dat) %>%
   arrange(Start, End, State, Exposure) %>%
   mutate(source = "no_weight") %>%
   select(Sequence, Start, End, State, Exposure, mass, err_mass, source)
 
-dat_weight <- calculate_mass(alpha_dat) %>%
+dat_weight <- f_calculate_mass(alpha_dat) %>%
   arrange(Start, End, State, Exposure) %>%
   mutate(source = "weight") %>%
   select(Sequence, Start, End, State, Exposure, mass, err_mass, source)
@@ -138,16 +137,21 @@ mean(tmp[ tmp[["type"]] == "err_mass" , "diff"])
 ```
 Below are the histograms of these differences.
 
+First, differences between mass:
+
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
-p1 <- ggplot(filter(tmp, type == "mass"), aes(diff)) +
+ggplot(filter(tmp, type == "mass"), aes(diff)) +
   geom_histogram() +
   labs(title = "Differences between mass",
        x = "Difference")
+```
 
-p2 <- ggplot(filter(tmp, type == "err_mass"), aes(diff)) +
+Secondly, the differences between uncertainties:
+
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+ggplot(filter(tmp, type == "err_mass"), aes(diff)) +
   geom_histogram() +
   labs(title = "Differences between uncertainties of mass",
        x = "Difference")
-
-grid.arrange(p1, p2, ncol=2)
 ```

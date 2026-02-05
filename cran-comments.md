@@ -7,15 +7,21 @@
 Using local win-builder there was no error, no warning and one note:
 
 ```
-installed size is 10.5Mb 
-sub-directories of 1Mb or more:
-      HaDeX   3.8Mb
-      doc     4.7Mb
+installed size is  8.5Mb
+     sub-directories of 1Mb or more:
+       HaDeX   3.8Mb
+       doc     3.4Mb
 ```
 
 The size is mostly caused by our extensive documentation and necessary external data files used in Examples. 
-The function examples exceeding 5s are put in donttest clause. 
+
+The function examples exceeding 5s run time are put in donttest clause (regarding functions: calculate_aggregated_uptake, create_aggregated_difference_dataset, create_aggregated_uptake_dataset, get_residue_positions, plot_aggregated_difference, plot_aggregated_uptake, plot_differential, prepare_hdxviewer_export, plot_aggregated_uptake_structure, show_aggregated_uptake_data). Clause dontrun is not used.
+
+Added missing arguments and values. Functions HaDeX_GUI and install_GUI do not take any arguments so there is no arguments tag.
+
 Words suggested as misspelled - "HDX", "Spectrometry", "eXchange" - are parts of software/technique proper names.
+
+Other issues fixed without comments. 
 
 ## Tested environments
 

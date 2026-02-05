@@ -13,8 +13,12 @@ is_GUI_installed <- function()
 #' @return No return value, called for side effects
 #' 
 #' @export
-install_GUI <- function()
-  remotes::install_github("hadexversum/HaDeXGUI")
+install_GUI <- function(){
+  
+  message("Please install missing HaDeXGUI package using remotes::install_github(\"hadexversum/HaDeXGUI\")")
+  
+  # remotes::install_github("hadexversum/HaDeXGUI")
+}
 
 handle_missing_GUI <- function() {
   if (interactive()) {
