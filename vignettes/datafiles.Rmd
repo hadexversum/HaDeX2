@@ -19,11 +19,11 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This article explains how HaDeX2 processes raw HDX-MS data files into aggregated datasets used for downstream analysis and visualization. It describes the processing of the data, the calculation workflow, and the results. For the visualization methods of described values, see `vignette("visualization")`.
+This section describes how HaDeX2 processes raw HDX-MS data files into aggregated datasets for downstream analysis and visualization. It details the data processing steps, the computational workflow used to derive analytical quantities and the resulting outputs. Visualization methods for the derived values are described in the section \@ref(#datavis).
 
 # Initial processing of the data 
 
-Let's start with a glimpse of the datafile - in this case, in `cluster` format from DynamX. For more information about accepted datafiles see `vignette("data_input")` 
+Let's start with a glimpse of the data file - in this case, in `cluster` format from DynamX. 
 
 ```{r warning=FALSE}
 library(HaDeX2)
@@ -34,12 +34,10 @@ As we see, the data file has a very specific structure and is not informative ye
 
 Our aim is to have one result with an uncertainty of the measurement per each peptide in each biological state in each measured time point - data in this format allows further calculations, e.q. calculating deuterium uptake values.
 
-For a better understanding of the process of aggregating the data, see the `vignette("transformation")` article.
-
 Within each replicate of the measurement (we recognize each replicate by the $File$ value), the $m/z$ values are provided for each possible $z$ value. The $m/z$ values are in the $Center$ column, as it is a geometrical centroid calculated from the isotopic envelope. Firstly, we have to calculate the mass value, measured experimentally:
 
 $$expMass = z \times (Center-protonMass)\tag{1}$$
-To aggregate data from different $z$ values, we have to calculate the mean mass weighted by intensity. Additional information about this step and how the weighted mean impacts the results can be found in `vignette("mass_comparison")` article. 
+To aggregate data from different $z$ values, we have to calculate the mean mass weighted by intensity.
 
 $$aggMass = \frac{1}{N}\sum_{k = 1}^{N}Inten_k{\cdot}pepMass_k\tag{2}$$.
 
@@ -61,7 +59,7 @@ Where:
 
 Now we have the format we want for further calculations.
 
-# Calculation of the deuterium uptake
+# Calculation of the deuterium uptake {#unc}
 
 HaDeX package provides the calculated values in different forms. All of them are provided with associated uncertainty of the measurement. All of the uncertainties are derived from the formula - the Law of propagation of uncertainty:
 
@@ -120,7 +118,7 @@ $$u_{c}(diff) = \sqrt{u(D_{1})^2 + u(D_{2})^2}$$
 
 The convenient way to present results calculated as described is the comparison plot and differential plot (Woods' plot).
 
-# Deuterium uptake averaging 
+# Deuterium uptake averaging  {#weight}
 
 Averaging of the deuterium uptake values is inspired by an already published solution [@keppel_mapping_2015]. This process can be conducted of any deuterium uptake variation - fractional or absolute, with theoretical or experimental control, single-state or differential. 
 

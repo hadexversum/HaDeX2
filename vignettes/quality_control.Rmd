@@ -31,7 +31,7 @@ library(HaDeX2)
 Data analysis is vital step, but firstly, we must make sure that the experiment was conducted correctly. How to do that using HaDeX functionalities? There are multiple ways to do that.
 Unfortunately, our example data is good quality, but we will discuss possible indicators of data that needs to be re-checked.
 
-## Replicates
+# Replicates
 
 Firstly, we check the number of replicates. Although the experiment is conducted in known number of times, sometimes during the manual curation of isotopic envelopes, some of the spectra are disqualified. Here, we check the remaining number of replicates of the already curated dataset. 
 
@@ -44,7 +44,7 @@ rep_dat <- create_replicate_dataset(alpha_dat)
 plot_replicate_histogram(rep_dat)
 ```
 
-## Uncertainty
+# Uncertainty
 
 Uncertainty plot presents the uncertainty of the measurement for one state at the time. In this case, we present the time points separately. There is no uncertainty calculated for time point 0 min, as it is treated as undeuterated control and measured only once. For other time points, as the measurement was conducted in triplicate, there are values for measured mass. As the measured mass is in daltons, also the uncertainty is presented in daltons. Thus, we can establish a threshold of 1 dalton - indicating one exchange between proton and deuter. Any uncertainty exceeding - or coming close - to this threshold should be carefully checked.
 
@@ -57,7 +57,7 @@ plot_uncertainty(alpha_dat, state = "Alpha_KSCN")
 ```
 
 
-## Measurements 
+# Measurement variability plot {#mvp}
 
 Once we have the overview of the situation, we can dig deeper into the peptides of interest.
 
@@ -77,7 +77,7 @@ plot_replicate_mass_uptake(alpha_dat, sequence = "CVRSIQA", aggregated = TRUE)
 ```
 
 
-## Back-exchange
+# Back-exchange
 
 Important measure of quality of experiment is back-exchange. Usually, expected value of back-exchange should be around 30%, possibly higher for shorter peptides. 
 

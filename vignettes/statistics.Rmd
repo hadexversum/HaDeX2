@@ -38,7 +38,7 @@ Where:
 * $u_c(y)$ - combined uncertainty of value $y$, where $y$ is a function of $x_k$,
 * $x_k$ - values for which the uncertainty is known.
 
-This is a generic equation used the derivatives of functions. It is created for deuterium uptake in the appropriate forms (as the equations differ based on the parameters of calculations) and described in detail in the article `vignette("datafiles")`.
+This is a generic equation used for the propagation of uncertainty in functions of multiple variables. It is instantiated for deuterium uptake in its appropriate formulations, as the specific expressions differ depending on the parameters of the calculation, and is described in detail in the dedicated subsection \@ref(#unc).
 
 # Hybrid testing 
 
@@ -46,7 +46,7 @@ HaDeX offers the hybrid testing procedure [@hageman_reliable_2019] because it ad
 
 Although the hybrid test offers superior statistical power compared to more classical statistical approaches, it is more data-intensive and therefore can be performed only when the user provides the experiment with at least three experimental replicates.
 
-## Houde interval
+## Houde interval {#houde}
 
 This test is done for the time points chosen for a given plot e.q. for the volcano plot, where presenting multiple time points of measurement, we take the values from all of the presented time points. However, for Woods Plot we only take into account only one time point - presented on the plot.
 

@@ -138,7 +138,7 @@ colnames
 
 ```
 
-it can be processed with `HaDeX::read_hdx()` from the code level, as it requires additional action from the user. Then, this data can be used as described in other articles.
+it can be processed with `HaDeX2::read_hdx()` from the code level, as it requires additional action from the user. Then, this data can be used as described in other articles.
 
 If the file has following columns:
 
