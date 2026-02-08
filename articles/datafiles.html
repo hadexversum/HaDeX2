@@ -80,12 +80,12 @@
 
     
     
-<p>This article explains how HaDeX2 processes raw HDX-MS data files into aggregated datasets used for downstream analysis and visualization. It describes the processing of the data, the calculation workflow, and the results. For the visualization methods of described values, see <code><a href="../articles/visualization.html">vignette("visualization")</a></code>.</p>
+<p>This section describes how HaDeX2 processes raw HDX-MS data files into aggregated datasets for downstream analysis and visualization. It details the data processing steps, the computational workflow used to derive analytical quantities and the resulting outputs. Visualization methods for the derived values are described in the section @ref(#datavis).</p>
 <div class="section level2" number="1">
 <h2 id="initial-processing-of-the-data">
 <span class="header-section-number">1</span> Initial processing of the data<a class="anchor" aria-label="anchor" href="#initial-processing-of-the-data"></a>
 </h2>
-<p>Let’s start with a glimpse of the datafile - in this case, in <code>cluster</code> format from DynamX. For more information about accepted datafiles see <code><a href="../articles/data_input.html">vignette("data_input")</a></code></p>
+<p>Let’s start with a glimpse of the data file - in this case, in <code>cluster</code> format from DynamX.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://hadexversum.github.io/HaDeX2/">HaDeX2</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">alpha_dat</span>, <span class="fl">6</span><span class="op">)</span></span></code></pre></div>
@@ -115,10 +115,9 @@
 <span><span class="co">## 6:  532.4951</span></span></code></pre>
 <p>As we see, the data file has a very specific structure and is not informative yet. In the file, we have <span class="math inline">\(m/z\)</span> values for each <span class="math inline">\(z\)</span> value (charge) for each time point (<span class="math inline">\(Exposure\)</span>) for each state of each peptide, repeated as many times as measurement was repeated (each measurement should be repeated at least three times).</p>
 <p>Our aim is to have one result with an uncertainty of the measurement per each peptide in each biological state in each measured time point - data in this format allows further calculations, e.q. calculating deuterium uptake values.</p>
-<p>For a better understanding of the process of aggregating the data, see the <code><a href="../articles/transformation.html">vignette("transformation")</a></code> article.</p>
 <p>Within each replicate of the measurement (we recognize each replicate by the <span class="math inline">\(File\)</span> value), the <span class="math inline">\(m/z\)</span> values are provided for each possible <span class="math inline">\(z\)</span> value. The <span class="math inline">\(m/z\)</span> values are in the <span class="math inline">\(Center\)</span> column, as it is a geometrical centroid calculated from the isotopic envelope. Firstly, we have to calculate the mass value, measured experimentally:</p>
 <p><span class="math display">\[expMass = z \times (Center-protonMass)\tag{1}\]</span>
-To aggregate data from different <span class="math inline">\(z\)</span> values, we have to calculate the mean mass weighted by intensity. Additional information about this step and how the weighted mean impacts the results can be found in <code><a href="../articles/mass_comparison.html">vignette("mass_comparison")</a></code> article.</p>
+To aggregate data from different <span class="math inline">\(z\)</span> values, we have to calculate the mean mass weighted by intensity.</p>
 <p><span class="math display">\[aggMass = \frac{1}{N}\sum_{k = 1}^{N}Inten_k{\cdot}pepMass_k\tag{2}\]</span>.</p>
 <p>Where:</p>
 <ul>
@@ -143,8 +142,8 @@ To aggregate data from different <span class="math inline">\(z\)</span> values, 
 <p>Now we have the format we want for further calculations.</p>
 </div>
 <div class="section level2" number="2">
-<h2 id="calculation-of-the-deuterium-uptake">
-<span class="header-section-number">2</span> Calculation of the deuterium uptake<a class="anchor" aria-label="anchor" href="#calculation-of-the-deuterium-uptake"></a>
+<h2 id="unc">
+<span class="header-section-number">2</span> Calculation of the deuterium uptake<a class="anchor" aria-label="anchor" href="#unc"></a>
 </h2>
 <p>HaDeX package provides the calculated values in different forms. All of them are provided with associated uncertainty of the measurement. All of the uncertainties are derived from the formula - the Law of propagation of uncertainty:</p>
 <p><span class="math display">\[u_{c}(y) = \sqrt{\sum_{k} \left[ \frac{\partial y}{\partial x_{k}} u(x_{k}) \right]^2}\]</span></p>
@@ -199,8 +198,8 @@ The uncertainty associated with the difference of deuterium uptake (based on the
 <p>The convenient way to present results calculated as described is the comparison plot and differential plot (Woods’ plot).</p>
 </div>
 <div class="section level2" number="4">
-<h2 id="deuterium-uptake-averaging">
-<span class="header-section-number">4</span> Deuterium uptake averaging<a class="anchor" aria-label="anchor" href="#deuterium-uptake-averaging"></a>
+<h2 id="weight">
+<span class="header-section-number">4</span> Deuterium uptake averaging<a class="anchor" aria-label="anchor" href="#weight"></a>
 </h2>
 <p>Averaging of the deuterium uptake values is inspired by an already published solution <span class="citation">(Keppel and Weis 2015)</span>. This process can be conducted of any deuterium uptake variation - fractional or absolute, with theoretical or experimental control, single-state or differential.</p>
 <p>For each residue <span class="math inline">\(i\)</span> there is a subset of peptides (<span class="math inline">\(n\)</span>) covering said residue. Then, the final <span class="math inline">\(D_{i, agg}\)</span> is calculated from the subset of <span class="math inline">\(D_k\)</span> (where <span class="math inline">\(0&lt;k&lt;n\)</span>), with weights <span class="math inline">\(w_k\)</span> inverse proportional to the max uptake of peptide (<span class="math inline">\(MaxUptake_k\)</span>) - the shortest the peptide the highest the possibility that the uptake took place in said residue:</p>

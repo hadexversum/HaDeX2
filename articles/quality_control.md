@@ -10,7 +10,7 @@ functionalities? There are multiple ways to do that. Unfortunately, our
 example data is good quality, but we will discuss possible indicators of
 data that needs to be re-checked.
 
-## 0.1 Replicates
+## 1 Replicates
 
 Firstly, we check the number of replicates. Although the experiment is
 conducted in known number of times, sometimes during the manual curation
@@ -36,7 +36,7 @@ plot_replicate_histogram(rep_dat)
 
 ![](quality_control_files/figure-html/unnamed-chunk-2-1.png)
 
-## 0.2 Uncertainty
+## 2 Uncertainty
 
 Uncertainty plot presents the uncertainty of the measurement for one
 state at the time. In this case, we present the time points separately.
@@ -62,7 +62,7 @@ plot_uncertainty(alpha_dat, state = "Alpha_KSCN")
 
 ![](quality_control_files/figure-html/unnamed-chunk-3-1.png)
 
-## 0.3 Measurements
+## 3 Measurement variability plot
 
 Once we have the overview of the situation, we can dig deeper into the
 peptides of interest.
@@ -104,7 +104,7 @@ plot_replicate_mass_uptake(alpha_dat, sequence = "CVRSIQA", aggregated = TRUE)
 
 ![](quality_control_files/figure-html/unnamed-chunk-5-1.png)
 
-## 0.4 Back-exchange
+## 4 Back-exchange
 
 Important measure of quality of experiment is back-exchange. Usually,
 expected value of back-exchange should be around 30%, possibly higher

@@ -84,9 +84,9 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://hadexversum.github.io/HaDeX2/">HaDeX2</a></span><span class="op">)</span></span></code></pre></div>
 <p>Data analysis is vital step, but firstly, we must make sure that the experiment was conducted correctly. How to do that using HaDeX functionalities? There are multiple ways to do that.
 Unfortunately, our example data is good quality, but we will discuss possible indicators of data that needs to be re-checked.</p>
-<div class="section level2" number="0.1">
+<div class="section level2" number="1">
 <h2 id="replicates">
-<span class="header-section-number">0.1</span> Replicates<a class="anchor" aria-label="anchor" href="#replicates"></a>
+<span class="header-section-number">1</span> Replicates<a class="anchor" aria-label="anchor" href="#replicates"></a>
 </h2>
 <p>Firstly, we check the number of replicates. Although the experiment is conducted in known number of times, sometimes during the manual curation of isotopic envelopes, some of the spectra are disqualified. Here, we check the remaining number of replicates of the already curated dataset.</p>
 <p>It is advised to have at least three replicates of the experiment. Lesser number limits the statistical analysis - e.q. for calculating P-value using T-student test minimum of three replicates are needed. If there are only two replicates, the uncertainty can be calculated.</p>
@@ -96,9 +96,9 @@ Unfortunately, our example data is good quality, but we will discuss possible in
 <span><span class="fu"><a href="../reference/plot_replicate_histogram.html">plot_replicate_histogram</a></span><span class="op">(</span><span class="va">rep_dat</span><span class="op">)</span></span></code></pre></div>
 <p><img src="quality_control_files/figure-html/unnamed-chunk-2-1.png"><!-- --></p>
 </div>
-<div class="section level2" number="0.2">
+<div class="section level2" number="2">
 <h2 id="uncertainty">
-<span class="header-section-number">0.2</span> Uncertainty<a class="anchor" aria-label="anchor" href="#uncertainty"></a>
+<span class="header-section-number">2</span> Uncertainty<a class="anchor" aria-label="anchor" href="#uncertainty"></a>
 </h2>
 <p>Uncertainty plot presents the uncertainty of the measurement for one state at the time. In this case, we present the time points separately. There is no uncertainty calculated for time point 0 min, as it is treated as undeuterated control and measured only once. For other time points, as the measurement was conducted in triplicate, there are values for measured mass. As the measured mass is in daltons, also the uncertainty is presented in daltons. Thus, we can establish a threshold of 1 dalton - indicating one exchange between proton and deuter. Any uncertainty exceeding - or coming close - to this threshold should be carefully checked.</p>
 <p>For correctly conducted experiment, the uncertainty for all peptides in all time points should be close to 0.</p>
@@ -107,9 +107,9 @@ Unfortunately, our example data is good quality, but we will discuss possible in
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_uncertainty.html">plot_uncertainty</a></span><span class="op">(</span><span class="va">alpha_dat</span>, state <span class="op">=</span> <span class="st">"Alpha_KSCN"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="quality_control_files/figure-html/unnamed-chunk-3-1.png"><!-- --></p>
 </div>
-<div class="section level2" number="0.3">
-<h2 id="measurements">
-<span class="header-section-number">0.3</span> Measurements<a class="anchor" aria-label="anchor" href="#measurements"></a>
+<div class="section level2" number="3">
+<h2 id="mvp">
+<span class="header-section-number">3</span> Measurement variability plot<a class="anchor" aria-label="anchor" href="#mvp"></a>
 </h2>
 <p>Once we have the overview of the situation, we can dig deeper into the peptides of interest.</p>
 <p>Below, we present the measurement variability plot for peptide “GDGDLKSPAGL” in one state, for three replicates.The process of two-step aggregation is described in the article <code>transformation</code>, but this plot allows investigation of each measurement.</p>
@@ -122,9 +122,9 @@ Unfortunately, our example data is good quality, but we will discuss possible in
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_replicate_mass_uptake.html">plot_replicate_mass_uptake</a></span><span class="op">(</span><span class="va">alpha_dat</span>, sequence <span class="op">=</span> <span class="st">"CVRSIQA"</span>, aggregated <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="quality_control_files/figure-html/unnamed-chunk-5-1.png"><!-- --></p>
 </div>
-<div class="section level2" number="0.4">
+<div class="section level2" number="4">
 <h2 id="back-exchange">
-<span class="header-section-number">0.4</span> Back-exchange<a class="anchor" aria-label="anchor" href="#back-exchange"></a>
+<span class="header-section-number">4</span> Back-exchange<a class="anchor" aria-label="anchor" href="#back-exchange"></a>
 </h2>
 <p>Important measure of quality of experiment is back-exchange. Usually, expected value of back-exchange should be around 30%, possibly higher for shorter peptides.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">

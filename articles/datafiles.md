@@ -1,16 +1,16 @@
 # Calculations
 
-This article explains how HaDeX2 processes raw HDX-MS data files into
-aggregated datasets used for downstream analysis and visualization. It
-describes the processing of the data, the calculation workflow, and the
-results. For the visualization methods of described values, see
-[`vignette("visualization")`](https://hadexversum.github.io/HaDeX2/articles/visualization.md).
+This section describes how HaDeX2 processes raw HDX-MS data files into
+aggregated datasets for downstream analysis and visualization. It
+details the data processing steps, the computational workflow used to
+derive analytical quantities and the resulting outputs. Visualization
+methods for the derived values are described in the section
+@ref(#datavis).
 
 ## 1 Initial processing of the data
 
-Let’s start with a glimpse of the datafile - in this case, in `cluster`
-format from DynamX. For more information about accepted datafiles see
-[`vignette("data_input")`](https://hadexversum.github.io/HaDeX2/articles/data_input.md)
+Let’s start with a glimpse of the data file - in this case, in `cluster`
+format from DynamX.
 
 ``` r
 library(HaDeX2)
@@ -53,11 +53,6 @@ each peptide in each biological state in each measured time point - data
 in this format allows further calculations, e.q. calculating deuterium
 uptake values.
 
-For a better understanding of the process of aggregating the data, see
-the
-[`vignette("transformation")`](https://hadexversum.github.io/HaDeX2/articles/transformation.md)
-article.
-
 Within each replicate of the measurement (we recognize each replicate by
 the \\File\\ value), the \\m/z\\ values are provided for each possible
 \\z\\ value. The \\m/z\\ values are in the \\Center\\ column, as it is a
@@ -66,10 +61,7 @@ have to calculate the mass value, measured experimentally:
 
 \\expMass = z \times (Center-protonMass)\tag{1}\\ To aggregate data from
 different \\z\\ values, we have to calculate the mean mass weighted by
-intensity. Additional information about this step and how the weighted
-mean impacts the results can be found in
-[`vignette("mass_comparison")`](https://hadexversum.github.io/HaDeX2/articles/mass_comparison.md)
-article.
+intensity.
 
 \\aggMass = \frac{1}{N}\sum\_{k =
 1}^{N}Inten_k{\cdot}pepMass_k\tag{2}\\.

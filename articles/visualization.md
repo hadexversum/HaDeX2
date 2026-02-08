@@ -1,5 +1,7 @@
 # Data visualization
 
+## 1 Visualizing HDX-MS data
+
 Data visualization is a crucial part of the experimental data analysis.
 The forms of visualization should be adjusted to highlight the essential
 result and tailored to satisfy personal needs.
@@ -18,7 +20,7 @@ one-state classification, we will focus on pure alpha state -
 eEF1B\\\alpha\\. The comparative analysis is conducted between
 eEF1B\\\alpha\\ and eEF1B\\\alpha\\ in presence of eEF1B\\\gamma\\.
 
-## 1 Comparison plot
+## 2 Comparison plot
 
 The comparison plot presents deuterium uptake of the peptides in a given
 time point, with information on the length of the peptide and their
@@ -58,15 +60,14 @@ create_state_comparison_dataset(alpha_dat, time_t = 1) %>%
 - plots with different time points can be plotted next to each other
 - tooltips available in GUI
 
-## 2 Woods plot
+## 3 Woods plot
 
 Woods plot presents the deuterium uptake difference between two
 biological states for the peptides. The results are presented with
 respect to the length of the peptide and its position in the protein
 sequence for a given time point of the measurement. The statistical test
-is applied to determine the confidence limits values at the chosen
-level. For more description see the
-[`vignette("statistics")`](https://hadexversum.github.io/HaDeX2/articles/statistics.md).
+(described in the subsection [**??**](#houde)) is applied to determine
+the confidence limits values at the chosen level.
 
 **Example** On the Woods plot below, we see fractional deuterium uptake
 difference between two biological states eEF1B\\\alpha\\ and
@@ -102,7 +103,7 @@ calculate_diff_uptake(alpha_dat, states = c(states[3], states[1])) %>%
 - peptides classified as statistically insignificant can be hidden
 - tooltips available in GUI
 
-## 3 Butterfly plot
+## 4 Butterfly plot
 
 Butterfly plot presents the deuterium uptake for all peptides in a given
 state at different time points at once. Each time point of measurement
@@ -142,7 +143,7 @@ create_state_uptake_dataset(alpha_dat, state = states[3]) %>%
 - selected time points shown
 - tooltips available in GUI
 
-## 4 Butterfly differential plot
+## 5 Butterfly differential plot
 
 Butterfly differential plot shows the deuterium uptake difference
 between two biological states in the form of a butterfly plot. It shows
@@ -188,7 +189,7 @@ create_diff_uptake_dataset(alpha_dat, state_1 = states[3], state_2 = states[1]) 
 - selected time points shown
 - tooltips available in GUI
 
-## 5 Chiclet plot
+## 6 Chiclet plot
 
 Chiclet plot shows the fractional deuterium uptake in the form of a
 heatmap for the peptides in a given biological state. One tile indicates
@@ -233,7 +234,7 @@ create_state_uptake_dataset(alpha_dat, state = states[3]) %>%
 - selected time points shown
 - tooltips available in GUI
 
-## 6 Chiclet differential plot
+## 7 Chiclet differential plot
 
 Chiclet differential plot shows the deuterium uptake difference between
 two biological states in the form of a heatmap. One tile indicates the
@@ -276,7 +277,7 @@ diff_uptake_dat %>%
 - selected time points shown
 - tooltips available in GUI
 
-## 7 Volcano plot
+## 8 Volcano plot
 
 The volcano plot shows the deuterium uptake difference for two
 biological states for peptide and its p-value for double testing on
@@ -334,7 +335,7 @@ plot_volcano(p_dat, show_confidence_limits = TRUE)
 - hidden insignificant values
 - tooltips available in GUI
 
-## 8 Uptake curve
+## 9 Uptake curve
 
 Uptake curves show the changes in exchange in time for a specific
 peptide for its state.
@@ -367,15 +368,14 @@ plot_uptake_curve() +
 - different methods of showing uncertainty: bars or ribbons
 - tooltips available in GUI
 
-## 9 Uncertainty plot
+## 10 Uncertainty plot
 
 Uncertainty plot is new visualization method, showing the uncertainty of
 measurement of deuterium uptake for peptides to spot the regions where
 the uncertainty is higher. This plot may be used as a quality control of
-the experiment, as discussed in the
-[`vignette("quality_control")`](https://hadexversum.github.io/HaDeX2/articles/quality_control.md).
-The presented uncertainty is in Daltons, making the threshold 1 Da as
-proposed limit of acceptance.
+the experiment, as discussed in the subsection @ref(#mvp). The presented
+uncertainty is in Daltons, making the threshold 1 Da as proposed limit
+of acceptance.
 
 **Example** The plot below presents uncertainty values for multiple time
 points for state eEF1B\\\alpha\\. We see that the uncertainty is
@@ -403,7 +403,7 @@ alpha_dat %>%
 - first amino omitted
 - tooltips available in GUI
 
-## 10 Manhattan plot
+## 11 Manhattan plot
 
 Manhattan plot is a novel plot, presenting the P-value of statistical
 significance between two states.
@@ -436,15 +436,14 @@ plot_manhattan(p_diff_dat, show_peptide_position  = TRUE)
 - first amino omitted
 - tooltips available in GUI
 
-## 11 High-resolution plot
+## 12 High-resolution plot
 
 The biggest limitation of previous methods of deuterium uptake
 visualization is that the results are on the peptide level. However, we
 offer a method of deuterium uptake averaging from peptide level into
 high-resolution level, using the weighted method of averaging (as
-described in
-[`vignette("statistics")`](https://hadexversum.github.io/HaDeX2/articles/statistics.md)).
-Then, the results are presented on the heatmap.
+described in the section @ref(#weight)). Then, the results are presented
+on the heatmap.
 
 **Example**
 
@@ -475,7 +474,7 @@ plot_aggregated_uptake(aggregated_dat)
 - plot divided into panels
 - tooltips available in GUI
 
-## 12 Differential High-resolution plot
+## 13 Differential High-resolution plot
 
 As most of our methods of visualization, also the high-resolution plot
 has its differential version. The plot presents averaged uptake
@@ -513,7 +512,7 @@ plot_aggregated_differential_uptake(averaged_diff_dat, panels = FALSE)
 - plot divided into panels
 - tooltips available in GUI
 
-## 13 High-resolution on 3D structure
+## 14 High-resolution on 3D structure
 
 High-resolution values not only can be presented linearly on
 high-resolution plot (as above), but also on 3D structure, if available.
@@ -553,12 +552,12 @@ plot_aggregated_uptake_structure(aggregated_dat,
 - fractional values calculated with respect of theoretical/experimental
   maximal uptake
 
-## 14 Coverage heatmap
+## 15 Coverage heatmap
 
 Coverage heatmap plot is a variation of standard coverage plot - but
 with each peptide is colored to signal specific value. This plot is
-particularly useful when presenting AUC (consult [**??**](#AUC) for the
-details of AUC computation) or back-exchange values, as they are
+particularly useful when presenting AUC (Area Under the Curve, defined
+in the subsection @ref(#AUC)) or back-exchange values, as they are
 specified for peptide uptake curve.
 
 **Example** Plot below presents the AUC values for eEF1B\\\alpha\\. We
@@ -614,7 +613,7 @@ plot_coverage_heatmap(bex_dat, value = "back_exchange")
 
 - tooltips available in GUI
 
-## 15 Summary of the uptake plots
+## 16 Summary of the uptake plots
 
 Below we compare the aspects of the plots.
 

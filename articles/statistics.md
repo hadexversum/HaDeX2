@@ -23,11 +23,11 @@ Where:
   function of \\x_k\\,
 - \\x_k\\ - values for which the uncertainty is known.
 
-This is a generic equation used the derivatives of functions. It is
-created for deuterium uptake in the appropriate forms (as the equations
-differ based on the parameters of calculations) and described in detail
-in the article
-[`vignette("datafiles")`](https://hadexversum.github.io/HaDeX2/articles/datafiles.md).
+This is a generic equation used for the propagation of uncertainty in
+functions of multiple variables. It is instantiated for deuterium uptake
+in its appropriate formulations, as the specific expressions differ
+depending on the parameters of the calculation, and is described in
+detail in the dedicated subsection @ref(#unc).
 
 ## 2 Hybrid testing
 

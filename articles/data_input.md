@@ -128,9 +128,10 @@ If the file has following columns:
     #> [13] "Max Inty"      "Exp Cent"      "Theor Cent"    "Score"        
     #> [17] "Cent Diff"     "# Deut"        "Deut %"        "Confidence"
 
-it can be processed with `HaDeX::read_hdx()` from the code level, as it
-requires additional action from the user. Then, this data can be used as
-described in other articles.
+it can be processed with
+[`HaDeX2::read_hdx()`](https://hadexversum.github.io/HaDeX2/reference/read_hdx.md)
+from the code level, as it requires additional action from the user.
+Then, this data can be used as described in other articles.
 
 If the file has following columns:
 
